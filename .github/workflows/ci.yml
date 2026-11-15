@@ -1,0 +1,34 @@
+name: QASCP Foundation
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  foundation:
+    name: Foundation verification
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Validate foundations
+        run: python3 scripts/verify_foundation.py
+
+  gate:
+    name: QASCP Foundation Gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    needs: [foundation]
+    if: ${{ always() }}
+    steps:
+      - name: Require successful verification
+        env:
+          FOUNDATION_RESULT: ${{ needs.foundation.result }}
+        run: test "$FOUNDATION_RESULT" = success
