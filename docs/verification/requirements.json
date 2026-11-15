@@ -1,0 +1,22 @@
+{
+  "baseline_version": "1.0",
+  "requirements": [
+    {"id": "QASCP-GOV-001", "verification": ["P1-V04"]},
+    {"id": "QASCP-GOV-002", "verification": ["P1-V01", "P1-V02"]},
+    {"id": "QASCP-GOV-003", "verification": ["P1-V01", "P1-V03"]},
+    {"id": "QASCP-GOV-004", "verification": ["P1-V04", "P6-V01"]},
+    {"id": "QASCP-SEC-001", "verification": ["P1-V02", "P2-V01"]},
+    {"id": "QASCP-SEC-002", "verification": ["P1-V02", "P2-V01"]},
+    {"id": "QASCP-SEC-003", "verification": ["P1-V02", "P2-V01", "P4-V01", "P5-V01", "P6-V01"]},
+    {"id": "QASCP-SEC-004", "verification": ["P2-V01", "P6-V01"]},
+    {"id": "QASCP-SEC-005", "verification": ["P2-V01", "P5-V01", "P6-V01"]},
+    {"id": "QASCP-AI-001", "verification": ["P1-V02", "P4-V01", "P5-V01"]},
+    {"id": "QASCP-AI-002", "verification": ["P4-V01"]},
+    {"id": "QASCP-ENG-001", "verification": ["P1-V03", "P2-V02"]},
+    {"id": "QASCP-ENG-002", "verification": ["P1-V03", "P2-V01", "P3-V01", "P4-V01", "P5-V01", "P6-V01"]},
+    {"id": "QASCP-ENG-003", "verification": ["P2-V02", "P6-V01"]},
+    {"id": "QASCP-OPS-001", "verification": ["P6-V01"]},
+    {"id": "QASCP-CMP-001", "verification": ["P1-V01", "P6-V01"]},
+    {"id": "QASCP-REL-001", "verification": ["P1-V04", "P6-V01"]}
+  ]
+}

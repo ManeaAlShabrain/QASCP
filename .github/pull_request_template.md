@@ -1,12 +1,17 @@
 ## Scope and requirements
 
-- Stage:
-- Requirement IDs and acceptance criteria:
-- Affected existing paths:
+- Active phase and relevant previous approval:
+- Requirement and verification IDs:
+- Acceptance criteria and affected interfaces:
 
-## Verification
+## Engineering and security
 
-- Commands and results:
-- Regression or integration evidence:
-- Known blockers:
-- Reviewer notes for governance, workflow, or other sensitive changes:
+- Design rationale, source provenance, and dependency changes:
+- Tenant, data, AI authority, or audit impact:
+- Rollback or recovery impact:
+
+## Evidence
+
+- Commands, environment, and results:
+- CI and cumulative regression links:
+- Information or review still required:

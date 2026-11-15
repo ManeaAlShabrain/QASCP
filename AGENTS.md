@@ -1,6 +1,6 @@
 # QASCP development instructions
 
-- Read docs/governance/ENGINEERING_GOVERNANCE.md and the active record in docs/verification/ before implementing or reviewing a stage change.
-- Identify scope, acceptance criteria, and affected previously accepted paths. Run the current check with `python3 scripts/verify_foundation.py` and run the component and regression checks required by approved stage criteria as those checks become available.
-- Record commands, results, commit SHA, and evidence links. Distinguish failed, unrun, missing, and inapplicable checks. Mark a stage ready for review only when evidence supports each applicable criterion. Record acceptance only after the named authorized reviewer approves the relevant version.
-- Keep customer data, credentials, and production access outside this development workflow. Open scoped PRs and treat changes to acceptance criteria and CI as sensitive.
+- Identify the active phase from [the stage record](docs/verification/README.md). Read the [English handbook](docs/governance/ENGINEERING_GOVERNANCE.md) or [Arabic handbook](docs/governance/ENGINEERING_GOVERNANCE.ar.md) and consult the relevant plan before editing. Read both editions for policy changes. Begin a later phase only after the previous phase has a recorded authorized approval.
+- Identify requirement IDs, acceptance criteria, changed interfaces, and earlier paths affected. Follow clean-room development, tenant isolation, human approval for production mutations, and complete implementation requirements in every applicable change.
+- Run `python3 scripts/verify_foundation.py` and `python3 -m unittest discover -s tests -v` plus all required cumulative checks in the [verification procedures](docs/verification/PROCEDURES.md) for the active phase. Record commands, environment, revision, and actual results. Keep failed, skipped, missing, and inapplicable checks explicit.
+- Keep customer data, secrets, and production access outside repository development. Use scoped pull requests and review changes to governance, authorization boundaries, and CI as security-sensitive. Record authorized human approval before closing a phase.
