@@ -13,6 +13,8 @@ The proposed enterprise-banking scope connects 24 security domains through a sec
 - [Product requirements, domain coverage and banking scenarios](docs/product/QASCP_2_PRD.md)
 - [Architecture and proposed ADRs](docs/architecture/QASCP_2_ARCHITECTURE.md)
 - [Domain, data and API contracts](docs/architecture/QASCP_2_CONTRACTS.md)
+- [Security Knowledge Graph plan and diagrams](docs/architecture/QASCP_2_GRAPH_PLAN.md)
+- [Arabic continuity record and next steps](docs/product/QASCP_2_CONTINUITY_AR.md)
 - [Threat and design-risk register](docs/architecture/QASCP_2_THREATS.md)
 - [Document authority and supersession matrix](docs/architecture/QASCP_2_SUPERSESSION.md)
 - [Framework coverage and pending applicability](docs/governance/QASCP_2_COVERAGE.md)
