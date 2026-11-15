@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:qascp:2:trusted-context:1.0",
+  "title": "QASCP trusted request and worker context",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "tenant_id",
+    "principal_id",
+    "principal_type",
+    "authorization_version",
+    "permissions",
+    "authenticated_at",
+    "expires_at",
+    "correlation_id",
+    "established_by"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "tenant_id": {"type": "string", "format": "uuid"},
+    "principal_id": {"type": "string", "minLength": 1, "maxLength": 256},
+    "principal_type": {"enum": ["user", "workload", "connector"]},
+    "authorization_version": {"type": "string", "minLength": 1, "maxLength": 128},
+    "permissions": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1, "maxLength": 128}},
+    "authenticated_at": {"type": "string", "format": "date-time"},
+    "expires_at": {"type": "string", "format": "date-time"},
+    "correlation_id": {"type": "string", "minLength": 1, "maxLength": 128},
+    "established_by": {"enum": ["api_authorization_service", "connector_authorization_service", "worker_authorization_service"]},
+    "connector_id": {"type": "string", "format": "uuid"},
+    "source_context_digest": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+  }
+}

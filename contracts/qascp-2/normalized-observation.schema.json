@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:qascp:2:normalized-observation:1.0",
+  "title": "QASCP trusted normalized observation envelope",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "trusted_context",
+    "connector_id",
+    "source_event_id",
+    "observed_at",
+    "received_at",
+    "event_type",
+    "received_payload_digest",
+    "digest_algorithm",
+    "digest_input",
+    "normalizer_version",
+    "resources",
+    "original_evidence_status"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "trusted_context": {"$ref": "./trusted-context.schema.json"},
+    "connector_id": {"type": "string", "format": "uuid"},
+    "source_event_id": {"type": "string", "minLength": 1, "maxLength": 256},
+    "observed_at": {"type": "string", "format": "date-time"},
+    "received_at": {"type": "string", "format": "date-time"},
+    "event_type": {"type": "string", "minLength": 2, "maxLength": 128, "pattern": "^[a-z][a-z0-9_.-]+$"},
+    "received_payload_digest": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "digest_algorithm": {"const": "sha-256"},
+    "digest_input": {"const": "received-http-entity-octets"},
+    "normalizer_version": {"type": "string", "minLength": 1, "maxLength": 64},
+    "resources": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 100,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["kind", "source_id"],
+        "properties": {
+          "kind": {"enum": ["asset", "identity", "finding", "ai_system"]},
+          "source_id": {"type": "string", "minLength": 1, "maxLength": 256}
+        }
+      }
+    },
+    "corrects_source_event_id": {"type": "string", "minLength": 1, "maxLength": 256},
+    "original_evidence_reference": {"type": "string", "minLength": 1, "maxLength": 2048},
+    "original_evidence_digest": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "original_evidence_status": {"enum": ["not_claimed", "verified", "unavailable", "unauthorized", "mismatch"]}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"original_evidence_status": {"const": "verified"}}, "required": ["original_evidence_status"]},
+      "then": {"required": ["original_evidence_reference", "original_evidence_digest"]}
+    }
+  ]
+}

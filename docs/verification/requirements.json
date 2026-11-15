@@ -18,5 +18,67 @@
     {"id": "QASCP-OPS-001", "verification": ["P6-V01"]},
     {"id": "QASCP-CMP-001", "verification": ["P1-V01", "P6-V01"]},
     {"id": "QASCP-REL-001", "verification": ["P1-V04", "P6-V01"]}
+  ],
+  "product_requirements": [
+    {
+      "id": "PRD-01",
+      "phases": ["P1", "P2", "P3"],
+      "backlog": ["V2-P1-01", "V2-P1-02", "V2-P2-02", "V2-P2-03", "V2-P2-05", "V2-P3-01"],
+      "verification": ["P1-V02", "P2-V01", "P3-V01"]
+    },
+    {
+      "id": "PRD-02",
+      "phases": ["P1", "P2", "P3"],
+      "backlog": ["V2-P1-02", "V2-P2-04", "V2-P2-05", "V2-P3-02"],
+      "verification": ["P1-V02", "P2-V01", "P2-V02", "P3-V01"]
+    },
+    {
+      "id": "PRD-03",
+      "phases": ["P1", "P3", "P4"],
+      "backlog": ["V2-P1-01", "V2-P3-01", "V2-P4-01"],
+      "verification": ["P1-V02", "P3-V01", "P4-V01"]
+    },
+    {
+      "id": "PRD-04",
+      "phases": ["P1", "P5"],
+      "backlog": ["V2-P1-01", "V2-P5-01"],
+      "verification": ["P1-V02", "P5-V01"]
+    },
+    {
+      "id": "PRD-05",
+      "phases": ["P1", "P4", "P5"],
+      "backlog": ["V2-P1-02", "V2-P4-02", "V2-P5-02"],
+      "verification": ["P1-V02", "P4-V01", "P5-V01"]
+    },
+    {
+      "id": "PRD-06",
+      "phases": ["P1", "P3", "P5"],
+      "backlog": ["V2-P1-01", "V2-P3-01", "V2-P5-01"],
+      "verification": ["P1-V02", "P3-V01", "P5-V01"]
+    },
+    {
+      "id": "PRD-07",
+      "phases": ["P1", "P5", "P6"],
+      "backlog": ["V2-P1-03", "V2-P5-03", "V2-P6-01"],
+      "verification": ["P1-V01", "P5-V01", "P6-V01"]
+    },
+    {
+      "id": "PRD-08",
+      "phases": ["P1", "P2", "P6"],
+      "backlog": ["V2-P1-01", "V2-P2-01", "V2-P6-01"],
+      "verification": ["P1-V02", "P2-V02", "P6-V01"]
+    },
+    {
+      "id": "PRD-09",
+      "phases": ["P1", "P2", "P3", "P4", "P5", "P6"],
+      "backlog": ["V2-P1-01", "V2-P2-06", "V2-P3-01", "V2-P4-01", "V2-P5-03", "V2-P6-01"],
+      "verification": ["P1-V02", "P2-V01", "P3-V01", "P4-V01", "P5-V01", "P6-V01"]
+    },
+    {
+      "id": "PRD-10",
+      "phases": ["P1", "P2", "P3", "P4", "P5", "P6"],
+      "backlog": ["V2-P1-02", "V2-P1-03", "V2-P2-01", "V2-P3-01", "V2-P4-01", "V2-P5-01", "V2-P6-01"],
+      "verification": ["P1-V01", "P1-V02", "P2-V02", "P3-V01", "P4-V01", "P5-V01", "P6-V01"]
+    }
   ]
 }

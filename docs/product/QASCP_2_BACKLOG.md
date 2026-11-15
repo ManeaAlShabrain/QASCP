@@ -1,0 +1,27 @@
+# QASCP 2.0 — Execution backlog
+
+This is the canonical QASCP 2.0 backlog under the [document authority and supersession matrix](../architecture/QASCP_2_SUPERSESSION.md). It is a P1 planning artifact ready to turn into scoped GitHub issues; no remote issue has been created by this file. Role assignments and estimates require owner review. Each row is one reviewable work package; acceptance and prerequisites remain binding when moved to GitHub. Earlier `B-P*` identifiers are historical/deprecated and map to the successors recorded in the matrix.
+
+| ID / phase | Deliverable | Depends on | Acceptance / requirement / verification |
+|---|---|---|---|
+| V2-P1-01 / P1 | Review 2.0 scope and BANK-01 | None | PRD-01..10 and all 24 domains explicitly scoped; owner review / QASCP-GOV-001 / P1-V02 |
+| V2-P1-02 / P1 | Review ADRs, model and static contracts | V2-P1-01 | Tenant and provenance trace across all interfaces; independent security review / QASCP-SEC-001..005 / P1-V02 |
+| V2-P1-03 / P1 | Confirm source applicability and bilingual governance | V2-P1-01 | Exact editions/rights or explicit pending gaps; substantive translation reviewer / QASCP-CMP-001 / P1-V01 |
+| V2-P1-04 / P1 | Collect candidate checks and enforcement evidence | V2-P1-02 | Healthy CI, negative PR blocked by active rule, reviewer evidence / QASCP-GOV-003 / P1-V03 |
+| V2-P1-05 / P1 | Record formal decision at immutable candidate | V2-P1-03,04 | Authorized owner acceptance and independent review linked; no unresolved mandatory gate / QASCP-GOV-004 / P1-V04 |
+| V2-P2-01 / P2 | FastAPI skeleton, OIDC and tenant PostgreSQL migrations | Approved P1 | Real test DB RLS/FK/role/connection-reuse allow-deny matrix / PRD-01,08 / P2-V01,02 |
+| V2-P2-02 / P2 | Inventory, identity metadata and source bindings | V2-P2-01 | Stable source IDs; same names across tenants never merge / PRD-01 / P2-V01 |
+| V2-P2-03 / P2 | Typed graph and bounded neighborhood API | V2-P2-02 | Same-tenant provenance edges, resource-filtered traversal/cursors, ambiguity retained / PRD-01 / P2-V01 |
+| V2-P2-04 / P2 | Observation intake, audit and outbox | V2-P2-02 | Authorized source binding, atomic audit, identical replay/conflict and outage cases / PRD-02 / P2-V01,02 |
+| V2-P2-05 / P2 | BANK-01 intake→graph→audit slice | V2-P2-03,04 | Two synthetic tenants, real entry points/DB, fresh install and cumulative checks; owner P2 decision / PRD-01,02 / P2-V01,02 |
+| V2-P2-06 / P2 | Bilingual authorized command-center foundation | V2-P2-03,04 | Arabic RTL and English LTR shell; keyboard access and readable contrast; consistent IDs/timestamps/states; tenant and permission scope on every view; authorization applied before data and counts / PRD-09 / P2-V01 |
+| V2-P3-01 / P3 | Case correlation and contextual rule ranking | Approved P2 | Labeled dataset, precision/recall and uncertainty; no fabricated risk calibration / PRD-03,06 / P3-V01 |
+| V2-P3-02 / P3 | Resilient worker/broker projection | Approved P2 | Replay, ordering, dead-letter, lag and tenant-fairness measurements; source checkpoint semantics / PRD-02 / P3-V01 |
+| V2-P4-01 / P4 | AI inventory and local evidence-grounded suggestions | Approved P3 | Injection, scoped retrieval, missing-evidence abstention, model/policy versions / PRD-03 / P4-V01 |
+| V2-P4-02 / P4 | Approval lifecycle and constrained synthetic executor boundary | Approved P3 | Versioned proposal/decision/execution contracts; exact human approval; no AI production credentials; absent, altered, cross-tenant, expired, revoked, reused and stale-authority approvals denied; ambiguous timeout, partial result and audit-failure behavior tested with synthetic operations / PRD-05 / P4-V01 |
+| V2-P5-01 / P5 | Assurance dependencies and historical views | Approved P4 | Full/selective equivalence, expiry, late correction, source gaps and concurrent versions / PRD-04,06 / P5-V01 |
+| V2-P5-02 / P5 | Full assurance workflow, evidence custody and operational integration | Approved P4 | Build on the accepted P4 executor boundary; link assurance/evidence/case workflow, custody, authorized operational adapters, remote timeout reconciliation, partial-result recovery and fresh independent verification / PRD-05,07 / P5-V01 |
+| V2-P5-03 / P5 | Authorized exports and historical command-center views | Approved P4 | RTL/LTR and accessibility regression; reauthorize every export/as-of request, preserve cutoff and permission scope, and exclude hidden records from data and counts / PRD-07,09 / P5-V01 |
+| V2-P6-01 / P6 | Enterprise pilot validation | Approved P5 | Independent security review, approved load/SLO/RTO/RPO, install/upgrade/restore and exact artifact acceptance / PRD-08 / P6-V01 |
+
+The named governance requirement family and product IDs travel into each issue/PR with changed interfaces, impacted earlier paths, evidence and actual results. At every phase, the first affected package and every changed external dependency, schema, interface or trust boundary records design provenance, usage or license terms, alternatives and its ADR disposition for PRD-10. The proposed numerical profile in the [PRD](QASCP_2_PRD.md) requires approval before it becomes an acceptance threshold. Specialized banking integrations become separate issues only after source permission, data minimization and entity applicability are established.

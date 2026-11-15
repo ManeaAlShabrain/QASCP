@@ -62,6 +62,36 @@ class FoundationVerifierTests(unittest.TestCase):
         path.write_text(json.dumps(content))
         self.assert_rejected("duplicate requirement IDs")
 
+    def test_missing_product_requirement_in_register(self):
+        path = self.root / REGISTER
+        content = json.loads(path.read_text())
+        content["product_requirements"].pop()
+        path.write_text(json.dumps(content))
+        self.assert_rejected("expected PRD-01 through PRD-10 once in order")
+
+    def test_duplicate_product_requirement_in_register(self):
+        path = self.root / REGISTER
+        content = json.loads(path.read_text())
+        content["product_requirements"].append(content["product_requirements"][0])
+        path.write_text(json.dumps(content))
+        self.assert_rejected("duplicate product requirement IDs")
+
+    def test_invalid_product_requirement_references(self):
+        path = self.root / REGISTER
+        content = json.loads(path.read_text())
+        content["product_requirements"][0]["phases"] = ["P7"]
+        content["product_requirements"][0]["verification"] = ["P1-V99"]
+        path.write_text(json.dumps(content))
+        self.assert_rejected("PRD-01: invalid or unordered phase references")
+        self.assert_rejected("PRD-01: unknown verification ID P1-V99")
+
+    def test_broken_product_backlog_mapping(self):
+        path = self.root / REGISTER
+        content = json.loads(path.read_text())
+        content["product_requirements"][0]["backlog"] = ["V2-P2-99"]
+        path.write_text(json.dumps(content))
+        self.assert_rejected("PRD-01: unknown backlog ID V2-P2-99")
+
     def test_mixed_versions(self):
         self.update(HANDBOOKS[1], "الإصدار 1.0", "الإصدار 1.1")
         self.assert_rejected(f"{HANDBOOKS[1]}: baseline version differs")

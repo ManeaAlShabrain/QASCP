@@ -1,5 +1,7 @@
 # QASCP P1 architecture and product definition
 
+The [QASCP 2.0 authority and supersession matrix](QASCP_2_SUPERSESSION.md) is the sole map identifying which parts of this baseline are retained, refined, replaced or deprecated. The [QASCP 2.0 architecture proposal](QASCP_2_ARCHITECTURE.md), [PRD](../product/QASCP_2_PRD.md) and canonical [2.0 backlog](../product/QASCP_2_BACKLOG.md) must be read through that matrix. The engineering governance handbooks remain binding, and P1 approval status remains unchanged.
+
 This document proposes decisions for P1 review. Implementation choices and numerical performance targets require approval and evidence at the phase stated in the handbook. The first tenanted pilot focuses on financial-sector security assurance in Qatar. Product coverage grows through P6. QASCP will initially consume findings and events only from authorized defensive sources or synthetic test environments.
 
 See the [product design](../product/QASCP_PRODUCT_DESIGN.md) for the proposed workflow and measurable differentiation, and the [prior-art search record](../research/QASCP_PRIOR_ART.md) for public comparisons.
@@ -87,6 +89,8 @@ Decision records include author, date, sources with version and usage rights, al
 Maintain risk owner, likelihood, impact, mitigation, residual risk, and review dates in a stage record. This design inventory identifies the initial review scope and does not record those risks as accepted.
 
 ## Initial backlog and quality measures
+
+The `B-P*` rows below are historical identifiers. They are deprecated as active work items and map to the canonical `V2-P*` successors in the [authority and supersession matrix](QASCP_2_SUPERSESSION.md). Do not create parallel work from this table.
 
 | Work item | Phase | Dependency and decision evidence |
 |---|---|---|

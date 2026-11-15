@@ -1,5 +1,7 @@
 # QASCP product design and independent development
 
+The [QASCP 2.0 authority and supersession matrix](../architecture/QASCP_2_SUPERSESSION.md) identifies the retained workflow and the 2.0 refinements to product scope and navigation. The evidence lineage, historical decision and selective re-verification semantics below remain applicable. Proposed differentiation is not a claim of global novelty.
+
 Proposed P1 design. Implementation and acceptance follow the active phase in the [verification record](../verification/README.md). See the [P1 architecture](../architecture/P1_ARCHITECTURE.md) and the [prior-art search record](../research/QASCP_PRIOR_ART.md).
 
 ## Product identity

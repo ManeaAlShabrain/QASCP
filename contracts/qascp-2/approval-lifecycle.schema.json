@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:qascp:2:approval-lifecycle-record:1.0",
+  "title": "QASCP approval and constrained execution lifecycle record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "record_type", "tenant_id", "proposal_id", "proposal_version",
+    "action", "target_type", "target_id", "parameter_digest", "occurred_at", "correlation_id"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "record_type": {"enum": ["proposal", "human_decision", "execution_request", "approval_consumption", "execution_result", "revocation", "reconciliation"]},
+    "tenant_id": {"type": "string", "format": "uuid"},
+    "proposal_id": {"type": "string", "format": "uuid"},
+    "proposal_version": {"type": "integer", "minimum": 1},
+    "action": {"type": "string", "minLength": 1, "maxLength": 128},
+    "target_type": {"type": "string", "minLength": 1, "maxLength": 128},
+    "target_id": {"type": "string", "minLength": 1, "maxLength": 256},
+    "parameter_digest": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "model_version": {"type": "string", "minLength": 1, "maxLength": 128},
+    "policy_version": {"type": "string", "minLength": 1, "maxLength": 128},
+    "provenance_reference": {"type": "string", "minLength": 1, "maxLength": 2048},
+    "risk_class": {"type": "string", "minLength": 1, "maxLength": 128},
+    "decision_id": {"type": "string", "format": "uuid"},
+    "decision": {"enum": ["approved", "rejected"]},
+    "human_actor_id": {"type": "string", "minLength": 1, "maxLength": 256},
+    "authorization_version": {"type": "string", "minLength": 1, "maxLength": 128},
+    "expires_at": {"type": "string", "format": "date-time"},
+    "execution_id": {"type": "string", "format": "uuid"},
+    "executor_workload_id": {"type": "string", "minLength": 1, "maxLength": 256},
+    "idempotency_key": {"type": "string", "minLength": 1, "maxLength": 256},
+    "outcome": {"enum": ["succeeded", "failed", "partial", "indeterminate", "reconciled_succeeded", "reconciled_failed"]},
+    "reason_code": {"type": "string", "minLength": 1, "maxLength": 128},
+    "remote_reference": {"type": "string", "minLength": 1, "maxLength": 2048},
+    "occurred_at": {"type": "string", "format": "date-time"},
+    "correlation_id": {"type": "string", "minLength": 1, "maxLength": 128}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"record_type": {"const": "proposal"}}},
+      "then": {"required": ["model_version", "policy_version", "provenance_reference", "risk_class"]}
+    },
+    {
+      "if": {"properties": {"record_type": {"const": "human_decision"}}},
+      "then": {"required": ["decision_id", "decision", "human_actor_id", "authorization_version", "expires_at"]}
+    },
+    {
+      "if": {"properties": {"record_type": {"const": "execution_request"}}},
+      "then": {"required": ["decision_id", "execution_id", "executor_workload_id", "authorization_version", "expires_at", "idempotency_key"]}
+    },
+    {
+      "if": {"properties": {"record_type": {"const": "approval_consumption"}}},
+      "then": {"required": ["decision_id", "execution_id", "executor_workload_id", "authorization_version", "idempotency_key"]}
+    },
+    {
+      "if": {"properties": {"record_type": {"const": "execution_result"}}},
+      "then": {"required": ["decision_id", "execution_id", "executor_workload_id", "outcome", "idempotency_key"]}
+    },
+    {
+      "if": {"properties": {"record_type": {"const": "revocation"}}},
+      "then": {"required": ["decision_id", "human_actor_id", "authorization_version", "reason_code"]}
+    },
+    {
+      "if": {"properties": {"record_type": {"const": "reconciliation"}}},
+      "then": {"required": ["decision_id", "execution_id", "executor_workload_id", "outcome", "remote_reference"]}
+    }
+  ]
+}
