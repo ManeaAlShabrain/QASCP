@@ -6,7 +6,12 @@ Enterprise cybersecurity and AI assurance for Qatar's financial sector.
 
 ## Foundation setup
 
-- [Engineering governance](docs/governance/ENGINEERING_GOVERNANCE.md)
+- [Engineering governance and delivery handbook — English](docs/governance/ENGINEERING_GOVERNANCE.md)
+- [دليل الحوكمة والتنفيذ — العربية](docs/governance/ENGINEERING_GOVERNANCE.ar.md)
+- [P1 architecture, threat model, contracts, and backlog](docs/architecture/P1_ARCHITECTURE.md)
+- [Regulatory and engineering source register](docs/governance/REGULATORY_SOURCES.md)
+- [Verification procedures](docs/verification/PROCEDURES.md)
+- [Security reporting](SECURITY.md)
 - [Stage verification record](docs/verification/README.md)
 - [Codex instructions](AGENTS.md)
 
@@ -14,6 +19,7 @@ Run the current foundation check from the repository root.
 
 ```sh
 python3 scripts/verify_foundation.py
+python3 -m unittest discover -s tests -v
 ```
 
 When initializing a new GitHub repository, select **Private**. Run the workflow on the default branch, then protect that branch with pull requests and the **QASCP Foundation Gate** required check on a plan that supports these rules for private repositories. Keep bypass access limited in accordance with the repository's governance. Treat workflow and gate changes as sensitive code review items.
