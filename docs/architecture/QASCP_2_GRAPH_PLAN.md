@@ -180,6 +180,8 @@ Minimum future graph suite: same-tenant allow; cross-tenant read/write/reference
 
 ## 12. Open design decisions before implementation
 
+Concrete proposals for G-01 through G-07 are recorded in [Graph decision proposals](QASCP_2_GRAPH_DECISIONS.md). They remain proposed pending independent review and versioned machine-readable contract adoption; the table below retains the original gap and required ownership.
+
 | ID | Gap or decision | Required owner and disposition |
 |---|---|---|
 | G-01 | Current /observations resource references cannot create inventory attributes, access grants or runs_as facts by themselves. Specify authorized inventory/relationship import commands and their typed schemas; never infer access from co-occurrence. | Inventory/integration lead + security reviewer; before V2-P2-02/03 |
