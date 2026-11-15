@@ -1,0 +1,242 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:qascp:2:graph:relationship-import:0.1",
+  "title": "QASCP P2 graph relationship claim import",
+  "description": "Proposed P1 static command; no endpoint or runtime implementation is delivered.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "command_id",
+    "connector_id",
+    "observed_at",
+    "evidence_event_id",
+    "operation",
+    "source_claim_id",
+    "source",
+    "target",
+    "relation",
+    "valid_from"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.1"
+    },
+    "command_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "pattern": "\\S"
+    },
+    "connector_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "observed_at": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "Z$"
+    },
+    "evidence_event_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "pattern": "\\S"
+    },
+    "expected_version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "operation": {
+      "enum": [
+        "assert",
+        "correct",
+        "retract"
+      ]
+    },
+    "source_claim_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "pattern": "\\S"
+    },
+    "source": {
+      "$ref": "#/$defs/endpoint"
+    },
+    "target": {
+      "$ref": "#/$defs/endpoint"
+    },
+    "relation": {
+      "enum": [
+        "owns",
+        "runs_as",
+        "accesses"
+      ]
+    },
+    "qualifier": {
+      "enum": [
+        "entitlement",
+        "observed_use"
+      ]
+    },
+    "valid_from": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "Z$"
+    },
+    "valid_to": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "Z$"
+    }
+  },
+  "$defs": {
+    "endpoint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "resource_kind",
+        "source_id"
+      ],
+      "properties": {
+        "resource_kind": {
+          "enum": [
+            "asset",
+            "identity"
+          ]
+        },
+        "source_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256,
+          "pattern": "\\S"
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "operation": {
+            "const": "assert"
+          }
+        }
+      },
+      "then": {
+        "not": {
+          "required": [
+            "expected_version"
+          ]
+        }
+      },
+      "else": {
+        "required": [
+          "expected_version"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "relation": {
+            "const": "accesses"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "qualifier"
+        ]
+      },
+      "else": {
+        "not": {
+          "required": [
+            "qualifier"
+          ]
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "relation": {
+            "const": "owns"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "source": {
+            "properties": {
+              "resource_kind": {
+                "const": "identity"
+              }
+            }
+          },
+          "target": {
+            "properties": {
+              "resource_kind": {
+                "const": "asset"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "relation": {
+            "const": "runs_as"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "source": {
+            "properties": {
+              "resource_kind": {
+                "const": "asset"
+              }
+            }
+          },
+          "target": {
+            "properties": {
+              "resource_kind": {
+                "const": "identity"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "relation": {
+            "const": "accesses"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "source": {
+            "properties": {
+              "resource_kind": {
+                "const": "identity"
+              }
+            }
+          },
+          "target": {
+            "properties": {
+              "resource_kind": {
+                "const": "asset"
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

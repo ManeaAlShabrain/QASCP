@@ -1,0 +1,190 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:qascp:2:graph:resource-import:0.1",
+  "title": "QASCP graph resource import",
+  "description": "Proposed P1 static command; no endpoint or runtime implementation is delivered.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "command_id",
+    "connector_id",
+    "observed_at",
+    "evidence_event_id",
+    "operation",
+    "resource"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.1"
+    },
+    "command_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "pattern": "\\S"
+    },
+    "connector_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "observed_at": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "Z$"
+    },
+    "evidence_event_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "pattern": "\\S"
+    },
+    "expected_version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "operation": {
+      "enum": [
+        "create",
+        "update"
+      ]
+    },
+    "resource": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "resource_kind",
+            "source_id",
+            "asset_kind",
+            "display_name",
+            "classification",
+            "criticality"
+          ],
+          "properties": {
+            "resource_kind": {
+              "const": "asset"
+            },
+            "source_id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "\\S"
+            },
+            "asset_kind": {
+              "enum": [
+                "application",
+                "database",
+                "service",
+                "endpoint",
+                "dataset"
+              ]
+            },
+            "display_name": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "\\S"
+            },
+            "classification": {
+              "enum": [
+                "public",
+                "internal",
+                "confidential",
+                "restricted"
+              ]
+            },
+            "criticality": {
+              "enum": [
+                "unknown",
+                "low",
+                "medium",
+                "high",
+                "critical"
+              ]
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "resource_kind",
+            "source_id",
+            "identity_kind",
+            "issuer",
+            "subject",
+            "display_name",
+            "status"
+          ],
+          "properties": {
+            "resource_kind": {
+              "const": "identity"
+            },
+            "source_id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "\\S"
+            },
+            "identity_kind": {
+              "enum": [
+                "human",
+                "service"
+              ]
+            },
+            "issuer": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "\\S"
+            },
+            "subject": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "\\S"
+            },
+            "display_name": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "\\S"
+            },
+            "status": {
+              "enum": [
+                "active",
+                "disabled",
+                "unknown"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "operation": {
+            "const": "update"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "expected_version"
+        ]
+      },
+      "else": {
+        "not": {
+          "required": [
+            "expected_version"
+          ]
+        }
+      }
+    }
+  ]
+}
