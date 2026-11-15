@@ -1,0 +1,211 @@
+{
+  "fixture_version": "0.1",
+  "synthetic": true,
+  "examples": [
+    {
+      "name": "create-assistant-01",
+      "schema": "resource-import.schema.json",
+      "command": {
+        "schema_version": "0.1",
+        "connector_id": "11111111-1111-4111-8111-111111111111",
+        "observed_at": "2026-11-15T10:00:00Z",
+        "evidence_event_id": "inventory-snapshot-01",
+        "command_id": "import-assistant-01",
+        "operation": "create",
+        "resource": {
+          "resource_kind": "asset",
+          "source_id": "assistant-01",
+          "asset_kind": "application",
+          "display_name": "assistant-01",
+          "classification": "internal",
+          "criticality": "high"
+        }
+      }
+    },
+    {
+      "name": "create-db-01",
+      "schema": "resource-import.schema.json",
+      "command": {
+        "schema_version": "0.1",
+        "connector_id": "11111111-1111-4111-8111-111111111111",
+        "observed_at": "2026-11-15T10:00:00Z",
+        "evidence_event_id": "inventory-snapshot-01",
+        "command_id": "import-db-01",
+        "operation": "create",
+        "resource": {
+          "resource_kind": "asset",
+          "source_id": "db-01",
+          "asset_kind": "database",
+          "display_name": "db-01",
+          "classification": "restricted",
+          "criticality": "high"
+        }
+      }
+    },
+    {
+      "name": "create-svc-01",
+      "schema": "resource-import.schema.json",
+      "command": {
+        "schema_version": "0.1",
+        "connector_id": "11111111-1111-4111-8111-111111111111",
+        "observed_at": "2026-11-15T10:00:00Z",
+        "evidence_event_id": "inventory-snapshot-01",
+        "command_id": "import-svc-01",
+        "operation": "create",
+        "resource": {
+          "resource_kind": "identity",
+          "source_id": "svc-01",
+          "identity_kind": "service",
+          "issuer": "synthetic-iam",
+          "subject": "svc-01",
+          "display_name": "Synthetic assistant identity",
+          "status": "active"
+        }
+      }
+    },
+    {
+      "name": "runtime",
+      "schema": "relationship-import.schema.json",
+      "command": {
+        "schema_version": "0.1",
+        "connector_id": "11111111-1111-4111-8111-111111111111",
+        "observed_at": "2026-11-15T10:00:00Z",
+        "evidence_event_id": "inventory-snapshot-01",
+        "command_id": "claim-runtime",
+        "operation": "assert",
+        "source_claim_id": "runtime-01",
+        "source": {
+          "resource_kind": "asset",
+          "source_id": "assistant-01"
+        },
+        "target": {
+          "resource_kind": "identity",
+          "source_id": "svc-01"
+        },
+        "relation": "runs_as",
+        "valid_from": "2026-11-15T09:00:00Z"
+      }
+    },
+    {
+      "name": "grant",
+      "schema": "relationship-import.schema.json",
+      "command": {
+        "schema_version": "0.1",
+        "connector_id": "11111111-1111-4111-8111-111111111111",
+        "observed_at": "2026-11-15T10:00:00Z",
+        "evidence_event_id": "inventory-snapshot-01",
+        "command_id": "claim-grant",
+        "operation": "assert",
+        "source_claim_id": "grant-01",
+        "source": {
+          "resource_kind": "identity",
+          "source_id": "svc-01"
+        },
+        "target": {
+          "resource_kind": "asset",
+          "source_id": "db-01"
+        },
+        "relation": "accesses",
+        "valid_from": "2026-11-15T09:00:00Z",
+        "qualifier": "entitlement"
+      }
+    },
+    {
+      "name": "usage",
+      "schema": "relationship-import.schema.json",
+      "command": {
+        "schema_version": "0.1",
+        "connector_id": "11111111-1111-4111-8111-111111111111",
+        "observed_at": "2026-11-15T10:00:00Z",
+        "evidence_event_id": "inventory-snapshot-01",
+        "command_id": "claim-usage",
+        "operation": "assert",
+        "source_claim_id": "usage-01",
+        "source": {
+          "resource_kind": "identity",
+          "source_id": "svc-01"
+        },
+        "target": {
+          "resource_kind": "asset",
+          "source_id": "db-01"
+        },
+        "relation": "accesses",
+        "valid_from": "2026-11-15T09:00:00Z",
+        "qualifier": "observed_use"
+      }
+    },
+    {
+      "name": "ownership",
+      "schema": "relationship-import.schema.json",
+      "command": {
+        "schema_version": "0.1",
+        "connector_id": "11111111-1111-4111-8111-111111111111",
+        "observed_at": "2026-11-15T10:00:00Z",
+        "evidence_event_id": "inventory-snapshot-01",
+        "command_id": "claim-ownership",
+        "operation": "assert",
+        "source_claim_id": "ownership-01",
+        "source": {
+          "resource_kind": "identity",
+          "source_id": "svc-01"
+        },
+        "target": {
+          "resource_kind": "asset",
+          "source_id": "assistant-01"
+        },
+        "relation": "owns",
+        "valid_from": "2026-11-15T09:00:00Z"
+      }
+    },
+    {
+      "name": "grant-correct",
+      "schema": "relationship-import.schema.json",
+      "command": {
+        "schema_version": "0.1",
+        "connector_id": "11111111-1111-4111-8111-111111111111",
+        "observed_at": "2026-11-15T10:00:00Z",
+        "evidence_event_id": "inventory-snapshot-01",
+        "command_id": "grant-correct",
+        "operation": "correct",
+        "source_claim_id": "grant-01",
+        "source": {
+          "resource_kind": "identity",
+          "source_id": "svc-01"
+        },
+        "target": {
+          "resource_kind": "asset",
+          "source_id": "db-01"
+        },
+        "relation": "accesses",
+        "valid_from": "2026-11-15T09:00:00Z",
+        "qualifier": "entitlement",
+        "expected_version": 1
+      }
+    },
+    {
+      "name": "grant-retract",
+      "schema": "relationship-import.schema.json",
+      "command": {
+        "schema_version": "0.1",
+        "connector_id": "11111111-1111-4111-8111-111111111111",
+        "observed_at": "2026-11-15T10:00:00Z",
+        "evidence_event_id": "inventory-snapshot-01",
+        "command_id": "grant-retract",
+        "operation": "retract",
+        "source_claim_id": "grant-01",
+        "source": {
+          "resource_kind": "identity",
+          "source_id": "svc-01"
+        },
+        "target": {
+          "resource_kind": "asset",
+          "source_id": "db-01"
+        },
+        "relation": "accesses",
+        "valid_from": "2026-11-15T09:00:00Z",
+        "qualifier": "entitlement",
+        "expected_version": 1
+      }
+    }
+  ]
+}
