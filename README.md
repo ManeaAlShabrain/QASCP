@@ -9,6 +9,8 @@ Enterprise cybersecurity and AI assurance for Qatar's financial sector.
 - [Engineering governance and delivery handbook — English](docs/governance/ENGINEERING_GOVERNANCE.md)
 - [دليل الحوكمة والتنفيذ — العربية](docs/governance/ENGINEERING_GOVERNANCE.ar.md)
 - [P1 architecture, threat model, contracts, and backlog](docs/architecture/P1_ARCHITECTURE.md)
+- [Product design and independent development](docs/product/QASCP_PRODUCT_DESIGN.md)
+- [Market and patent reconnaissance](docs/research/QASCP_PRIOR_ART.md)
 - [Regulatory and engineering source register](docs/governance/REGULATORY_SOURCES.md)
 - [Verification procedures](docs/verification/PROCEDURES.md)
 - [Security reporting](SECURITY.md)

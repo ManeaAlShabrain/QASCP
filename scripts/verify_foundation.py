@@ -20,6 +20,8 @@ REQUIRED_FILES = (
     *HANDBOOKS,
     "docs/governance/REGULATORY_SOURCES.md",
     "docs/architecture/P1_ARCHITECTURE.md",
+    "docs/product/QASCP_PRODUCT_DESIGN.md",
+    "docs/research/QASCP_PRIOR_ART.md",
     "docs/verification/README.md",
     PROCEDURES,
     REGISTER,
