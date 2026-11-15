@@ -4,6 +4,23 @@ QASCP: Unified Cybersecurity, AI Security & Continuous Assurance Platform.
 
 Enterprise cybersecurity and AI assurance for Qatar's financial sector.
 
+## QASCP 2.0 product and architecture proposal
+
+**One Platform. Every Security Domain. Continuous Assurance.**
+
+The proposed enterprise-banking scope connects 24 security domains through a security knowledge graph, contextual reasoning, continuous assurance and human-controlled response orchestration. P1 remains active and pending review; the documents and contracts below do not represent delivered runtime features.
+
+- [Product requirements, domain coverage and banking scenarios](docs/product/QASCP_2_PRD.md)
+- [Architecture and proposed ADRs](docs/architecture/QASCP_2_ARCHITECTURE.md)
+- [Domain, data and API contracts](docs/architecture/QASCP_2_CONTRACTS.md)
+- [Threat and design-risk register](docs/architecture/QASCP_2_THREATS.md)
+- [Document authority and supersession matrix](docs/architecture/QASCP_2_SUPERSESSION.md)
+- [Framework coverage and pending applicability](docs/governance/QASCP_2_COVERAGE.md)
+- [Phase-scoped implementation backlog](docs/product/QASCP_2_BACKLOG.md)
+- [Observation JSON Schema](contracts/qascp-2/observation.schema.json) and [first-slice OpenAPI](contracts/qascp-2/openapi.json)
+
+The [document authority and supersession matrix](docs/architecture/QASCP_2_SUPERSESSION.md) identifies every affected earlier section, ADR, scenario, component decision and backlog item as retained, refined, replaced or deprecated. The engineering governance handbooks remain binding, and [QASCP_2_BACKLOG.md](docs/product/QASCP_2_BACKLOG.md) is the canonical 2.0 backlog. See the [local change evidence](docs/verification/QASCP_2_P1_LOCAL.md) for actual checks and remaining review gaps.
+
 ## Foundation setup
 
 - [Engineering governance and delivery handbook — English](docs/governance/ENGINEERING_GOVERNANCE.md)

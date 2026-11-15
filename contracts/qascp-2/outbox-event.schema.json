@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:qascp:2:outbox-event:1.0",
+  "title": "QASCP tenant outbox event",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "event_id", "event_type", "tenant_id", "producer_workload_id",
+    "authorization_version", "aggregate_type", "aggregate_id", "aggregate_version",
+    "payload_reference", "payload_digest", "occurred_at", "correlation_id"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "event_id": {"type": "string", "format": "uuid"},
+    "event_type": {"type": "string", "minLength": 1, "maxLength": 128},
+    "tenant_id": {"type": "string", "format": "uuid"},
+    "producer_workload_id": {"type": "string", "minLength": 1, "maxLength": 256},
+    "authorization_version": {"type": "string", "minLength": 1, "maxLength": 128},
+    "aggregate_type": {"type": "string", "minLength": 1, "maxLength": 128},
+    "aggregate_id": {"type": "string", "minLength": 1, "maxLength": 256},
+    "aggregate_version": {"type": "integer", "minimum": 1},
+    "payload_reference": {"type": "string", "minLength": 1, "maxLength": 2048},
+    "payload_digest": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "occurred_at": {"type": "string", "format": "date-time"},
+    "correlation_id": {"type": "string", "minLength": 1, "maxLength": 128}
+  }
+}
