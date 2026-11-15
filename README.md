@@ -21,3 +21,5 @@ When initializing a new GitHub repository, select **Private**. Run the workflow 
 To validate the GitHub rule once active, open a temporary PR containing a broken required documentation link, confirm the required check fails and blocks the merge, then repair the PR and confirm the check passes. Close the test PR. Record the real run links in the stage verification record.
 
 The current gate checks foundations and documentation. Application, data-isolation, and cumulative regression jobs should be added as functioning components are delivered. The stage record requires separate review and linked evidence.
+
+[Intentional negative CI test](missing-foundation-negative-test.md)
