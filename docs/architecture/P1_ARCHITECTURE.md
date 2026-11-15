@@ -2,6 +2,8 @@
 
 This document proposes decisions for P1 review. Implementation choices and numerical performance targets require approval and evidence at the phase stated in the handbook. The first tenanted pilot focuses on financial-sector security assurance in Qatar. Product coverage grows through P6. QASCP will initially consume findings and events only from authorized defensive sources or synthetic test environments.
 
+See the [product design](../product/QASCP_PRODUCT_DESIGN.md) for the proposed workflow and measurable differentiation, and the [prior-art search record](../research/QASCP_PRIOR_ART.md) for public comparisons.
+
 ## Product scope and prioritized scenarios
 
 | Priority | Actor and outcome | Observable acceptance | Phase |
