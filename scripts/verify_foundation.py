@@ -28,6 +28,7 @@ REQUIRED_FILES = (
     "docs/architecture/QASCP_2_ARCHITECTURE.md",
     "docs/architecture/QASCP_2_CONTRACTS.md",
     "docs/architecture/QASCP_2_GRAPH_PLAN.md",
+    "docs/architecture/QASCP_2_GRAPH_DECISIONS.md",
     "docs/product/QASCP_2_CONTINUITY_AR.md",
     "docs/architecture/QASCP_2_THREATS.md",
     "docs/architecture/QASCP_2_SUPERSESSION.md",
