@@ -170,6 +170,8 @@ Machine-readable P2 resource/relationship command candidates are now specified i
 
 Proposed event-specific receipt 2.0 and claim history 0.1 records, including their limited fixture oracle, are specified in [Graph record contracts](QASCP_2_GRAPH_RECORD_CONTRACTS.md). Existing receipt 1.0 is preserved; adoption and runtime tests remain pending.
 
+The proposed G-05 query/page/cursor boundary and successor OpenAPI are recorded in [Graph boundary contracts](QASCP_2_GRAPH_BOUNDARY.md), with synthetic conformance cases and explicit runtime limits.
+
 ## Review and compatibility checklist
 
 All seven gaps now have a concrete proposal; none has an attributed approval. Independent review must check resource/relationship command schemas and expected-version rules, receipt uniqueness/rebuild semantics, qualifier compatibility, temporal lineage/cutoffs, snapshot revocation/cost, registry integrity and source retention. Adopt machine-readable schemas and update affected OpenAPI/internal-contract versions in a separate scoped P1 change before implementation; do not reinterpret existing 1.0 records in place.
