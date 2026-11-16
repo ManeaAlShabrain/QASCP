@@ -3,8 +3,15 @@
 attrs==25.4.0
 jsonschema==4.26.0
 jsonschema-specifications==2025.9.1
-referencing==0.37.0
+referencing==0.36.2
 rpds-py==0.30.0
 typing-extensions==4.15.0
 rfc3339-validator==0.1.4
 six==1.17.0
+# Full OpenAPI 3.1 validator closure; HTTP requests extra deliberately omitted.
+openapi-spec-validator==0.7.2
+openapi-schema-validator==0.6.3
+jsonschema-path==0.3.4
+pathable==0.4.4
+PyYAML==6.0.3
+lazy-object-proxy==1.12.0
