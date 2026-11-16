@@ -4,6 +4,8 @@ Status: proposed P1 design extension, 2026-11-15 (Qatar). Implementation, migrat
 
 ## Purpose and acceptance scope
 
+Reconciliation note, 2026-11-16: the [import](QASCP_2_GRAPH_IMPORT_CONTRACTS.md), [receipt/history](QASCP_2_GRAPH_RECORD_CONTRACTS.md) and [boundary 0.2](QASCP_2_GRAPH_BOUNDARY.md) packages now provide versioned static candidates for G-01..G-05. References below to absent fields or contracts describe the preserved original API/receipt. These proposals still require independent review, explicit adoption and compatibility decisions. The bilingual [BANK-01 blueprint](QASCP_2_BANK01_BLUEPRINT.md) consolidates logical storage, transaction/crash boundaries and BA01..BA11 planned acceptance under the existing backlog.
+
 العلاقة في QASCP ليست خطًا بين عنصرين فقط؛ إنها معلومة لها مصدر ووقت وصلاحية ونطاق وصول. هدف الرسم المعرفي هو إظهار كيف يرتبط الحدث بالهوية والأصل والنتيجة الأمنية، ثم استخدام هذه الروابط في التحقيق والضمان، مع إبقاء نقص الأدلة والتعارض ظاهرين.
 
 Active work: P1 / V2-P1-02 / P1-V02. Requirements: PRD-01, PRD-02, PRD-03, PRD-04, PRD-06, PRD-09, PRD-10; QASCP-GOV-001, QASCP-GOV-002, QASCP-SEC-001 through QASCP-SEC-005, QASCP-AI-002, QASCP-ENG-002. P1 acceptance of this proposal requires independent review of entity identity, permitted relation types, provenance, time semantics, authorization before traversal, recovery and unresolved contract decisions. Earlier paths affected: observation normalization, source binding, outbox/receipt identity, graph API, case explanations and later assurance dependencies.
@@ -67,7 +69,7 @@ Direction is meaningful. Reversed traversal for investigation is a query operati
 | evaluates | assertion → control | Exact adopted tenant control/policy version |
 | depends_on | asset → asset; assertion → evidence | Declared service dependency or evaluation input; never automatic authority inheritance |
 
-The distinction between permitted access and observed use is a required domain qualifier before BANK-01 delivery. The current public Edge schema has no qualifier field: first-slice clients inspect the authorized provenance record, and any added response field needs a versioned contract change. Case membership, proposal/approval references, framework mappings and AI-system-to-asset references stay in their domain records; do not invent new relation labels absent from the static API allowlist.
+The distinction between permitted access and observed use is required before BANK-01 delivery. The original public Edge schema has no qualifier field; boundary 0.2 proposes it for accesses. Original-contract clients must abstain when authorized provenance does not establish the meaning. Adoption and compatibility review remain required. Case membership, proposal/approval references, framework mappings and AI-system-to-asset references stay in their domain records; do not invent new relation labels absent from the static API allowlist.
 
 ## 5. Relationship provenance and conflicts
 
@@ -103,7 +105,7 @@ erDiagram
 
 Plan indexes on tenant plus source/relation/target/time, a reverse endpoint index for permitted incoming traversal, the source-binding key, and observation replay keys. Evaluate the query plan with RLS and real application privileges. No BYPASSRLS, database-owner runtime role, unrestricted cross-tenant views or global tenant graph cache.
 
-Registry subtypes, relationship versions, source binding metadata and derivation inputs need explicit schemas before implementation. The current static package does not yet specify all of these records.
+Resource import 0.1 and claim version/transition 0.1 now specify initial typed payloads and lineage. Registry enforcement, binding generations, source-field authority and derivation-input persistence still need implementation-level contracts and independent review before migrations; see B02/B06 in the BANK-01 blueprint.
 
 ## 7. Intake, commit and projection boundaries
 
@@ -124,7 +126,7 @@ Two transactions have distinct responsibilities: intake commits an accepted obse
 
 The intake adapter hashes the received entity bytes exactly as the current contract specifies. Identical key/digest replay has one logical effect. A new event with the same resource references is still a new event and must not be discarded as a duplicate.
 
-Receipt identity must include event identity as well as tenant, consumer, purpose, input version and projector version (where versioning requires reprocessing). Deduplicating only by tenant/purpose/input version would drop unrelated events. This composite-key decision needs review and contract/prose reconciliation before P2; no existing schema is silently changed by this plan.
+Receipt 2.0 proposes uniqueness by tenant, event, logical consumer, consumer version, purpose and input version. Deduplicating only by tenant/purpose/input version would drop unrelated events. The record proposal and fixture oracle now cover this identity; database concurrency, retention and adoption remain unverified. Receipt 1.0 is preserved rather than silently reinterpreted.
 
 ## 8. Time, corrections and historical truth
 
@@ -132,7 +134,7 @@ Use separate source-valid and system-knowledge time. Example: access was observe
 
 Intervals are half-open `[valid_from, valid_to)`; absent valid_to means open-ended, not permanent truth. Retracting or superseding a claim records a new version/decision. An as-of view applies corrections only if their recording time is within its knowledge cutoff. Do not filter old rows out solely because a later correction references them. Historical access is checked against the viewer's current authorization, not their former permissions.
 
-The first-slice GET contract has one `as_of` response field and no two-time query parameters. Before historical graph delivery define its precise meaning, add explicit valid-time/knowledge-time selection and projection completeness metadata through a reviewed contract extension, and test pagination across that snapshot. No current API capability is implied here.
+The original GET contract has one `as_of` field and no two-time query parameters. Boundary 0.2 proposes explicit valid_at, knowledge_cutoff and projection-state metadata and reserves valid_at/known_at selectors for authorized P5 history. Claim 0.1 corrections fully replace a source interval; terminal withdrawal and unsupported partial withdrawal are defined in the record proposal. Equal-time commit ordering, actual snapshot/history enforcement and adoption still require review and runtime tests. No running API capability is implied here.
 
 ## 9. Authorized traversal and presentation
 
@@ -180,7 +182,7 @@ Minimum future graph suite: same-tenant allow; cross-tenant read/write/reference
 
 ## 12. Open design decisions before implementation
 
-Concrete proposals for G-01 through G-07 are recorded in [Graph decision proposals](QASCP_2_GRAPH_DECISIONS.md). They remain proposed pending independent review and versioned machine-readable contract adoption; the table below retains the original gap and required ownership.
+Concrete proposals for G-01 through G-07 are recorded in [Graph decision proposals](QASCP_2_GRAPH_DECISIONS.md). Machine-readable candidates for G-01..G-05 now exist in the linked import/record/boundary packages. They remain proposed pending independent review and adoption; the table below retains original decision scope and required ownership, not evidence that those files are absent.
 
 | ID | Gap or decision | Required owner and disposition |
 |---|---|---|

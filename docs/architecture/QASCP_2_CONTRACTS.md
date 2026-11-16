@@ -6,6 +6,8 @@ Versioned internal contracts are [trusted context](../../contracts/qascp-2/trust
 
 ## Relational domain model
 
+Successor review: the [graph boundary 0.2](QASCP_2_GRAPH_BOUNDARY.md) and linked import/receipt/history schemas are versioned proposals alongside the preserved originals above. The bilingual [BANK-01 blueprint](QASCP_2_BANK01_BLUEPRINT.md) details canonical record ownership, T1..T3 commit/crash behavior and planned actual-entry-point acceptance. It introduces no public schema change and does not authorize implementation before P1 exit.
+
 Every row below is tenant-owned with composite identity (tenant_id, id), version and created_at, unless stated otherwise. All tenant-owned references include tenant_id; UUID uniqueness alone is insufficient. Shared framework catalogs are separately administered, immutable-versioned metadata and cannot reference customer records.
 
 | Record | Principal fields and invariant |

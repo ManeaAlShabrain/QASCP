@@ -28,6 +28,8 @@ REQUIRED_FILES = (
     "docs/architecture/QASCP_2_ARCHITECTURE.md",
     "docs/architecture/QASCP_2_CONTRACTS.md",
     "docs/architecture/QASCP_2_GRAPH_PLAN.md",
+    "docs/architecture/QASCP_2_BANK01_BLUEPRINT.md",
+    "docs/architecture/QASCP_2_BANK01_BLUEPRINT.ar.md",
     "docs/architecture/QASCP_2_GRAPH_DECISIONS.md",
     "docs/architecture/QASCP_2_GRAPH_IMPORT_CONTRACTS.md",
     "docs/architecture/QASCP_2_GRAPH_RECORD_CONTRACTS.md",
