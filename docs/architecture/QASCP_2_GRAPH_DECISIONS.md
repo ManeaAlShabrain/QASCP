@@ -20,6 +20,8 @@ Requirements: PRD-01..04, PRD-06, PRD-09, PRD-10; QASCP-GOV-001..004, QASCP-SEC-
 
 ## G-01 — Separate inventory from relationship intake
 
+Candidate reconciliation, 2026-11-16: subsequent [import](QASCP_2_GRAPH_IMPORT_CONTRACTS.md), [receipt/history](QASCP_2_GRAPH_RECORD_CONTRACTS.md) and [boundary 0.2](QASCP_2_GRAPH_BOUNDARY.md) proposals supply static schemas and fixtures for G-01..G-05. Statements below about missing fields refer to the preserved original API/receipt. Claim 0.1 narrows G-04 to full-interval replacement and terminal withdrawal; partial withdrawal and resurrection are unsupported. The bilingual [BANK-01 blueprint](QASCP_2_BANK01_BLUEPRINT.md) details G-06 storage and T1..T3 transaction review without adopting migrations or authorizing P2.
+
 Choose two logical command families, ResourceImport and RelationshipClaimImport. They are proposed service operations, not new HTTP endpoints in the current OpenAPI. Only the registered integration principal may submit them, with the exact tenant and source capabilities allowed by its registration. Human-maintained data uses a separate authenticated, audited domain operation; it cannot impersonate a connector.
 
 ### ResourceImport v0.1 proposal
@@ -125,7 +127,7 @@ Choose one Resource registry keyed by `(tenant_id, id)` with immutable kind. Eac
 | ai_system | AI inventory module; same-tenant underlying asset reference | P4 |
 | evidence / assertion / control | Evidence/assurance/adopted-control modules | P5 |
 
-An event may have an inventory reference before its richer domain is implemented; it cannot create a registry node of an unsupported kind. The graph projection owns only its claims/read model and cannot bypass authoritative domain writes. Each endpoint, source binding, evidence reference and supersession reference carries same-tenant FKs. Cross-tenant references fail even if IDs happen to match.
+A P2 event is owned by observation/intake and must have its matching authoritative event row at commit. An unresolved source reference remains pending; it cannot create an asset, identity or unsupported domain kind. The graph projection owns only its claims/read model and cannot bypass authoritative domain writes. Each endpoint, source binding, evidence reference and supersession reference carries same-tenant FKs. Cross-tenant references fail even if IDs happen to match.
 
 Runtime roles cannot own tables, bypass RLS or invoke unrestricted SECURITY DEFINER functions. Any constrained database function requires fixed search_path, explicit execution privileges and independent review. Resource retirement normally closes source-valid records and prevents new use; physical deletion follows approved retention/legal-hold rules across objects, snapshots, projections and backups. An erase operation cannot leave dangling edges or retain unauthorized payloads merely to preserve a hash. Audit minimization and deletion requirements must be reconciled by the regulatory owner for the actual deployment.
 

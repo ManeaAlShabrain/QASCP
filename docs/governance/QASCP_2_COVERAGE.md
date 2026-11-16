@@ -11,16 +11,18 @@ P1 design mapping for PRD-07 / QASCP-CMP-001 / P1-V01. These are proposed capabi
 | REF-MITRE-ATLAS / version pending | AI threat scenarios | Version-pinned scenario references and adversarial evaluation |
 | REF-OWASP-ASVS / edition pending | Application and API verification | Authentication, authorization and validation test results |
 | REF-OWASP-AI / publication pending | LLM and agent boundary review | Injection, disclosure and tool-permission evaluations |
-| QA-QCB-AI / stated 2024, unverified | Banking AI governance and evidence | AI owner, use-case review, model evaluation and decisions |
-| QA-QCB-DHP / edition pending | Data and evidence handling | Classification, purpose, location, retention and access tests |
-| QA-QCB-CLOUD / edition pending | Cloud and outsourcing boundaries | Approved deployment, vendor, access and location review |
+| QA-QCB-AI / 2024, commencement 2024-09-04; amendments pending | Banking AI governance and evidence | AI owner, use-case review, model evaluation and decisions |
+| QA-QCB-DHP / title inspected; edition/date pending | Data and evidence handling | Classification, purpose, location, retention and access tests |
+| QA-QCB-CLOUD / commencement 2024-04-15; revision pending | Cloud and outsourcing boundaries | Approved deployment, vendor, access and location review |
 | QA-QCB-BANK / exact instruction pending | Banking obligations discovery | Licensed-entity scope and exact instruction/circular review |
 | QA-NCSA-PDP / exact texts pending | Personal-data processing | Role, purpose, minimization, retention and rights-workflow evidence |
-| QA-NCSA-NIA / stated v2.1 | Institutional assurance | Scoped control observations and reviewer decisions |
+| QA-NCSA-NIA / V2.1, May 2023; currency pending | Institutional assurance | Scoped control observations and reviewer decisions |
 | QA-QFMA-RULES / exact rules pending | Regulated capital-market activities | License-specific source review |
 | QA-QFC-DP / exact texts pending | QFC data-protection context | Jurisdiction and processing-role assessment |
 
 SWIFT, payment and open-banking use cases do not establish applicability of a particular contractual scheme or regulatory requirement. Add exact authoritative source, edition, rights and clauses before making a specialized mapping.
+
+The [2026-11-17 source review](QASCP_2_SOURCE_REVIEW_2026-11-17.md) records selected primary-text observations and remaining scope/rights questions. Improved source identity does not resolve entity applicability or approve a clause-level mapping.
 
 ## Unresolved mapping review
 
