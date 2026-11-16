@@ -21,6 +21,7 @@ REQUIRED_FILES = (
     "SECURITY.md",
     *HANDBOOKS,
     "docs/governance/REGULATORY_SOURCES.md",
+    "docs/governance/QASCP_2_SOURCE_REVIEW_2026-11-17.md",
     "docs/architecture/P1_ARCHITECTURE.md",
     "docs/product/QASCP_PRODUCT_DESIGN.md",
     PRODUCT_REQUIREMENTS,

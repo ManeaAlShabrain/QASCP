@@ -27,6 +27,10 @@ Inspection on 2026-11-16 obtained main branch metadata showing protection disabl
 
 [Controlled PR #2](https://github.com/ManeaAl-Shabrain/QASCP/pull/2) and [failing run 43739146166](https://github.com/ManeaAl-Shabrain/QASCP/actions/runs/43739146166) are historical workflow-failure evidence. The earlier inspected test targeted foundation/engineering-governance, not main; do not promote it to proof that a main merge was blocked. Fresh enforcement evidence must name the target, protected rule, failed check and observed merge block.
 
+## Source review added 2026-11-17
+
+[Qatar source review and regulatory handoff](../governance/QASCP_2_SOURCE_REVIEW_2026-11-17.md) records selected QCB/NCSA primary-publication text observations, commencement/version findings, initial retrieval failures and the absence of retained binary hashes or amendment verification. It supplies review pointers, not adopted clause mappings. Regulatory approval, bank decisions and QASCP operator decisions remain distinct. Actual entity applicability, rights, substantive bilingual review and independent reviewer decisions remain pending. The expanded PR must pass fresh checks for its own SHA.
+
 ## Concrete P1 review agenda
 
 The bilingual [BANK-01 storage and transaction blueprint](../architecture/QASCP_2_BANK01_BLUEPRINT.md) ([العربية](../architecture/QASCP_2_BANK01_BLUEPRINT.ar.md)) now maps G-06 canonical ownership, T1..T3 crash boundaries and BA01..BA11 planned two-tenant acceptance to the existing backlog/threats. This is implementer preparation for independent review; none of the planned runtime cases is reported executed. Review both editions substantively and resolve source-field authority, equal-time ordering, role constraints and generation/retention decisions before implementation.
