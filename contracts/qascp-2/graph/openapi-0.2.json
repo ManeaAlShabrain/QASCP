@@ -1,0 +1,734 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "QASCP graph boundary design contract 0.2",
+    "version": "0.2.0",
+    "description": "Proposed P1 successor candidate; original 0.1 contract remains unchanged. No running API is delivered."
+  },
+  "servers": [
+    {
+      "url": "/api/v1"
+    }
+  ],
+  "security": [
+    {
+      "oidcBearer": []
+    }
+  ],
+  "paths": {
+    "/observations": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/TenantSelector"
+        }
+      ],
+      "post": {
+        "operationId": "ingestObservation",
+        "description": "Bound connector and observations:write required. Content-Type is application/json with UTF-8 encoding and a maximum 1 MiB entity body. Tenant selector and connector registration must agree. The trusted intake adapter computes SHA-256 over the exact received entity-body octets after HTTP content/transfer decoding and before charset decoding, JSON parsing or normalization; callers do not supply this replay digest. Intake acceptance can retain unresolved same-registration source references; it does not imply graph projection completed. Replays recheck current authorization.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "../observation.schema.json"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "New logical observation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Receipt"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Identical replay; previous observation ID",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Receipt"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid selector or query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Quota exceeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Required service or audit unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Source key has a different digest",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Body exceeds 1 MiB",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid observation schema",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/graph/nodes/{node_id}/neighbors": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/TenantSelector"
+        }
+      ],
+      "get": {
+        "operationId": "getNodeNeighbors",
+        "description": "Requires graph:read and resource/provenance authorization before every expansion, count and page. Historical selectors additionally require graph:history and P5-enabled history delivery. Default direction both. Bind opaque signed cursors to current tenant/principal/authorization, normalized query and snapshot. Enforce node and edge limits independently. Expired or altered snapshot/cursor requires a fresh request. Source lag is not represented as complete empty results.",
+        "parameters": [
+          {
+            "name": "node_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "depth",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 2,
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 200,
+              "default": 100
+            }
+          },
+          {
+            "name": "direction",
+            "in": "query",
+            "schema": {
+              "enum": [
+                "incoming",
+                "outgoing",
+                "both"
+              ],
+              "default": "both"
+            }
+          },
+          {
+            "name": "valid_at",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "pattern": "Z$"
+            }
+          },
+          {
+            "name": "known_at",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "pattern": "Z$"
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096,
+              "pattern": "\\S"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Authorized bounded neighborhood",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./neighborhood-page.schema.json"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid selector or query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Quota exceeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Required service or audit unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource absent or inaccessible",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Snapshot/cursor expired or binding changed; restart authorized query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/imports/resources": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/TenantSelector"
+        }
+      ],
+      "post": {
+        "operationId": "importResource",
+        "description": "Requires inventory:import and a tenant-bound registered integration. Maximum 1 MiB UTF-8 JSON body. Same tenant/connector/command_id key is shared across both import families. The server hashes exact received entity bytes before parsing. Replays require current permission. 201 commits intake/audit/outbox and does not promise graph projection. Expected-version and entity constraints are checked by the authorized domain transaction.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "./resource-import.schema.json"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "New logical observation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommandReceipt"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Identical replay; previous observation ID",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommandReceipt"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid selector or query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Quota exceeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Required service or audit unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Command key digest or expected-version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Body exceeds 1 MiB",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid typed command, relation pair or phase-ineligible operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Source evidence or resource absent or invisible",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/imports/relationships": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/TenantSelector"
+        }
+      ],
+      "post": {
+        "operationId": "importRelationship",
+        "description": "Requires graph:claims:import and a tenant-bound registered integration. Maximum 1 MiB UTF-8 JSON body. Same tenant/connector/command_id key is shared across both import families. The server hashes exact received entity bytes before parsing. Replays require current permission. 201 commits intake/audit/outbox and does not promise graph projection. Expected-version and entity constraints are checked by the authorized domain transaction.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "./relationship-import.schema.json"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "New logical observation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommandReceipt"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Identical replay; previous observation ID",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommandReceipt"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid selector or query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Quota exceeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Required service or audit unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Command key digest or expected-version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Body exceeds 1 MiB",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid typed command, relation pair or phase-ineligible operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Source evidence or resource absent or invisible",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "oidcBearer": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Validate against configured OIDC issuer; enforce MFA policy and operation permissions server-side."
+      }
+    },
+    "parameters": {
+      "TenantSelector": {
+        "name": "X-Tenant-ID",
+        "in": "header",
+        "required": true,
+        "description": "Selector validated against trusted active membership or connector binding.",
+        "schema": {
+          "type": "string",
+          "format": "uuid"
+        }
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "code",
+          "message",
+          "correlation_id"
+        ],
+        "properties": {
+          "code": {
+            "type": "string",
+            "minLength": 1
+          },
+          "message": {
+            "type": "string",
+            "minLength": 1
+          },
+          "correlation_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "Receipt": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "observation_id",
+          "tenant_id",
+          "received_at",
+          "disposition",
+          "received_payload_digest",
+          "correlation_id",
+          "projection_state"
+        ],
+        "properties": {
+          "observation_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "tenant_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "received_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "disposition": {
+            "enum": [
+              "accepted",
+              "duplicate"
+            ]
+          },
+          "received_payload_digest": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$",
+            "description": "Server-computed SHA-256 of the received request entity bytes used for replay comparison."
+          },
+          "correlation_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "projection_state": {
+            "enum": [
+              "pending",
+              "projected",
+              "quarantined"
+            ]
+          }
+        }
+      },
+      "CommandReceipt": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "import_id",
+          "command_id",
+          "command_family",
+          "tenant_id",
+          "received_at",
+          "disposition",
+          "received_payload_digest",
+          "projection_state",
+          "correlation_id"
+        ],
+        "properties": {
+          "import_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "command_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256,
+            "pattern": "\\S"
+          },
+          "command_family": {
+            "enum": [
+              "resource",
+              "relationship"
+            ]
+          },
+          "tenant_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "received_at": {
+            "type": "string",
+            "format": "date-time",
+            "pattern": "Z$"
+          },
+          "disposition": {
+            "enum": [
+              "accepted",
+              "duplicate"
+            ]
+          },
+          "received_payload_digest": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "projection_state": {
+            "enum": [
+              "pending",
+              "projected",
+              "quarantined"
+            ]
+          },
+          "correlation_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "\\S"
+          }
+        }
+      }
+    }
+  }
+}

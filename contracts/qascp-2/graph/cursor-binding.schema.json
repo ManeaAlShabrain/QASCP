@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:qascp:2:graph:cursor-binding:0.2",
+  "title": "Internal signed cursor binding payload",
+  "description": "Proposed P1 boundary contract, not a running endpoint.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "cursor_version": {
+      "const": "0.2"
+    },
+    "tenant_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "principal_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "pattern": "\\S"
+    },
+    "authorization_version": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "\\S"
+    },
+    "root_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "snapshot_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "generation_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "query_digest": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "knowledge_cutoff": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "Z$"
+    },
+    "valid_at": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "Z$"
+    },
+    "issued_at": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "Z$"
+    },
+    "expires_at": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "Z$"
+    },
+    "last_hop": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 2
+    },
+    "last_edge_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "key_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "\\S"
+    }
+  },
+  "required": [
+    "cursor_version",
+    "tenant_id",
+    "principal_id",
+    "authorization_version",
+    "root_id",
+    "snapshot_id",
+    "generation_id",
+    "query_digest",
+    "knowledge_cutoff",
+    "valid_at",
+    "issued_at",
+    "expires_at",
+    "last_hop",
+    "last_edge_id",
+    "key_id"
+  ]
+}

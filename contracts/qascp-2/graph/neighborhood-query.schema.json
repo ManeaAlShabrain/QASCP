@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:qascp:2:graph:neighborhood-query:0.2",
+  "title": "Graph neighborhood normalized request",
+  "description": "Proposed P1 boundary contract, not a running endpoint.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "node_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "depth": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 2,
+      "default": 1
+    },
+    "limit": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 200,
+      "default": 100
+    },
+    "direction": {
+      "enum": [
+        "incoming",
+        "outgoing",
+        "both"
+      ],
+      "default": "both"
+    },
+    "valid_at": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "Z$"
+    },
+    "known_at": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "Z$"
+    },
+    "cursor": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096,
+      "pattern": "\\S"
+    }
+  },
+  "required": [
+    "node_id"
+  ]
+}
