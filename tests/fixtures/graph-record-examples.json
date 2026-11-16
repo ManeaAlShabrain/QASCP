@@ -1,0 +1,197 @@
+{
+  "fixture_version": "0.1",
+  "synthetic": true,
+  "receipts": [
+    {
+      "schema_version": "2.0",
+      "tenant_id": "00000000-0000-4000-8000-000000000001",
+      "event_id": "00000000-0000-4000-8000-000000000100",
+      "logical_consumer_id": "graph-projector",
+      "consumer_version": "1",
+      "consumer_workload_id": "worker-a",
+      "authorization_version": "auth-1",
+      "purpose": "graph-projection",
+      "input_version": "observation-1",
+      "outcome": "processed",
+      "audit_event_id": "00000000-0000-4000-8000-000000000050",
+      "recorded_at": "2026-11-16T10:00:00Z",
+      "correlation_id": "synthetic-01",
+      "receipt_id": "00000000-0000-4000-8000-000000000010"
+    },
+    {
+      "schema_version": "2.0",
+      "tenant_id": "00000000-0000-4000-8000-000000000001",
+      "event_id": "00000000-0000-4000-8000-000000000101",
+      "logical_consumer_id": "graph-projector",
+      "consumer_version": "1",
+      "consumer_workload_id": "worker-a",
+      "authorization_version": "auth-1",
+      "purpose": "graph-projection",
+      "input_version": "observation-1",
+      "outcome": "processed",
+      "audit_event_id": "00000000-0000-4000-8000-000000000050",
+      "recorded_at": "2026-11-16T10:00:00Z",
+      "correlation_id": "synthetic-01",
+      "receipt_id": "00000000-0000-4000-8000-000000000011"
+    },
+    {
+      "schema_version": "2.0",
+      "tenant_id": "00000000-0000-4000-8000-000000000001",
+      "event_id": "00000000-0000-4000-8000-000000000100",
+      "logical_consumer_id": "graph-projector",
+      "consumer_version": "1",
+      "consumer_workload_id": "worker-b",
+      "authorization_version": "auth-1",
+      "purpose": "graph-projection",
+      "input_version": "observation-1",
+      "outcome": "duplicate",
+      "audit_event_id": "00000000-0000-4000-8000-000000000050",
+      "recorded_at": "2026-11-16T10:01:00Z",
+      "correlation_id": "synthetic-01",
+      "receipt_id": "00000000-0000-4000-8000-000000000012",
+      "duplicate_of_receipt_id": "00000000-0000-4000-8000-000000000010"
+    },
+    {
+      "schema_version": "2.0",
+      "tenant_id": "00000000-0000-4000-8000-000000000001",
+      "event_id": "00000000-0000-4000-8000-000000000100",
+      "logical_consumer_id": "graph-projector",
+      "consumer_version": "2",
+      "consumer_workload_id": "worker-a",
+      "authorization_version": "auth-1",
+      "purpose": "graph-projection",
+      "input_version": "observation-1",
+      "outcome": "processed",
+      "audit_event_id": "00000000-0000-4000-8000-000000000050",
+      "recorded_at": "2026-11-16T10:00:00Z",
+      "correlation_id": "synthetic-01",
+      "receipt_id": "00000000-0000-4000-8000-000000000013"
+    }
+  ],
+  "claims": [
+    {
+      "schema_version": "0.1",
+      "tenant_id": "00000000-0000-4000-8000-000000000001",
+      "claim_id": "00000000-0000-4000-8000-000000000003",
+      "connector_id": "00000000-0000-4000-8000-000000000002",
+      "source_claim_id": "grant-01",
+      "source": {
+        "kind": "identity",
+        "id": "00000000-0000-4000-8000-000000000020"
+      },
+      "target": {
+        "kind": "asset",
+        "id": "00000000-0000-4000-8000-000000000021"
+      },
+      "relation": "accesses",
+      "qualifier": "entitlement",
+      "evidence_observation_id": "00000000-0000-4000-8000-000000000100",
+      "adapter_version": "synthetic-1",
+      "valid_from": "2026-11-16T09:00:00Z",
+      "payload_digest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "version": 1,
+      "recorded_at": "2026-11-16T10:00:00Z"
+    },
+    {
+      "schema_version": "0.1",
+      "tenant_id": "00000000-0000-4000-8000-000000000001",
+      "claim_id": "00000000-0000-4000-8000-000000000003",
+      "connector_id": "00000000-0000-4000-8000-000000000002",
+      "source_claim_id": "grant-01",
+      "source": {
+        "kind": "identity",
+        "id": "00000000-0000-4000-8000-000000000020"
+      },
+      "target": {
+        "kind": "asset",
+        "id": "00000000-0000-4000-8000-000000000021"
+      },
+      "relation": "accesses",
+      "qualifier": "entitlement",
+      "evidence_observation_id": "00000000-0000-4000-8000-000000000100",
+      "adapter_version": "synthetic-1",
+      "valid_from": "2026-11-16T08:50:00Z",
+      "payload_digest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "version": 2,
+      "recorded_at": "2026-11-16T11:00:00Z"
+    },
+    {
+      "schema_version": "0.1",
+      "tenant_id": "00000000-0000-4000-8000-000000000001",
+      "claim_id": "00000000-0000-4000-8000-000000000003",
+      "connector_id": "00000000-0000-4000-8000-000000000002",
+      "source_claim_id": "grant-01",
+      "source": {
+        "kind": "identity",
+        "id": "00000000-0000-4000-8000-000000000020"
+      },
+      "target": {
+        "kind": "asset",
+        "id": "00000000-0000-4000-8000-000000000021"
+      },
+      "relation": "accesses",
+      "qualifier": "entitlement",
+      "evidence_observation_id": "00000000-0000-4000-8000-000000000100",
+      "adapter_version": "synthetic-1",
+      "valid_from": "2026-11-16T09:00:00Z",
+      "payload_digest": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "version": 3,
+      "recorded_at": "2026-11-16T12:00:00Z"
+    }
+  ],
+  "transitions": [
+    {
+      "schema_version": "0.1",
+      "tenant_id": "00000000-0000-4000-8000-000000000001",
+      "claim_id": "00000000-0000-4000-8000-000000000003",
+      "connector_id": "00000000-0000-4000-8000-000000000002",
+      "reason_code": "synthetic-review",
+      "actor_id": "synthetic-connector",
+      "actor_type": "connector",
+      "authorization_version": "auth-1",
+      "audit_event_id": "00000000-0000-4000-8000-000000000051",
+      "correlation_id": "synthetic-claim",
+      "transition_id": "00000000-0000-4000-8000-000000000030",
+      "operation": "assert",
+      "expected_version": 0,
+      "new_version": 1,
+      "recorded_at": "2026-11-16T10:00:00Z"
+    },
+    {
+      "schema_version": "0.1",
+      "tenant_id": "00000000-0000-4000-8000-000000000001",
+      "claim_id": "00000000-0000-4000-8000-000000000003",
+      "connector_id": "00000000-0000-4000-8000-000000000002",
+      "reason_code": "synthetic-review",
+      "actor_id": "synthetic-connector",
+      "actor_type": "connector",
+      "authorization_version": "auth-1",
+      "audit_event_id": "00000000-0000-4000-8000-000000000051",
+      "correlation_id": "synthetic-claim",
+      "transition_id": "00000000-0000-4000-8000-000000000031",
+      "operation": "correct",
+      "expected_version": 1,
+      "prior_version": 1,
+      "new_version": 2,
+      "recorded_at": "2026-11-16T11:00:00Z"
+    },
+    {
+      "schema_version": "0.1",
+      "tenant_id": "00000000-0000-4000-8000-000000000001",
+      "claim_id": "00000000-0000-4000-8000-000000000003",
+      "connector_id": "00000000-0000-4000-8000-000000000002",
+      "reason_code": "synthetic-review",
+      "actor_id": "synthetic-connector",
+      "actor_type": "connector",
+      "authorization_version": "auth-1",
+      "audit_event_id": "00000000-0000-4000-8000-000000000051",
+      "correlation_id": "synthetic-claim",
+      "transition_id": "00000000-0000-4000-8000-000000000032",
+      "operation": "retract",
+      "expected_version": 2,
+      "prior_version": 2,
+      "new_version": 3,
+      "recorded_at": "2026-11-16T12:00:00Z"
+    }
+  ]
+}

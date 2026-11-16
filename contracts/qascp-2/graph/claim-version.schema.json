@@ -1,0 +1,225 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:qascp:2:graph:claim-version:0.1",
+  "title": "P2 source relationship claim version",
+  "description": "Proposed P1 internal record; fields require server-established trust and runtime authorization.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "tenant_id",
+    "claim_id",
+    "version",
+    "connector_id",
+    "source_claim_id",
+    "source",
+    "target",
+    "relation",
+    "evidence_observation_id",
+    "adapter_version",
+    "valid_from",
+    "recorded_at",
+    "payload_digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.1"
+    },
+    "tenant_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "claim_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "connector_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "source_claim_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "pattern": "\\S"
+    },
+    "source": {
+      "$ref": "#/$defs/endpoint"
+    },
+    "target": {
+      "$ref": "#/$defs/endpoint"
+    },
+    "relation": {
+      "enum": [
+        "owns",
+        "runs_as",
+        "accesses"
+      ]
+    },
+    "qualifier": {
+      "enum": [
+        "entitlement",
+        "observed_use"
+      ]
+    },
+    "evidence_observation_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "adapter_version": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "\\S"
+    },
+    "valid_from": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "Z$"
+    },
+    "valid_to": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "Z$"
+    },
+    "recorded_at": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "Z$"
+    },
+    "payload_digest": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  },
+  "$defs": {
+    "endpoint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "id"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "asset",
+            "identity"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "relation": {
+            "const": "accesses"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "qualifier"
+        ]
+      },
+      "else": {
+        "not": {
+          "required": [
+            "qualifier"
+          ]
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "relation": {
+            "const": "owns"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "source": {
+            "properties": {
+              "kind": {
+                "const": "identity"
+              }
+            }
+          },
+          "target": {
+            "properties": {
+              "kind": {
+                "const": "asset"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "relation": {
+            "const": "runs_as"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "source": {
+            "properties": {
+              "kind": {
+                "const": "asset"
+              }
+            }
+          },
+          "target": {
+            "properties": {
+              "kind": {
+                "const": "identity"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "relation": {
+            "const": "accesses"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "source": {
+            "properties": {
+              "kind": {
+                "const": "identity"
+              }
+            }
+          },
+          "target": {
+            "properties": {
+              "kind": {
+                "const": "asset"
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
