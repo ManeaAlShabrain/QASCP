@@ -47,7 +47,7 @@ The nine examples are syntactic fixtures, not an operational event stream: evide
 
 ## Validation design and proposed dependency adoption
 
-Proposed ADR: ADR-2-GRAPH-VALIDATION-001. Choose python-jsonschema for validation-only tests rather than writing a partial JSON Schema interpreter or mistaking JSON parsing for validation. Use Draft202012Validator.check_schema for every *.schema.json document, and validators with explicit UUID/date-time checks for the two new command types. No runtime application dependency is introduced. Full OpenAPI document validation is still outstanding; meta-schema validation of JSON Schemas is not OpenAPI validation.
+Proposed ADR: ADR-2-GRAPH-VALIDATION-001. Choose python-jsonschema for validation-only tests rather than writing a partial JSON Schema interpreter or mistaking JSON parsing for validation. Use Draft202012Validator.check_schema for every *.schema.json document, and validators with explicit UUID/date-time checks for the two new command types. No runtime application dependency is introduced. Full OpenAPI document validation is covered by the separately proposed [OpenAPI assurance verifier](QASCP_2_OPENAPI_ASSURANCE.md); JSON Schema meta-schema validation alone is not OpenAPI validation.
 
 Primary references: [JSON Schema core](https://json-schema.org/draft/2020-12/json-schema-core), [validator documentation](https://python-jsonschema.readthedocs.io/en/stable/validate/). Original QASCP schemas and tests were written from the product requirements; no external implementation or proprietary taxonomy was copied.
 
@@ -56,7 +56,7 @@ Primary references: [JSON Schema core](https://json-schema.org/draft/2020-12/jso
 | jsonschema 4.26.0 | [PyPI](https://pypi.org/project/jsonschema/4.26.0/), MIT |
 | attrs 25.4.0 | [PyPI](https://pypi.org/project/attrs/25.4.0/), MIT |
 | jsonschema-specifications 2025.9.1 | [PyPI](https://pypi.org/project/jsonschema-specifications/2025.9.1/), MIT |
-| referencing 0.37.0 | [PyPI](https://pypi.org/project/referencing/0.37.0/), MIT |
+| referencing 0.36.2 | [PyPI](https://pypi.org/project/referencing/0.36.2/), MIT |
 | rpds-py 0.30.0 | [PyPI](https://pypi.org/project/rpds-py/0.30.0/), MIT |
 | typing-extensions 4.15.0 | [PyPI](https://pypi.org/project/typing-extensions/4.15.0/), PSF-2.0 |
 | rfc3339-validator 0.1.4 | [PyPI](https://pypi.org/project/rfc3339-validator/0.1.4/), MIT |

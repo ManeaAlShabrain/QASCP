@@ -25,6 +25,8 @@ jobs:
           python3 -m venv .venv-contracts
           .venv-contracts/bin/python -m pip install --disable-pip-version-check --no-input --index-url https://pypi.org/simple --no-deps --only-binary=:all: -r requirements-contracts.txt
           .venv-contracts/bin/python -m pip check
+      - name: Validate both full OpenAPI documents offline
+        run: .venv-contracts/bin/python scripts/verify_openapi_contracts.py
       - name: Test foundation and contract schemas
         run: .venv-contracts/bin/python -m unittest discover -s tests -v
 
