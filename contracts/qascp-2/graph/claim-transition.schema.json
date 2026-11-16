@@ -1,0 +1,146 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:qascp:2:graph:claim-transition:0.1",
+  "title": "P2 source claim lifecycle transition",
+  "description": "Proposed P1 internal record; fields require server-established trust and runtime authorization.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "tenant_id",
+    "transition_id",
+    "claim_id",
+    "connector_id",
+    "operation",
+    "expected_version",
+    "new_version",
+    "reason_code",
+    "actor_id",
+    "actor_type",
+    "authorization_version",
+    "audit_event_id",
+    "recorded_at",
+    "correlation_id"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.1"
+    },
+    "tenant_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "transition_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "claim_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "connector_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "operation": {
+      "enum": [
+        "assert",
+        "correct",
+        "retract"
+      ]
+    },
+    "expected_version": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "new_version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "prior_version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "reason_code": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "\\S"
+    },
+    "actor_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "pattern": "\\S"
+    },
+    "actor_type": {
+      "enum": [
+        "connector",
+        "workload",
+        "user"
+      ]
+    },
+    "authorization_version": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "\\S"
+    },
+    "audit_event_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "recorded_at": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "Z$"
+    },
+    "correlation_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "\\S"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "operation": {
+            "const": "assert"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "expected_version": {
+            "const": 0
+          },
+          "new_version": {
+            "const": 1
+          }
+        },
+        "not": {
+          "required": [
+            "prior_version"
+          ]
+        }
+      },
+      "else": {
+        "required": [
+          "prior_version"
+        ],
+        "properties": {
+          "expected_version": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "new_version": {
+            "type": "integer",
+            "minimum": 2
+          }
+        }
+      }
+    }
+  ]
+}

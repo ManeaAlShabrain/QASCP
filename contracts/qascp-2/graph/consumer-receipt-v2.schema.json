@@ -1,0 +1,150 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:qascp:2:graph:consumer-receipt:2.0",
+  "title": "Graph projection consumer receipt",
+  "description": "Proposed P1 internal record; fields require server-established trust and runtime authorization.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "receipt_id",
+    "tenant_id",
+    "event_id",
+    "logical_consumer_id",
+    "consumer_version",
+    "consumer_workload_id",
+    "authorization_version",
+    "purpose",
+    "input_version",
+    "outcome",
+    "audit_event_id",
+    "recorded_at",
+    "correlation_id"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "2.0"
+    },
+    "receipt_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "tenant_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "event_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "logical_consumer_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "pattern": "\\S"
+    },
+    "consumer_version": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "\\S"
+    },
+    "consumer_workload_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "pattern": "\\S"
+    },
+    "authorization_version": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "\\S"
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "\\S"
+    },
+    "input_version": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "\\S"
+    },
+    "outcome": {
+      "enum": [
+        "processed",
+        "duplicate",
+        "quarantined",
+        "failed"
+      ]
+    },
+    "reason_code": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "\\S"
+    },
+    "duplicate_of_receipt_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "audit_event_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "recorded_at": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "Z$"
+    },
+    "correlation_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "\\S"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "outcome": {
+            "const": "duplicate"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "duplicate_of_receipt_id"
+        ]
+      },
+      "else": {
+        "not": {
+          "required": [
+            "duplicate_of_receipt_id"
+          ]
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "outcome": {
+            "enum": [
+              "quarantined",
+              "failed"
+            ]
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "reason_code"
+        ]
+      }
+    }
+  ]
+}
