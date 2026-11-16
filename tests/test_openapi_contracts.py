@@ -21,6 +21,7 @@ class OpenAPIContractTests(unittest.TestCase):
 
     def test_both_versioned_documents_pass_full_validation_without_network(self):
         with patch("socket.create_connection", side_effect=AssertionError("Network forbidden")), \
+             patch("requests.sessions.Session.request", side_effect=AssertionError("HTTP forbidden")), \
              patch("urllib.request.urlopen", side_effect=AssertionError("URL handlers forbidden")):
             results = validate_all_documents()
         self.assertEqual(len(results), 2)

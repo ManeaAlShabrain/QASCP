@@ -40,11 +40,16 @@ No upstream implementation is copied into QASCP. The wrapper/tests are original 
 | pathable 0.4.4 | Path abstraction; Apache-2.0; [PyPI](https://pypi.org/project/pathable/0.4.4/) |
 | PyYAML 6.0.3 | Declared upstream parser dependency; MIT; [PyPI](https://pypi.org/project/PyYAML/6.0.3/) |
 | lazy-object-proxy 1.12.0 | Declared upstream proxy dependency; BSD-2-Clause; [PyPI](https://pypi.org/project/lazy-object-proxy/1.12.0/) |
+| requests 2.34.2 | Published jsonschema-path wheel dependency; Apache-2.0; [manifest](https://github.com/psf/requests/blob/v2.34.2/pyproject.toml) |
+| charset-normalizer 3.5.2 | requests encoding dependency; MIT; [PyPI](https://pypi.org/project/charset-normalizer/3.5.2/) |
+| idna 3.20 | requests hostname dependency; BSD-3-Clause; [PyPI](https://pypi.org/project/idna/3.20/) |
+| urllib3 2.8.0 | requests transport dependency; MIT; [PyPI](https://pypi.org/project/urllib3/2.8.0/) |
+| certifi 2026.10.23 | requests trust-store dependency; MPL-2.0; [PyPI](https://pypi.org/project/certifi/2026.10.23/) |
 | referencing 0.36.2 replaces 0.37.0 | jsonschema-path 0.3.4 requires referencing <0.37.0; [PyPI](https://pypi.org/project/referencing/0.36.2/), MIT. jsonschema 4.26.0 permits >=0.28.4, so this pin satisfies both declared constraints. |
 
-The optional requests extra is omitted. Its absence does not alone disable networking: jsonschema-path has a urllib fallback, which is why the resolver handlers and reference closure are explicitly bounded. The project does not use the upstream YAML parser on repository contracts. Other existing validator pins remain unchanged.
+The published jsonschema-path 0.3.4 wheel declares requests as required: the first CI attempt exposed its omission through pip check. The source-manifest optional declaration was insufficient evidence for the wheel dependency closure. requests and its four dependencies are therefore explicitly pinned; neither installing nor omitting an HTTP library enforces offline operation. The file-only resolver and reference preflight enforce the exercised boundary, with socket, urllib and requests calls prohibited in the full-document regression. The project does not use the upstream YAML parser on repository contracts. Other existing validator pins remain unchanged.
 
-CI retains the isolated virtual environment and installs the explicit 14-package closure from requirements-contracts.txt with --no-deps and --only-binary=:all:, runs pip check, then the new standalone verifier and the complete unit suite. There is no unpinned resolver or source-build fallback. Wheel artifact hashes are not locked by this change and independent supply-chain review remains pending. Nothing here is a runtime dependency adoption or vulnerability-free claim.
+CI retains the isolated virtual environment and installs the explicit 19-package closure from requirements-contracts.txt with --no-deps and --only-binary=:all:, runs pip check, then the new standalone verifier and the complete unit suite. There is no unpinned resolver or source-build fallback. Wheel artifact hashes are not locked by this change and independent supply-chain review remains pending. Nothing here is a runtime dependency adoption or vulnerability-free claim.
 
 ## Limits and reviewer handoff
 
@@ -57,5 +62,7 @@ The [consolidated P1 review package](../verification/QASCP_2_P1_REVIEW_PACKAGE.m
 Base main 16a47ee45bbe521a04a6234ebd6304b4ec0da5c2, tree 5be7a70db3eabcfcbbc836ce42f421e3081dc54b. Prepared as one isolated package after merged PR #10, preserving unrelated shared-workspace changes. Local Windows/Python 3.14.4 lacks the validation dependencies and retains the symlink privilege limit. Local structural checks and the exact candidate's Linux full-validator/unit results are recorded in the PR; earlier candidate checks are not silently reused.
 
 A failure in dependency compatibility, document validity or reference handling must be corrected and rerun. Do not record this verification gap as resolved until the fresh candidate check actually passes.
+
+Initial candidate 2e9ef6c57f4131eb36ab9124ecd3ae8c463c3fd3 failed [run 43935055382](https://github.com/ManeaAl-Shabrain/QASCP/actions/runs/43935055382): installation succeeded but pip check reported missing requests. Full OpenAPI validation and unit tests were skipped, and the gate failed. The revised closure corrects the cause; fresh results must be bound to the replacement candidate in the PR.
 
 Local preparation: nine-file UTF-8/newline/whitespace, Python AST and Markdown local-link checks passed; foundation verifier exited 0. Full Windows unittest discovery exited 1 with 21 entries: 16 passed, four missing-validator import errors and the existing WinError 1314 symlink error; no skips. New OpenAPI validation was not represented as locally passed. The candidate requires the existing isolated Linux CI flow with its updated explicit dependency closure.
