@@ -1,6 +1,7 @@
 """Validate QASCP foundation documents and requirement traceability."""
 
 import json
+import math
 import re
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
@@ -39,6 +40,8 @@ REQUIRED_FILES = (
     "docs/architecture/QASCP_2_OPENAPI_ASSURANCE.md",
     "scripts/verify_openapi_contracts.py",
     "tests/test_openapi_contracts.py",
+    "tests/test_security_contracts.py",
+    "docs/verification/QASCP_2_CODE_SECURITY_REVIEW.md",
     "contracts/qascp-2/graph/neighborhood-query.schema.json",
     "contracts/qascp-2/graph/neighborhood-page.schema.json",
     "contracts/qascp-2/graph/cursor-binding.schema.json",
@@ -91,12 +94,35 @@ VERSION = re.compile(r"(?m)^\[[^\]\n]+\]\([^)]+\) · (?:Version|الإصدار) 
 PHASES = [f"P{number}" for number in range(1, 7)]
 
 
+def strict_json_loads(value):
+    """Reject ambiguous objects and non-JSON numeric constants at every depth."""
+    def unique_object(pairs):
+        result = {}
+        for key, item in pairs:
+            if key in result:
+                raise ValueError("Duplicate JSON object key")
+            result[key] = item
+        return result
+
+    def reject_constant(value):
+        raise ValueError("Non-finite JSON constant")
+
+    def finite_float(value):
+        number = float(value)
+        if not math.isfinite(number):
+            raise ValueError("Non-finite JSON number")
+        return number
+
+    return json.loads(value, object_pairs_hook=unique_object,
+                      parse_constant=reject_constant, parse_float=finite_float)
+
+
 def verify_traceability(documents, problems):
     """Check agreement among the handbooks, verification procedures, and register."""
     try:
-        register = json.loads(documents[REGISTER])
-    except json.JSONDecodeError as error:
-        problems.append(f"{REGISTER}: invalid JSON: {error.msg}")
+        register = strict_json_loads(documents[REGISTER])
+    except ValueError as error:
+        problems.append(f"{REGISTER}: invalid JSON: {error}")
         return
 
     if not isinstance(register, dict):
@@ -249,6 +275,12 @@ def verify_foundation(root):
         if not content.strip():
             problems.append(f"Empty file: {relative_path}")
             continue
+        if path.suffix == ".json":
+            try:
+                strict_json_loads(content)
+            except ValueError as error:
+                problems.append(f"{relative_path}: invalid JSON: {error}")
+                continue
         documents[relative_path] = content
         if path.suffix != ".md":
             continue
@@ -264,7 +296,9 @@ def verify_foundation(root):
             if not resolved.is_relative_to(root) or not resolved.exists():
                 problems.append(f"{relative_path}: unresolved local link {link}")
 
-    if all(path in documents for path in (*HANDBOOKS, PROCEDURES, REGISTER)):
+    if all(path in documents for path in (
+        *HANDBOOKS, PROCEDURES, REGISTER, PRODUCT_REQUIREMENTS, PRODUCT_BACKLOG
+    )):
         verify_traceability(documents, problems)
     return problems
 

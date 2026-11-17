@@ -7,6 +7,11 @@ from pathlib import Path
 
 from jsonschema import Draft202012Validator, FormatChecker
 
+if __package__:
+    from .verify_foundation import strict_json_loads
+else:
+    from verify_foundation import strict_json_loads
+
 
 ROOT = Path(__file__).resolve().parents[1]
 FIELDS = ("tenant_id", "event_id", "logical_consumer_id", "consumer_version",
@@ -32,7 +37,7 @@ def validate_fixture_set(data):
         ("claims", "claim-version.schema.json"),
         ("transitions", "claim-transition.schema.json"),
     ):
-        schema = json.loads(
+        schema = strict_json_loads(
             (ROOT / "contracts/qascp-2/graph" / filename).read_text(encoding="utf-8")
         )
         Draft202012Validator.check_schema(schema)
@@ -61,7 +66,12 @@ def validate_fixture_set(data):
         receipt_ids[rid] = record
 
     versions, lineages, transition_ids = {}, defaultdict(list), set()
+    source_lineages = {}
     for claim in data["claims"]:
+        source_key = (claim["tenant_id"], claim["connector_id"], claim["source_claim_id"])
+        prior_claim = source_lineages.setdefault(source_key, claim["claim_id"])
+        if prior_claim != claim["claim_id"]:
+            raise ValueError("Source claim maps to multiple lineages")
         key = (claim["tenant_id"], claim["claim_id"], claim["version"])
         if key in versions:
             raise ValueError("Duplicate claim version")
@@ -138,4 +148,4 @@ def visible_fixture_version(data, tenant_id, claim_id, valid_at, known_at):
 
 if __name__ == "__main__":
     fixture = ROOT / "tests/fixtures/graph-record-examples.json"
-    print(json.dumps(validate_fixture_set(json.loads(fixture.read_text(encoding="utf-8")))))
+    print(json.dumps(validate_fixture_set(strict_json_loads(fixture.read_text(encoding="utf-8")))))

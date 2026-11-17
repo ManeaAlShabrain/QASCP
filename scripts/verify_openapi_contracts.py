@@ -6,7 +6,10 @@ from pathlib import Path
 from urllib.parse import unquote, urljoin, urlsplit
 from urllib.request import url2pathname
 
-from openapi_spec_validator import OpenAPIV31SpecValidator
+if __package__:
+    from .verify_foundation import strict_json_loads
+else:
+    from verify_foundation import strict_json_loads
 
 ROOT = Path(__file__).resolve().parents[1]
 CONTRACTS = (ROOT / "contracts").resolve()
@@ -16,22 +19,34 @@ DOCUMENTS = (
 )
 
 
+def contract_path(path, root=CONTRACTS):
+    """Check lexical containment before resolution and resolved scope before reads."""
+    root = root.resolve()
+    path = Path(path)
+    if path.drive.startswith("\\\\") or not path.absolute().is_relative_to(root):
+        raise ValueError("Document leaves contract boundary")
+    path = path.resolve()
+    if not path.is_relative_to(root) or path.suffix != ".json":
+        raise ValueError("Reference leaves JSON contract boundary")
+    return path
+
+
 def load_local_json(uri, root=CONTRACTS):
     """Permit file URIs only, inside the resolved contract root; no URL handlers."""
     parts = urlsplit(uri)
     if parts.scheme != "file" or parts.netloc or parts.query:
         raise ValueError("Only local file references are permitted")
-    path = Path(url2pathname(parts.path)).resolve()
-    if not path.is_relative_to(root.resolve()) or path.suffix != ".json":
-        raise ValueError("Reference leaves JSON contract boundary")
-    return json.loads(path.read_text(encoding="utf-8"))
+    decoded = unquote(parts.path)
+    if "\\" in decoded or decoded.startswith("//"):
+        raise ValueError("Network-style file paths are prohibited")
+    path = contract_path(Path(url2pathname(parts.path)), root)
+    return strict_json_loads(path.read_text(encoding="utf-8"))
 
 
 def check_reference_closure(path, document, root=CONTRACTS):
     """Resolve every JSON Pointer before invoking the third-party validator."""
-    path, root = path.resolve(), root.resolve()
-    if not path.is_relative_to(root):
-        raise ValueError("Document leaves contract boundary")
+    root = root.resolve()
+    path = contract_path(path, root)
     documents, pending, references = {path: document}, [path], 0
     while pending:
         filename = pending.pop()
@@ -50,7 +65,10 @@ def check_reference_closure(path, document, root=CONTRACTS):
                         raise ValueError("Remote or absolute URI references are prohibited")
                     target_uri = urljoin(filename.as_uri(), ref)
                     target_parts = urlsplit(target_uri)
-                    target_file = Path(url2pathname(target_parts.path)).resolve()
+                    decoded = unquote(target_parts.path)
+                    if "\\" in decoded or decoded.startswith("//"):
+                        raise ValueError("Network-style file paths are prohibited")
+                    target_file = contract_path(Path(url2pathname(target_parts.path)), root)
                     # Load through the exact same bounded JSON reader used by validation.
                     if target_file not in documents:
                         documents[target_file] = load_local_json(target_uri, root)
@@ -64,7 +82,7 @@ def check_reference_closure(path, document, root=CONTRACTS):
                             raise ValueError("Invalid JSON Pointer escape")
                         key = key.replace("~1", "/").replace("~0", "~")
                         if isinstance(target, list):
-                            if not key.isdigit() or (len(key) > 1 and key.startswith("0")):
+                            if not key.isascii() or not key.isdigit() or (len(key) > 1 and key.startswith("0")):
                                 raise ValueError("Invalid array JSON Pointer")
                             target = target[int(key)]
                         else:
@@ -79,14 +97,17 @@ def check_reference_closure(path, document, root=CONTRACTS):
 
 
 def validate_document(path, document=None, root=CONTRACTS):
-    path, root = path.resolve(), root.resolve()
-    source = json.loads(path.read_text(encoding="utf-8")) if document is None else copy.deepcopy(document)
+    root = root.resolve()
+    path = contract_path(path, root)
+    source = strict_json_loads(path.read_text(encoding="utf-8")) if document is None else copy.deepcopy(document)
     if source.get("openapi") != "3.1.0":
         raise ValueError("This verifier explicitly targets OpenAPI 3.1.0")
     closure = check_reference_closure(path, source, root)
 
     def bounded_handler(uri):
         return load_local_json(uri, root)
+
+    from openapi_spec_validator import OpenAPIV31SpecValidator
 
     class LocalOnlyOpenAPIValidator(OpenAPIV31SpecValidator):
         resolver_handlers = {"file": bounded_handler}

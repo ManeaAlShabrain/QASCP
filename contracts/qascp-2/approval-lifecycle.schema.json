@@ -55,7 +55,10 @@
     },
     {
       "if": {"properties": {"record_type": {"const": "execution_result"}}},
-      "then": {"required": ["decision_id", "execution_id", "executor_workload_id", "outcome", "idempotency_key"]}
+      "then": {
+        "required": ["decision_id", "execution_id", "executor_workload_id", "outcome", "idempotency_key"],
+        "properties": {"outcome": {"enum": ["succeeded", "failed", "partial", "indeterminate"]}}
+      }
     },
     {
       "if": {"properties": {"record_type": {"const": "revocation"}}},
@@ -63,7 +66,10 @@
     },
     {
       "if": {"properties": {"record_type": {"const": "reconciliation"}}},
-      "then": {"required": ["decision_id", "execution_id", "executor_workload_id", "outcome", "remote_reference"]}
+      "then": {
+        "required": ["decision_id", "execution_id", "executor_workload_id", "outcome", "remote_reference"],
+        "properties": {"outcome": {"enum": ["reconciled_succeeded", "reconciled_failed"]}}
+      }
     }
   ]
 }

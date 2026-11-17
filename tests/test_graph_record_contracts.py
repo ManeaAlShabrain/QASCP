@@ -152,6 +152,32 @@ class GraphRecordContractTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "synthetic"):
             validate_fixture_set(self.data)
 
+    def test_source_claim_identity_cannot_create_two_lineages(self):
+        claim = copy.deepcopy(self.data["claims"][0])
+        transition = copy.deepcopy(self.data["transitions"][0])
+        claim["claim_id"] = "00000000-0000-4000-8000-000000000999"
+        transition.update(claim_id=claim["claim_id"],
+                          transition_id="00000000-0000-4000-8000-000000000998")
+        self.data["claims"].append(claim)
+        self.data["transitions"].append(transition)
+        with self.assertRaisesRegex(ValueError, "multiple lineages"):
+            validate_fixture_set(self.data)
+
+    def test_same_source_claim_is_allowed_in_distinct_namespaces(self):
+        for field in ("tenant_id", "connector_id"):
+            data = copy.deepcopy(self.data)
+            claim = copy.deepcopy(data["claims"][0])
+            transition = copy.deepcopy(data["transitions"][0])
+            value = "00000000-0000-4000-8000-000000000999"
+            claim[field] = transition[field] = value
+            claim["claim_id"] = "00000000-0000-4000-8000-000000000997"
+            transition.update(claim_id=claim["claim_id"],
+                              transition_id="00000000-0000-4000-8000-000000000998")
+            data["claims"].append(claim)
+            data["transitions"].append(transition)
+            with self.subTest(namespace=field):
+                self.assertEqual(validate_fixture_set(data)["claims"], 4)
+
 
 if __name__ == "__main__":
     unittest.main()

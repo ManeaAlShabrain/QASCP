@@ -218,6 +218,37 @@ class GraphBoundaryContractTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "synthetic"):
             self.page()
 
+    def test_duplicate_fixture_ids_are_rejected_before_collapse(self):
+        for collection in ("nodes", "edges"):
+            data = copy.deepcopy(self.fixture)
+            data[collection].append(copy.deepcopy(data[collection][0]))
+            with self.subTest(collection=collection), self.assertRaisesRegex(ValueError, "Duplicate fixture"):
+                fixture_page(data, self.query, NOW)
+
+    def test_hidden_invalid_fixture_edges_are_not_silently_ignored(self):
+        for mutation in ("endpoint", "pair", "interval"):
+            data = copy.deepcopy(self.fixture)
+            edge = data["edges"][0]
+            data["allowed_edge_ids"].remove(edge["id"])
+            if mutation == "endpoint":
+                edge["target_id"] = uid(999)
+            elif mutation == "pair":
+                edge["relation"] = "owns"
+            else:
+                edge["valid_to"] = edge["valid_from"]
+            with self.subTest(mutation=mutation), self.assertRaises(ValueError):
+                fixture_page(data, self.query, NOW)
+
+    def test_structural_checker_shares_strict_reference_policy(self):
+        original = json.loads((ROOT / "contracts/qascp-2/graph/openapi-0.2.json").read_text())
+        for ref in ("./neighborhood-page.schema.json#/required/-1",
+                    "./neighborhood-page.schema.json#/required/01",
+                    "https://example.invalid/schema.json"):
+            spec = copy.deepcopy(original)
+            spec["components"]["schemas"]["Probe"] = {"$ref": ref}
+            with self.subTest(ref=ref), self.assertRaises(ValueError):
+                check_openapi_structure(spec)
+
 
 if __name__ == "__main__":
     unittest.main()
