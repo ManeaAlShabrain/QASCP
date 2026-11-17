@@ -21,6 +21,9 @@ def uid(n):
 
 
 class GraphBoundaryContractTests(unittest.TestCase):
+    def api_spec(self):
+        return json.loads((ROOT / "contracts/qascp-2/graph/openapi-0.2.json").read_text(encoding="utf-8"))
+
     def setUp(self):
         self.fixture = json.loads(
             (ROOT / "tests/fixtures/graph-query-examples.json").read_text(encoding="utf-8")
@@ -248,6 +251,91 @@ class GraphBoundaryContractTests(unittest.TestCase):
             spec["components"]["schemas"]["Probe"] = {"$ref": ref}
             with self.subTest(ref=ref), self.assertRaises(ValueError):
                 check_openapi_structure(spec)
+
+    def test_all_http_methods_are_checked_with_valid_inherited_authority(self):
+        for method in ("get", "put", "patch", "delete", "head", "options", "trace"):
+            spec = self.api_spec()
+            responses = copy.deepcopy(spec["paths"]["/observations"]["post"]["responses"])
+            spec["paths"]["/observations"][method] = {
+                "operationId": "probe_" + method, "responses": responses}
+            with self.subTest(method=method):
+                self.assertEqual(check_openapi_structure(spec)["operations"], 5)
+
+    def test_previously_unchecked_methods_cannot_disable_security(self):
+        for method in ("head", "options", "trace"):
+            spec = self.api_spec()
+            spec["paths"]["/observations"][method] = {
+                "operationId": "probe_" + method, "security": [],
+                "responses": {"200": {"description": "probe"}}}
+            with self.subTest(method=method), self.assertRaisesRegex(ValueError, "Security override"):
+                check_openapi_structure(spec)
+
+        for surface in ("webhook", "callback", "path_ref"):
+            spec = self.api_spec()
+            anonymous = {"post": {"operationId": "anonymousSurface", "security": [],
+                                   "responses": {"200": {"description": "probe"}}}}
+            if surface == "webhook":
+                spec["webhooks"] = {"probe": anonymous}
+            elif surface == "callback":
+                spec["paths"]["/observations"]["post"]["callbacks"] = {
+                    "probe": {"https://example.invalid/callback": anonymous}}
+            else:
+                spec["components"]["pathItems"] = {"Probe": anonymous}
+                spec["paths"]["/observations"]["$ref"] = "#/components/pathItems/Probe"
+            with self.subTest(surface=surface), self.assertRaisesRegex(ValueError, "Unreviewed"):
+                check_openapi_structure(spec)
+
+    def test_bearer_scheme_cannot_be_replaced_or_downgraded(self):
+        for scheme in ({"type": "apiKey", "in": "query", "name": "token"},
+                       {"type": "http", "scheme": "basic"},
+                       {"type": "http", "scheme": "bearer"}):
+            spec = self.api_spec()
+            spec["components"]["securitySchemes"]["oidcBearer"] = scheme
+            with self.subTest(scheme=scheme), self.assertRaisesRegex(ValueError, "scheme was weakened"):
+                check_openapi_structure(spec)
+
+    def test_tenant_selector_definition_is_checked_not_only_its_ref(self):
+        for field, value in (("required", False), ("name", "X-Other-ID"), ("in", "query"),
+                             ("schema", {"type": "string"}),
+                             ("schema", {"type": "integer", "format": "uuid"})):
+            spec = self.api_spec()
+            spec["components"]["parameters"]["TenantSelector"][field] = value
+            with self.subTest(field=field, value=value), self.assertRaisesRegex(ValueError, "definition was weakened"):
+                check_openapi_structure(spec)
+
+    def test_operation_tenant_override_and_parameter_alias_cycles_are_rejected(self):
+        for mutation in ("inline", "alias", "cycle"):
+            spec = self.api_spec()
+            override = copy.deepcopy(spec["components"]["parameters"]["TenantSelector"])
+            override.update(name="x-tenant-id", required=False)
+            parameter = override
+            if mutation == "alias":
+                spec["components"]["parameters"]["Alias"] = override
+                parameter = {"$ref": "#/components/parameters/Alias"}
+            elif mutation == "cycle":
+                parameter = {"$ref": "#/components/parameters/Loop"}
+                spec["components"]["parameters"]["Loop"] = parameter
+            spec["paths"]["/observations"]["post"]["parameters"] = [parameter]
+            with self.subTest(mutation=mutation), self.assertRaises(ValueError):
+                check_openapi_structure(spec)
+
+    def test_standards_valid_contract_can_still_violate_security_policy(self):
+        from scripts.verify_openapi_contracts import DOCUMENTS, validate_document
+        for mutation in ("method", "scheme", "tenant"):
+            spec = self.api_spec()
+            if mutation == "method":
+                spec["paths"]["/observations"]["head"] = {
+                    "operationId": "anonymousHead", "security": [],
+                    "responses": {"200": {"description": "probe"}}}
+            elif mutation == "scheme":
+                spec["components"]["securitySchemes"]["oidcBearer"] = {
+                    "type": "apiKey", "in": "query", "name": "token"}
+            else:
+                spec["components"]["parameters"]["TenantSelector"]["required"] = False
+            with self.subTest(mutation=mutation):
+                validate_document(DOCUMENTS[1], spec)
+                with self.assertRaises(ValueError):
+                    check_openapi_structure(spec)
 
 
 if __name__ == "__main__":
