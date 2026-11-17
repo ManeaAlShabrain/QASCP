@@ -4,6 +4,8 @@
 
 QASCP is a unified cybersecurity, AI security, and continuous assurance platform for Qatar's financial sector. This handbook governs design, implementation, verification, and release. The English and Arabic editions carry the same requirements. MUST and MUST NOT are binding project requirements once this baseline is adopted. If a translation is ambiguous or conflicts with the other edition, block the affected acceptance decision until both texts are reconciled in one pull request.
 
+Translation clarification candidate, 2026-11-17: SEC-004 workload terminology and ENG-003 patch terminology are aligned in both editions within proposed baseline 1.0. Independent bilingual/security review and baseline adoption remain pending; no phase decision is recorded here.
+
 ## Using this handbook
 
 Start with the [verification record](../verification/README.md) to identify the active phase. Read the [P1 architecture](../architecture/P1_ARCHITECTURE.md) for design decisions and trust boundaries, the [source register](REGULATORY_SOURCES.md) for authority and applicability, and [verification procedures and records](../verification/PROCEDURES.md) for evidence and approvals. Every applicable requirement links to a verification ID in the [verification register](../verification/requirements.json). The verification ID identifies the evidence to collect at the named phase. Requirements spanning phases must also be tested as relevant earlier components are delivered.
@@ -38,7 +40,7 @@ Carry `tenant_id` into search indexes, object metadata and authorization, caches
 
 ### QASCP-SEC-004 — Identity and sensitive data
 
-Enforce default-deny authorization, least privilege, separate user and workload roles, and access reviews for privileged duties. Minimize and classify data. Encrypt sensitive data in transit and at rest, keep secrets outside code and logs, and verify rotation and revocation. Record processing purpose, storage location, retention, deletion, and authorized access. Development and CI use approved synthetic fixtures only. These fixtures are kept out of production data paths.
+Enforce default-deny authorization, least privilege, separation of user roles from workload roles (including services, connectors, workers and scheduled jobs), and access reviews for privileged duties. Minimize and classify data. Encrypt sensitive data in transit and at rest, keep secrets outside code and logs, and verify rotation and revocation. Record processing purpose, storage location, retention, deletion, and authorized access. Development and CI use approved synthetic fixtures only. These fixtures are kept out of production data paths.
 
 ### QASCP-SEC-005 — Audit integrity
 
@@ -62,7 +64,7 @@ Test at the real entry point and with real component dependencies when the behav
 
 ### QASCP-ENG-003 — Software supply chain and build integrity
 
-Review dependency provenance, licenses, and maintenance risks. Pin controlled build and CI inputs, protect secrets, restrict CI privileges, and retain the software bill of materials for deliverable artifacts. Scan dependencies and images where present. Bind release review to an immutable, identifiable artifact built from the tested commit. A different artifact requires its own verification. Record risks from unpatched dependencies and the mitigation owner.
+Review dependency provenance, licenses, and maintenance risks. Pin controlled build and CI inputs, protect secrets, restrict CI privileges, and retain the software bill of materials for deliverable artifacts. Scan dependencies and images where present. Bind release review to an immutable, identifiable artifact built from the tested commit. A different artifact requires its own verification. Record risks from unpatched dependencies and the mitigation owner; patch status is distinct from release recency.
 
 ### QASCP-OPS-001 — Release, recovery, and incident handling
 
