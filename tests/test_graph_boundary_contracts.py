@@ -270,6 +270,21 @@ class GraphBoundaryContractTests(unittest.TestCase):
             with self.subTest(method=method), self.assertRaisesRegex(ValueError, "Security override"):
                 check_openapi_structure(spec)
 
+        for surface in ("webhook", "callback", "path_ref"):
+            spec = self.api_spec()
+            anonymous = {"post": {"operationId": "anonymousSurface", "security": [],
+                                   "responses": {"200": {"description": "probe"}}}}
+            if surface == "webhook":
+                spec["webhooks"] = {"probe": anonymous}
+            elif surface == "callback":
+                spec["paths"]["/observations"]["post"]["callbacks"] = {
+                    "probe": {"https://example.invalid/callback": anonymous}}
+            else:
+                spec["components"]["pathItems"] = {"Probe": anonymous}
+                spec["paths"]["/observations"]["$ref"] = "#/components/pathItems/Probe"
+            with self.subTest(surface=surface), self.assertRaisesRegex(ValueError, "Unreviewed"):
+                check_openapi_structure(spec)
+
     def test_bearer_scheme_cannot_be_replaced_or_downgraded(self):
         for scheme in ({"type": "apiKey", "in": "query", "name": "token"},
                        {"type": "http", "scheme": "basic"},

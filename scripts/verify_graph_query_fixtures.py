@@ -249,6 +249,8 @@ def check_openapi_structure(document=None):
             or spec.get("security") != [{"oidcBearer": []}]):
         raise ValueError("Invalid API version or bearer security")
     components = spec.get("components", {})
+    if spec.get("webhooks") or components.get("callbacks"):
+        raise ValueError("Unreviewed webhook or callback surface")
     bearer = components.get("securitySchemes", {}).get("oidcBearer", {})
     if (bearer.get("type") != "http" or bearer.get("scheme", "").lower() != "bearer"
             or bearer.get("bearerFormat") != "JWT"):
@@ -262,12 +264,16 @@ def check_openapi_structure(document=None):
         raise ValueError("Tenant selector definition was weakened")
     operations = set()
     for path, path_item in spec["paths"].items():
+        if "$ref" in path_item:
+            raise ValueError("Unreviewed referenced path surface")
         if path_item.get("parameters") != [{"$ref": "#/components/parameters/TenantSelector"}]:
             raise ValueError("Missing trusted tenant selector")
         for method in ("get", "post", "put", "patch", "delete", "head", "options", "trace"):
             if method not in path_item:
                 continue
             operation = path_item[method]
+            if operation.get("callbacks"):
+                raise ValueError("Unreviewed callback surface")
             if "security" in operation or operation.get("operationId") in operations:
                 raise ValueError("Security override or duplicate operation ID")
             if not operation.get("operationId"):
