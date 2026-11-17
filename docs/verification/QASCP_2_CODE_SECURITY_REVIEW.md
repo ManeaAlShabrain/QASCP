@@ -46,3 +46,17 @@ Independent architecture/security and bilingual/regulatory reviewers, actual thr
 هذه مراجعة من المنفّذ لنسخة P1؛ لا توجد خدمة مصرفية تشغيلية في الكود لتدقيقها. نجاح الفحوص لا يثبت العزل أو المصادقة أو تنفيذ إجراءات إنتاجية، ولا يغني عن المراجعة المستقلة أو حماية الدمج أو قرار اعتماد المرحلة.
 
 Local preparation: Windows/Python 3.14.4 foundation exited 0. Full unittest discovery exited 1: 25 entries, 19 passed, five missing-validator module imports and WinError 1314 symlink privilege error; no skips. Original-base missing-backlog KeyError and duplicate-key last-value behavior were reproduced separately. Fresh candidate Linux results are required in the PR.
+
+## CR-07 follow-up: semantic API security regressions
+
+Prepared 2026-11-17 against main e253b9e3d2ebaff33fd99b1244ce9793e4769d2c after merged PR #34. The isolated baseline matched all 67 Git blobs. The follow-up changes only the custom graph OpenAPI checker, its existing regression module and this report; no public API contract or application feature is added.
+
+Code inspection found three ways a standards-valid edited specification could evade intended QASCP policy checks: HEAD/OPTIONS/TRACE operations were not inspected for security overrides; the oidcBearer component could be replaced by a query API key; and TenantSelector could become optional while retaining its expected reference name. Operation-level header overrides, including local aliases and case variations, could also weaken the inherited tenant selector. These are static acceptance gaps, not evidence that an anonymous banking endpoint was deployed.
+
+The checker now covers all eight OpenAPI HTTP operation methods, checks the actual HTTP Bearer/JWT scheme and required UUID tenant-header definition, and rejects per-operation tenant-header overrides. Local parameter aliases are resolved with cycle/missing-reference rejection; external aliases require a separately reviewed policy change. Header-name comparison catches case variations. Descriptive bearerFormat metadata is checked for contract consistency and is not treated as cryptographic token validation.
+
+Six new regression methods include valid inherited-authority operations for all methods, negative scheme/selector/method cases, aliases/cycles and three real full-OpenAPI-validation positive controls: each weakened document remains standards-valid but must fail QASCP-specific policy. The actual two versioned documents still require their full validators and the entire cumulative suite. The PR binds fresh results to the candidate; older runs do not validate this follow-up.
+
+Independent review of the custom checker remains required. Runtime OIDC issuer/audience/signature/expiry, membership and resource policy checks belong to the authorized P2 implementation. Main protection, regulatory decisions and phase exit are unchanged. P1 remains active and the owner must be notified/review its completion before P2 starts.
+
+بالعربية: أُغلقت فجوة إضافية في سياسة فحص API: شمول جميع طرق HTTP، وفحص تعريف Bearer ومحدد المؤسسة الفعلي، ومنع تجاوز المحدد عبر معاملات العملية أو أسمائها البديلة. تختبر الحزمة عقودًا صحيحة بنيويًا لكنها تخالف سياسة الأمان؛ ولا تدّعي وجود مصادقة أو خدمة تشغيلية منفذة.
