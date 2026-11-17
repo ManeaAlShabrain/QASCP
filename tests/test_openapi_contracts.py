@@ -3,6 +3,7 @@
 import copy
 import json
 import unittest
+import tempfile
 from pathlib import Path
 from unittest.mock import patch
 
@@ -95,6 +96,41 @@ class OpenAPIContractTests(unittest.TestCase):
         self.spec["openapi"] = "3.0.3"
         with self.assertRaisesRegex(ValueError, "3.1.0"):
             validate_document(self.path, self.spec)
+
+    def test_outside_document_is_rejected_before_any_file_read(self):
+        for document in (None, self.spec):
+            with self.subTest(document=document is None), \
+                 patch.object(Path, "read_text", side_effect=AssertionError("Outside read")), \
+                 self.assertRaises(ValueError):
+                validate_document(ROOT / "outside.json", document)
+
+    def test_encoded_network_file_path_rejected_before_resolution(self):
+        for uri in ("file:///%5c%5chost/share/x.json", "file:///%2fhost/share/x.json"):
+            with self.subTest(uri=uri), \
+                 patch.object(Path, "resolve", side_effect=AssertionError("Network resolution")), \
+                 self.assertRaises(ValueError):
+                load_local_json(uri)
+
+    def test_json_pointer_indices_and_empty_keys(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            path = root / "spec.json"
+            for ref in ("#/arr/-1", "#/arr/01", "#/arr/\u0661", "#/bad~2"):
+                spec = {"arr": [1, 2], "$ref": ref}
+                with self.subTest(ref=ref), self.assertRaises(ValueError):
+                    check_reference_closure(path, spec, root)
+            for ref in ("#/arr/0/", "#/", "#/key~1"):
+                spec = {"arr": [{"": 7}], "": 1, "key/": 2, "$ref": ref}
+                with self.subTest(ref=ref):
+                    self.assertEqual(check_reference_closure(path, spec, root)["references"], 1)
+
+    def test_local_json_reader_rejects_duplicate_keys(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            path = root / "ambiguous.json"
+            path.write_text('{"security":[],"security":[{}]}', encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "Duplicate JSON"):
+                load_local_json(path.as_uri(), root)
 
 
 if __name__ == "__main__":

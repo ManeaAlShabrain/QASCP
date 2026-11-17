@@ -8,7 +8,10 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from scripts.verify_foundation import HANDBOOKS, REGISTER, REQUIRED_FILES, ROOT, verify_foundation
+from scripts.verify_foundation import (
+    HANDBOOKS, REGISTER, REQUIRED_FILES, ROOT, PRODUCT_BACKLOG,
+    PRODUCT_REQUIREMENTS, strict_json_loads, verify_foundation,
+)
 
 
 class FoundationVerifierTests(unittest.TestCase):
@@ -32,6 +35,38 @@ class FoundationVerifierTests(unittest.TestCase):
 
     def test_valid_repository(self):
         self.assertEqual(verify_foundation(self.root), [])
+
+    def test_missing_product_documents_report_failure_without_traceback(self):
+        for name in (PRODUCT_BACKLOG, PRODUCT_REQUIREMENTS):
+            path = self.root / name
+            original = path.read_bytes()
+            for payload in (None, b"", b"\xff"):
+                with self.subTest(name=name, payload=payload):
+                    if payload is None:
+                        path.unlink()
+                    else:
+                        path.write_bytes(payload)
+                    result = subprocess.run(
+                        [sys.executable, str(self.root / "scripts/verify_foundation.py")],
+                        capture_output=True, text=True, check=False)
+                    self.assertEqual(result.returncode, 1)
+                    self.assertIn(name, result.stdout)
+                    self.assertNotIn("Traceback", result.stderr)
+                    path.write_bytes(original)
+
+    def test_ambiguous_and_nonfinite_json_are_rejected(self):
+        for payload in ('{"a":1,"a":2}', '{"nested":{"x":1,"x":2}}',
+                        '{"n":NaN}', '{"n":Infinity}', '{"n":1e999}'):
+            with self.subTest(payload=payload), self.assertRaises(ValueError):
+                strict_json_loads(payload)
+        self.assertEqual(strict_json_loads('{"a":1.5,"b":[true,null]}'),
+                         {"a": 1.5, "b": [True, None]})
+
+    def test_invalid_contract_json_is_rejected_by_foundation(self):
+        name = "contracts/qascp-2/observation.schema.json"
+        for payload in ('{"type":"object","type":"string"}', '{"x":NaN}', '{'):
+            (self.root / name).write_text(payload, encoding="utf-8")
+            self.assert_rejected(name + ": invalid JSON")
 
     def test_missing_language(self):
         (self.root / HANDBOOKS[1]).unlink()

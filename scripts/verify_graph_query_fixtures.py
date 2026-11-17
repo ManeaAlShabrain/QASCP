@@ -5,11 +5,17 @@ import hashlib
 import json
 from datetime import datetime
 from pathlib import Path
-from urllib.parse import unquote, urlsplit
 from uuid import UUID
 import re
 
 from jsonschema import Draft202012Validator, FormatChecker
+
+if __package__:
+    from .verify_foundation import strict_json_loads
+    from .verify_openapi_contracts import check_reference_closure
+else:
+    from verify_foundation import strict_json_loads
+    from verify_openapi_contracts import check_reference_closure
 
 ROOT = Path(__file__).resolve().parents[1]
 FOLDER = ROOT / "contracts/qascp-2/graph"
@@ -23,7 +29,7 @@ PAIRS = {
 
 
 def validate(name, value):
-    schema = json.loads((FOLDER / name).read_text(encoding="utf-8"))
+    schema = strict_json_loads((FOLDER / name).read_text(encoding="utf-8"))
     Draft202012Validator.check_schema(schema)
     Draft202012Validator(schema, format_checker=FormatChecker()).validate(value)
 
@@ -99,10 +105,42 @@ def validate_page(page):
         raise ValueError("Invalid snapshot expiry")
 
 
+def validate_fixture_graph(fixture):
+    """Reject contradictory source fixtures before filtering or dictionary collapse."""
+    schema = strict_json_loads((FOLDER / "neighborhood-page.schema.json").read_text(encoding="utf-8"))
+    collections = {}
+    for field, kind in (("nodes", "node"), ("edges", "edge")):
+        validator = Draft202012Validator(
+            {"$defs": schema["$defs"], "$ref": "#/$defs/" + kind},
+            format_checker=FormatChecker())
+        records = {}
+        for record in fixture[field]:
+            validator.validate(record)
+            if record["id"] in records:
+                raise ValueError("Duplicate fixture " + kind + " ID")
+            records[record["id"]] = record
+        collections[field] = records
+    for field, records in (("allowed_node_ids", collections["nodes"]),
+                           ("allowed_edge_ids", collections["edges"])):
+        values = fixture[field]
+        if len(values) != len(set(values)) or not set(values).issubset(records):
+            raise ValueError("Invalid fixture visibility set")
+    for edge in collections["edges"].values():
+        nodes = collections["nodes"]
+        if edge["source_id"] not in nodes or edge["target_id"] not in nodes:
+            raise ValueError("Dangling fixture endpoint")
+        pair = (nodes[edge["source_id"]]["kind"], nodes[edge["target_id"]]["kind"])
+        if pair not in PAIRS[edge["relation"]]:
+            raise ValueError("Prohibited fixture relation type pair")
+        if "valid_to" in edge and instant(edge["valid_to"]) <= instant(edge["valid_from"]):
+            raise ValueError("Invalid fixture edge interval")
+
+
 def fixture_page(fixture, query, now, cursor=None):
     """Model policy-filter-before-expansion; permissions are fixture inputs, not trusted auth."""
     if fixture.get("synthetic") is not True or fixture.get("fixture_version") != "0.2":
         raise ValueError("Only synthetic fixtures are supported")
+    validate_fixture_graph(fixture)
     normalized = normalize_query(query, fixture)
     snapshot = fixture["snapshot"]
     if instant(now) >= instant(snapshot["expires_at"]):
@@ -185,11 +223,11 @@ def fixture_page(fixture, query, now, cursor=None):
 def check_openapi_structure(document=None):
     """QASCP-specific static checks, not a full OpenAPI specification validator."""
     start = FOLDER / "openapi-0.2.json"
-    spec = document if document is not None else json.loads(start.read_text(encoding="utf-8"))
+    spec = document if document is not None else strict_json_loads(start.read_text(encoding="utf-8"))
     if (spec.get("openapi") != "3.1.0" or spec.get("info", {}).get("version") != "0.2.0"
             or spec.get("security") != [{"oidcBearer": []}]):
         raise ValueError("Invalid API version or bearer security")
-    operations, count = set(), 0
+    operations = set()
     for path, path_item in spec["paths"].items():
         if path_item.get("parameters") != [{"$ref": "#/components/parameters/TenantSelector"}]:
             raise ValueError("Missing trusted tenant selector")
@@ -215,42 +253,13 @@ def check_openapi_structure(document=None):
                     raise ValueError("Invalid import body binding")
     for value in spec.get("components", {}).get("schemas", {}).values():
         Draft202012Validator.check_schema(value)
-    documents, queue = {start.resolve(): spec}, [start.resolve()]
-    base = (ROOT / "contracts").resolve()
-    while queue:
-        filename = queue.pop()
-        def visit(value):
-            nonlocal count
-            if isinstance(value, dict):
-                if "$ref" in value:
-                    count += 1
-                    parts = urlsplit(value["$ref"])
-                    if parts.scheme or parts.netloc or parts.query:
-                        raise ValueError("Remote references are not permitted")
-                    target_file = (filename.parent / unquote(parts.path)).resolve() if parts.path else filename
-                    if not target_file.is_relative_to(base):
-                        raise ValueError("Reference leaves contract root")
-                    if target_file not in documents:
-                        documents[target_file] = json.loads(target_file.read_text(encoding="utf-8"))
-                        queue.append(target_file)
-                    target = documents[target_file]
-                    pointer = unquote(parts.fragment)
-                    if pointer and not pointer.startswith("/"):
-                        raise ValueError("Only local JSON pointers are supported here")
-                    for key in pointer.strip("/").split("/") if pointer else []:
-                        key = key.replace("~1", "/").replace("~0", "~")
-                        target = target[int(key)] if isinstance(target, list) else target[key]
-                for child in value.values():
-                    visit(child)
-            elif isinstance(value, list):
-                for child in value:
-                    visit(child)
-        visit(documents[filename])
-    return {"operations": len(operations), "references": count, "documents": len(documents)}
+    closure = check_reference_closure(start, spec, ROOT / "contracts")
+    return {"operations": len(operations), **closure}
+
 
 
 if __name__ == "__main__":
-    fixture = json.loads((ROOT / "tests/fixtures/graph-query-examples.json").read_text())
+    fixture = strict_json_loads((ROOT / "tests/fixtures/graph-query-examples.json").read_text(encoding="utf-8"))
     result = fixture_page(fixture, {"node_id": fixture["nodes"][0]["id"], "depth": 2},
                           "2026-11-16T10:01:00Z")
     print(json.dumps({"visible_nodes": len(result["page"]["nodes"]),
