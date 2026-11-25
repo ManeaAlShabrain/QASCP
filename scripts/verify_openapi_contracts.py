@@ -8,8 +8,10 @@ from urllib.request import url2pathname
 
 if __package__:
     from .verify_foundation import strict_json_loads
+    from .verify_openapi_policy import check_openapi_policy
 else:
     from verify_foundation import strict_json_loads
+    from verify_openapi_policy import check_openapi_policy
 
 ROOT = Path(__file__).resolve().parents[1]
 CONTRACTS = (ROOT / "contracts").resolve()
@@ -118,7 +120,14 @@ def validate_document(path, document=None, root=CONTRACTS):
 
 
 def validate_all_documents():
-    return [validate_document(path) for path in DOCUMENTS]
+    """Check specification validity and QASCP policy on the same input snapshot."""
+    results = []
+    for path in DOCUMENTS:
+        source = strict_json_loads(contract_path(path).read_text(encoding="utf-8"))
+        result = validate_document(path, source)
+        result["policy_operations"] = check_openapi_policy(source)["operations"]
+        results.append(result)
+    return results
 
 
 if __name__ == "__main__":

@@ -4,6 +4,12 @@ Current active stage: **P1 — Product and architecture foundation**
 
 Decision: **Pending review**
 
+Latest inspected baseline: **f9df7a30747aba111ee7df0afe209fd613cae869**.
+See the [2026-11-25 review and resumption record](QASCP_2_P1_REVIEW_2026-11-25.md)
+for the public organization repository, active main ruleset and remaining
+enforcement/reviewer evidence. The local CR-08 candidate has not completed
+required validation or publication; this entry is not phase approval.
+
 Read the [English handbook](../governance/ENGINEERING_GOVERNANCE.md) or [الدليل العربي](../governance/ENGINEERING_GOVERNANCE.ar.md), then follow the [verification procedures](PROCEDURES.md) and [requirements register](requirements.json).
 
 | Evidence ID | Evidence for the P1 review |

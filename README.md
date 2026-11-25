@@ -16,6 +16,7 @@ The proposed enterprise-banking scope connects 24 security domains through a sec
 - [Security Knowledge Graph plan and diagrams](docs/architecture/QASCP_2_GRAPH_PLAN.md)
 - [Graph boundary contracts and validation](docs/architecture/QASCP_2_GRAPH_BOUNDARY.md)
 - [Consolidated P1 human-review package](docs/verification/QASCP_2_P1_REVIEW_PACKAGE.md)
+- [Current repository review and resumption — 2026-11-25](docs/verification/QASCP_2_P1_REVIEW_2026-11-25.md)
 - [Arabic continuity record and next steps](docs/product/QASCP_2_CONTINUITY_AR.md)
 - [Threat and design-risk register](docs/architecture/QASCP_2_THREATS.md)
 - [Document authority and supersession matrix](docs/architecture/QASCP_2_SUPERSESSION.md)
@@ -45,7 +46,7 @@ python3 scripts/verify_foundation.py
 python3 -m unittest discover -s tests -v
 ```
 
-When initializing a new GitHub repository, select **Private**. Run the workflow on the default branch, then protect that branch with pull requests and the **QASCP Foundation Gate** required check on a plan that supports these rules for private repositories. Keep bypass access limited in accordance with the repository's governance. Treat workflow and gate changes as sensitive code review items.
+The current repository is public under **ManeaAlShabrain/QASCP**, following the owner's visibility and organization changes. The latest [review and resumption record](docs/verification/QASCP_2_P1_REVIEW_2026-11-25.md) distinguishes the inspected active main ruleset from the still-missing controlled merge-block test. Required PRs and the **QASCP Foundation Gate** from GitHub Actions remain mandatory. Keep customer data and secrets outside public history, discussions, logs and fixtures. Before any later visibility or ownership change, assess disclosure, plan support, integration access and effective rules. Treat workflow and gate changes as sensitive code review items.
 
 To validate the GitHub rule once active, open a temporary PR containing a broken required documentation link, confirm the required check fails and blocks the merge, then repair the PR and confirm the check passes. Close the test PR. Record the real run links in the stage verification record.
 
