@@ -1,0 +1,53 @@
+{
+  "reviewed_branch": "main",
+  "reviewed_sha": "4592eb230fadebb828c8b7d3b7972c6bd1aec012",
+  "reviewed_source_tree": "fc11762be16b4b69bd6e1ebbd2fb1b9ba7c69a7f",
+  "report_branch": "review/p1-ai-audit-20261125-4592eb230fad",
+  "report_commit": "2fbf488725e8271c9ed888faf4cc9765ce0e47b7",
+  "report_tree": "3ae6e657e63e91c58c5a69e7a9a7c4b9ca05d6d2",
+  "review_pr_url": "https://github.com/ManeaAlShabrain/QASCP/pull/43",
+  "review_pr_number": 43,
+  "draft_at_creation": true,
+  "created_at": "2026-11-25T19:36:28Z",
+  "account": "ManeaAl-Shabrain",
+  "independent_human_account": false,
+  "source_files_modified": 0,
+  "initial_report_files_added": 33,
+  "core_reports": 17,
+  "initial_evidence_files": 16,
+  "requirements_matrix_rows": 36,
+  "findings": 9,
+  "severity_counts": {
+    "critical": 0,
+    "high": 3,
+    "medium": 2,
+    "low": 3,
+    "informational": 1
+  },
+  "new_issue_urls": [
+    "https://github.com/ManeaAlShabrain/QASCP/issues/40",
+    "https://github.com/ManeaAlShabrain/QASCP/issues/41",
+    "https://github.com/ManeaAlShabrain/QASCP/issues/42"
+  ],
+  "existing_issue_references": [
+    14,
+    15,
+    16,
+    17,
+    32
+  ],
+  "inline_review_url": "https://github.com/ManeaAlShabrain/QASCP/pull/38#pullrequestreview-6063702368",
+  "inline_comment_url": "https://github.com/ManeaAlShabrain/QASCP/pull/38#discussion_r4699827512",
+  "verification": {
+    "all_73_source_blobs_preserved": true,
+    "all_33_report_blobs_match_prepared_local_files": true,
+    "internal_report_links_valid": true,
+    "source_linux_ci_run": "https://github.com/ManeaAlShabrain/QASCP/actions/runs/45680438066",
+    "report_branch_ci": "Not Verified at initial publication; source CI retained independently. The PR shows fresh publication checks."
+  },
+  "technical_readiness": "Blocked",
+  "technical_exit_recommendation": "REJECTED",
+  "formal_governance_approval": "Pending / Not Granted",
+  "auto_merge_enabled": false,
+  "merge_performed": false
+}
