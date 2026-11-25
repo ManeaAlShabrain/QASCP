@@ -4,7 +4,16 @@ Current active stage: **P1 — Product and architecture foundation**
 
 Decision: **Pending review**
 
-Latest inspected baseline: **ea2fd32c9f3d21f6635ea3b17a02ae74cfe160d3**.
+Latest remediation baseline: **cc04fa6e82f0b53d75fd5d08e1a36f11fba5c4d2**.
+The merged independent [audit #43](https://github.com/ManeaAlShabrain/QASCP/blob/cc04fa6e82f0b53d75fd5d08e1a36f11fba5c4d2/docs/verification/reviews/P1/2026-11-25-4592eb230fad/01-EXECUTIVE-SUMMARY.md)
+rejected exit for reviewed 4592eb230fadebb828c8b7d3b7972c6bd1aec012 (72.95/100).
+The [corrective-action/re-audit package](remediation/P1-2026-11-25/README.md)
+tracks QAR-001..009, all 36 requirement rows, actual checks and pending decisions.
+[PR #44](https://github.com/ManeaAlShabrain/QASCP/pull/44) is technical remediation;
+[PR #45](https://github.com/ManeaAlShabrain/QASCP/pull/45) proposes governance only,
+without adopting it. No finding is independently verified fixed or phase approved.
+
+Historical delivery baseline: **ea2fd32c9f3d21f6635ea3b17a02ae74cfe160d3**.
 The [P1 delivery and acceptance packet](QASCP_2_P1_DELIVERY_PACKET.md)
 maps all eight deliverable categories and V2-P1-01..05 to evidence and actual
 remaining reviewer/owner decisions. Baseline main [Actions 45677821487](https://github.com/ManeaAlShabrain/QASCP/actions/runs/45677821487)

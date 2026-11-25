@@ -311,7 +311,7 @@
       ],
       "post": {
         "operationId": "importResource",
-        "description": "Requires inventory:import and a tenant-bound registered integration. Maximum 1 MiB UTF-8 JSON body. Same tenant/connector/command_id key is shared across both import families. The server hashes exact received entity bytes before parsing. Replays require current permission. 201 commits intake/audit/outbox and does not promise graph projection. Expected-version and entity constraints are checked by the authorized domain transaction.",
+        "description": "Requires inventory:import and a tenant-bound registered integration. Maximum 1 MiB UTF-8 JSON body. Same tenant/connector/command_id key is shared across both import families. The server hashes exact received entity bytes before parsing. Replays require current permission. 201 commits the authorized domain mutation, command receipt, audit and outbox in T2 and does not promise graph projection. Expected-version and entity constraints are checked by the authorized domain transaction.",
         "requestBody": {
           "required": true,
           "content": {
@@ -324,7 +324,7 @@
         },
         "responses": {
           "201": {
-            "description": "New logical observation",
+            "description": "New import command durably accepted; projection state is reported separately.",
             "content": {
               "application/json": {
                 "schema": {
@@ -334,7 +334,7 @@
             }
           },
           "200": {
-            "description": "Identical replay; previous observation ID",
+            "description": "Identical command replay; previous command receipt.",
             "content": {
               "application/json": {
                 "schema": {
@@ -444,7 +444,7 @@
       ],
       "post": {
         "operationId": "importRelationship",
-        "description": "Requires graph:claims:import and a tenant-bound registered integration. Maximum 1 MiB UTF-8 JSON body. Same tenant/connector/command_id key is shared across both import families. The server hashes exact received entity bytes before parsing. Replays require current permission. 201 commits intake/audit/outbox and does not promise graph projection. Expected-version and entity constraints are checked by the authorized domain transaction.",
+        "description": "Requires graph:claims:import and a tenant-bound registered integration. Maximum 1 MiB UTF-8 JSON body. Same tenant/connector/command_id key is shared across both import families. The server hashes exact received entity bytes before parsing. Replays require current permission. 201 commits the authorized domain mutation, command receipt, audit and outbox in T2 and does not promise graph projection. Expected-version and entity constraints are checked by the authorized domain transaction.",
         "requestBody": {
           "required": true,
           "content": {
@@ -457,7 +457,7 @@
         },
         "responses": {
           "201": {
-            "description": "New logical observation",
+            "description": "New import command durably accepted; projection state is reported separately.",
             "content": {
               "application/json": {
                 "schema": {
@@ -467,7 +467,7 @@
             }
           },
           "200": {
-            "description": "Identical replay; previous observation ID",
+            "description": "Identical command replay; previous command receipt.",
             "content": {
               "application/json": {
                 "schema": {

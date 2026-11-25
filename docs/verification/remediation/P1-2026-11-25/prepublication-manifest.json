@@ -1,0 +1,174 @@
+{
+  "base_sha": "cc04fa6e82f0b53d75fd5d08e1a36f11fba5c4d2",
+  "changed_api_json_paths": [
+    "paths//imports/resources/post/description",
+    "paths//imports/resources/post/responses/201/description",
+    "paths//imports/resources/post/responses/200/description",
+    "paths//imports/relationships/post/description",
+    "paths//imports/relationships/post/responses/201/description",
+    "paths//imports/relationships/post/responses/200/description"
+  ],
+  "preserved_original_api_and_all_schemas": true,
+  "changed_files": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "sha256": "bc35381d03af8cc1f3db0c08f857bd1eb6ed77bda6029deabb9e71ce9d8af98e"
+    },
+    {
+      "path": "README.md",
+      "sha256": "236e09c55a3f669387dc6abadfcf33434f824f610b59aa5c4f84797a83b52804"
+    },
+    {
+      "path": "contracts/qascp-2/graph/openapi-0.2.json",
+      "sha256": "73750eab8a527b167ea80995e7b76caf5e707d3ed7cd4ef6b7a52b36c88c1ee2"
+    },
+    {
+      "path": "docs/architecture/P1_ARCHITECTURE_DECISION_REGISTER.md",
+      "sha256": "ee47ef30380011fec03880b3cf3d072fae900ebdbc93495fe742b933f42beff3"
+    },
+    {
+      "path": "docs/architecture/QASCP_2_BANK01_BLUEPRINT.ar.md",
+      "sha256": "b0c4f30a3209aa9793b24c091054ca2aadcf8a0fd1cf92ddb1a6b38658e7aa4d"
+    },
+    {
+      "path": "docs/governance/ENGINEERING_GOVERNANCE.ar.md",
+      "sha256": "ece0a5b8b39539e84ff4f7255866fc07b662e26075cc2e7ac5d515a5fc504aa4"
+    },
+    {
+      "path": "docs/governance/ENGINEERING_GOVERNANCE.md",
+      "sha256": "731cff662b9a7277a3d0f0dd361ffc665dd6ecab7f3d75eee289ac4ed887ebe7"
+    },
+    {
+      "path": "docs/governance/P1_RISK_OWNERSHIP.json",
+      "sha256": "6b5a3480bf8912df816c6a7a943abc125d2011ed16ffcbf2874085cd0e5699e9"
+    },
+    {
+      "path": "docs/governance/P1_RISK_OWNERSHIP.md",
+      "sha256": "b3495f20fbc7fa725509174088e705592694de583643e42c8902f90e5be2baca"
+    },
+    {
+      "path": "docs/product/P1_ACTIVE_ACCEPTANCE_REGISTER.md",
+      "sha256": "2274cf767b34864eb583fb0f769c58c6240fe8d55336eecea18407909935807a"
+    },
+    {
+      "path": "docs/product/QASCP_2_BACKLOG.md",
+      "sha256": "6b0c7249db23feca0868f94acadee6b69c7d24efb12b6467122fe84e9a856f57"
+    },
+    {
+      "path": "docs/verification/P1_BILINGUAL_REMEDIATION.md",
+      "sha256": "22ee269d8977ec24bf0731c037e28751b0481df6fa68da72940af47b13eaaf75"
+    },
+    {
+      "path": "docs/verification/P1_CI_REMEDIATION.md",
+      "sha256": "642b8a39cfe46bef48d672bce99d8c30191e18772bb111d26191b88eeebace3f"
+    },
+    {
+      "path": "docs/verification/P1_SUPPLY_CHAIN_REMEDIATION.md",
+      "sha256": "42c9e7421719639676eea0d944ba3689f981024a9fce0127e09c38ddc9cd0919"
+    },
+    {
+      "path": "docs/verification/P1_VALIDATION_SETUP.md",
+      "sha256": "1636f22f59adca9e6ea592109b39ae3f1137cd1cf1010a08146abb7549ab6af8"
+    },
+    {
+      "path": "docs/verification/PROCEDURES.md",
+      "sha256": "4b976d4d21b102f958527052716030620cfc982e0ab9819b1a3cba270b57fc31"
+    },
+    {
+      "path": "docs/verification/QASCP_2_P1_DELIVERY_PACKET.md",
+      "sha256": "e3860d300529c7ac82c9f44b51d20c85ce71f1371691ac5ddbfeaf0b166a8cf3"
+    },
+    {
+      "path": "docs/verification/README.md",
+      "sha256": "1003676193e76454373eb318b7d81746fb6f458de9d30f54d0049825f3df01e5"
+    },
+    {
+      "path": "docs/verification/remediation/P1-2026-11-25/CORRECTIVE_ACTION_REGISTER.json",
+      "sha256": "aad262242b5234418c39e109a57a2fc30eff76a43ba8e97e7d5169f47c5f15c7"
+    },
+    {
+      "path": "docs/verification/remediation/P1-2026-11-25/README.md",
+      "sha256": "4f1cc1a9fb09041b90effe1e9e1e83a41fb44083cb0193716f5135e9fe35072c"
+    },
+    {
+      "path": "docs/verification/remediation/P1-2026-11-25/REQUIREMENTS_RECHECK.md",
+      "sha256": "a183726b1be242b62f31fb25928443cf16b3f8d2e544b57950d70a1302a9b6bc"
+    },
+    {
+      "path": "docs/verification/remediation/P1-2026-11-25/checkout_regression-local.txt",
+      "sha256": "f967b8afb08de940c08af4766f27b129dce185806cb0d1dcabf68d54028509d2"
+    },
+    {
+      "path": "docs/verification/remediation/P1-2026-11-25/dependency-evidence.json",
+      "sha256": "3cd5be38fb25cd355241bc3e7019077abe2a992245f510c3d6c9b16a644e9afe"
+    },
+    {
+      "path": "docs/verification/remediation/P1-2026-11-25/foundation-local.txt",
+      "sha256": "c9644eb18d218a73f8495107917b3a6d059dd5712ee87b7d123c2d7b14d6d409"
+    },
+    {
+      "path": "docs/verification/remediation/P1-2026-11-25/local-results-initial.json",
+      "sha256": "8b5de4cb4f0d8861c917ca07696e07c6249c7a703c71c3da7543e8cfb7873ead"
+    },
+    {
+      "path": "docs/verification/remediation/P1-2026-11-25/local-results.json",
+      "sha256": "c1fab2a31e198aef241539eae2a11214166953f7e408769f681b64f2287fac7c"
+    },
+    {
+      "path": "docs/verification/remediation/P1-2026-11-25/lock-local.txt",
+      "sha256": "99426ff720f48392f81d8c9e101d8834a34087799820f13aa325f2d65fbb8a27"
+    },
+    {
+      "path": "docs/verification/remediation/P1-2026-11-25/lock_regression-local.txt",
+      "sha256": "a906b4333fdb99689fc50f5c8b021b1cdd3d28fa3e204ab916162223c33f8852"
+    },
+    {
+      "path": "docs/verification/remediation/P1-2026-11-25/openapi-local.txt",
+      "sha256": "21d3fcaa245042aecba3f42ee027207cd90bf1235c9de99ac2e675d24bd12195"
+    },
+    {
+      "path": "docs/verification/remediation/P1-2026-11-25/rule-and-tracker.json",
+      "sha256": "81d4548d45ab742dc465652c89c0d1784d13ced94f66232fa75b5625b6d4ccce"
+    },
+    {
+      "path": "docs/verification/remediation/P1-2026-11-25/unittest-local-initial.txt",
+      "sha256": "cf5b3fdea432c41c6dde1a8ac141b80d2da6f0392f624878ed8a21f7992a8611"
+    },
+    {
+      "path": "docs/verification/remediation/P1-2026-11-25/unittest-local.txt",
+      "sha256": "c514ef5914129ba49d28f416f129bdfa4b715d9fd925219a7ac3bd9801ca7c64"
+    },
+    {
+      "path": "docs/verification/remediation/P1-2026-11-25/validation-wheels.cdx.json",
+      "sha256": "c2b0b653be874fe81beac8c8759812fe57348642aca1c1585b1bb4aa80aeb601"
+    },
+    {
+      "path": "requirements-contracts-linux-cp314.lock",
+      "sha256": "ee21243cd8d413396c292544b9cb0d967ed69eb808aa0d424a073d1df86638cc"
+    },
+    {
+      "path": "scripts/capture_validation_dependencies.py",
+      "sha256": "e3505f77a2f67d5af5595160ac7668ddcc3beb942ce0ea1c8cfd18c01336e91d"
+    },
+    {
+      "path": "scripts/verify_checkout_auth.py",
+      "sha256": "334d1ca95f176cfdaa3ac243179996071dbe389fbeb9f57905fec09880954ad0"
+    },
+    {
+      "path": "scripts/verify_foundation.py",
+      "sha256": "588d4e8eeb835579df09f5c2c7267207347ed13fcc5cbe5a15834a28cfc19ac5"
+    },
+    {
+      "path": "scripts/verify_validation_lock.py",
+      "sha256": "26dab0464e854f341cc2689e51d087cefe40d36527fd087e1a7fc10b60cad392"
+    },
+    {
+      "path": "tests/test_checkout_auth.py",
+      "sha256": "8fac7c46130f3ccd2aa4515aaf27d19e04048e1cf348dd34345d4d3519c839ca"
+    },
+    {
+      "path": "tests/test_validation_lock.py",
+      "sha256": "b7535d06a0ed4a39cf421c538f2ab57bfa27f97c6ea6e6433c48be06b0ea001d"
+    }
+  ]
+}

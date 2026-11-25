@@ -1,0 +1,301 @@
+{
+  "date": "2026-11-25",
+  "audit_reviewed_sha": "4592eb230fadebb828c8b7d3b7972c6bd1aec012",
+  "remediation_base_sha": "cc04fa6e82f0b53d75fd5d08e1a36f11fba5c4d2",
+  "original_audit_status": "REJECTED / 72.95; unchanged",
+  "phase": "P1 / Pending review; P2 not authorized",
+  "actions": [
+    {
+      "finding_id": "QAR-001",
+      "root_cause": "Required actual reviewer and authorized phase-exit records absent",
+      "corrective_action": "Separate bilingual GCR-P1-001 and ADR-GOV-001 proposal; keep current policy and P1 gate intact; prepare re-audit handoff",
+      "preventive_action": "Explicit readiness classes, actual owner authority, separate attributable sessions and immutable decisions before future adoption",
+      "changed_files": [
+        "docs/architecture/ADR-GOV-001.md",
+        "docs/governance/proposals/GCR-P1-001.md",
+        "docs/governance/proposals/GCR-P1-001.ar.md"
+      ],
+      "requirements_reference": "Original 36-row RTM; see REQUIREMENTS_RECHECK.md and issue links",
+      "tests_executed": [
+        "python -B -m unittest discover -s tests -p test_checkout_auth.py -v (10 passed)",
+        "Actions 45690090809: clean venv/pip check/full APIs/shared policy/full unittest (106 passed)",
+        "python -B scripts/verify_validation_lock.py; test_validation_lock.py (1 passed)",
+        "Final cumulative candidate commands/results: see candidate-evidence.json and PR head checks"
+      ],
+      "actual_test_results": "Bootstrap hosted 106/106, no skips; local guard 10/10 and lock 1/1 pass. Final candidate and local cumulative outcomes recorded separately; no new full-pass claim from old run.",
+      "evidence": [
+        "README.md",
+        "REQUIREMENTS_RECHECK.md",
+        "dependency-evidence.json",
+        "https://github.com/ManeaAlShabrain/QASCP/actions/runs/45690090809"
+      ],
+      "pull_request_url": "https://github.com/ManeaAlShabrain/QASCP/pull/45",
+      "commit_sha": "7e9b11528f8250caefccd41ec6d554d0e9c81c02",
+      "commit_scope": "Immutable initial proposal/checkout correction only; final corrected tree bound after publication in candidate-evidence.json and PR body, avoiding self-referential commit identity",
+      "remaining_limitations": "Current human review and exit decision still missing; proposed model is not effective",
+      "owner_decision_required": "Approve/reject/revise exact governance proposal; arrange actual reviews required by effective policy; separately decide phase exit",
+      "remediation_status": "PARTIALLY REMEDIATED / OWNER DECISION REQUIRED",
+      "reviewer_verification_status": "NOT VERIFIED FIXED; independent disposition pending"
+    },
+    {
+      "finding_id": "QAR-002",
+      "root_cause": "Role placeholders never became actual risk assignments/residual decisions",
+      "corrective_action": "Complete 12-row machine-readable ownership/residual register with all requested fields and proposed internal owner; no signatures",
+      "preventive_action": "Require explicit scope, evidence and dated authority before recording assignment/acceptance; keep residual unknown until assessed",
+      "changed_files": [
+        "docs/governance/P1_RISK_OWNERSHIP.json",
+        "docs/governance/P1_RISK_OWNERSHIP.md"
+      ],
+      "requirements_reference": "Original 36-row RTM; see REQUIREMENTS_RECHECK.md and issue links",
+      "tests_executed": [
+        "python -B -m unittest discover -s tests -p test_checkout_auth.py -v (10 passed)",
+        "Actions 45690090809: clean venv/pip check/full APIs/shared policy/full unittest (106 passed)",
+        "python -B scripts/verify_validation_lock.py; test_validation_lock.py (1 passed)",
+        "Final cumulative candidate commands/results: see candidate-evidence.json and PR head checks"
+      ],
+      "actual_test_results": "Bootstrap hosted 106/106, no skips; local guard 10/10 and lock 1/1 pass. Final candidate and local cumulative outcomes recorded separately; no new full-pass claim from old run.",
+      "evidence": [
+        "README.md",
+        "REQUIREMENTS_RECHECK.md",
+        "dependency-evidence.json",
+        "https://github.com/ManeaAlShabrain/QASCP/actions/runs/45690090809"
+      ],
+      "pull_request_url": "https://github.com/ManeaAlShabrain/QASCP/pull/44",
+      "commit_sha": "1d6c14375e10581241919d71372469c0d16b3fa8",
+      "commit_scope": "Immutable initial proposal/checkout correction only; final corrected tree bound after publication in candidate-evidence.json and PR body, avoiding self-referential commit identity",
+      "remaining_limitations": "No actual assignment, residual assessment or risk acceptance supplied; enterprise/regulatory authority cannot be inferred",
+      "owner_decision_required": "Confirm/decline T01–T12 ownership; assess inherent and residual risk; record authority and reviewed disposition",
+      "remediation_status": "PARTIALLY REMEDIATED / OWNER DECISION REQUIRED",
+      "reviewer_verification_status": "NOT VERIFIED FIXED; independent disposition pending"
+    },
+    {
+      "finding_id": "QAR-003",
+      "root_cause": "Proposed design layers existed without adoption/compatibility/source-authority decisions",
+      "corrective_action": "20-row architecture decision register covering B06/G01–07, versions/receipts/source policy/collisions/registry/tenant/T1–T3/snapshots",
+      "preventive_action": "One explicit target and compatibility/source-policy disposition must precede implementation; preserve old strict contracts",
+      "changed_files": [
+        "docs/architecture/P1_ARCHITECTURE_DECISION_REGISTER.md"
+      ],
+      "requirements_reference": "Original 36-row RTM; see REQUIREMENTS_RECHECK.md and issue links",
+      "tests_executed": [
+        "python -B -m unittest discover -s tests -p test_checkout_auth.py -v (10 passed)",
+        "Actions 45690090809: clean venv/pip check/full APIs/shared policy/full unittest (106 passed)",
+        "python -B scripts/verify_validation_lock.py; test_validation_lock.py (1 passed)",
+        "Final cumulative candidate commands/results: see candidate-evidence.json and PR head checks"
+      ],
+      "actual_test_results": "Bootstrap hosted 106/106, no skips; local guard 10/10 and lock 1/1 pass. Final candidate and local cumulative outcomes recorded separately; no new full-pass claim from old run.",
+      "evidence": [
+        "README.md",
+        "REQUIREMENTS_RECHECK.md",
+        "dependency-evidence.json",
+        "https://github.com/ManeaAlShabrain/QASCP/actions/runs/45690090809"
+      ],
+      "pull_request_url": "https://github.com/ManeaAlShabrain/QASCP/pull/44",
+      "commit_sha": "1d6c14375e10581241919d71372469c0d16b3fa8",
+      "commit_scope": "Immutable initial proposal/checkout correction only; final corrected tree bound after publication in candidate-evidence.json and PR body, avoiding self-referential commit identity",
+      "remaining_limitations": "Recommendations are not adopted; both existing API proposals still use /api/v1 pending explicit version choice; no P2 implementation",
+      "owner_decision_required": "Decide AD01–AD20 with independent architecture/security review; especially API v2 recommendation and source precedence policy",
+      "remediation_status": "PARTIALLY REMEDIATED / OWNER DECISION REQUIRED",
+      "reviewer_verification_status": "NOT VERIFIED FIXED; independent disposition pending"
+    },
+    {
+      "finding_id": "QAR-004",
+      "root_cause": "Scoped git config query omitted included configuration; initial tests omitted include cases",
+      "corrective_action": "Shared CI script inspects direct/effective local names and rejects all include/includeIf/auth keys; generic failures/no values; real-Git regressions",
+      "preventive_action": "Retain matching conditional-include, inspection-error, timeout and nonsecret-output regressions at exact CI entry point",
+      "changed_files": [
+        "scripts/verify_checkout_auth.py",
+        "tests/test_checkout_auth.py",
+        ".github/workflows/ci.yml",
+        "docs/verification/P1_CI_REMEDIATION.md"
+      ],
+      "requirements_reference": "Original 36-row RTM; see REQUIREMENTS_RECHECK.md and issue links",
+      "tests_executed": [
+        "python -B -m unittest discover -s tests -p test_checkout_auth.py -v (10 passed)",
+        "Actions 45690090809: clean venv/pip check/full APIs/shared policy/full unittest (106 passed)",
+        "python -B scripts/verify_validation_lock.py; test_validation_lock.py (1 passed)",
+        "Final cumulative candidate commands/results: see candidate-evidence.json and PR head checks"
+      ],
+      "actual_test_results": "Bootstrap hosted 106/106, no skips; local guard 10/10 and lock 1/1 pass. Final candidate and local cumulative outcomes recorded separately; no new full-pass claim from old run.",
+      "evidence": [
+        "README.md",
+        "REQUIREMENTS_RECHECK.md",
+        "dependency-evidence.json",
+        "https://github.com/ManeaAlShabrain/QASCP/actions/runs/45690090809"
+      ],
+      "pull_request_url": "https://github.com/ManeaAlShabrain/QASCP/pull/44",
+      "commit_sha": "1d6c14375e10581241919d71372469c0d16b3fa8",
+      "commit_scope": "Immutable initial proposal/checkout correction only; final corrected tree bound after publication in candidate-evidence.json and PR body, avoiding self-referential commit identity",
+      "remaining_limitations": "Local boundary only; global/system/env credentials and compromised runner outside assertion; independent disposition pending",
+      "owner_decision_required": "Independent security/control re-review; no risk waiver or main-rule change needed",
+      "remediation_status": "READY FOR RE-REVIEW",
+      "reviewer_verification_status": "NOT VERIFIED FIXED; independent disposition pending"
+    },
+    {
+      "finding_id": "QAR-005",
+      "root_cause": "Structural parity and implementer comparison missed actor/version meaning",
+      "corrective_action": "Paired ENG-001 human wording, versioned selection/BA10 correction, full clause/blueprint comparison, glossary and historical correction note",
+      "preventive_action": "Substantive actor/obligation/version/approval checklist separate from structural tool; independent linguistic handoff",
+      "changed_files": [
+        "docs/governance/ENGINEERING_GOVERNANCE.md",
+        "docs/governance/ENGINEERING_GOVERNANCE.ar.md",
+        "docs/architecture/QASCP_2_BANK01_BLUEPRINT.ar.md",
+        "docs/verification/P1_BILINGUAL_REMEDIATION.md",
+        "docs/verification/QASCP_2_P1_DELIVERY_PACKET.md",
+        "scripts/verify_foundation.py"
+      ],
+      "requirements_reference": "Original 36-row RTM; see REQUIREMENTS_RECHECK.md and issue links",
+      "tests_executed": [
+        "python -B -m unittest discover -s tests -p test_checkout_auth.py -v (10 passed)",
+        "Actions 45690090809: clean venv/pip check/full APIs/shared policy/full unittest (106 passed)",
+        "python -B scripts/verify_validation_lock.py; test_validation_lock.py (1 passed)",
+        "Final cumulative candidate commands/results: see candidate-evidence.json and PR head checks"
+      ],
+      "actual_test_results": "Bootstrap hosted 106/106, no skips; local guard 10/10 and lock 1/1 pass. Final candidate and local cumulative outcomes recorded separately; no new full-pass claim from old run.",
+      "evidence": [
+        "README.md",
+        "REQUIREMENTS_RECHECK.md",
+        "dependency-evidence.json",
+        "https://github.com/ManeaAlShabrain/QASCP/actions/runs/45690090809"
+      ],
+      "pull_request_url": "https://github.com/ManeaAlShabrain/QASCP/pull/44",
+      "commit_sha": "1d6c14375e10581241919d71372469c0d16b3fa8",
+      "commit_scope": "Immutable initial proposal/checkout correction only; final corrected tree bound after publication in candidate-evidence.json and PR body, avoiding self-referential commit identity",
+      "remaining_limitations": "Implementer comparison is not independent linguistic approval; baseline adoption pending",
+      "owner_decision_required": "Independent substantive bilingual/regulatory acceptance of exact candidate under current human-review policy",
+      "remediation_status": "READY FOR RE-REVIEW",
+      "reviewer_verification_status": "NOT VERIFIED FIXED; independent disposition pending"
+    },
+    {
+      "finding_id": "QAR-006",
+      "root_cause": "Primary quick-start did not install mandatory validators; Windows symlink privilege absent",
+      "corrective_action": "Supported Linux/Python/ABI recipe, new venv, locked wheels-only pins, pip check, full schema/OAS/foundation/unittest; preserve Windows failures",
+      "preventive_action": "Use same commands in primary docs/CI; assert supported ABI; retain failures and platform limits rather than skipping tests",
+      "changed_files": [
+        "README.md",
+        "docs/verification/PROCEDURES.md",
+        "docs/verification/P1_VALIDATION_SETUP.md",
+        ".github/workflows/ci.yml"
+      ],
+      "requirements_reference": "Original 36-row RTM; see REQUIREMENTS_RECHECK.md and issue links",
+      "tests_executed": [
+        "python -B -m unittest discover -s tests -p test_checkout_auth.py -v (10 passed)",
+        "Actions 45690090809: clean venv/pip check/full APIs/shared policy/full unittest (106 passed)",
+        "python -B scripts/verify_validation_lock.py; test_validation_lock.py (1 passed)",
+        "Final cumulative candidate commands/results: see candidate-evidence.json and PR head checks"
+      ],
+      "actual_test_results": "Bootstrap hosted 106/106, no skips; local guard 10/10 and lock 1/1 pass. Final candidate and local cumulative outcomes recorded separately; no new full-pass claim from old run.",
+      "evidence": [
+        "README.md",
+        "REQUIREMENTS_RECHECK.md",
+        "dependency-evidence.json",
+        "https://github.com/ManeaAlShabrain/QASCP/actions/runs/45690090809"
+      ],
+      "pull_request_url": "https://github.com/ManeaAlShabrain/QASCP/pull/44",
+      "commit_sha": "1d6c14375e10581241919d71372469c0d16b3fa8",
+      "commit_scope": "Immutable initial proposal/checkout correction only; final corrected tree bound after publication in candidate-evidence.json and PR body, avoiding self-referential commit identity",
+      "remaining_limitations": "Native Windows full suite still blocked by missing validators and symbolic-link privilege; Linux is supported full-check target",
+      "owner_decision_required": "Reviewer reproduces supported environment; optional separately reviewed native Windows lock/privilege configuration",
+      "remediation_status": "READY FOR RE-REVIEW",
+      "reviewer_verification_status": "NOT VERIFIED FIXED; independent disposition pending"
+    },
+    {
+      "finding_id": "QAR-007",
+      "root_cause": "Issue lifecycle conflated with acceptance lifecycle; closed packages hid pending work",
+      "corrective_action": "19-row active acceptance register separates five states; existing #32 reopened as single live tracker; historical #13–31 preserved",
+      "preventive_action": "Bind every acceptance to scope/revision/actual result/reviewer/authority; no duplicate package issues",
+      "changed_files": [
+        "docs/product/P1_ACTIVE_ACCEPTANCE_REGISTER.md",
+        "docs/product/QASCP_2_BACKLOG.md"
+      ],
+      "requirements_reference": "Original 36-row RTM; see REQUIREMENTS_RECHECK.md and issue links",
+      "tests_executed": [
+        "python -B -m unittest discover -s tests -p test_checkout_auth.py -v (10 passed)",
+        "Actions 45690090809: clean venv/pip check/full APIs/shared policy/full unittest (106 passed)",
+        "python -B scripts/verify_validation_lock.py; test_validation_lock.py (1 passed)",
+        "Final cumulative candidate commands/results: see candidate-evidence.json and PR head checks"
+      ],
+      "actual_test_results": "Bootstrap hosted 106/106, no skips; local guard 10/10 and lock 1/1 pass. Final candidate and local cumulative outcomes recorded separately; no new full-pass claim from old run.",
+      "evidence": [
+        "README.md",
+        "REQUIREMENTS_RECHECK.md",
+        "dependency-evidence.json",
+        "https://github.com/ManeaAlShabrain/QASCP/actions/runs/45690090809"
+      ],
+      "pull_request_url": "https://github.com/ManeaAlShabrain/QASCP/pull/44",
+      "commit_sha": "1d6c14375e10581241919d71372469c0d16b3fa8",
+      "commit_scope": "Immutable initial proposal/checkout correction only; final corrected tree bound after publication in candidate-evidence.json and PR body, avoiding self-referential commit identity",
+      "remaining_limitations": "Actual owners/reviewers still unconfirmed; tracker is a work record, not approval or native dependency enforcement",
+      "owner_decision_required": "Confirm accountable owner assignments; choose package reopening later if preferred",
+      "remediation_status": "READY FOR RE-REVIEW",
+      "reviewer_verification_status": "NOT VERIFIED FIXED; independent disposition pending"
+    },
+    {
+      "finding_id": "QAR-008",
+      "root_cause": "Version pins did not freeze artifact bytes; hash locking intentionally deferred",
+      "corrective_action": "19-wheel platform hash lock, pins/provenance consistency verifier and tamper check, publisher integrity/advisory evidence and scoped CycloneDX inventory",
+      "preventive_action": "Lock/provenance/inventory/review/clean install refreshed together on each dependency change; fail on hash mismatch/advisory lookup failure",
+      "changed_files": [
+        "requirements-contracts-linux-cp314.lock",
+        "scripts/verify_validation_lock.py",
+        "tests/test_validation_lock.py",
+        "scripts/capture_validation_dependencies.py",
+        "docs/verification/P1_SUPPLY_CHAIN_REMEDIATION.md",
+        "docs/verification/remediation/P1-2026-11-25/dependency-evidence.json",
+        "docs/verification/remediation/P1-2026-11-25/validation-wheels.cdx.json",
+        ".github/workflows/ci.yml"
+      ],
+      "requirements_reference": "Original 36-row RTM; see REQUIREMENTS_RECHECK.md and issue links",
+      "tests_executed": [
+        "python -B -m unittest discover -s tests -p test_checkout_auth.py -v (10 passed)",
+        "Actions 45690090809: clean venv/pip check/full APIs/shared policy/full unittest (106 passed)",
+        "python -B scripts/verify_validation_lock.py; test_validation_lock.py (1 passed)",
+        "Final cumulative candidate commands/results: see candidate-evidence.json and PR head checks"
+      ],
+      "actual_test_results": "Bootstrap hosted 106/106, no skips; local guard 10/10 and lock 1/1 pass. Final candidate and local cumulative outcomes recorded separately; no new full-pass claim from old run.",
+      "evidence": [
+        "README.md",
+        "REQUIREMENTS_RECHECK.md",
+        "dependency-evidence.json",
+        "https://github.com/ManeaAlShabrain/QASCP/actions/runs/45690090809"
+      ],
+      "pull_request_url": "https://github.com/ManeaAlShabrain/QASCP/pull/44",
+      "commit_sha": "1d6c14375e10581241919d71372469c0d16b3fa8",
+      "commit_scope": "Immutable initial proposal/checkout correction only; final corrected tree bound after publication in candidate-evidence.json and PR body, avoiding self-referential commit identity",
+      "remaining_limitations": "Only PyPI advisory coverage; TLS publisher trust not signed provenance; runner/OS/pip mutable; inventory excludes full runner and future app",
+      "owner_decision_required": "Independent dependency/license/adoption review; approve future platform/container/scanner choices separately",
+      "remediation_status": "READY FOR RE-REVIEW",
+      "reviewer_verification_status": "NOT VERIFIED FIXED; independent disposition pending"
+    },
+    {
+      "finding_id": "QAR-009",
+      "root_cause": "Observation response prose reused for import command receipt",
+      "corrective_action": "Four import 200/201 descriptions now say command receipt/durable acceptance; operation prose aligns with T2 domain/receipt/audit/outbox; all six operations inspected",
+      "preventive_action": "Review response identity and transaction semantics with schema changes; keep observation/import/projection/completion distinct",
+      "changed_files": [
+        "contracts/qascp-2/graph/openapi-0.2.json"
+      ],
+      "requirements_reference": "Original 36-row RTM; see REQUIREMENTS_RECHECK.md and issue links",
+      "tests_executed": [
+        "python -B -m unittest discover -s tests -p test_checkout_auth.py -v (10 passed)",
+        "Actions 45690090809: clean venv/pip check/full APIs/shared policy/full unittest (106 passed)",
+        "python -B scripts/verify_validation_lock.py; test_validation_lock.py (1 passed)",
+        "Final cumulative candidate commands/results: see candidate-evidence.json and PR head checks"
+      ],
+      "actual_test_results": "Bootstrap hosted 106/106, no skips; local guard 10/10 and lock 1/1 pass. Final candidate and local cumulative outcomes recorded separately; no new full-pass claim from old run.",
+      "evidence": [
+        "README.md",
+        "REQUIREMENTS_RECHECK.md",
+        "dependency-evidence.json",
+        "https://github.com/ManeaAlShabrain/QASCP/actions/runs/45690090809"
+      ],
+      "pull_request_url": "https://github.com/ManeaAlShabrain/QASCP/pull/44",
+      "commit_sha": "1d6c14375e10581241919d71372469c0d16b3fa8",
+      "commit_scope": "Immutable initial proposal/checkout correction only; final corrected tree bound after publication in candidate-evidence.json and PR body, avoiding self-referential commit identity",
+      "remaining_limitations": "No schema/path/version/runtime change; import durable receipt is not graph completion",
+      "owner_decision_required": "Independent API documentation re-review; separate architecture adoption remains QAR-003",
+      "remediation_status": "READY FOR RE-REVIEW",
+      "reviewer_verification_status": "NOT VERIFIED FIXED; independent disposition pending"
+    }
+  ]
+}

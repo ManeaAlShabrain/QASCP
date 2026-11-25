@@ -202,3 +202,15 @@ threats, 19 backlog packages and 96 passing static/tool tests. P1's five work
 packages have the individual dispositions above. **Documentation/tool readiness
 is distinct from formal P1 completion, which remains blocked by actual human
 review, ownership and phase-exit records.**
+
+
+## Correction following independent audit #43 — 2026-11-25
+
+The preceding implementer comparison is retained as history, not current acceptance.
+QAR-005 disproved its no-material-obligation-difference conclusion: ENG-001 lacked
+explicit human reviewer wording in English and Arabic BANK-01 mistranslated versioned
+selection as exported selection. The corrected candidate retains human review in
+both editions and uses اختيار محدد الإصدار. See the [clause comparison and glossary](P1_BILINGUAL_REMEDIATION.md).
+This implementation pass cannot accept its own translation or replace the still
+missing independent human/regulatory disposition. #43's original rejection and
+72.95 score remain unchanged. P1 remains pending; no P2 authorization is supplied.

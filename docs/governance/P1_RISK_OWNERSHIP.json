@@ -1,0 +1,477 @@
+{
+  "finding": "QAR-002",
+  "prepared_date": "2026-11-25",
+  "base_sha": "cc04fa6e82f0b53d75fd5d08e1a36f11fba5c4d2",
+  "method": "Inherited qualitative likelihood/impact; no new calibrated numeric risk score or reduced residual rating",
+  "status": "Prepared for owner decision; no assignments or risk acceptances made by the implementer",
+  "risks": [
+    {
+      "risk_id": "T01",
+      "risk_description": "Forged tenant selector or graph edge",
+      "accountable_owner": null,
+      "proposed_owner": {
+        "name": "Manea Mohammed Saleh Al-Shabrain",
+        "github": "ManeaAl-Shabrain",
+        "scope": "Internal repository/design risk only; confirmation required; no client/regulator authority inferred"
+      },
+      "asset": "Tenant API, registry and graph",
+      "threat": "Forged tenant selector or graph edge",
+      "vulnerability": "Caller-controlled selector or unchecked tenant edge",
+      "likelihood": "Medium",
+      "impact": "critical",
+      "inherent_risk": {
+        "rating": "Critical",
+        "basis": "Inherited qualitative threat estimate, uncalibrated; owner/reviewer assessment pending"
+      },
+      "existing_controls": "P1 design, static schemas and synthetic regression evidence only; operational mitigations not implemented",
+      "planned_controls": "Trusted context, composite FKs, RLS; API/DB A→B negative tests, raw role tests",
+      "residual_risk": {
+        "rating": null,
+        "status": "UNASSESSED / NOT ACCEPTED",
+        "reason": "Unimplemented operational mitigations cannot justify a reduced rating; tooling controls need re-review"
+      },
+      "treatment_strategy": "Mitigate; keep boundary disabled until applicable gate; no risk acceptance implied",
+      "evidence_references": [
+        "docs/architecture/QASCP_2_THREATS.md",
+        "docs/architecture/QASCP_2_BANK01_BLUEPRINT.md",
+        "docs/architecture/P1_ARCHITECTURE_DECISION_REGISTER.md",
+        "https://github.com/ManeaAlShabrain/QASCP/issues/14"
+      ],
+      "target_phase": "P1-V02, P2-V01, P3-V01",
+      "acceptance_authority": "Project owner for internal project risk, subject to GOV-004 review; bank/regulatory authority separately required for enterprise or legal obligations",
+      "approval_status": "PENDING OWNER CONFIRMATION AND INDEPENDENT REVIEW",
+      "owner_decision_reference": null,
+      "review_date": null,
+      "risk_acceptance_reference": null
+    },
+    {
+      "risk_id": "T02",
+      "risk_description": "Cache, worker or pooled connection leaks context",
+      "accountable_owner": null,
+      "proposed_owner": {
+        "name": "Manea Mohammed Saleh Al-Shabrain",
+        "github": "ManeaAl-Shabrain",
+        "scope": "Internal repository/design risk only; confirmation required; no client/regulator authority inferred"
+      },
+      "asset": "Pooled DB sessions, caches, jobs",
+      "threat": "Cache, worker or pooled connection leaks context",
+      "vulnerability": "Context lifetime/key scope leaks across reuse",
+      "likelihood": "Medium",
+      "impact": "critical",
+      "inherent_risk": {
+        "rating": "Critical",
+        "basis": "Inherited qualitative threat estimate, uncalibrated; owner/reviewer assessment pending"
+      },
+      "existing_controls": "P1 design, static schemas and synthetic regression evidence only; operational mitigations not implemented",
+      "planned_controls": "Transaction-scoped context and scoped keys; sequential/concurrent A/B reuse tests",
+      "residual_risk": {
+        "rating": null,
+        "status": "UNASSESSED / NOT ACCEPTED",
+        "reason": "Unimplemented operational mitigations cannot justify a reduced rating; tooling controls need re-review"
+      },
+      "treatment_strategy": "Mitigate; keep boundary disabled until applicable gate; no risk acceptance implied",
+      "evidence_references": [
+        "docs/architecture/QASCP_2_THREATS.md",
+        "docs/architecture/QASCP_2_BANK01_BLUEPRINT.md",
+        "docs/architecture/P1_ARCHITECTURE_DECISION_REGISTER.md",
+        "https://github.com/ManeaAlShabrain/QASCP/issues/14"
+      ],
+      "target_phase": "P1-V02, P2-V01",
+      "acceptance_authority": "Project owner for internal project risk, subject to GOV-004 review; bank/regulatory authority separately required for enterprise or legal obligations",
+      "approval_status": "PENDING OWNER CONFIRMATION AND INDEPENDENT REVIEW",
+      "owner_decision_reference": null,
+      "review_date": null,
+      "risk_acceptance_reference": null
+    },
+    {
+      "risk_id": "T03",
+      "risk_description": "Connector spoofing, malicious payload or replay",
+      "accountable_owner": null,
+      "proposed_owner": {
+        "name": "Manea Mohammed Saleh Al-Shabrain",
+        "github": "ManeaAl-Shabrain",
+        "scope": "Internal repository/design risk only; confirmation required; no client/regulator authority inferred"
+      },
+      "asset": "Observation/import boundary",
+      "threat": "Connector spoofing, malicious payload or replay",
+      "vulnerability": "Unbound workload, unbounded payload or ambiguous idempotency",
+      "likelihood": "High",
+      "impact": "high",
+      "inherent_risk": {
+        "rating": "High",
+        "basis": "Inherited qualitative threat estimate, uncalibrated; owner/reviewer assessment pending"
+      },
+      "existing_controls": "P1 design, static schemas and synthetic regression evidence only; operational mitigations not implemented",
+      "planned_controls": "Workload binding, size/schema/quota checks, adapter-owned digest conflicts, quarantine; retry/out-of-order tests",
+      "residual_risk": {
+        "rating": null,
+        "status": "UNASSESSED / NOT ACCEPTED",
+        "reason": "Unimplemented operational mitigations cannot justify a reduced rating; tooling controls need re-review"
+      },
+      "treatment_strategy": "Mitigate; keep boundary disabled until applicable gate; no risk acceptance implied",
+      "evidence_references": [
+        "docs/architecture/QASCP_2_THREATS.md",
+        "docs/architecture/QASCP_2_BANK01_BLUEPRINT.md",
+        "docs/architecture/P1_ARCHITECTURE_DECISION_REGISTER.md",
+        "https://github.com/ManeaAlShabrain/QASCP/issues/14"
+      ],
+      "target_phase": "P1-V02, P2-V01, P3-V01",
+      "acceptance_authority": "Project owner for internal project risk, subject to GOV-004 review; bank/regulatory authority separately required for enterprise or legal obligations",
+      "approval_status": "PENDING OWNER CONFIRMATION AND INDEPENDENT REVIEW",
+      "owner_decision_reference": null,
+      "review_date": null,
+      "risk_acceptance_reference": null
+    },
+    {
+      "risk_id": "T04",
+      "risk_description": "Entity conflation causes false banking impact",
+      "accountable_owner": null,
+      "proposed_owner": {
+        "name": "Manea Mohammed Saleh Al-Shabrain",
+        "github": "ManeaAl-Shabrain",
+        "scope": "Internal repository/design risk only; confirmation required; no client/regulator authority inferred"
+      },
+      "asset": "Resource identity and source bindings",
+      "threat": "Entity conflation causes false banking impact",
+      "vulnerability": "Name-based merge or unreviewed source authority",
+      "likelihood": "Medium",
+      "impact": "high",
+      "inherent_risk": {
+        "rating": "High",
+        "basis": "Inherited qualitative threat estimate, uncalibrated; owner/reviewer assessment pending"
+      },
+      "existing_controls": "P1 design, static schemas and synthetic regression evidence only; operational mitigations not implemented",
+      "planned_controls": "Scoped stable source IDs, explicit ambiguity and confidence; labeled collision fixtures",
+      "residual_risk": {
+        "rating": null,
+        "status": "UNASSESSED / NOT ACCEPTED",
+        "reason": "Unimplemented operational mitigations cannot justify a reduced rating; tooling controls need re-review"
+      },
+      "treatment_strategy": "Mitigate; keep boundary disabled until applicable gate; no risk acceptance implied",
+      "evidence_references": [
+        "docs/architecture/QASCP_2_THREATS.md",
+        "docs/architecture/QASCP_2_BANK01_BLUEPRINT.md",
+        "docs/architecture/P1_ARCHITECTURE_DECISION_REGISTER.md",
+        "https://github.com/ManeaAlShabrain/QASCP/issues/14"
+      ],
+      "target_phase": "P1-V02, P3-V01",
+      "acceptance_authority": "Project owner for internal project risk, subject to GOV-004 review; bank/regulatory authority separately required for enterprise or legal obligations",
+      "approval_status": "PENDING OWNER CONFIRMATION AND INDEPENDENT REVIEW",
+      "owner_decision_reference": null,
+      "review_date": null,
+      "risk_acceptance_reference": null
+    },
+    {
+      "risk_id": "T05",
+      "risk_description": "Poisoned evidence or prompt injection",
+      "accountable_owner": null,
+      "proposed_owner": {
+        "name": "Manea Mohammed Saleh Al-Shabrain",
+        "github": "ManeaAl-Shabrain",
+        "scope": "Internal repository/design risk only; confirmation required; no client/regulator authority inferred"
+      },
+      "asset": "AI retrieval/evidence",
+      "threat": "Poisoned evidence or prompt injection",
+      "vulnerability": "Untrusted text promoted to instruction or unauthorized retrieval",
+      "likelihood": "High",
+      "impact": "high",
+      "inherent_risk": {
+        "rating": "High",
+        "basis": "Inherited qualitative threat estimate, uncalibrated; owner/reviewer assessment pending"
+      },
+      "existing_controls": "P1 design, static schemas and synthetic regression evidence only; operational mitigations not implemented",
+      "planned_controls": "Treat retrieved text as data, enforce tool/data allowlists, cite sources/abstain; adversarial tenant-scoped evaluations",
+      "residual_risk": {
+        "rating": null,
+        "status": "UNASSESSED / NOT ACCEPTED",
+        "reason": "Unimplemented operational mitigations cannot justify a reduced rating; tooling controls need re-review"
+      },
+      "treatment_strategy": "Mitigate; keep boundary disabled until applicable gate; no risk acceptance implied",
+      "evidence_references": [
+        "docs/architecture/QASCP_2_THREATS.md",
+        "docs/architecture/QASCP_2_BANK01_BLUEPRINT.md",
+        "docs/architecture/P1_ARCHITECTURE_DECISION_REGISTER.md",
+        "https://github.com/ManeaAlShabrain/QASCP/issues/14"
+      ],
+      "target_phase": "P1-V02, P4-V01",
+      "acceptance_authority": "Project owner for internal project risk, subject to GOV-004 review; bank/regulatory authority separately required for enterprise or legal obligations",
+      "approval_status": "PENDING OWNER CONFIRMATION AND INDEPENDENT REVIEW",
+      "owner_decision_reference": null,
+      "review_date": null,
+      "risk_acceptance_reference": null
+    },
+    {
+      "risk_id": "T06",
+      "risk_description": "Approval altered or reused; remote timeout repeats mutation",
+      "accountable_owner": null,
+      "proposed_owner": {
+        "name": "Manea Mohammed Saleh Al-Shabrain",
+        "github": "ManeaAl-Shabrain",
+        "scope": "Internal repository/design risk only; confirmation required; no client/regulator authority inferred"
+      },
+      "asset": "Proposal/approval/executor",
+      "threat": "Approval altered or reused; remote timeout repeats mutation",
+      "vulnerability": "Approval not bound/consumed atomically; remote outcome ambiguous",
+      "likelihood": "Medium",
+      "impact": "critical",
+      "inherent_risk": {
+        "rating": "Critical",
+        "basis": "Inherited qualitative threat estimate, uncalibrated; owner/reviewer assessment pending"
+      },
+      "existing_controls": "P1 design, static schemas and synthetic regression evidence only; operational mitigations not implemented",
+      "planned_controls": "Exact digest/version approval, atomic consumption, downstream idempotency and reconciliation; adversarial synthetic executor tests in P4 and operational integration tests in P5",
+      "residual_risk": {
+        "rating": null,
+        "status": "UNASSESSED / NOT ACCEPTED",
+        "reason": "Unimplemented operational mitigations cannot justify a reduced rating; tooling controls need re-review"
+      },
+      "treatment_strategy": "Mitigate; keep boundary disabled until applicable gate; no risk acceptance implied",
+      "evidence_references": [
+        "docs/architecture/QASCP_2_THREATS.md",
+        "docs/architecture/QASCP_2_BANK01_BLUEPRINT.md",
+        "docs/architecture/P1_ARCHITECTURE_DECISION_REGISTER.md",
+        "https://github.com/ManeaAlShabrain/QASCP/issues/14"
+      ],
+      "target_phase": "P1-V02, P4-V01, P5-V01",
+      "acceptance_authority": "Project owner for internal project risk, subject to GOV-004 review; bank/regulatory authority separately required for enterprise or legal obligations",
+      "approval_status": "PENDING OWNER CONFIRMATION AND INDEPENDENT REVIEW",
+      "owner_decision_reference": null,
+      "review_date": null,
+      "risk_acceptance_reference": null
+    },
+    {
+      "risk_id": "T07",
+      "risk_description": "Late/corrected evidence leaves stale assurance supported",
+      "accountable_owner": null,
+      "proposed_owner": {
+        "name": "Manea Mohammed Saleh Al-Shabrain",
+        "github": "ManeaAl-Shabrain",
+        "scope": "Internal repository/design risk only; confirmation required; no client/regulator authority inferred"
+      },
+      "asset": "Assurance dependencies/history",
+      "threat": "Late/corrected evidence leaves stale assurance supported",
+      "vulnerability": "Incomplete dependency index or late correction hidden",
+      "likelihood": "Medium",
+      "impact": "high",
+      "inherent_risk": {
+        "rating": "High",
+        "basis": "Inherited qualitative threat estimate, uncalibrated; owner/reviewer assessment pending"
+      },
+      "existing_controls": "P1 design, static schemas and synthetic regression evidence only; operational mitigations not implemented",
+      "planned_controls": "Dual time, dependency lineage, version checks and conservative reconciliation; compare full/selective evaluation",
+      "residual_risk": {
+        "rating": null,
+        "status": "UNASSESSED / NOT ACCEPTED",
+        "reason": "Unimplemented operational mitigations cannot justify a reduced rating; tooling controls need re-review"
+      },
+      "treatment_strategy": "Mitigate; keep boundary disabled until applicable gate; no risk acceptance implied",
+      "evidence_references": [
+        "docs/architecture/QASCP_2_THREATS.md",
+        "docs/architecture/QASCP_2_BANK01_BLUEPRINT.md",
+        "docs/architecture/P1_ARCHITECTURE_DECISION_REGISTER.md",
+        "https://github.com/ManeaAlShabrain/QASCP/issues/14"
+      ],
+      "target_phase": "P1-V02, P5-V01",
+      "acceptance_authority": "Project owner for internal project risk, subject to GOV-004 review; bank/regulatory authority separately required for enterprise or legal obligations",
+      "approval_status": "PENDING OWNER CONFIRMATION AND INDEPENDENT REVIEW",
+      "owner_decision_reference": null,
+      "review_date": null,
+      "risk_acceptance_reference": null
+    },
+    {
+      "risk_id": "T08",
+      "risk_description": "Audit tampering, sensitive log or export disclosure",
+      "accountable_owner": null,
+      "proposed_owner": {
+        "name": "Manea Mohammed Saleh Al-Shabrain",
+        "github": "ManeaAl-Shabrain",
+        "scope": "Internal repository/design risk only; confirmation required; no client/regulator authority inferred"
+      },
+      "asset": "Audit, objects and exports",
+      "threat": "Audit tampering, sensitive log or export disclosure",
+      "vulnerability": "Mutable records, missing redaction or export authorization",
+      "likelihood": "Medium",
+      "impact": "high",
+      "inherent_risk": {
+        "rating": "High",
+        "basis": "Inherited qualitative threat estimate, uncalibrated; owner/reviewer assessment pending"
+      },
+      "existing_controls": "P1 design, static schemas and synthetic regression evidence only; operational mitigations not implemented",
+      "planned_controls": "Restricted append-only audit, redaction, per-resource export checks and custody; audit outage/restore tests",
+      "residual_risk": {
+        "rating": null,
+        "status": "UNASSESSED / NOT ACCEPTED",
+        "reason": "Unimplemented operational mitigations cannot justify a reduced rating; tooling controls need re-review"
+      },
+      "treatment_strategy": "Mitigate; keep boundary disabled until applicable gate; no risk acceptance implied",
+      "evidence_references": [
+        "docs/architecture/QASCP_2_THREATS.md",
+        "docs/architecture/QASCP_2_BANK01_BLUEPRINT.md",
+        "docs/architecture/P1_ARCHITECTURE_DECISION_REGISTER.md",
+        "https://github.com/ManeaAlShabrain/QASCP/issues/14"
+      ],
+      "target_phase": "P1-V02, P2-V01, P5-V01, P6-V01",
+      "acceptance_authority": "Project owner for internal project risk, subject to GOV-004 review; bank/regulatory authority separately required for enterprise or legal obligations",
+      "approval_status": "PENDING OWNER CONFIRMATION AND INDEPENDENT REVIEW",
+      "owner_decision_reference": null,
+      "review_date": null,
+      "risk_acceptance_reference": null
+    },
+    {
+      "risk_id": "T09",
+      "risk_description": "Dependency/CI artifact compromise",
+      "accountable_owner": null,
+      "proposed_owner": {
+        "name": "Manea Mohammed Saleh Al-Shabrain",
+        "github": "ManeaAl-Shabrain",
+        "scope": "Internal repository/design risk only; confirmation required; no client/regulator authority inferred"
+      },
+      "asset": "CI and validation wheels",
+      "threat": "Dependency/CI artifact compromise",
+      "vulnerability": "Included auth config or unverified build input bytes",
+      "likelihood": "Medium",
+      "impact": "critical",
+      "inherent_risk": {
+        "rating": "Critical",
+        "basis": "Inherited qualitative threat estimate, uncalibrated; owner/reviewer assessment pending"
+      },
+      "existing_controls": "Read-only CI; pinned checkout, persist-credentials false; proposed include guard and 19-wheel hash lock with candidate test evidence; independent acceptance pending",
+      "planned_controls": "Pinned reviewed inputs, minimal CI privileges, SBOM and immutable build/review binding",
+      "residual_risk": {
+        "rating": null,
+        "status": "UNASSESSED / NOT ACCEPTED",
+        "reason": "Unimplemented operational mitigations cannot justify a reduced rating; tooling controls need re-review"
+      },
+      "treatment_strategy": "Mitigate; keep boundary disabled until applicable gate; no risk acceptance implied",
+      "evidence_references": [
+        "docs/architecture/QASCP_2_THREATS.md",
+        "docs/architecture/QASCP_2_BANK01_BLUEPRINT.md",
+        "docs/architecture/P1_ARCHITECTURE_DECISION_REGISTER.md",
+        "https://github.com/ManeaAlShabrain/QASCP/issues/14"
+      ],
+      "target_phase": "P1-V02, P2-V02, P6-V01",
+      "acceptance_authority": "Project owner for internal project risk, subject to GOV-004 review; bank/regulatory authority separately required for enterprise or legal obligations",
+      "approval_status": "PENDING OWNER CONFIRMATION AND INDEPENDENT REVIEW",
+      "owner_decision_reference": null,
+      "review_date": null,
+      "risk_acceptance_reference": null
+    },
+    {
+      "risk_id": "T10",
+      "risk_description": "Expensive traversal, queue flooding or tenant starvation",
+      "accountable_owner": null,
+      "proposed_owner": {
+        "name": "Manea Mohammed Saleh Al-Shabrain",
+        "github": "ManeaAl-Shabrain",
+        "scope": "Internal repository/design risk only; confirmation required; no client/regulator authority inferred"
+      },
+      "asset": "Graph query and queues",
+      "threat": "Expensive traversal, queue flooding or tenant starvation",
+      "vulnerability": "Unbounded traversal/fanout or missing tenant quotas",
+      "likelihood": "High",
+      "impact": "high",
+      "inherent_risk": {
+        "rating": "High",
+        "basis": "Inherited qualitative threat estimate, uncalibrated; owner/reviewer assessment pending"
+      },
+      "existing_controls": "P1 design, static schemas and synthetic regression evidence only; operational mitigations not implemented",
+      "planned_controls": "Depth/edge limits, timeouts, per-tenant budgets, backpressure and dead letters; overload fairness tests",
+      "residual_risk": {
+        "rating": null,
+        "status": "UNASSESSED / NOT ACCEPTED",
+        "reason": "Unimplemented operational mitigations cannot justify a reduced rating; tooling controls need re-review"
+      },
+      "treatment_strategy": "Mitigate; keep boundary disabled until applicable gate; no risk acceptance implied",
+      "evidence_references": [
+        "docs/architecture/QASCP_2_THREATS.md",
+        "docs/architecture/QASCP_2_BANK01_BLUEPRINT.md",
+        "docs/architecture/P1_ARCHITECTURE_DECISION_REGISTER.md",
+        "https://github.com/ManeaAlShabrain/QASCP/issues/14"
+      ],
+      "target_phase": "P1-V02, P3-V01, P6-V01",
+      "acceptance_authority": "Project owner for internal project risk, subject to GOV-004 review; bank/regulatory authority separately required for enterprise or legal obligations",
+      "approval_status": "PENDING OWNER CONFIRMATION AND INDEPENDENT REVIEW",
+      "owner_decision_reference": null,
+      "review_date": null,
+      "risk_acceptance_reference": null
+    },
+    {
+      "risk_id": "T11",
+      "risk_description": "Backup/restore loses authorization or evidence",
+      "accountable_owner": null,
+      "proposed_owner": {
+        "name": "Manea Mohammed Saleh Al-Shabrain",
+        "github": "ManeaAl-Shabrain",
+        "scope": "Internal repository/design risk only; confirmation required; no client/regulator authority inferred"
+      },
+      "asset": "Backups, roles and evidence",
+      "threat": "Backup/restore loses authorization or evidence",
+      "vulnerability": "Restore revives deleted data or stale access",
+      "likelihood": "Medium",
+      "impact": "critical",
+      "inherent_risk": {
+        "rating": "Critical",
+        "basis": "Inherited qualitative threat estimate, uncalibrated; owner/reviewer assessment pending"
+      },
+      "existing_controls": "P1 design, static schemas and synthetic regression evidence only; operational mitigations not implemented",
+      "planned_controls": "Encrypted scoped restore and audit continuity checks against agreed RTO/RPO",
+      "residual_risk": {
+        "rating": null,
+        "status": "UNASSESSED / NOT ACCEPTED",
+        "reason": "Unimplemented operational mitigations cannot justify a reduced rating; tooling controls need re-review"
+      },
+      "treatment_strategy": "Mitigate; keep boundary disabled until applicable gate; no risk acceptance implied",
+      "evidence_references": [
+        "docs/architecture/QASCP_2_THREATS.md",
+        "docs/architecture/QASCP_2_BANK01_BLUEPRINT.md",
+        "docs/architecture/P1_ARCHITECTURE_DECISION_REGISTER.md",
+        "https://github.com/ManeaAlShabrain/QASCP/issues/14"
+      ],
+      "target_phase": "P1-V02, P6-V01",
+      "acceptance_authority": "Project owner for internal project risk, subject to GOV-004 review; bank/regulatory authority separately required for enterprise or legal obligations",
+      "approval_status": "PENDING OWNER CONFIRMATION AND INDEPENDENT REVIEW",
+      "owner_decision_reference": null,
+      "review_date": null,
+      "risk_acceptance_reference": null
+    },
+    {
+      "risk_id": "T12",
+      "risk_description": "Mapping shown as certification",
+      "accountable_owner": null,
+      "proposed_owner": {
+        "name": "Manea Mohammed Saleh Al-Shabrain",
+        "github": "ManeaAl-Shabrain",
+        "scope": "Internal repository/design risk only; confirmation required; no client/regulator authority inferred"
+      },
+      "asset": "Applicability reports and UI",
+      "threat": "Mapping shown as certification",
+      "vulnerability": "Capability mapping presented as authorized compliance",
+      "likelihood": "Medium",
+      "impact": "high",
+      "inherent_risk": {
+        "rating": "High",
+        "basis": "Inherited qualitative threat estimate, uncalibrated; owner/reviewer assessment pending"
+      },
+      "existing_controls": "P1 design, static schemas and synthetic regression evidence only; operational mitigations not implemented",
+      "planned_controls": "Separate applicability/evidence/reviewer states; UI/report negative tests for unreviewed claims",
+      "residual_risk": {
+        "rating": null,
+        "status": "UNASSESSED / NOT ACCEPTED",
+        "reason": "Unimplemented operational mitigations cannot justify a reduced rating; tooling controls need re-review"
+      },
+      "treatment_strategy": "Mitigate; keep boundary disabled until applicable gate; no risk acceptance implied",
+      "evidence_references": [
+        "docs/architecture/QASCP_2_THREATS.md",
+        "docs/architecture/QASCP_2_BANK01_BLUEPRINT.md",
+        "docs/architecture/P1_ARCHITECTURE_DECISION_REGISTER.md",
+        "https://github.com/ManeaAlShabrain/QASCP/issues/14"
+      ],
+      "target_phase": "P1-V01, P1-V02, P5-V01, P6-V01",
+      "acceptance_authority": "Project owner for internal project risk, subject to GOV-004 review; bank/regulatory authority separately required for enterprise or legal obligations",
+      "approval_status": "PENDING OWNER CONFIRMATION AND INDEPENDENT REVIEW",
+      "owner_decision_reference": null,
+      "review_date": null,
+      "risk_acceptance_reference": null
+    }
+  ]
+}

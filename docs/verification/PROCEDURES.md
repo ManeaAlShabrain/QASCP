@@ -2,11 +2,14 @@
 
 ## P1 check and enforcement
 
-From the repository root run both commands.
+First follow the [supported clean environment and dependency installation recipe](P1_VALIDATION_SETUP.md).
+Use Linux x86_64 / CPython 3.14 with the hash-locked wheels-only closure and pip check;
+the full validators are mandatory dependencies. From the repository root:
 
 ```sh
-python3 scripts/verify_foundation.py
-python3 -m unittest discover -s tests -v
+.venv-contracts/bin/python scripts/verify_foundation.py
+.venv-contracts/bin/python scripts/verify_openapi_contracts.py
+.venv-contracts/bin/python -m unittest discover -s tests -v
 ```
 
 The first command checks required files, local document paths, phase order, and IDs in both handbooks against the register. It checks that every requirement points to a defined verification method and vice versa. The tests verify representative failure cases. Reviewers examine substantive translation equivalence and design evidence. Store CI links against the tested revision.
