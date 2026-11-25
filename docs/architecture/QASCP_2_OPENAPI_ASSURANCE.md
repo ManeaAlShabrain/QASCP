@@ -85,3 +85,18 @@ A failure in dependency compatibility, document validity or reference handling m
 Initial candidate 2e9ef6c57f4131eb36ab9124ecd3ae8c463c3fd3 failed [run 43935055382](https://github.com/ManeaAl-Shabrain/QASCP/actions/runs/43935055382): installation succeeded but pip check reported missing requests. Full OpenAPI validation and unit tests were skipped, and the gate failed. The revised closure corrects the cause; fresh results must be bound to the replacement candidate in the PR.
 
 Local preparation: nine-file UTF-8/newline/whitespace, Python AST and Markdown local-link checks passed; foundation verifier exited 0. Full Windows unittest discovery exited 1 with 21 entries: 16 passed, four missing-validator import errors and the existing WinError 1314 symlink error; no skips. New OpenAPI validation was not represented as locally passed. The candidate requires the existing isolated Linux CI flow with its updated explicit dependency closure.
+
+
+## Current P1 corrective tooling addendum — 2026-11-25
+
+QAR-004/006/008 supersede the earlier tooling limitations for the corrected
+candidate only: [checkout boundary correction](../verification/P1_CI_REMEDIATION.md),
+[supported clean setup](../verification/P1_VALIDATION_SETUP.md),
+[hash-lock/provenance/advisory disposition](../verification/P1_SUPPLY_CHAIN_REMEDIATION.md)
+and [exact candidate evidence](../verification/remediation/P1-2026-11-25/README.md).
+The inline guard's earlier six-case preparation did not cover include/includeIf;
+the replacement rejects those paths and retains real-Git regressions. Nineteen
+platform wheel hashes are now enforced in CI; earlier version-only statements
+describe their dated baseline. Historical reports/failed results are preserved.
+No contract/ADR adoption, independent review, legal applicability or P1 exit is
+granted by this tooling correction. P2 remains blocked under the current policy.

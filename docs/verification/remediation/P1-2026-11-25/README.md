@@ -42,7 +42,7 @@ No PR is merged automatically, no branch protection changed and no P2 begun.
   [actual 19-wheel/advisory capture](dependency-evidence.json) and
   [scoped CycloneDX inventory](validation-wheels.cdx.json).
 
-The final exact candidate and fresh run links are bound in the PR body and
+The final exact candidate and fresh run links are bound in follow-up PR #46 and
 candidate-evidence.json after publication. Never put a self-referential commit
 SHA in the commit that defines it. Initial checkout candidate 1d6c14375e10581241919d71372469c0d16b3fa8
 passed Actions 45690090809: 106 tests/no skips, both full API/policy validators,
@@ -69,3 +69,47 @@ Only a separate reviewer can mark VERIFIED FIXED. This implementation conversati
 cannot supply independent re-audit results. No actual reviewer is currently
 assigned; the handoff requests one and does not fabricate a completed review.
 Formal P1 exit remains pending and distinct from remediation/re-audit completion.
+
+
+## Complete implementation candidate: actual retained result
+
+Candidate **5b9106b8a01fe05e77533c5e93993e682cfcc313**, tree
+**d529fa2759ee0fb223035170a70ed2980dffb9f7**, passed
+[Actions 45692520028](https://github.com/ManeaAlShabrain/QASCP/actions/runs/45692520028):
+107/107 tests, zero skips/errors/failures, clean hash-required wheels-only install,
+pip check, 19 official artifact hashes and zero returned PyPI advisory entries,
+both complete OpenAPI/shared-policy validations and the required gate.
+[Machine evidence](candidate-evidence.json) and [actual job log](candidate-foundation.log)
+retain exact jobs/steps/environment.
+The display log normalizes line endings and strips trailing whitespace; the
+unaltered tool-returned content is retained in candidate-foundation-raw.json,
+with its UTF-8 SHA-256 in candidate-evidence.json. New evidence formatting fixes
+do not modify historical audit logs or any test outcome.
+
+The final evidence-only candidate receives
+fresh checks, bound in PR #46 and the re-audit request; this avoids claiming a
+commit contains its own SHA or transferring old results to a changed tree.
+
+Local corrected discovery: 42 entries, 36 successful and six errors, no skips;
+OpenAPI command fails for missing validator. These results are preserved in
+[local-results.json](local-results.json); initial fixture failure remains in
+[local-results-initial.json](local-results-initial.json). Linux success does not
+relabel local errors. All 34 original audit blobs remain byte-identical.
+
+Governance proposal #45 at 7e9b11528f8250caefccd41ec6d554d0e9c81c02 passed
+[its own unchanged-baseline 96-test run](https://github.com/ManeaAlShabrain/QASCP/actions/runs/45691253061).
+Those checks do not assess this 107-test technical candidate or adopt the policy.
+The only changes outside #44 are three proposal files in #45 and reopening the
+existing #32 acceptance tracker; original package issue history is retained.
+
+
+## Concurrent merge and evidence follow-up
+
+While this evidence was being retained, #44 was externally merged at implementation
+head 5b9106b8a01fe05e77533c5e93993e682cfcc313 into main
+4f0e63a6141b8f7e47377c2b287d62066d1df668 (same implementation tree d529fa2759ee0fb223035170a70ed2980dffb9f7).
+The remaining evidence/addenda are a separate small [PR #46](https://github.com/ManeaAlShabrain/QASCP/pull/46).
+Its final immutable head and fresh checks, not the closed #44 head, define the
+re-audit delivery. This implementation session did not merge either request.
+Proposal #45 is independently synchronized with that main; its readiness never
+means policy approval. No historical finding, review or phase decision is changed.

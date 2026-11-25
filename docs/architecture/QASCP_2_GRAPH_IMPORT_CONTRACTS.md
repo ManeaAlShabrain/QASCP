@@ -75,3 +75,18 @@ CI setup, dependency resolution, meta-schema checks and instance tests must run 
 Local checks: nine-file UTF-8/newline/whitespace, JSON parse, Python AST and local Markdown link checks passed; foundation verifier passed (exit 0). Full unittest discovery returned exit 1: 18 discovered entries, 16 passed, one missing-jsonschema import error and one existing WinError 1314 symlink error. No tests were skipped. These failures are retained as local environment evidence and are not replaced by a structural-only success claim.
 
 For a dependency-enabled local environment, create a Python virtual environment, install requirements-contracts.txt with the same --no-deps --only-binary=:all: policy as CI, run pip check, then run scripts/verify_foundation.py and the full unittest discovery with that environment's Python. A failed installation or checker import must remain a failed check.
+
+
+## Current P1 corrective tooling addendum — 2026-11-25
+
+QAR-004/006/008 supersede the earlier tooling limitations for the corrected
+candidate only: [checkout boundary correction](../verification/P1_CI_REMEDIATION.md),
+[supported clean setup](../verification/P1_VALIDATION_SETUP.md),
+[hash-lock/provenance/advisory disposition](../verification/P1_SUPPLY_CHAIN_REMEDIATION.md)
+and [exact candidate evidence](../verification/remediation/P1-2026-11-25/README.md).
+The inline guard's earlier six-case preparation did not cover include/includeIf;
+the replacement rejects those paths and retains real-Git regressions. Nineteen
+platform wheel hashes are now enforced in CI; earlier version-only statements
+describe their dated baseline. Historical reports/failed results are preserved.
+No contract/ADR adoption, independent review, legal applicability or P1 exit is
+granted by this tooling correction. P2 remains blocked under the current policy.
