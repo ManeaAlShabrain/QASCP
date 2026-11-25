@@ -1,14 +1,13 @@
 # ADR-GOV-001 — Internal-only solo development assurance
 
-Status: **PROPOSED; owner decision required**. 2026-11-25.
+Status: **OWNER-APPROVED PROPOSAL; BASELINE ACTIVATION PENDING REVIEW**. 2026-11-25.
 QAR-001; GOV-001/003/004, ENG-001, CMP-001, REL-001; P1-V01..04.
 Change request: [GCR-P1-001](../governance/proposals/GCR-P1-001.md),
 [العربية](../governance/proposals/GCR-P1-001.ar.md).
 
 Context: one project owner, no assigned independent human reviewers, design-only
 P1, rejected exit at 4592eb230fadebb828c8b7d3b7972c6bd1aec012. Actual current policy
-does not accept virtual roles as independent people. Owner authorized preparing
-a policy proposal, not adopting it or granting phase exit.
+does not accept virtual roles as independent people. At proposal preparation, the owner had authorized preparing a proposal only. The later [GOV-DEC-001](../governance/decisions/GOV-DEC-001.md) approves the internal-only proposal and baseline-update preparation; activation/review and phase exit remain separate.
 
 | Option | Benefits | Costs / risks |
 |---|---|---|
@@ -31,4 +30,4 @@ decision; historical audit reports and decisions remain immutable.
 
 Provenance: original project-owner constraints and audit #43/GOV-004; no copied
 external governance framework, regulatory claim or newly adopted dependency.
-Decision/approver/date/effective revision: **not supplied**.
+Proposal decision: owner APPROVE, 2026-11-25, contextual reply transcribed in [GOV-DEC-001](../governance/decisions/GOV-DEC-001.md). Chosen option: narrow internal-only model. Effective baseline revision: **activation pending review**. No risk acceptance, architecture adoption or phase exit is supplied.

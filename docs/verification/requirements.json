@@ -1,5 +1,7 @@
 {
-  "baseline_version": "1.0",
+  "baseline_version": "1.1",
+  "baseline_status": "CANDIDATE_ACTIVATION_PENDING_REVIEW",
+  "owner_proposal_decision": "docs/governance/decisions/GOV-DEC-001.md",
   "requirements": [
     {"id": "QASCP-GOV-001", "verification": ["P1-V04"]},
     {"id": "QASCP-GOV-002", "verification": ["P1-V01", "P1-V02"]},

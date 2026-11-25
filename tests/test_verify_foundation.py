@@ -128,7 +128,8 @@ class FoundationVerifierTests(unittest.TestCase):
         self.assert_rejected("PRD-01: unknown backlog ID V2-P2-99")
 
     def test_mixed_versions(self):
-        self.update(HANDBOOKS[1], "الإصدار 1.0", "الإصدار 1.1")
+        baseline = json.loads((self.root / REGISTER).read_text(encoding="utf-8"))["baseline_version"]
+        self.update(HANDBOOKS[1], f"الإصدار {baseline}", "الإصدار 99.0")
         self.assert_rejected(f"{HANDBOOKS[1]}: baseline version differs")
 
     def test_invalid_phase(self):
