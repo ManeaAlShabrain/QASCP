@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-25",
+  "scope": "Selected primary-source identity/access only; no complete legal, amendment, license or advisory assessment.",
+  "sources": [
+    {
+      "url": "https://www.nist.gov/publications/nist-cybersecurity-framework-csf-20",
+      "result": "Reachable; title CSF 2.0, published February 26, 2024. No exhaustive amendment/currency conclusion."
+    },
+    {
+      "url": "https://csrc.nist.gov/pubs/sp/800/218/final",
+      "result": "Reachable; SSDF v1.1 final page, February 2022. No exhaustive supersession assessment."
+    },
+    {
+      "url": "https://www.qcb.gov.qa/Services/Financial%20Technology/QCB_Artificial_Intelligence_Guideline.pdf",
+      "result": "502 Bad Gateway in this retrieval; original current PDF bytes not verified."
+    },
+    {
+      "url": "https://www.qcb.gov.qa/Documents/InformationSecurity/Cloud%20Computing%20Regulation.pdf",
+      "result": "TimeoutError in this retrieval; original current PDF bytes not verified."
+    },
+    {
+      "url": "https://git-scm.com/docs/git-config",
+      "result": "Primary Git documentation read for scoped include processing; local probe independently demonstrates guard false-clean cases."
+    }
+  ]
+}

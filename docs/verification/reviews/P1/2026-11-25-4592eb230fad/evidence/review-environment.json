@@ -1,0 +1,20 @@
+{
+  "reviewed_sha": "4592eb230fadebb828c8b7d3b7972c6bd1aec012",
+  "reviewed_tree": "fc11762be16b4b69bd6e1ebbd2fb1b9ba7c69a7f",
+  "local_python": "3.14.4",
+  "local_git": "2.54.0.windows.1",
+  "local_platform": "Windows",
+  "source_blob_count": 73,
+  "source_blob_mismatches": 0,
+  "python_ast_files": 12,
+  "dependency_install": {
+    "command": "python -m venv ../review-venv; ../review-venv/Scripts/python -m pip install --disable-pip-version-check --no-input --index-url https://pypi.org/simple --no-deps --only-binary=:all: --retries 0 --timeout 10 -r requirements-contracts.txt",
+    "exit": 1,
+    "output": "ERROR: Could not find a version that satisfies the requirement attrs==25.4.0 (from versions: none)\nERROR: No matching distribution found for attrs==25.4.0",
+    "interpretation": "Installation could not be completed in this environment; not evidence the exact-SHA hosted dependency set fails."
+  },
+  "direct_clone": {
+    "exit": 1,
+    "result": "Could not connect to github.com port 443; all source retrieved through authorized GitHub connector instead."
+  }
+}

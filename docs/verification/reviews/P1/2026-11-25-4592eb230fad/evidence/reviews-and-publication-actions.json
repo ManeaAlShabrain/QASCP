@@ -1,0 +1,166 @@
+{
+  "prior_reviews": [
+    {
+      "number": 33,
+      "result": {
+        "reviews": []
+      }
+    },
+    {
+      "number": 34,
+      "result": {
+        "reviews": []
+      }
+    },
+    {
+      "number": 35,
+      "result": {
+        "reviews": []
+      }
+    },
+    {
+      "number": 36,
+      "result": {
+        "reviews": []
+      }
+    },
+    {
+      "number": 38,
+      "result": {
+        "reviews": []
+      }
+    },
+    {
+      "number": 39,
+      "result": {
+        "reviews": []
+      }
+    }
+  ],
+  "prior_pr12_reviews": [],
+  "audit_review": [
+    {
+      "id": 6063702368,
+      "node_id": "PRR_kwDOVvcSaM8AAAABaWzBYA",
+      "user": {
+        "login": "ManeaAl-Shabrain",
+        "id": 111914769,
+        "node_id": "U_kgDOBquvEQ",
+        "avatar_url": "https://avatars.githubusercontent.com/u/111914769?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/ManeaAl-Shabrain",
+        "html_url": "https://github.com/ManeaAl-Shabrain",
+        "followers_url": "https://api.github.com/users/ManeaAl-Shabrain/followers",
+        "following_url": "https://api.github.com/users/ManeaAl-Shabrain/following{/other_user}",
+        "gists_url": "https://api.github.com/users/ManeaAl-Shabrain/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/ManeaAl-Shabrain/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/ManeaAl-Shabrain/subscriptions",
+        "organizations_url": "https://api.github.com/users/ManeaAl-Shabrain/orgs",
+        "repos_url": "https://api.github.com/users/ManeaAl-Shabrain/repos",
+        "events_url": "https://api.github.com/users/ManeaAl-Shabrain/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/ManeaAl-Shabrain/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "body": "AI-assisted review follow-up for the code retained at main 4592eb230fadebb828c8b7d3b7972c6bd1aec012. QAR-004 is tracked in #40. This comment is posted via ManeaAl-Shabrain, the actual connected owner account; it is not an independent human review or approval. No implementation was changed.",
+      "state": "COMMENTED",
+      "html_url": "https://github.com/ManeaAlShabrain/QASCP/pull/38#pullrequestreview-6063702368",
+      "pull_request_url": "https://api.github.com/repos/ManeaAlShabrain/QASCP/pulls/38",
+      "author_association": "MEMBER",
+      "is_copilot_code_review": false,
+      "copilot_code_review_effort": null,
+      "_links": {
+        "html": {
+          "href": "https://github.com/ManeaAlShabrain/QASCP/pull/38#pullrequestreview-6063702368"
+        },
+        "pull_request": {
+          "href": "https://api.github.com/repos/ManeaAlShabrain/QASCP/pulls/38"
+        }
+      },
+      "submitted_at": "2026-11-25T19:27:10Z",
+      "commit_id": "bc5df5c41d2864475b63b24a8559a42d343637f6"
+    }
+  ],
+  "audit_inline_comments": [
+    {
+      "url": "https://api.github.com/repos/ManeaAlShabrain/QASCP/pulls/comments/4699827512",
+      "pull_request_review_id": 6063702368,
+      "id": 4699827512,
+      "node_id": "PRRC_kwDOVvcSaM8AAAABGCGtOA",
+      "diff_hunk": "@@ -15,9 +15,27 @@ jobs:\n     timeout-minutes: 5\n     steps:\n       - name: Check out repository\n-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2\n+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1\n         with:\n           persist-credentials: false\n+          allow-unsafe-pr-checkout: false\n+      - name: Verify checkout authentication boundary\n+        run: |\n+          python3 --version\n+          git --version\n+          python3 - <<'PY'\n+          import subprocess\n+\n+          result = subprocess.run(\n+              [\"git\", \"config\", \"--local\", \"--name-only\", \"--get-regexp\",",
+      "path": ".github/workflows/ci.yml",
+      "commit_id": "bc5df5c41d2864475b63b24a8559a42d343637f6",
+      "original_commit_id": "bc5df5c41d2864475b63b24a8559a42d343637f6",
+      "user": {
+        "login": "ManeaAl-Shabrain",
+        "id": 111914769,
+        "node_id": "U_kgDOBquvEQ",
+        "avatar_url": "https://avatars.githubusercontent.com/u/111914769?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/ManeaAl-Shabrain",
+        "html_url": "https://github.com/ManeaAl-Shabrain",
+        "followers_url": "https://api.github.com/users/ManeaAl-Shabrain/followers",
+        "following_url": "https://api.github.com/users/ManeaAl-Shabrain/following{/other_user}",
+        "gists_url": "https://api.github.com/users/ManeaAl-Shabrain/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/ManeaAl-Shabrain/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/ManeaAl-Shabrain/subscriptions",
+        "organizations_url": "https://api.github.com/users/ManeaAl-Shabrain/orgs",
+        "repos_url": "https://api.github.com/users/ManeaAl-Shabrain/repos",
+        "events_url": "https://api.github.com/users/ManeaAl-Shabrain/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/ManeaAl-Shabrain/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "body": "QAR-004 / MEDIUM (P2): this scoped query omits --includes. I extracted and ran this exact guard in disposable Git repositories: direct credential.helper fails, but include.path and matching includeIf supplying the same nonsecret helper both pass and print the clean message. A separate --local --includes query confirms the helper is active. Track the corrective implementation and retained negative regressions in #40. Either reject remaining local include directives or inspect included local auth config fail-closed without printing values. The inspected hosted run removed its temporary includes, so no actual credential leak is claimed.",
+      "created_at": "2026-11-25T19:27:10Z",
+      "updated_at": "2026-11-25T19:27:10Z",
+      "html_url": "https://github.com/ManeaAlShabrain/QASCP/pull/38#discussion_r4699827512",
+      "pull_request_url": "https://api.github.com/repos/ManeaAlShabrain/QASCP/pulls/38",
+      "_links": {
+        "self": {
+          "href": "https://api.github.com/repos/ManeaAlShabrain/QASCP/pulls/comments/4699827512"
+        },
+        "html": {
+          "href": "https://github.com/ManeaAlShabrain/QASCP/pull/38#discussion_r4699827512"
+        },
+        "pull_request": {
+          "href": "https://api.github.com/repos/ManeaAlShabrain/QASCP/pulls/38"
+        }
+      },
+      "reactions": {
+        "url": "https://api.github.com/repos/ManeaAlShabrain/QASCP/pulls/comments/4699827512/reactions",
+        "total_count": 0,
+        "+1": 0,
+        "-1": 0,
+        "laugh": 0,
+        "hooray": 0,
+        "confused": 0,
+        "heart": 0,
+        "rocket": 0,
+        "eyes": 0
+      },
+      "start_line": null,
+      "original_start_line": null,
+      "start_side": null,
+      "line": 30,
+      "original_line": 30,
+      "side": "RIGHT",
+      "author_association": "MEMBER",
+      "original_position": 17,
+      "position": 17,
+      "subject_type": "line",
+      "is_copilot_code_review": false,
+      "copilot_code_review_severity": null,
+      "copilot_code_review_sources": []
+    }
+  ],
+  "new_issue_links": [
+    "https://github.com/ManeaAlShabrain/QASCP/issues/40",
+    "https://github.com/ManeaAlShabrain/QASCP/issues/41",
+    "https://github.com/ManeaAlShabrain/QASCP/issues/42"
+  ],
+  "account": "ManeaAl-Shabrain",
+  "human_independent_reviewer": false
+}

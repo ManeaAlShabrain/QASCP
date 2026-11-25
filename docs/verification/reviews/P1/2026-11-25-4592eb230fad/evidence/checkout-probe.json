@@ -1,0 +1,39 @@
+{
+  "exact_guard": "import subprocess\n\nresult = subprocess.run(\n    [\"git\", \"config\", \"--local\", \"--name-only\", \"--get-regexp\",\n     r\"^(http(\\..*)?\\.extraheader|credential\\..*|core\\.sshcommand)$\"],\n    capture_output=True, text=True, check=False)\nif result.returncode not in (0, 1):\n    raise SystemExit(\"Cannot inspect local checkout authentication configuration\")\nif result.stdout.strip():\n    raise SystemExit(\"Prohibited checkout authentication configuration remains\")\nprint(\"No local checkout auth headers, credential helpers or SSH command remain\")",
+  "results": [
+    {
+      "case": "clean",
+      "guard_exit": 0,
+      "guard_output": "No local checkout auth headers, credential helpers or SSH command remain\n",
+      "included_prohibited_key_names": [],
+      "effective_exit": 1
+    },
+    {
+      "case": "direct",
+      "guard_exit": 1,
+      "guard_output": "Prohibited checkout authentication configuration remains\n",
+      "included_prohibited_key_names": [
+        "credential.helper"
+      ],
+      "effective_exit": 0
+    },
+    {
+      "case": "include",
+      "guard_exit": 0,
+      "guard_output": "No local checkout auth headers, credential helpers or SSH command remain\n",
+      "included_prohibited_key_names": [
+        "credential.helper"
+      ],
+      "effective_exit": 0
+    },
+    {
+      "case": "includeIf",
+      "guard_exit": 0,
+      "guard_output": "No local checkout auth headers, credential helpers or SSH command remain\n",
+      "included_prohibited_key_names": [
+        "credential.helper"
+      ],
+      "effective_exit": 0
+    }
+  ]
+}
