@@ -1,0 +1,456 @@
+{
+  "note": "Independent read of current rule/jobs and closed historical PR; prior open blocked state is a retained implementer snapshot, not re-observed by this auditor.",
+  "recorded_snapshot": {
+    "inspection_date": "2026-11-25",
+    "repository": "ManeaAlShabrain/QASCP",
+    "scope": "Observed GitHub API configuration and controlled PR merge state; not a merge-endpoint attempt or phase approval",
+    "rule_source_url": "https://api.github.com/repos/ManeaAlShabrain/QASCP/rulesets/27321554",
+    "ruleset": {
+      "id": 27321554,
+      "name": "Protect main",
+      "enforcement": "active",
+      "target": "branch",
+      "conditions": {
+        "ref_name": {
+          "exclude": [],
+          "include": [
+            "~DEFAULT_BRANCH"
+          ]
+        }
+      },
+      "rules": [
+        {
+          "type": "deletion"
+        },
+        {
+          "type": "non_fast_forward"
+        },
+        {
+          "type": "pull_request",
+          "parameters": {
+            "required_approving_review_count": 0,
+            "dismiss_stale_reviews_on_push": false,
+            "required_reviewers": [],
+            "require_code_owner_review": false,
+            "dismissal_restriction": {
+              "enabled": false,
+              "allowed_actors": []
+            },
+            "require_last_push_approval": false,
+            "required_review_thread_resolution": false,
+            "require_extra_approval_for_unattributed_changes": true,
+            "allowed_merge_methods": [
+              "merge",
+              "squash",
+              "rebase"
+            ]
+          }
+        },
+        {
+          "type": "required_status_checks",
+          "parameters": {
+            "strict_required_status_checks_policy": true,
+            "do_not_enforce_on_create": false,
+            "required_status_checks": [
+              {
+                "context": "QASCP Foundation Gate",
+                "integration_id": 15368
+              }
+            ]
+          }
+        }
+      ],
+      "bypass_actors": [],
+      "current_user_can_bypass": "never"
+    },
+    "negative": {
+      "pr_url": "https://github.com/ManeaAlShabrain/QASCP/pull/37",
+      "pr_number": 37,
+      "head_sha": "5c8b52d606f25d807e97029f0c80d48762af165c",
+      "base_ref": "main",
+      "base_sha": "f9df7a30747aba111ee7df0afe209fd613cae869",
+      "state": "open",
+      "draft": false,
+      "mergeable": true,
+      "mergeable_state": "blocked",
+      "merged": false,
+      "changed_files": 1,
+      "merge_attempted": false,
+      "failure_diagnostic": "README.md: unresolved local link missing-controlled-main-enforcement-probe.md",
+      "run_url": "https://github.com/ManeaAlShabrain/QASCP/actions/runs/45674710740",
+      "checks": [
+        {
+          "id": 139419100532,
+          "name": "QASCP Foundation Gate",
+          "status": "completed",
+          "conclusion": "failure",
+          "app_id": 15368,
+          "app_slug": "github-actions",
+          "url": "https://github.com/ManeaAlShabrain/QASCP/actions/runs/45674710740/job/139419100532"
+        },
+        {
+          "id": 139419038823,
+          "name": "Foundation verification",
+          "status": "completed",
+          "conclusion": "failure",
+          "app_id": 15368,
+          "app_slug": "github-actions",
+          "url": "https://github.com/ManeaAlShabrain/QASCP/actions/runs/45674710740/job/139419038823"
+        },
+        {
+          "id": 139419020708,
+          "name": "Analyze (python)",
+          "status": "completed",
+          "conclusion": "success",
+          "app_id": 15368,
+          "app_slug": "github-actions",
+          "url": "https://github.com/ManeaAlShabrain/QASCP/actions/runs/45674703792/job/139419020708"
+        }
+      ],
+      "downstream_validation_and_unit_steps": "skipped after foundation failure; not passed"
+    },
+    "positive": {
+      "head_sha": "2ffc0a864c3d7cf9b43041dadfaffa1bf2438438",
+      "tree_sha": "2c21d99bdeb0a1773a35c9fe53dbf4969854b5b7",
+      "restored_exact_main_tree": true,
+      "net_changed_files": 0,
+      "run_url": "https://github.com/ManeaAlShabrain/QASCP/actions/runs/45674930080",
+      "run_status": "completed",
+      "run_conclusion": "success",
+      "jobs": [
+        {
+          "id": 139419807598,
+          "name": "Foundation verification",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 139419985132,
+          "name": "QASCP Foundation Gate",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ],
+      "mergeable_state_before_close": "unstable",
+      "final_pr_state": "closed",
+      "merged": false,
+      "closed_at": "2026-11-25T18:25:46Z"
+    },
+    "candidate_code_evidence": {
+      "sha": "bd310dfa4a9522f3a70555eeae5bb1c6b83a0ac3",
+      "run_url": "https://github.com/ManeaAlShabrain/QASCP/actions/runs/45674623799",
+      "full_test_count": 96,
+      "failed": 0,
+      "skipped": 0,
+      "policy_operation_counts": [
+        2,
+        4
+      ]
+    }
+  },
+  "negative_jobs": {
+    "total_count": 2,
+    "jobs": [
+      {
+        "id": 139419038823,
+        "run_id": 45674710740,
+        "workflow_name": "QASCP Foundation",
+        "head_branch": "test/main-foundation-enforcement-20261125",
+        "run_url": "https://api.github.com/repos/ManeaAlShabrain/QASCP/actions/runs/45674710740",
+        "run_attempt": 1,
+        "node_id": "CR_kwDOVvcSaM8AAAAgdgW0Zw",
+        "head_sha": "5c8b52d606f25d807e97029f0c80d48762af165c",
+        "url": "https://api.github.com/repos/ManeaAlShabrain/QASCP/actions/jobs/139419038823",
+        "html_url": "https://github.com/ManeaAlShabrain/QASCP/actions/runs/45674710740/job/139419038823",
+        "status": "completed",
+        "conclusion": "failure",
+        "created_at": "2026-11-25T18:23:47Z",
+        "started_at": "2026-11-25T18:23:49Z",
+        "completed_at": "2026-11-25T18:23:53Z",
+        "name": "Foundation verification",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1,
+            "started_at": "2026-11-25T18:23:50Z",
+            "completed_at": "2026-11-25T18:23:51Z"
+          },
+          {
+            "name": "Check out repository",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2,
+            "started_at": "2026-11-25T18:23:51Z",
+            "completed_at": "2026-11-25T18:23:51Z"
+          },
+          {
+            "name": "Validate foundations",
+            "status": "completed",
+            "conclusion": "failure",
+            "number": 3,
+            "started_at": "2026-11-25T18:23:51Z",
+            "completed_at": "2026-11-25T18:23:51Z"
+          },
+          {
+            "name": "Install pinned contract validation tools",
+            "status": "completed",
+            "conclusion": "skipped",
+            "number": 4,
+            "started_at": "2026-11-25T18:23:51Z",
+            "completed_at": "2026-11-25T18:23:51Z"
+          },
+          {
+            "name": "Validate both full OpenAPI documents offline",
+            "status": "completed",
+            "conclusion": "skipped",
+            "number": 5,
+            "started_at": "2026-11-25T18:23:51Z",
+            "completed_at": "2026-11-25T18:23:51Z"
+          },
+          {
+            "name": "Test foundation and contract schemas",
+            "status": "completed",
+            "conclusion": "skipped",
+            "number": 6,
+            "started_at": "2026-11-25T18:23:51Z",
+            "completed_at": "2026-11-25T18:23:51Z"
+          },
+          {
+            "name": "Post Check out repository",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 12,
+            "started_at": "2026-11-25T18:23:52Z",
+            "completed_at": "2026-11-25T18:23:52Z"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 13,
+            "started_at": "2026-11-25T18:23:52Z",
+            "completed_at": "2026-11-25T18:23:52Z"
+          }
+        ],
+        "check_run_url": "https://api.github.com/repos/ManeaAlShabrain/QASCP/check-runs/139419038823",
+        "labels": [
+          "ubuntu-latest"
+        ],
+        "runner_id": 1000000005,
+        "runner_name": "GitHub Actions 1000000005",
+        "runner_group_id": 0,
+        "runner_group_name": "GitHub Actions"
+      },
+      {
+        "id": 139419100532,
+        "run_id": 45674710740,
+        "workflow_name": "QASCP Foundation",
+        "head_branch": "test/main-foundation-enforcement-20261125",
+        "run_url": "https://api.github.com/repos/ManeaAlShabrain/QASCP/actions/runs/45674710740",
+        "run_attempt": 1,
+        "node_id": "CR_kwDOVvcSaM8AAAAgdgaldA",
+        "head_sha": "5c8b52d606f25d807e97029f0c80d48762af165c",
+        "url": "https://api.github.com/repos/ManeaAlShabrain/QASCP/actions/jobs/139419100532",
+        "html_url": "https://github.com/ManeaAlShabrain/QASCP/actions/runs/45674710740/job/139419100532",
+        "status": "completed",
+        "conclusion": "failure",
+        "created_at": "2026-11-25T18:23:54Z",
+        "started_at": "2026-11-25T18:23:56Z",
+        "completed_at": "2026-11-25T18:23:58Z",
+        "name": "QASCP Foundation Gate",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1,
+            "started_at": "2026-11-25T18:23:57Z",
+            "completed_at": "2026-11-25T18:23:57Z"
+          },
+          {
+            "name": "Require successful verification",
+            "status": "completed",
+            "conclusion": "failure",
+            "number": 2,
+            "started_at": "2026-11-25T18:23:57Z",
+            "completed_at": "2026-11-25T18:23:57Z"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3,
+            "started_at": "2026-11-25T18:23:57Z",
+            "completed_at": "2026-11-25T18:23:57Z"
+          }
+        ],
+        "check_run_url": "https://api.github.com/repos/ManeaAlShabrain/QASCP/check-runs/139419100532",
+        "labels": [
+          "ubuntu-latest"
+        ],
+        "runner_id": 1000000006,
+        "runner_name": "GitHub Actions 1000000006",
+        "runner_group_id": 0,
+        "runner_group_name": "GitHub Actions"
+      }
+    ]
+  },
+  "positive_jobs": {
+    "total_count": 2,
+    "jobs": [
+      {
+        "id": 139419807598,
+        "run_id": 45674930080,
+        "workflow_name": "QASCP Foundation",
+        "head_branch": "test/main-foundation-enforcement-20261125",
+        "run_url": "https://api.github.com/repos/ManeaAlShabrain/QASCP/actions/runs/45674930080",
+        "run_attempt": 1,
+        "node_id": "CR_kwDOVvcSaM8AAAAgdhFvbg",
+        "head_sha": "2ffc0a864c3d7cf9b43041dadfaffa1bf2438438",
+        "url": "https://api.github.com/repos/ManeaAlShabrain/QASCP/actions/jobs/139419807598",
+        "html_url": "https://github.com/ManeaAlShabrain/QASCP/actions/runs/45674930080/job/139419807598",
+        "status": "completed",
+        "conclusion": "success",
+        "created_at": "2026-11-25T18:25:03Z",
+        "started_at": "2026-11-25T18:25:05Z",
+        "completed_at": "2026-11-25T18:25:20Z",
+        "name": "Foundation verification",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1,
+            "started_at": "2026-11-25T18:25:07Z",
+            "completed_at": "2026-11-25T18:25:07Z"
+          },
+          {
+            "name": "Check out repository",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2,
+            "started_at": "2026-11-25T18:25:07Z",
+            "completed_at": "2026-11-25T18:25:08Z"
+          },
+          {
+            "name": "Validate foundations",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3,
+            "started_at": "2026-11-25T18:25:08Z",
+            "completed_at": "2026-11-25T18:25:08Z"
+          },
+          {
+            "name": "Install pinned contract validation tools",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4,
+            "started_at": "2026-11-25T18:25:08Z",
+            "completed_at": "2026-11-25T18:25:13Z"
+          },
+          {
+            "name": "Validate both full OpenAPI documents offline",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5,
+            "started_at": "2026-11-25T18:25:13Z",
+            "completed_at": "2026-11-25T18:25:13Z"
+          },
+          {
+            "name": "Test foundation and contract schemas",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 6,
+            "started_at": "2026-11-25T18:25:13Z",
+            "completed_at": "2026-11-25T18:25:17Z"
+          },
+          {
+            "name": "Post Check out repository",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 12,
+            "started_at": "2026-11-25T18:25:17Z",
+            "completed_at": "2026-11-25T18:25:18Z"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 13,
+            "started_at": "2026-11-25T18:25:18Z",
+            "completed_at": "2026-11-25T18:25:18Z"
+          }
+        ],
+        "check_run_url": "https://api.github.com/repos/ManeaAlShabrain/QASCP/check-runs/139419807598",
+        "labels": [
+          "ubuntu-latest"
+        ],
+        "runner_id": 1000000008,
+        "runner_name": "GitHub Actions 1000000008",
+        "runner_group_id": 0,
+        "runner_group_name": "GitHub Actions"
+      },
+      {
+        "id": 139419985132,
+        "run_id": 45674930080,
+        "workflow_name": "QASCP Foundation",
+        "head_branch": "test/main-foundation-enforcement-20261125",
+        "run_url": "https://api.github.com/repos/ManeaAlShabrain/QASCP/actions/runs/45674930080",
+        "run_attempt": 1,
+        "node_id": "CR_kwDOVvcSaM8AAAAgdhQk7A",
+        "head_sha": "2ffc0a864c3d7cf9b43041dadfaffa1bf2438438",
+        "url": "https://api.github.com/repos/ManeaAlShabrain/QASCP/actions/jobs/139419985132",
+        "html_url": "https://github.com/ManeaAlShabrain/QASCP/actions/runs/45674930080/job/139419985132",
+        "status": "completed",
+        "conclusion": "success",
+        "created_at": "2026-11-25T18:25:20Z",
+        "started_at": "2026-11-25T18:25:23Z",
+        "completed_at": "2026-11-25T18:25:26Z",
+        "name": "QASCP Foundation Gate",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1,
+            "started_at": "2026-11-25T18:25:23Z",
+            "completed_at": "2026-11-25T18:25:23Z"
+          },
+          {
+            "name": "Require successful verification",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2,
+            "started_at": "2026-11-25T18:25:23Z",
+            "completed_at": "2026-11-25T18:25:24Z"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3,
+            "started_at": "2026-11-25T18:25:24Z",
+            "completed_at": "2026-11-25T18:25:24Z"
+          }
+        ],
+        "check_run_url": "https://api.github.com/repos/ManeaAlShabrain/QASCP/check-runs/139419985132",
+        "labels": [
+          "ubuntu-latest"
+        ],
+        "runner_id": 1000000009,
+        "runner_name": "GitHub Actions 1000000009",
+        "runner_group_id": 0,
+        "runner_group_name": "GitHub Actions"
+      }
+    ]
+  },
+  "closed_pr37": {
+    "url": "https://github.com/ManeaAlShabrain/QASCP/pull/37",
+    "state": "closed",
+    "merged": false,
+    "head": "2ffc0a864c3d7cf9b43041dadfaffa1bf2438438",
+    "body": "Controlled P1-V03 / V2-P1-04 test completed. CLOSED WITHOUT MERGING.\n\nNegative head: 5c8b52d606f25d807e97029f0c80d48762af165c; base main: f9df7a30747aba111ee7df0afe209fd613cae869.\n[Negative run 45674710740](https://github.com/ManeaAlShabrain/QASCP/actions/runs/45674710740) failed Foundation verification and QASCP Foundation Gate because README.md referenced missing-controlled-main-enforcement-probe.md. Downstream full-validator/test steps were skipped, not passed.\n\nWhile this PR was OPEN, NON-DRAFT and targeting main at that negative head, REST reported mergeable=true (no content conflict), mergeable_state=blocked and merged=false. The required failed check was produced by github-actions, App ID 15368. Active ruleset 27321554 required that exact check with strict updates and no bypass actors. No merge request was submitted and no override was attempted.\n\nPositive control: commit 2ffc0a864c3d7cf9b43041dadfaffa1bf2438438 restored the exact baseline tree 2c21d99bdeb0a1773a35c9fe53dbf4969854b5b7, without any rule/workflow change. [Positive run 45674930080](https://github.com/ManeaAlShabrain/QASCP/actions/runs/45674930080) passed both foundation and gate. The restored PR has zero net changed files.\n\nThis isolates required-check enforcement from draft state or missing approvals. It is configuration plus an observed blocked merge state, not an executed merge-endpoint rejection or universal proof for future settings.\n\nReview bundle: #36. That bundle has its own 96-test candidate evidence. Phase approval and independent security/architecture/bilingual/regulatory decisions remain separate."
+  }
+}

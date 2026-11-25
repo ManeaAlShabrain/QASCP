@@ -1,0 +1,379 @@
+﻿2026-11-25T18:57:59.9951504Z Current runner version: '2.338.2'
+2026-11-25T18:57:59.9975900Z ##[group]Runner Image Provisioner
+2026-11-25T18:57:59.9976869Z Hosted Compute Agent
+2026-11-25T18:57:59.9977454Z Version: 20261111.635
+2026-11-25T18:57:59.9978162Z Commit: b8a594ea514ff44cadb5342986c68b1eac6e22ed
+2026-11-25T18:57:59.9978913Z Build Date: 2026-11-11T01:49:01Z
+2026-11-25T18:57:59.9979632Z Worker ID: {7f7678ab-6286-4d98-b5d8-5138725c7e97}
+2026-11-25T18:57:59.9980753Z Region: westus3
+2026-11-25T18:57:59.9981328Z Cloud: Azure
+2026-11-25T18:57:59.9981983Z ##[endgroup]
+2026-11-25T18:57:59.9983507Z ##[group]Operating System
+2026-11-25T18:57:59.9984144Z Ubuntu
+2026-11-25T18:57:59.9984745Z 26.04.1
+2026-11-25T18:57:59.9985258Z LTS
+2026-11-25T18:57:59.9985786Z ##[endgroup]
+2026-11-25T18:57:59.9986400Z ##[group]Runner Image
+2026-11-25T18:57:59.9987003Z Image: ubuntu-26.04
+2026-11-25T18:57:59.9987952Z Version: 20261116.202.1
+2026-11-25T18:57:59.9989324Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261116.202/images/ubuntu/Ubuntu2604-Readme.md
+2026-11-25T18:57:59.9991303Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261116.202
+2026-11-25T18:57:59.9992288Z ##[endgroup]
+2026-11-25T18:57:59.9993469Z ##[group]GITHUB_TOKEN Permissions
+2026-11-25T18:57:59.9995374Z Contents: read
+2026-11-25T18:57:59.9996103Z Metadata: read
+2026-11-25T18:57:59.9996664Z ##[endgroup]
+2026-11-25T18:57:59.9999081Z Secret source: Actions
+2026-11-25T18:58:00.0000405Z Cache mode: write
+2026-11-25T18:58:00.0001303Z Prepare workflow directory
+2026-11-25T18:58:00.0369152Z Prepare all required actions
+2026-11-25T18:58:00.0420844Z Getting action download info
+2026-11-25T18:58:00.4226219Z Download action repository 'actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-11-25T18:58:00.6266011Z Complete job name: Foundation verification
+2026-11-25T18:58:00.7139706Z ##[group]Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+2026-11-25T18:58:00.7140986Z with:
+2026-11-25T18:58:00.7141462Z   persist-credentials: false
+2026-11-25T18:58:00.7142010Z   allow-unsafe-pr-checkout: false
+2026-11-25T18:58:00.7142581Z   repository: ManeaAlShabrain/QASCP
+2026-11-25T18:58:00.7146577Z   token: ***
+2026-11-25T18:58:00.7147024Z   ssh-strict: true
+2026-11-25T18:58:00.7147475Z   ssh-user: git
+2026-11-25T18:58:00.7147902Z   clean: true
+2026-11-25T18:58:00.7148351Z   sparse-checkout-cone-mode: true
+2026-11-25T18:58:00.7148885Z   fetch-depth: 1
+2026-11-25T18:58:00.7149326Z   fetch-tags: false
+2026-11-25T18:58:00.7149778Z   show-progress: true
+2026-11-25T18:58:00.7150370Z   lfs: false
+2026-11-25T18:58:00.7150790Z   submodules: false
+2026-11-25T18:58:00.7151253Z   set-safe-directory: true
+2026-11-25T18:58:00.7152150Z ##[endgroup]
+2026-11-25T18:58:01.0412630Z Syncing repository: ManeaAlShabrain/QASCP
+2026-11-25T18:58:01.0415703Z ##[group]Getting Git version info
+2026-11-25T18:58:01.0417009Z Working directory is '/home/runner/work/QASCP/QASCP'
+2026-11-25T18:58:01.0418856Z [command]/usr/bin/git version
+2026-11-25T18:58:01.0425537Z git version 2.56.1
+2026-11-25T18:58:01.0451604Z ##[endgroup]
+2026-11-25T18:58:01.0460922Z Temporarily overriding HOME='/home/runner/work/_temp/2a54f8b1-428b-41de-841c-8d6a1945efa6' before making global git config changes
+2026-11-25T18:58:01.0463336Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-25T18:58:01.0467964Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/QASCP/QASCP
+2026-11-25T18:58:01.0562560Z Deleting the contents of '/home/runner/work/QASCP/QASCP'
+2026-11-25T18:58:01.0564689Z ##[group]Determining repository object format
+2026-11-25T18:58:01.0566154Z ##[endgroup]
+2026-11-25T18:58:01.0567338Z ##[group]Initializing the repository
+2026-11-25T18:58:01.0568410Z [command]/usr/bin/git init /home/runner/work/QASCP/QASCP
+2026-11-25T18:58:01.0701406Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-25T18:58:01.0703199Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-25T18:58:01.0705180Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-25T18:58:01.0706556Z hint: call:
+2026-11-25T18:58:01.0707463Z hint:
+2026-11-25T18:58:01.0708713Z hint: 	git config --global init.defaultBranch <name>
+2026-11-25T18:58:01.0709790Z hint:
+2026-11-25T18:58:01.0711343Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-25T18:58:01.0713200Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-25T18:58:01.0721032Z hint:
+2026-11-25T18:58:01.0722467Z hint: 	git branch -m <name>
+2026-11-25T18:58:01.0723544Z hint:
+2026-11-25T18:58:01.0724858Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-25T18:58:01.0726715Z Initialized empty Git repository in /home/runner/work/QASCP/QASCP/.git/
+2026-11-25T18:58:01.0733271Z [command]/usr/bin/git remote add origin https://github.com/ManeaAlShabrain/QASCP
+2026-11-25T18:58:01.0797898Z ##[endgroup]
+2026-11-25T18:58:01.0799861Z ##[group]Disabling automatic garbage collection
+2026-11-25T18:58:01.0804150Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-25T18:58:01.0846080Z ##[endgroup]
+2026-11-25T18:58:01.0847847Z ##[group]Setting up auth
+2026-11-25T18:58:01.0848966Z Removing SSH command configuration
+2026-11-25T18:58:01.0853474Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-25T18:58:01.0892903Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-25T18:58:01.1433067Z Removing HTTP extra header
+2026-11-25T18:58:01.1442263Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-25T18:58:01.1479289Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-25T18:58:01.1769997Z Removing includeIf entries pointing to credentials config files
+2026-11-25T18:58:01.1775328Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-25T18:58:01.1810829Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-25T18:58:01.2085943Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-a83a61c9-8e68-40c8-b50b-44bf3d99d2e4.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-25T18:58:01.2123720Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/QASCP/QASCP/.git.path /home/runner/work/_temp/git-credentials-a83a61c9-8e68-40c8-b50b-44bf3d99d2e4.config
+2026-11-25T18:58:01.2155644Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/QASCP/QASCP/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-a83a61c9-8e68-40c8-b50b-44bf3d99d2e4.config
+2026-11-25T18:58:01.2191980Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-a83a61c9-8e68-40c8-b50b-44bf3d99d2e4.config
+2026-11-25T18:58:01.2224580Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-a83a61c9-8e68-40c8-b50b-44bf3d99d2e4.config
+2026-11-25T18:58:01.2253921Z ##[endgroup]
+2026-11-25T18:58:01.2254662Z ##[group]Fetching the repository
+2026-11-25T18:58:01.2259591Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +4592eb230fadebb828c8b7d3b7972c6bd1aec012:refs/remotes/origin/main
+2026-11-25T18:58:01.8556674Z From https://github.com/ManeaAlShabrain/QASCP
+2026-11-25T18:58:01.8558987Z  * [new ref]         4592eb230fadebb828c8b7d3b7972c6bd1aec012 -> origin/main
+2026-11-25T18:58:01.8565914Z [command]/usr/bin/git branch --list --remote origin/main
+2026-11-25T18:58:01.8595806Z   origin/main
+2026-11-25T18:58:01.8606126Z [command]/usr/bin/git rev-parse refs/remotes/origin/main
+2026-11-25T18:58:01.8631035Z 4592eb230fadebb828c8b7d3b7972c6bd1aec012
+2026-11-25T18:58:01.8637868Z ##[endgroup]
+2026-11-25T18:58:01.8639497Z ##[group]Determining the checkout info
+2026-11-25T18:58:01.8641718Z ##[endgroup]
+2026-11-25T18:58:01.8643264Z [command]/usr/bin/git sparse-checkout disable
+2026-11-25T18:58:01.8707278Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-25T18:58:01.8742307Z ##[group]Checking out the ref
+2026-11-25T18:58:01.8747222Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-11-25T18:58:01.8909111Z Switched to a new branch 'main'
+2026-11-25T18:58:01.8914440Z branch 'main' set up to track 'origin/main'.
+2026-11-25T18:58:01.8921446Z ##[endgroup]
+2026-11-25T18:58:01.8972222Z [command]/usr/bin/git log -1 --format=%H
+2026-11-25T18:58:01.8999967Z 4592eb230fadebb828c8b7d3b7972c6bd1aec012
+2026-11-25T18:58:01.9010769Z ##[group]Removing auth
+2026-11-25T18:58:01.9012093Z Removing SSH command configuration
+2026-11-25T18:58:01.9014437Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-25T18:58:01.9046546Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-25T18:58:01.9324815Z Removing HTTP extra header
+2026-11-25T18:58:01.9327757Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-25T18:58:01.9361039Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-25T18:58:01.9632906Z Removing includeIf entries pointing to credentials config files
+2026-11-25T18:58:01.9636097Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-25T18:58:01.9661900Z includeif.gitdir:/home/runner/work/QASCP/QASCP/.git.path
+2026-11-25T18:58:01.9664249Z includeif.gitdir:/home/runner/work/QASCP/QASCP/.git/worktrees/*.path
+2026-11-25T18:58:01.9666708Z includeif.gitdir:/github/workspace/.git.path
+2026-11-25T18:58:01.9668866Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-25T18:58:01.9674190Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/QASCP/QASCP/.git.path
+2026-11-25T18:58:01.9696870Z /home/runner/work/_temp/git-credentials-a83a61c9-8e68-40c8-b50b-44bf3d99d2e4.config
+2026-11-25T18:58:01.9709417Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/QASCP/QASCP/.git.path \/home\/runner\/work\/_temp\/git\-credentials\-a83a61c9\-8e68\-40c8\-b50b\-44bf3d99d2e4\.config
+2026-11-25T18:58:01.9745758Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/QASCP/QASCP/.git/worktrees/*.path
+2026-11-25T18:58:01.9771246Z /home/runner/work/_temp/git-credentials-a83a61c9-8e68-40c8-b50b-44bf3d99d2e4.config
+2026-11-25T18:58:01.9781476Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/QASCP/QASCP/.git/worktrees/*.path \/home\/runner\/work\/_temp\/git\-credentials\-a83a61c9\-8e68\-40c8\-b50b\-44bf3d99d2e4\.config
+2026-11-25T18:58:01.9817902Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-11-25T18:58:01.9842836Z /github/runner_temp/git-credentials-a83a61c9-8e68-40c8-b50b-44bf3d99d2e4.config
+2026-11-25T18:58:01.9851739Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-a83a61c9\-8e68\-40c8\-b50b\-44bf3d99d2e4\.config
+2026-11-25T18:58:01.9885421Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-25T18:58:01.9908359Z /github/runner_temp/git-credentials-a83a61c9-8e68-40c8-b50b-44bf3d99d2e4.config
+2026-11-25T18:58:01.9917516Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-a83a61c9\-8e68\-40c8\-b50b\-44bf3d99d2e4\.config
+2026-11-25T18:58:01.9952249Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-25T18:58:02.0220579Z Removing credentials config '/home/runner/work/_temp/git-credentials-a83a61c9-8e68-40c8-b50b-44bf3d99d2e4.config'
+2026-11-25T18:58:02.0229319Z ##[endgroup]
+2026-11-25T18:58:02.0484844Z ##[group]Run python3 --version
+2026-11-25T18:58:02.0486167Z [36;1mpython3 --version[0m
+2026-11-25T18:58:02.0487316Z [36;1mgit --version[0m
+2026-11-25T18:58:02.0488411Z [36;1mpython3 - <<'PY'[0m
+2026-11-25T18:58:02.0489531Z [36;1mimport subprocess[0m
+2026-11-25T18:58:02.0490785Z [36;1m[0m
+2026-11-25T18:58:02.0491740Z [36;1mresult = subprocess.run([0m
+2026-11-25T18:58:02.0493312Z [36;1m    ["git", "config", "--local", "--name-only", "--get-regexp",[0m
+2026-11-25T18:58:02.0495397Z [36;1m     r"^(http(\..*)?\.extraheader|credential\..*|core\.sshcommand)$"],[0m
+2026-11-25T18:58:02.0497319Z [36;1m    capture_output=True, text=True, check=False)[0m
+2026-11-25T18:58:02.0498909Z [36;1mif result.returncode not in (0, 1):[0m
+2026-11-25T18:58:02.0501083Z [36;1m    raise SystemExit("Cannot inspect local checkout authentication configuration")[0m
+2026-11-25T18:58:02.0503153Z [36;1mif result.stdout.strip():[0m
+2026-11-25T18:58:02.0505116Z [36;1m    raise SystemExit("Prohibited checkout authentication configuration remains")[0m
+2026-11-25T18:58:02.0507793Z [36;1mprint("No local checkout auth headers, credential helpers or SSH command remain")[0m
+2026-11-25T18:58:02.0509744Z [36;1mPY[0m
+2026-11-25T18:58:02.0553092Z shell: /usr/bin/bash -e {0}
+2026-11-25T18:58:02.0554230Z ##[endgroup]
+2026-11-25T18:58:02.0649462Z Python 3.14.4
+2026-11-25T18:58:02.0663378Z git version 2.56.1
+2026-11-25T18:58:02.0865538Z No local checkout auth headers, credential helpers or SSH command remain
+2026-11-25T18:58:02.0991765Z ##[group]Run python3 scripts/verify_foundation.py
+2026-11-25T18:58:02.0993364Z [36;1mpython3 scripts/verify_foundation.py[0m
+2026-11-25T18:58:02.1027435Z shell: /usr/bin/bash -e {0}
+2026-11-25T18:58:02.1028543Z ##[endgroup]
+2026-11-25T18:58:02.1563306Z Foundation verified: required files, links, bilingual parity, governance and product requirement mappings, backlog references, and evidence references.
+2026-11-25T18:58:02.1761239Z ##[group]Run python3 -m venv .venv-contracts
+2026-11-25T18:58:02.1762746Z [36;1mpython3 -m venv .venv-contracts[0m
+2026-11-25T18:58:02.1766090Z [36;1m.venv-contracts/bin/python -m pip install --disable-pip-version-check --no-input --index-url https://pypi.org/simple --no-deps --only-binary=:all: -r requirements-contracts.txt[0m
+2026-11-25T18:58:02.1769527Z [36;1m.venv-contracts/bin/python -m pip check[0m
+2026-11-25T18:58:02.1804447Z shell: /usr/bin/bash -e {0}
+2026-11-25T18:58:02.1805568Z ##[endgroup]
+2026-11-25T18:58:05.7148105Z Collecting attrs==25.4.0 (from -r requirements-contracts.txt (line 3))
+2026-11-25T18:58:05.7556563Z   Downloading attrs-25.4.0-py3-none-any.whl.metadata (10 kB)
+2026-11-25T18:58:05.7843251Z Collecting jsonschema==4.26.0 (from -r requirements-contracts.txt (line 4))
+2026-11-25T18:58:05.7958358Z   Downloading jsonschema-4.26.0-py3-none-any.whl.metadata (7.6 kB)
+2026-11-25T18:58:05.8158973Z Collecting jsonschema-specifications==2025.9.1 (from -r requirements-contracts.txt (line 5))
+2026-11-25T18:58:05.8270537Z   Downloading jsonschema_specifications-2025.9.1-py3-none-any.whl.metadata (2.9 kB)
+2026-11-25T18:58:05.8525478Z Collecting referencing==0.36.2 (from -r requirements-contracts.txt (line 6))
+2026-11-25T18:58:05.8642248Z   Downloading referencing-0.36.2-py3-none-any.whl.metadata (2.8 kB)
+2026-11-25T18:58:06.1294554Z Collecting rpds-py==0.30.0 (from -r requirements-contracts.txt (line 7))
+2026-11-25T18:58:06.1413012Z   Downloading rpds_py-0.30.0-cp314-cp314-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.1 kB)
+2026-11-25T18:58:06.1617051Z Collecting typing-extensions==4.15.0 (from -r requirements-contracts.txt (line 8))
+2026-11-25T18:58:06.1733855Z   Downloading typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+2026-11-25T18:58:06.1893001Z Collecting rfc3339-validator==0.1.4 (from -r requirements-contracts.txt (line 9))
+2026-11-25T18:58:06.2004641Z   Downloading rfc3339_validator-0.1.4-py2.py3-none-any.whl.metadata (1.5 kB)
+2026-11-25T18:58:06.2179150Z Collecting six==1.17.0 (from -r requirements-contracts.txt (line 10))
+2026-11-25T18:58:06.2289280Z   Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+2026-11-25T18:58:06.2540842Z Collecting openapi-spec-validator==0.7.2 (from -r requirements-contracts.txt (line 12))
+2026-11-25T18:58:06.2666585Z   Downloading openapi_spec_validator-0.7.2-py3-none-any.whl.metadata (5.7 kB)
+2026-11-25T18:58:06.2871911Z Collecting openapi-schema-validator==0.6.3 (from -r requirements-contracts.txt (line 13))
+2026-11-25T18:58:06.2986287Z   Downloading openapi_schema_validator-0.6.3-py3-none-any.whl.metadata (5.4 kB)
+2026-11-25T18:58:06.3187658Z Collecting jsonschema-path==0.3.4 (from -r requirements-contracts.txt (line 14))
+2026-11-25T18:58:06.3307084Z   Downloading jsonschema_path-0.3.4-py3-none-any.whl.metadata (4.3 kB)
+2026-11-25T18:58:06.3478634Z Collecting pathable==0.4.4 (from -r requirements-contracts.txt (line 15))
+2026-11-25T18:58:06.3611725Z   Downloading pathable-0.4.4-py3-none-any.whl.metadata (1.8 kB)
+2026-11-25T18:58:06.3998624Z Collecting PyYAML==6.0.3 (from -r requirements-contracts.txt (line 16))
+2026-11-25T18:58:06.4116659Z   Downloading pyyaml-6.0.3-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+2026-11-25T18:58:06.4487358Z Collecting lazy-object-proxy==1.12.0 (from -r requirements-contracts.txt (line 17))
+2026-11-25T18:58:06.4605264Z   Downloading lazy_object_proxy-1.12.0-cp314-cp314-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (5.1 kB)
+2026-11-25T18:58:06.4855524Z Collecting requests==2.34.2 (from -r requirements-contracts.txt (line 18))
+2026-11-25T18:58:06.4968748Z   Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+2026-11-25T18:58:06.6247856Z Collecting charset-normalizer==3.5.2 (from -r requirements-contracts.txt (line 19))
+2026-11-25T18:58:06.6361957Z   Downloading charset_normalizer-3.5.2-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (46 kB)
+2026-11-25T18:58:06.6656161Z Collecting idna==3.20 (from -r requirements-contracts.txt (line 20))
+2026-11-25T18:58:06.6767146Z   Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+2026-11-25T18:58:06.7014088Z Collecting urllib3==2.8.0 (from -r requirements-contracts.txt (line 21))
+2026-11-25T18:58:06.7125316Z   Downloading urllib3-2.8.0-py3-none-any.whl.metadata (7.4 kB)
+2026-11-25T18:58:06.7349142Z Collecting certifi==2026.10.23 (from -r requirements-contracts.txt (line 22))
+2026-11-25T18:58:06.7458333Z   Downloading certifi-2026.10.23-py3-none-any.whl.metadata (2.5 kB)
+2026-11-25T18:58:06.7707306Z Downloading attrs-25.4.0-py3-none-any.whl (67 kB)
+2026-11-25T18:58:06.7853302Z Downloading jsonschema-4.26.0-py3-none-any.whl (90 kB)
+2026-11-25T18:58:06.8006605Z Downloading jsonschema_specifications-2025.9.1-py3-none-any.whl (18 kB)
+2026-11-25T18:58:06.8134289Z Downloading referencing-0.36.2-py3-none-any.whl (26 kB)
+2026-11-25T18:58:06.8272641Z Downloading rpds_py-0.30.0-cp314-cp314-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (382 kB)
+2026-11-25T18:58:06.8539296Z Downloading typing_extensions-4.15.0-py3-none-any.whl (44 kB)
+2026-11-25T18:58:06.8668130Z Downloading rfc3339_validator-0.1.4-py2.py3-none-any.whl (3.5 kB)
+2026-11-25T18:58:06.8796916Z Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+2026-11-25T18:58:06.8925745Z Downloading openapi_spec_validator-0.7.2-py3-none-any.whl (39 kB)
+2026-11-25T18:58:06.9060332Z Downloading openapi_schema_validator-0.6.3-py3-none-any.whl (8.8 kB)
+2026-11-25T18:58:06.9192863Z Downloading jsonschema_path-0.3.4-py3-none-any.whl (14 kB)
+2026-11-25T18:58:06.9327052Z Downloading pathable-0.4.4-py3-none-any.whl (9.6 kB)
+2026-11-25T18:58:06.9457017Z Downloading pyyaml-6.0.3-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (794 kB)
+2026-11-25T18:58:06.9611267Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 794.2/794.2 kB 43.2 MB/s eta 0:00:00
+2026-11-25T18:58:06.9730439Z Downloading lazy_object_proxy-1.12.0-cp314-cp314-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (71 kB)
+2026-11-25T18:58:06.9880433Z Downloading requests-2.34.2-py3-none-any.whl (73 kB)
+2026-11-25T18:58:07.0016556Z Downloading charset_normalizer-3.5.2-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (255 kB)
+2026-11-25T18:58:07.0155681Z Downloading idna-3.20-py3-none-any.whl (69 kB)
+2026-11-25T18:58:07.0292519Z Downloading urllib3-2.8.0-py3-none-any.whl (135 kB)
+2026-11-25T18:58:07.0429577Z Downloading certifi-2026.10.23-py3-none-any.whl (135 kB)
+2026-11-25T18:58:07.0602231Z Installing collected packages: urllib3, typing-extensions, six, rpds-py, rfc3339-validator, requests, referencing, PyYAML, pathable, openapi-spec-validator, openapi-schema-validator, lazy-object-proxy, jsonschema-specifications, jsonschema-path, jsonschema, idna, charset-normalizer, certifi, attrs
+2026-11-25T18:58:07.5156112Z 
+2026-11-25T18:58:07.5180529Z Successfully installed PyYAML-6.0.3 attrs-25.4.0 certifi-2026.10.23 charset-normalizer-3.5.2 idna-3.20 jsonschema-4.26.0 jsonschema-path-0.3.4 jsonschema-specifications-2025.9.1 lazy-object-proxy-1.12.0 openapi-schema-validator-0.6.3 openapi-spec-validator-0.7.2 pathable-0.4.4 referencing-0.36.2 requests-2.34.2 rfc3339-validator-0.1.4 rpds-py-0.30.0 six-1.17.0 typing-extensions-4.15.0 urllib3-2.8.0
+2026-11-25T18:58:07.8376068Z No broken requirements found.
+2026-11-25T18:58:07.8725219Z ##[group]Run .venv-contracts/bin/python scripts/verify_openapi_contracts.py
+2026-11-25T18:58:07.8725795Z [36;1m.venv-contracts/bin/python scripts/verify_openapi_contracts.py[0m
+2026-11-25T18:58:07.8759511Z shell: /usr/bin/bash -e {0}
+2026-11-25T18:58:07.8759767Z ##[endgroup]
+2026-11-25T18:58:08.2694423Z [
+2026-11-25T18:58:08.2694961Z   {
+2026-11-25T18:58:08.2695315Z     "path": "contracts/qascp-2/openapi.json",
+2026-11-25T18:58:08.2695790Z     "documents": 2,
+2026-11-25T18:58:08.2696144Z     "references": 22,
+2026-11-25T18:58:08.2696467Z     "policy_operations": 2
+2026-11-25T18:58:08.2696796Z   },
+2026-11-25T18:58:08.2697048Z   {
+2026-11-25T18:58:08.2697374Z     "path": "contracts/qascp-2/graph/openapi-0.2.json",
+2026-11-25T18:58:08.2697828Z     "documents": 5,
+2026-11-25T18:58:08.2698135Z     "references": 51,
+2026-11-25T18:58:08.2698452Z     "policy_operations": 4
+2026-11-25T18:58:08.2698770Z   }
+2026-11-25T18:58:08.2699007Z ]
+2026-11-25T18:58:08.3009650Z ##[group]Run .venv-contracts/bin/python -m unittest discover -s tests -v
+2026-11-25T18:58:08.3010463Z [36;1m.venv-contracts/bin/python -m unittest discover -s tests -v[0m
+2026-11-25T18:58:08.3043427Z shell: /usr/bin/bash -e {0}
+2026-11-25T18:58:08.3043689Z ##[endgroup]
+2026-11-25T18:58:08.6093302Z test_access_qualifier_and_unexpected_metadata (test_graph_boundary_contracts.GraphBoundaryContractTests.test_access_qualifier_and_unexpected_metadata) ... ok
+2026-11-25T18:58:08.7098811Z test_all_http_methods_are_checked_with_valid_inherited_authority (test_graph_boundary_contracts.GraphBoundaryContractTests.test_all_http_methods_are_checked_with_valid_inherited_authority) ... ok
+2026-11-25T18:58:08.7238104Z test_api_operations_and_local_references_resolve (test_graph_boundary_contracts.GraphBoundaryContractTests.test_api_operations_and_local_references_resolve) ... ok
+2026-11-25T18:58:08.7341055Z test_api_security_path_and_reference_regressions (test_graph_boundary_contracts.GraphBoundaryContractTests.test_api_security_path_and_reference_regressions) ... ok
+2026-11-25T18:58:08.7348843Z test_bearer_scheme_cannot_be_replaced_or_downgraded (test_graph_boundary_contracts.GraphBoundaryContractTests.test_bearer_scheme_cannot_be_replaced_or_downgraded) ... ok
+2026-11-25T18:58:08.8089890Z test_cursor_binds_tenant_principal_authority_snapshot_and_query (test_graph_boundary_contracts.GraphBoundaryContractTests.test_cursor_binds_tenant_principal_authority_snapshot_and_query) ... ok
+2026-11-25T18:58:08.9025887Z test_dangling_duplicate_and_invalid_pair_fail (test_graph_boundary_contracts.GraphBoundaryContractTests.test_dangling_duplicate_and_invalid_pair_fail) ... ok
+2026-11-25T18:58:08.9363579Z test_direction_and_depth (test_graph_boundary_contracts.GraphBoundaryContractTests.test_direction_and_depth) ... ok
+2026-11-25T18:58:08.9382367Z test_duplicate_fixture_ids_are_rejected_before_collapse (test_graph_boundary_contracts.GraphBoundaryContractTests.test_duplicate_fixture_ids_are_rejected_before_collapse) ... ok
+2026-11-25T18:58:08.9718031Z test_expiry_and_future_issue_time_fail (test_graph_boundary_contracts.GraphBoundaryContractTests.test_expiry_and_future_issue_time_fail) ... ok
+2026-11-25T18:58:08.9887614Z test_future_and_expired_claims_do_not_appear (test_graph_boundary_contracts.GraphBoundaryContractTests.test_future_and_expired_claims_do_not_appear) ... ok
+2026-11-25T18:58:09.0057705Z test_hidden_edge_and_provenance_are_filtered_before_counts (test_graph_boundary_contracts.GraphBoundaryContractTests.test_hidden_edge_and_provenance_are_filtered_before_counts) ... ok
+2026-11-25T18:58:09.0227351Z test_hidden_intermediate_cannot_reveal_visible_endpoint (test_graph_boundary_contracts.GraphBoundaryContractTests.test_hidden_intermediate_cannot_reveal_visible_endpoint) ... ok
+2026-11-25T18:58:09.0261030Z test_hidden_invalid_fixture_edges_are_not_silently_ignored (test_graph_boundary_contracts.GraphBoundaryContractTests.test_hidden_invalid_fixture_edges_are_not_silently_ignored) ... ok
+2026-11-25T18:58:09.0336609Z test_invisible_and_absent_root_have_same_fixture_error (test_graph_boundary_contracts.GraphBoundaryContractTests.test_invisible_and_absent_root_have_same_fixture_error) ... ok
+2026-11-25T18:58:09.0499612Z test_lag_is_explicit_even_when_no_visible_edges (test_graph_boundary_contracts.GraphBoundaryContractTests.test_lag_is_explicit_even_when_no_visible_edges) ... ok
+2026-11-25T18:58:09.0501737Z test_non_synthetic_data_is_refused (test_graph_boundary_contracts.GraphBoundaryContractTests.test_non_synthetic_data_is_refused) ... ok
+2026-11-25T18:58:09.0545099Z test_opaque_real_cursor_is_not_treated_as_verified (test_graph_boundary_contracts.GraphBoundaryContractTests.test_opaque_real_cursor_is_not_treated_as_verified) ... ok
+2026-11-25T18:58:09.0552975Z test_operation_tenant_override_and_parameter_alias_cycles_are_rejected (test_graph_boundary_contracts.GraphBoundaryContractTests.test_operation_tenant_override_and_parameter_alias_cycles_are_rejected) ... ok
+2026-11-25T18:58:09.1258118Z test_pages_cover_exactly_visible_edges_without_duplicates (test_graph_boundary_contracts.GraphBoundaryContractTests.test_pages_cover_exactly_visible_edges_without_duplicates) ... ok
+2026-11-25T18:58:09.1269867Z test_previously_unchecked_methods_cannot_disable_security (test_graph_boundary_contracts.GraphBoundaryContractTests.test_previously_unchecked_methods_cannot_disable_security) ... ok
+2026-11-25T18:58:09.1563227Z test_query_bounds_unknown_fields_and_bad_ids (test_graph_boundary_contracts.GraphBoundaryContractTests.test_query_bounds_unknown_fields_and_bad_ids) ... ok
+2026-11-25T18:58:09.4671996Z test_standards_valid_contract_can_still_violate_security_policy (test_graph_boundary_contracts.GraphBoundaryContractTests.test_standards_valid_contract_can_still_violate_security_policy) ... ok
+2026-11-25T18:58:09.5062336Z test_structural_checker_shares_strict_reference_policy (test_graph_boundary_contracts.GraphBoundaryContractTests.test_structural_checker_shares_strict_reference_policy) ... ok
+2026-11-25T18:58:09.5072451Z test_tenant_selector_definition_is_checked_not_only_its_ref (test_graph_boundary_contracts.GraphBoundaryContractTests.test_tenant_selector_definition_is_checked_not_only_its_ref) ... ok
+2026-11-25T18:58:09.5722848Z test_truncation_and_cursor_schema_are_coupled (test_graph_boundary_contracts.GraphBoundaryContractTests.test_truncation_and_cursor_schema_are_coupled) ... ok
+2026-11-25T18:58:09.9956666Z test_two_hundred_edges_do_not_override_node_budget (test_graph_boundary_contracts.GraphBoundaryContractTests.test_two_hundred_edges_do_not_override_node_budget) ... ok
+2026-11-25T18:58:10.0129713Z test_valid_neighborhood_and_cycle_terminate (test_graph_boundary_contracts.GraphBoundaryContractTests.test_valid_neighborhood_and_cycle_terminate) ... ok
+2026-11-25T18:58:10.0367085Z test_access_qualifier_is_required_and_cannot_be_misapplied (test_graph_import_contracts.GraphImportContractTests.test_access_qualifier_is_required_and_cannot_be_misapplied) ... ok
+2026-11-25T18:58:10.1575770Z test_all_json_schema_documents_pass_meta_schema_validation (test_graph_import_contracts.GraphImportContractTests.test_all_json_schema_documents_pass_meta_schema_validation) ... ok
+2026-11-25T18:58:10.1592874Z test_bad_version_ids_times_and_empty_source_fail (test_graph_import_contracts.GraphImportContractTests.test_bad_version_ids_times_and_empty_source_fail) ... ok
+2026-11-25T18:58:10.1644006Z test_client_tenant_unknown_fields_and_secrets_fail (test_graph_import_contracts.GraphImportContractTests.test_client_tenant_unknown_fields_and_secrets_fail) ... ok
+2026-11-25T18:58:10.1668809Z test_expected_version_is_bound_to_mutation_operation (test_graph_import_contracts.GraphImportContractTests.test_expected_version_is_bound_to_mutation_operation) ... ok
+2026-11-25T18:58:10.1691586Z test_future_relations_and_cross_source_selectors_fail (test_graph_import_contracts.GraphImportContractTests.test_future_relations_and_cross_source_selectors_fail) ... ok
+2026-11-25T18:58:10.1788691Z test_missing_required_fields_fail (test_graph_import_contracts.GraphImportContractTests.test_missing_required_fields_fail) ... ok
+2026-11-25T18:58:10.1801980Z test_resource_union_and_phase_limits_fail_closed (test_graph_import_contracts.GraphImportContractTests.test_resource_union_and_phase_limits_fail_closed) ... ok
+2026-11-25T18:58:10.1827990Z test_synthetic_commands_and_resource_update_are_valid (test_graph_import_contracts.GraphImportContractTests.test_synthetic_commands_and_resource_update_are_valid) ... ok
+2026-11-25T18:58:10.1857821Z test_wrong_relation_endpoint_pairs_fail (test_graph_import_contracts.GraphImportContractTests.test_wrong_relation_endpoint_pairs_fail) ... ok
+2026-11-25T18:58:10.3068527Z test_claim_endpoint_or_source_cannot_change_in_lineage (test_graph_record_contracts.GraphRecordContractTests.test_claim_endpoint_or_source_cannot_change_in_lineage) ... ok
+2026-11-25T18:58:10.3372157Z test_cross_tenant_claim_version_is_not_a_valid_transition_target (test_graph_record_contracts.GraphRecordContractTests.test_cross_tenant_claim_version_is_not_a_valid_transition_target) ... ok
+2026-11-25T18:58:10.3975189Z test_duplicate_cannot_reference_another_event_or_tenant (test_graph_record_contracts.GraphRecordContractTests.test_duplicate_cannot_reference_another_event_or_tenant) ... ok
+2026-11-25T18:58:10.3977734Z test_event_and_consumer_version_distinguish_keys_but_replica_does_not (test_graph_record_contracts.GraphRecordContractTests.test_event_and_consumer_version_distinguish_keys_but_replica_does_not) ... ok
+2026-11-25T18:58:10.4888554Z test_expected_version_and_increment_cannot_conflict (test_graph_record_contracts.GraphRecordContractTests.test_expected_version_and_increment_cannot_conflict) ... ok
+2026-11-25T18:58:10.4895488Z test_internal_schema_version_and_unrecognized_fields_fail (test_graph_record_contracts.GraphRecordContractTests.test_internal_schema_version_and_unrecognized_fields_fail) ... ok
+2026-11-25T18:58:10.6101751Z test_late_correction_does_not_rewrite_prior_known_view (test_graph_record_contracts.GraphRecordContractTests.test_late_correction_does_not_rewrite_prior_known_view) ... ok
+2026-11-25T18:58:10.6103825Z test_non_synthetic_input_is_refused (test_graph_record_contracts.GraphRecordContractTests.test_non_synthetic_input_is_refused) ... ok
+2026-11-25T18:58:10.7310623Z test_orphan_and_duplicate_record_ids_fail (test_graph_record_contracts.GraphRecordContractTests.test_orphan_and_duplicate_record_ids_fail) ... ok
+2026-11-25T18:58:10.7471493Z test_required_duplicate_reference_and_failure_reason (test_graph_record_contracts.GraphRecordContractTests.test_required_duplicate_reference_and_failure_reason) ... ok
+2026-11-25T18:58:10.7777750Z test_retracted_lineage_cannot_be_resurrected (test_graph_record_contracts.GraphRecordContractTests.test_retracted_lineage_cannot_be_resurrected) ... ok
+2026-11-25T18:58:10.8374614Z test_retraction_and_half_open_interval (test_graph_record_contracts.GraphRecordContractTests.test_retraction_and_half_open_interval) ... ok
+2026-11-25T18:58:10.8981233Z test_same_source_claim_is_allowed_in_distinct_namespaces (test_graph_record_contracts.GraphRecordContractTests.test_same_source_claim_is_allowed_in_distinct_namespaces) ... ok
+2026-11-25T18:58:10.9286350Z test_source_claim_identity_cannot_create_two_lineages (test_graph_record_contracts.GraphRecordContractTests.test_source_claim_identity_cannot_create_two_lineages) ... ok
+2026-11-25T18:58:10.9891277Z test_source_interval_and_knowledge_order (test_graph_record_contracts.GraphRecordContractTests.test_source_interval_and_knowledge_order) ... ok
+2026-11-25T18:58:11.0199297Z test_two_processed_effects_for_one_key_fail (test_graph_record_contracts.GraphRecordContractTests.test_two_processed_effects_for_one_key_fail) ... ok
+2026-11-25T18:58:11.0502884Z test_valid_record_set (test_graph_record_contracts.GraphRecordContractTests.test_valid_record_set) ... ok
+2026-11-25T18:58:11.2002922Z test_both_versioned_documents_pass_full_validation_without_network (test_openapi_contracts.OpenAPIContractTests.test_both_versioned_documents_pass_full_validation_without_network) ... ok
+2026-11-25T18:58:11.6553273Z test_both_versions_can_be_standards_valid_but_fail_shared_policy (test_openapi_contracts.OpenAPIContractTests.test_both_versions_can_be_standards_valid_but_fail_shared_policy) ... ok
+2026-11-25T18:58:11.6672805Z test_dynamic_reference_cannot_bypass_the_preflight (test_openapi_contracts.OpenAPIContractTests.test_dynamic_reference_cannot_bypass_the_preflight) ... ok
+2026-11-25T18:58:11.6680522Z test_encoded_network_file_path_rejected_before_resolution (test_openapi_contracts.OpenAPIContractTests.test_encoded_network_file_path_rejected_before_resolution) ... ok
+2026-11-25T18:58:11.6724263Z test_encoded_traversal_query_and_bad_pointer_fail (test_openapi_contracts.OpenAPIContractTests.test_encoded_traversal_query_and_bad_pointer_fail) ... ok
+2026-11-25T18:58:11.6749300Z test_json_pointer_indices_and_empty_keys (test_openapi_contracts.OpenAPIContractTests.test_json_pointer_indices_and_empty_keys) ... ok
+2026-11-25T18:58:11.6757006Z test_local_json_reader_rejects_duplicate_keys (test_openapi_contracts.OpenAPIContractTests.test_local_json_reader_rejects_duplicate_keys) ... ok
+2026-11-25T18:58:11.6761406Z test_local_reader_has_no_http_unc_or_non_json_fallback (test_openapi_contracts.OpenAPIContractTests.test_local_reader_has_no_http_unc_or_non_json_fallback) ... ok
+2026-11-25T18:58:11.7991160Z test_missing_info_and_invalid_response_status_fail_full_validation (test_openapi_contracts.OpenAPIContractTests.test_missing_info_and_invalid_response_status_fail_full_validation) ... ok
+2026-11-25T18:58:11.7999528Z test_outside_document_is_rejected_before_any_file_read (test_openapi_contracts.OpenAPIContractTests.test_outside_document_is_rejected_before_any_file_read) ... ok
+2026-11-25T18:58:11.8043581Z test_remote_reference_is_rejected_before_network (test_openapi_contracts.OpenAPIContractTests.test_remote_reference_is_rejected_before_network) ... ok
+2026-11-25T18:58:11.9921146Z test_unresolved_path_parameter_and_duplicate_operation_fail (test_openapi_contracts.OpenAPIContractTests.test_unresolved_path_parameter_and_duplicate_operation_fail) ... ok
+2026-11-25T18:58:11.9928308Z test_verifier_version_is_explicit (test_openapi_contracts.OpenAPIContractTests.test_verifier_version_is_explicit) ... ok
+2026-11-25T18:58:11.9942466Z test_batch_runner_applies_policy_to_both_same_snapshot_inputs (test_openapi_policy.OpenAPIPolicyTests.test_batch_runner_applies_policy_to_both_same_snapshot_inputs) ... ok
+2026-11-25T18:58:11.9969865Z test_batch_runner_rejects_a_weakened_preserved_or_successor_document (test_openapi_policy.OpenAPIPolicyTests.test_batch_runner_rejects_a_weakened_preserved_or_successor_document) ... ok
+2026-11-25T18:58:11.9978511Z test_both_preserved_contracts_keep_their_authorized_operations (test_openapi_policy.OpenAPIPolicyTests.test_both_preserved_contracts_keep_their_authorized_operations) ... ok
+2026-11-25T18:58:12.0032715Z test_every_http_method_and_aliased_tenant_override_is_checked_on_both (test_openapi_policy.OpenAPIPolicyTests.test_every_http_method_and_aliased_tenant_override_is_checked_on_both) ... ok
+2026-11-25T18:58:12.0055420Z test_global_and_operation_security_cannot_be_disabled_on_either_version (test_openapi_policy.OpenAPIPolicyTests.test_global_and_operation_security_cannot_be_disabled_on_either_version) ... ok
+2026-11-25T18:58:12.0073420Z test_scheme_and_tenant_definition_cannot_be_weakened_on_either_version (test_openapi_policy.OpenAPIPolicyTests.test_scheme_and_tenant_definition_cannot_be_weakened_on_either_version) ... ok
+2026-11-25T18:58:12.0093336Z test_outcome_from_another_lifecycle_stage_is_rejected (test_security_contracts.ApprovalOutcomeContractTests.test_outcome_from_another_lifecycle_stage_is_rejected) ... ok
+2026-11-25T18:58:12.0111988Z test_outcomes_are_valid_for_their_lifecycle_stage (test_security_contracts.ApprovalOutcomeContractTests.test_outcomes_are_valid_for_their_lifecycle_stage) ... ok
+2026-11-25T18:58:12.0211208Z test_ambiguous_and_nonfinite_json_are_rejected (test_verify_foundation.FoundationVerifierTests.test_ambiguous_and_nonfinite_json_are_rejected) ... ok
+2026-11-25T18:58:12.0788499Z test_broken_link_blocks_cli (test_verify_foundation.FoundationVerifierTests.test_broken_link_blocks_cli) ... ok
+2026-11-25T18:58:12.1077725Z test_broken_product_backlog_mapping (test_verify_foundation.FoundationVerifierTests.test_broken_product_backlog_mapping) ... ok
+2026-11-25T18:58:12.1354922Z test_duplicate_product_requirement_in_register (test_verify_foundation.FoundationVerifierTests.test_duplicate_product_requirement_in_register) ... ok
+2026-11-25T18:58:12.1630849Z test_duplicate_requirement_in_register (test_verify_foundation.FoundationVerifierTests.test_duplicate_requirement_in_register) ... ok
+2026-11-25T18:58:12.2268687Z test_invalid_contract_json_is_rejected_by_foundation (test_verify_foundation.FoundationVerifierTests.test_invalid_contract_json_is_rejected_by_foundation) ... ok
+2026-11-25T18:58:12.2539223Z test_invalid_json (test_verify_foundation.FoundationVerifierTests.test_invalid_json) ... ok
+2026-11-25T18:58:12.2821260Z test_invalid_phase (test_verify_foundation.FoundationVerifierTests.test_invalid_phase) ... ok
+2026-11-25T18:58:12.3277593Z test_invalid_product_requirement_references (test_verify_foundation.FoundationVerifierTests.test_invalid_product_requirement_references) ... ok
+2026-11-25T18:58:12.3546836Z test_missing_language (test_verify_foundation.FoundationVerifierTests.test_missing_language) ... ok
+2026-11-25T18:58:12.6412215Z test_missing_product_documents_report_failure_without_traceback (test_verify_foundation.FoundationVerifierTests.test_missing_product_documents_report_failure_without_traceback) ... ok
+2026-11-25T18:58:12.6698184Z test_missing_product_requirement_in_register (test_verify_foundation.FoundationVerifierTests.test_missing_product_requirement_in_register) ... ok
+2026-11-25T18:58:12.6978415Z test_missing_requirement_body (test_verify_foundation.FoundationVerifierTests.test_missing_requirement_body) ... ok
+2026-11-25T18:58:12.7266187Z test_missing_verification_list (test_verify_foundation.FoundationVerifierTests.test_missing_verification_list) ... ok
+2026-11-25T18:58:12.7546931Z test_mixed_versions (test_verify_foundation.FoundationVerifierTests.test_mixed_versions) ... ok
+2026-11-25T18:58:12.7860016Z test_one_edition_omits_requirement (test_verify_foundation.FoundationVerifierTests.test_one_edition_omits_requirement) ... ok
+2026-11-25T18:58:12.8131695Z test_out_of_scope_symlink (test_verify_foundation.FoundationVerifierTests.test_out_of_scope_symlink) ... ok
+2026-11-25T18:58:12.8414374Z test_unknown_evidence_reference (test_verify_foundation.FoundationVerifierTests.test_unknown_evidence_reference) ... ok
+2026-11-25T18:58:12.8684153Z test_unreadable_utf8 (test_verify_foundation.FoundationVerifierTests.test_unreadable_utf8) ... ok
+2026-11-25T18:58:12.8962227Z test_valid_repository (test_verify_foundation.FoundationVerifierTests.test_valid_repository) ... ok
+2026-11-25T18:58:12.8962948Z 
+2026-11-25T18:58:12.8963178Z ----------------------------------------------------------------------
+2026-11-25T18:58:12.8963652Z Ran 96 tests in 4.348s
+2026-11-25T18:58:12.8963841Z 
+2026-11-25T18:58:12.8963977Z OK
+2026-11-25T18:58:12.9472349Z Post job cleanup.
+2026-11-25T18:58:13.0330809Z [command]/usr/bin/git version
+2026-11-25T18:58:13.0375082Z git version 2.56.1
+2026-11-25T18:58:13.0438810Z Temporarily overriding HOME='/home/runner/work/_temp/c6cd2465-eb2e-423b-b355-262acef0340d' before making global git config changes
+2026-11-25T18:58:13.0440623Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-25T18:58:13.0444562Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/QASCP/QASCP
+2026-11-25T18:58:13.0482104Z Removing SSH command configuration
+2026-11-25T18:58:13.0489527Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-25T18:58:13.0531281Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-25T18:58:13.0856506Z Removing HTTP extra header
+2026-11-25T18:58:13.0862599Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-25T18:58:13.0902807Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-25T18:58:13.1202202Z Removing includeIf entries pointing to credentials config files
+2026-11-25T18:58:13.1208432Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-25T18:58:13.1243695Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-25T18:58:13.1707971Z Cleaning up orphan processes

@@ -1,0 +1,182 @@
+[
+  {
+    "sha": "4592eb230fadebb828c8b7d3b7972c6bd1aec012",
+    "message": "Merge pull request #39 from ManeaAlShabrain/foundation/p1-delivery-packet\n\nP1: consolidate all deliverables and remaining acceptance decisions",
+    "date": "2026-11-25T18:57:52Z",
+    "url": "https://github.com/ManeaAlShabrain/QASCP/commit/4592eb230fadebb828c8b7d3b7972c6bd1aec012"
+  },
+  {
+    "sha": "0575d17c78113c2978811946b5d8507250cb2f28",
+    "message": "P1: assemble complete deliverables and acceptance handoff",
+    "date": "2026-11-25T18:50:58Z",
+    "url": "https://github.com/ManeaAlShabrain/QASCP/commit/0575d17c78113c2978811946b5d8507250cb2f28"
+  },
+  {
+    "sha": "ea2fd32c9f3d21f6635ea3b17a02ae74cfe160d3",
+    "message": "Merge pull request #38 from ManeaAlShabrain/foundation/ci-checkout-node24\n\nP1: pin Node24 checkout and verify credential cleanup",
+    "date": "2026-11-25T18:42:03Z",
+    "url": "https://github.com/ManeaAlShabrain/QASCP/commit/ea2fd32c9f3d21f6635ea3b17a02ae74cfe160d3"
+  },
+  {
+    "sha": "bc5df5c41d2864475b63b24a8559a42d343637f6",
+    "message": "P1: adopt pinned Node24 checkout and verify auth cleanup",
+    "date": "2026-11-25T18:39:49Z",
+    "url": "https://github.com/ManeaAlShabrain/QASCP/commit/bc5df5c41d2864475b63b24a8559a42d343637f6"
+  },
+  {
+    "sha": "4ea6f575aef0781491daf2137d3ba127e5ae0671",
+    "message": "Merge pull request #36 from ManeaAlShabrain/foundation/public-readiness-20261125\n\nP1: enforce API security policy across both contract versions",
+    "date": "2026-11-25T18:33:42Z",
+    "url": "https://github.com/ManeaAlShabrain/QASCP/commit/4ea6f575aef0781491daf2137d3ba127e5ae0671"
+  },
+  {
+    "sha": "172f22c0aa2556fe6433724f620a7bc0dea81b27",
+    "message": "P1: retain controlled main merge-block and fresh verification evidence",
+    "date": "2026-11-25T18:29:50Z",
+    "url": "https://github.com/ManeaAlShabrain/QASCP/commit/172f22c0aa2556fe6433724f620a7bc0dea81b27"
+  },
+  {
+    "sha": "bd310dfa4a9522f3a70555eeae5bb1c6b83a0ac3",
+    "message": "P1: share API security policy and record public repository readiness",
+    "date": "2026-11-25T18:23:10Z",
+    "url": "https://github.com/ManeaAlShabrain/QASCP/commit/bd310dfa4a9522f3a70555eeae5bb1c6b83a0ac3"
+  },
+  {
+    "sha": "f9df7a30747aba111ee7df0afe209fd613cae869",
+    "message": "Merge pull request #35 from ManeaAl-Shabrain/foundation/openapi-security-policy\n\nP1: Reject OpenAPI authentication and tenant-selector downgrades",
+    "date": "2026-11-17T18:48:55Z",
+    "url": "https://github.com/ManeaAlShabrain/QASCP/commit/f9df7a30747aba111ee7df0afe209fd613cae869"
+  },
+  {
+    "sha": "7b66d8a683808ce78c34379c00019934d9d2b49f",
+    "message": "P1: fail closed on unreviewed callback, webhook and referenced path surfaces",
+    "date": "2026-11-17T18:47:15Z",
+    "url": "https://github.com/ManeaAlShabrain/QASCP/commit/7b66d8a683808ce78c34379c00019934d9d2b49f"
+  },
+  {
+    "sha": "0f310be36ea475230f906bccc7eadc1a79ab42a2",
+    "message": "P1: reject semantic OpenAPI authentication and tenant-selector downgrades",
+    "date": "2026-11-17T18:45:59Z",
+    "url": "https://github.com/ManeaAlShabrain/QASCP/commit/0f310be36ea475230f906bccc7eadc1a79ab42a2"
+  },
+  {
+    "sha": "e253b9e3d2ebaff33fd99b1244ce9793e4769d2c",
+    "message": "Merge pull request #34 from ManeaAl-Shabrain/foundation/security-verifier-hardening\n\nP1: Harden verifier boundaries, fixture integrity and approval outcomes",
+    "date": "2026-11-17T18:42:00Z",
+    "url": "https://github.com/ManeaAlShabrain/QASCP/commit/e253b9e3d2ebaff33fd99b1244ce9793e4769d2c"
+  },
+  {
+    "sha": "29876f33085a8693ac3eb0d0b8f12631397736d0",
+    "message": "P1: harden contract verification and synthetic conformance integrity",
+    "date": "2026-11-17T18:39:44Z",
+    "url": "https://github.com/ManeaAlShabrain/QASCP/commit/29876f33085a8693ac3eb0d0b8f12631397736d0"
+  },
+  {
+    "sha": "9abbdd2619626f8faf28b91b1836d4fb267e2426",
+    "message": "Merge pull request #33 from ManeaAl-Shabrain/foundation/bilingual-terminology-clarification\n\nP1: Clarify workload and patch terminology in both governance editions",
+    "date": "2026-11-17T18:24:34Z",
+    "url": "https://github.com/ManeaAlShabrain/QASCP/commit/9abbdd2619626f8faf28b91b1836d4fb267e2426"
+  },
+  {
+    "sha": "48bdd9b12393423f9e01a8147a63818b7eed31d6",
+    "message": "P1: clarify workload and patch terminology in both governance editions",
+    "date": "2026-11-17T18:22:50Z",
+    "url": "https://github.com/ManeaAlShabrain/QASCP/commit/48bdd9b12393423f9e01a8147a63818b7eed31d6"
+  },
+  {
+    "sha": "ac501e9ef2b80980ccfff9745f293d4e8fbd5ada",
+    "message": "Merge pull request #12 from ManeaAl-Shabrain/foundation/bank01-implementation-blueprint\n\nP1: Consolidate BANK-01 architecture and Qatar source-review evidence",
+    "date": "2026-11-16T22:48:58Z",
+    "url": "https://github.com/ManeaAlShabrain/QASCP/commit/ac501e9ef2b80980ccfff9745f293d4e8fbd5ada"
+  },
+  {
+    "sha": "ba1c8c60ec06856f0beb5d0c02292cb4d1fad530",
+    "message": "P1: verify selected Qatar source metadata and record regulatory handoff",
+    "date": "2026-11-16T22:46:54Z",
+    "url": "https://github.com/ManeaAlShabrain/QASCP/commit/ba1c8c60ec06856f0beb5d0c02292cb4d1fad530"
+  },
+  {
+    "sha": "dc5154c76024ce589913d0930e1ff3874dac9f73",
+    "message": "P1: consolidate bilingual BANK-01 storage and transaction planning",
+    "date": "2026-11-16T20:16:28Z",
+    "url": "https://github.com/ManeaAlShabrain/QASCP/commit/dc5154c76024ce589913d0930e1ff3874dac9f73"
+  },
+  {
+    "sha": "aa8c5a24911ec911507d7c6a2c837717f14fc040",
+    "message": "Merge pull request #11 from ManeaAl-Shabrain/foundation/full-openapi-assurance\n\nP1: Add bounded full OpenAPI validation and dependency assurance",
+    "date": "2026-11-16T20:08:41Z",
+    "url": "https://github.com/ManeaAlShabrain/QASCP/commit/aa8c5a24911ec911507d7c6a2c837717f14fc040"
+  },
+  {
+    "sha": "81ce4ef83abb331934bfac2ab36807bae3cbcb0d",
+    "message": "P1: complete published OpenAPI validator dependency closure",
+    "date": "2026-11-16T19:06:18Z",
+    "url": "https://github.com/ManeaAlShabrain/QASCP/commit/81ce4ef83abb331934bfac2ab36807bae3cbcb0d"
+  },
+  {
+    "sha": "2e9ef6c57f4131eb36ab9124ecd3ae8c463c3fd3",
+    "message": "P1: add bounded full OpenAPI validation and dependency assurance",
+    "date": "2026-11-16T19:01:31Z",
+    "url": "https://github.com/ManeaAlShabrain/QASCP/commit/2e9ef6c57f4131eb36ab9124ecd3ae8c463c3fd3"
+  },
+  {
+    "sha": "16a47ee45bbe521a04a6234ebd6304b4ec0da5c2",
+    "message": "Merge pull request #10 from ManeaAl-Shabrain/foundation/consolidated-graph-boundary\n\nP1: Consolidate graph API boundary and human-review evidence",
+    "date": "2026-11-16T18:33:38Z",
+    "url": "https://github.com/ManeaAlShabrain/QASCP/commit/16a47ee45bbe521a04a6234ebd6304b4ec0da5c2"
+  },
+  {
+    "sha": "f130793c952d4980e0434696ad46823077649bb9",
+    "message": "P1: consolidate graph API boundary and human-review evidence",
+    "date": "2026-11-16T18:08:35Z",
+    "url": "https://github.com/ManeaAlShabrain/QASCP/commit/f130793c952d4980e0434696ad46823077649bb9"
+  },
+  {
+    "sha": "9c8fb2e665d25b325b4e9fa82b4c97f80d1b77cd",
+    "message": "Merge pull request #9 from ManeaAl-Shabrain/foundation/graph-receipts-and-history\n\nP1: Specify event receipts and temporal graph claim records",
+    "date": "2026-11-16T17:44:25Z",
+    "url": "https://github.com/ManeaAlShabrain/QASCP/commit/9c8fb2e665d25b325b4e9fa82b4c97f80d1b77cd"
+  },
+  {
+    "sha": "fcdb9a6426bdf12c3789b630f2a92a9d5fe95813",
+    "message": "P1: specify event receipts and temporal graph claim records",
+    "date": "2026-11-16T17:41:48Z",
+    "url": "https://github.com/ManeaAlShabrain/QASCP/commit/fcdb9a6426bdf12c3789b630f2a92a9d5fe95813"
+  },
+  {
+    "sha": "660eb0b253b8f2fd463927004ae2049f58613731",
+    "message": "Merge pull request #8 from ManeaAl-Shabrain/foundation/graph-import-contracts\n\nP1: Specify and validate graph import command schemas",
+    "date": "2026-11-15T20:58:46Z",
+    "url": "https://github.com/ManeaAlShabrain/QASCP/commit/660eb0b253b8f2fd463927004ae2049f58613731"
+  },
+  {
+    "sha": "b696ed8359850d0429451c194f395e280071a8bb",
+    "message": "P1: specify and validate graph import command schemas",
+    "date": "2026-11-15T20:55:32Z",
+    "url": "https://github.com/ManeaAlShabrain/QASCP/commit/b696ed8359850d0429451c194f395e280071a8bb"
+  },
+  {
+    "sha": "782f625673ff9d4b8c8c76bf1d15705a804fc9a2",
+    "message": "Merge pull request #7 from ManeaAl-Shabrain/foundation/graph-decision-proposals\n\nP1: Define graph import, identity, history and query decisions",
+    "date": "2026-11-15T20:46:53Z",
+    "url": "https://github.com/ManeaAlShabrain/QASCP/commit/782f625673ff9d4b8c8c76bf1d15705a804fc9a2"
+  },
+  {
+    "sha": "f63c217683a5643d7bc77c206009136cc0de6938",
+    "message": "P1: define graph import, identity, history and query decisions",
+    "date": "2026-11-15T20:44:36Z",
+    "url": "https://github.com/ManeaAlShabrain/QASCP/commit/f63c217683a5643d7bc77c206009136cc0de6938"
+  },
+  {
+    "sha": "9c784ae465e2fec87b091f671df1c76f172e0613",
+    "message": "Merge pull request #6 from ManeaAl-Shabrain/foundation/security-knowledge-graph-plan\n\nP1: Plan the security knowledge graph and project continuity",
+    "date": "2026-11-15T20:39:12Z",
+    "url": "https://github.com/ManeaAlShabrain/QASCP/commit/9c784ae465e2fec87b091f671df1c76f172e0613"
+  },
+  {
+    "sha": "2d107c8f823f3f994aaf8b959e7978a48176aaa0",
+    "message": "P1: plan the security knowledge graph and project continuity",
+    "date": "2026-11-15T20:36:46Z",
+    "url": "https://github.com/ManeaAlShabrain/QASCP/commit/2d107c8f823f3f994aaf8b959e7978a48176aaa0"
+  }
+]
