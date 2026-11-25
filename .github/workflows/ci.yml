@@ -23,19 +23,7 @@ jobs:
         run: |
           python3 --version
           git --version
-          python3 - <<'PY'
-          import subprocess
-
-          result = subprocess.run(
-              ["git", "config", "--local", "--name-only", "--get-regexp",
-               r"^(http(\..*)?\.extraheader|credential\..*|core\.sshcommand)$"],
-              capture_output=True, text=True, check=False)
-          if result.returncode not in (0, 1):
-              raise SystemExit("Cannot inspect local checkout authentication configuration")
-          if result.stdout.strip():
-              raise SystemExit("Prohibited checkout authentication configuration remains")
-          print("No local checkout auth headers, credential helpers or SSH command remain")
-          PY
+          python3 scripts/verify_checkout_auth.py
       - name: Validate foundations
         run: python3 scripts/verify_foundation.py
       - name: Install pinned contract validation tools
@@ -43,6 +31,10 @@ jobs:
           python3 -m venv .venv-contracts
           .venv-contracts/bin/python -m pip install --disable-pip-version-check --no-input --index-url https://pypi.org/simple --no-deps --only-binary=:all: -r requirements-contracts.txt
           .venv-contracts/bin/python -m pip check
+      - name: Capture wheel integrity and advisory evidence
+        run: |
+          .venv-contracts/bin/python -m pip download --disable-pip-version-check --no-input --index-url https://pypi.org/simple --no-deps --only-binary=:all: -r requirements-contracts.txt --dest .validation-wheels
+          .venv-contracts/bin/python scripts/capture_validation_dependencies.py
       - name: Validate both full OpenAPI documents offline
         run: .venv-contracts/bin/python scripts/verify_openapi_contracts.py
       - name: Test foundation and contract schemas
