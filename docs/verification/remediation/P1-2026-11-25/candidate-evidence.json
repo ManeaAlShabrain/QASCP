@@ -134,7 +134,7 @@
   },
   "limits": [
     "This file records the immutable implementation candidate, not its own enclosing evidence commit SHA",
-    "The final evidence-only candidate must receive fresh checks and be bound in PR #44 and the re-audit request",
+    "The final evidence-only candidate must receive fresh checks and be bound in PR #46 and the re-audit request",
     "No independent reviewer disposition, risk acceptance, architecture adoption, policy adoption, phase exit or P2",
     "PyPI-only advisory coverage; no complete SCA/license clearance or signed provenance",
     "Native Windows full checks still six errors; initial fixture failure retained separately"
@@ -150,5 +150,13 @@
     "sha256_of_raw_utf8": "b815928efcfd043aa4a1523e14a9eada9ff01d39dd11e1e0f51468fbe4e8c0e0",
     "display_log": "candidate-foundation.log",
     "display_normalization": "LF line endings; trailing whitespace stripped per line; raw content preserved separately"
+  },
+  "re_audit_handoff_pull_request_url": "https://github.com/ManeaAlShabrain/QASCP/pull/46",
+  "concurrent_main_merge": {
+    "merged_pr": 44,
+    "merged_head": "5b9106b8a01fe05e77533c5e93993e682cfcc313",
+    "main_sha": "4f0e63a6141b8f7e47377c2b287d62066d1df668",
+    "tree_unchanged": true,
+    "performed_by_this_implementation_session": false
   }
 }

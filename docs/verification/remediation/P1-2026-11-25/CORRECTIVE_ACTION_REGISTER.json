@@ -39,7 +39,8 @@
       "remaining_limitations": "Current human review and exit decision still missing; proposed model is not effective",
       "owner_decision_required": "Approve/reject/revise exact governance proposal; arrange actual reviews required by effective policy; separately decide phase exit",
       "remediation_status": "PARTIALLY REMEDIATED / OWNER DECISION REQUIRED",
-      "reviewer_verification_status": "NOT VERIFIED FIXED; independent disposition pending"
+      "reviewer_verification_status": "NOT VERIFIED FIXED; independent disposition pending",
+      "re_audit_handoff_pull_request_url": "https://github.com/ManeaAlShabrain/QASCP/pull/46"
     },
     {
       "finding_id": "QAR-002",
@@ -73,7 +74,8 @@
       "remaining_limitations": "No actual assignment, residual assessment or risk acceptance supplied; enterprise/regulatory authority cannot be inferred",
       "owner_decision_required": "Confirm/decline T01–T12 ownership; assess inherent and residual risk; record authority and reviewed disposition",
       "remediation_status": "PARTIALLY REMEDIATED / OWNER DECISION REQUIRED",
-      "reviewer_verification_status": "NOT VERIFIED FIXED; independent disposition pending"
+      "reviewer_verification_status": "NOT VERIFIED FIXED; independent disposition pending",
+      "re_audit_handoff_pull_request_url": "https://github.com/ManeaAlShabrain/QASCP/pull/46"
     },
     {
       "finding_id": "QAR-003",
@@ -106,7 +108,8 @@
       "remaining_limitations": "Recommendations are not adopted; both existing API proposals still use /api/v1 pending explicit version choice; no P2 implementation",
       "owner_decision_required": "Decide AD01–AD20 with independent architecture/security review; especially API v2 recommendation and source precedence policy",
       "remediation_status": "PARTIALLY REMEDIATED / OWNER DECISION REQUIRED",
-      "reviewer_verification_status": "NOT VERIFIED FIXED; independent disposition pending"
+      "reviewer_verification_status": "NOT VERIFIED FIXED; independent disposition pending",
+      "re_audit_handoff_pull_request_url": "https://github.com/ManeaAlShabrain/QASCP/pull/46"
     },
     {
       "finding_id": "QAR-004",
@@ -142,7 +145,8 @@
       "remaining_limitations": "Local boundary only; global/system/env credentials and compromised runner outside assertion; independent disposition pending",
       "owner_decision_required": "Independent security/control re-review; no risk waiver or main-rule change needed",
       "remediation_status": "READY FOR RE-REVIEW",
-      "reviewer_verification_status": "NOT VERIFIED FIXED; independent disposition pending"
+      "reviewer_verification_status": "NOT VERIFIED FIXED; independent disposition pending",
+      "re_audit_handoff_pull_request_url": "https://github.com/ManeaAlShabrain/QASCP/pull/46"
     },
     {
       "finding_id": "QAR-005",
@@ -180,7 +184,8 @@
       "remaining_limitations": "Implementer comparison is not independent linguistic approval; baseline adoption pending",
       "owner_decision_required": "Independent substantive bilingual/regulatory acceptance of exact candidate under current human-review policy",
       "remediation_status": "READY FOR RE-REVIEW",
-      "reviewer_verification_status": "NOT VERIFIED FIXED; independent disposition pending"
+      "reviewer_verification_status": "NOT VERIFIED FIXED; independent disposition pending",
+      "re_audit_handoff_pull_request_url": "https://github.com/ManeaAlShabrain/QASCP/pull/46"
     },
     {
       "finding_id": "QAR-006",
@@ -216,7 +221,8 @@
       "remaining_limitations": "Native Windows full suite still blocked by missing validators and symbolic-link privilege; Linux is supported full-check target",
       "owner_decision_required": "Reviewer reproduces supported environment; optional separately reviewed native Windows lock/privilege configuration",
       "remediation_status": "READY FOR RE-REVIEW",
-      "reviewer_verification_status": "NOT VERIFIED FIXED; independent disposition pending"
+      "reviewer_verification_status": "NOT VERIFIED FIXED; independent disposition pending",
+      "re_audit_handoff_pull_request_url": "https://github.com/ManeaAlShabrain/QASCP/pull/46"
     },
     {
       "finding_id": "QAR-007",
@@ -250,7 +256,8 @@
       "remaining_limitations": "Actual owners/reviewers still unconfirmed; tracker is a work record, not approval or native dependency enforcement",
       "owner_decision_required": "Confirm accountable owner assignments; choose package reopening later if preferred",
       "remediation_status": "READY FOR RE-REVIEW",
-      "reviewer_verification_status": "NOT VERIFIED FIXED; independent disposition pending"
+      "reviewer_verification_status": "NOT VERIFIED FIXED; independent disposition pending",
+      "re_audit_handoff_pull_request_url": "https://github.com/ManeaAlShabrain/QASCP/pull/46"
     },
     {
       "finding_id": "QAR-008",
@@ -290,7 +297,8 @@
       "remaining_limitations": "Only PyPI advisory coverage; TLS publisher trust not signed provenance; runner/OS/pip mutable; inventory excludes full runner and future app",
       "owner_decision_required": "Independent dependency/license/adoption review; approve future platform/container/scanner choices separately",
       "remediation_status": "READY FOR RE-REVIEW",
-      "reviewer_verification_status": "NOT VERIFIED FIXED; independent disposition pending"
+      "reviewer_verification_status": "NOT VERIFIED FIXED; independent disposition pending",
+      "re_audit_handoff_pull_request_url": "https://github.com/ManeaAlShabrain/QASCP/pull/46"
     },
     {
       "finding_id": "QAR-009",
@@ -323,7 +331,8 @@
       "remaining_limitations": "No schema/path/version/runtime change; import durable receipt is not graph completion",
       "owner_decision_required": "Independent API documentation re-review; separate architecture adoption remains QAR-003",
       "remediation_status": "READY FOR RE-REVIEW",
-      "reviewer_verification_status": "NOT VERIFIED FIXED; independent disposition pending"
+      "reviewer_verification_status": "NOT VERIFIED FIXED; independent disposition pending",
+      "re_audit_handoff_pull_request_url": "https://github.com/ManeaAlShabrain/QASCP/pull/46"
     }
   ]
 }
