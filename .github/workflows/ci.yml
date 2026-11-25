@@ -15,9 +15,27 @@ jobs:
     timeout-minutes: 5
     steps:
       - name: Check out repository
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
+          allow-unsafe-pr-checkout: false
+      - name: Verify checkout authentication boundary
+        run: |
+          python3 --version
+          git --version
+          python3 - <<'PY'
+          import subprocess
+
+          result = subprocess.run(
+              ["git", "config", "--local", "--name-only", "--get-regexp",
+               r"^(http(\..*)?\.extraheader|credential\..*|core\.sshcommand)$"],
+              capture_output=True, text=True, check=False)
+          if result.returncode not in (0, 1):
+              raise SystemExit("Cannot inspect local checkout authentication configuration")
+          if result.stdout.strip():
+              raise SystemExit("Prohibited checkout authentication configuration remains")
+          print("No local checkout auth headers, credential helpers or SSH command remain")
+          PY
       - name: Validate foundations
         run: python3 scripts/verify_foundation.py
       - name: Install pinned contract validation tools

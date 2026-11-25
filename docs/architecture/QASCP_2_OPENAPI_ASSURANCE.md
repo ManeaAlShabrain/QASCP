@@ -51,6 +51,14 @@ The published jsonschema-path 0.3.4 wheel declares requests as required: the fir
 
 CI retains the isolated virtual environment and installs the explicit 19-package closure from requirements-contracts.txt with --no-deps and --only-binary=:all:, runs pip check, then the new standalone verifier and the complete unit suite. There is no unpinned resolver or source-build fallback. Wheel artifact hashes are not locked by this change and independent supply-chain review remains pending. Nothing here is a runtime dependency adoption or vulnerability-free claim.
 
+## CI checkout maintenance candidate
+
+[ADR-2-CI-001](QASCP_2_CI_CHECKOUT_DECISION.md) records the proposed full-SHA
+Node24 checkout update and post-checkout local-auth configuration check.
+It preserves the read-only token, all validators and the required gate identity.
+Fresh candidate CI and independent review are required; older runs retain their
+original action version and evidence scope.
+
 ## Limits and reviewer handoff
 
 The [2026-11-25 review](../verification/QASCP_2_P1_REVIEW_2026-11-25.md)
