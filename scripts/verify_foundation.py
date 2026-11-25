@@ -40,6 +40,7 @@ REQUIRED_FILES = (
     "docs/verification/QASCP_2_P1_REVIEW_2026-11-25.md",
     "docs/verification/evidence/main-enforcement-2026-11-25.json",
     "docs/architecture/QASCP_2_OPENAPI_ASSURANCE.md",
+    "docs/architecture/QASCP_2_CI_CHECKOUT_DECISION.md",
     "scripts/verify_openapi_contracts.py",
     "scripts/verify_openapi_policy.py",
     "tests/test_openapi_policy.py",
