@@ -32,7 +32,7 @@ Retain passing and failing Actions runs from a controlled test, capture the acti
 
 ### P1-V04 — Phase closure and blockers
 
-Verify all applicable P1 criteria, qualified review, open risk disposition, and all P1 evidence linked to an immutable revision. Record acceptance with the actual approving identity and time. An unresolved required check or reviewer decision leaves the phase pending. Review the prerequisite again before starting P2.
+Identify the effective policy baseline and readiness class first; a candidate baseline cannot silently replace the prior acceptance boundary. Verify all applicable P1 criteria, qualified review under that effective baseline, open risk disposition, and all P1 evidence linked to an immutable revision. Record acceptance with the actual approving identity and time. An unresolved required check or reviewer decision leaves the phase pending. Review the prerequisite again before starting P2.
 
 ### P2-V01 — Tenant and audit integration
 
@@ -60,10 +60,26 @@ Verify independent security review, performance against approved workload, recov
 
 ## Stage decision record
 
-Each candidate record contains phase, prior approved phase or first-phase status, immutable revision, scope, applicable requirements, evidence IDs, workflow or command results, test environment and dataset versions, artifact digest where applicable, risks and exceptions, and the decision with reviewer and timestamp. The approver records the decision in a PR or other access-controlled audit source after reviewing the cited revision, and the repository record links that decision.
+Each candidate record contains policy baseline/effectiveness evidence, readiness class, phase, prior approved phase or first-phase status, immutable revision, scope, applicable requirements, evidence IDs, workflow or command results, test environment and dataset versions, artifact digest where applicable, risks and exceptions, and the decision with reviewer and timestamp. The approver records the decision in a PR or other access-controlled audit source after reviewing the cited revision, and the repository record links that decision.
 
 ## Decision and exception handling
 
 Use Pending, Ready for review, Approved, or Blocked as recorded states. A documented approval from the assigned approver and all mandatory evidence are required for Approved. A decision requiring independent review remains blocked until that reviewer provides evidence. If an accepted control regresses, block the affected release, identify impacted phases and consumers, and record a new decision after remediation and verification.
 
 For a permitted lower-risk deferral use a time-bound record with requirement, evidence, severity, impact, compensating control, owner, expiry, and approver. Revisit on expiry or when exposure changes. Required missing evidence and failures in tenant isolation, authorization, audit integrity, and applicable obligations cannot be waived through this process.
+
+
+## Baseline 1.1 candidate and separate-process review
+
+The owner [approved the proposal](../governance/decisions/GOV-DEC-001.md), not
+P1 exit. Follow the paired [English](../governance/SOLO_ASSURANCE_PROCESS.md) /
+[Arabic](../governance/SOLO_ASSURANCE_PROCESS.ar.md) process for candidate review
+and activation evidence. Four separate review conversations/processes must
+cover security/architecture, substantive bilingual/source preparation,
+organization/requirements and final verification; this implementer cannot fill
+them. Record actual reviewer type/session/independence limits, exact candidate,
+policy/readiness scope, evidence and disposition. Until governed activation is
+recorded the prior conservative human-review boundary remains applicable.
+Enterprise/client/production and applicable regulatory decisions always retain
+their actual human/competent-authority gates. A reviewer verifies findings;
+the owner separately decides phase exit after all mandatory criteria.

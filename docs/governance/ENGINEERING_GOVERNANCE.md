@@ -1,10 +1,18 @@
 # QASCP Engineering Governance and Delivery Handbook
 
-[العربية](ENGINEERING_GOVERNANCE.ar.md) · Version 1.0 · Proposed baseline for P1 review
+[العربية](ENGINEERING_GOVERNANCE.ar.md) · Version 1.1 · Candidate baseline following owner-approved GCR-P1-001; activation pending review
+
+Owner proposal approval: [GOV-DEC-001](decisions/GOV-DEC-001.md), 2026-11-25.
+This 1.1 candidate implements the approved internal-only scope; effectiveness
+still requires governed review and a recorded activation. Until then the prior
+conservative human-review acceptance boundary applies. Read the
+[separate assurance process](SOLO_ASSURANCE_PROCESS.md). Policy approval is not
+risk acceptance, architecture adoption, completed review, phase exit or P2
+authorization. Enterprise/customer/production human and regulatory gates remain.
 
 QASCP is a unified cybersecurity, AI security, and continuous assurance platform for Qatar's financial sector. This handbook governs design, implementation, verification, and release. The English and Arabic editions carry the same requirements. MUST and MUST NOT are binding project requirements once this baseline is adopted. If a translation is ambiguous or conflicts with the other edition, block the affected acceptance decision until both texts are reconciled in one pull request.
 
-Translation clarification candidate, 2026-11-17: SEC-004 workload terminology and ENG-003 patch terminology are aligned in both editions within proposed baseline 1.0. Independent bilingual/security review and baseline adoption remain pending; no phase decision is recorded here.
+Historical baseline 1.0 clarification, 2026-11-17: SEC-004 workload terminology and ENG-003 patch terminology are aligned in both editions within proposed baseline 1.0. Independent bilingual/security review and baseline adoption remain pending; no phase decision is recorded here.
 
 ## Using this handbook
 
@@ -24,7 +32,7 @@ Changes to either handbook edition, the requirement register, CI, security contr
 
 ### QASCP-GOV-004 — Ownership and independence
 
-The product owner approves scope and phase exit. The implementer provides reproducible evidence. A qualified reviewer independently assesses security-sensitive changes, the controls governing acceptance, and readiness for client or production deployment. The regulatory owner verifies legal and contractual applicability. The release operator deploys the accepted artifact and records the outcome. Record the actual people and decisions at approval. Author self-review does not fulfill independent review. Missing reviewers block the affected acceptance decision.
+The product owner approves scope and a separately recorded phase exit for a named readiness class at an immutable revision. The implementer provides reproducible evidence. For Internal Development Readiness only, the owner may use the [separate AI-assisted assurance process](SOLO_ASSURANCE_PROCESS.md) and accepts only internal project risks within recorded authority; synthetic-only and no-deployment restrictions remain binding. Every AI reviewer declares functional separation and shared-service limitations; it never represents an independent human. Before enterprise, client or production acceptance, actual qualified independent human security/architecture review and applicable substantive human bilingual/regulatory/rights dispositions are mandatory. The regulatory owner verifies applicability; the authorized operator deploys the accepted artifact and records the outcome. Record actual people, review processes, exact revision, readiness class and decisions. Author self-review does not fulfill required separate review. Missing required reviews/authority or unresolved mandatory blockers prevent the affected decision.
 
 ### QASCP-SEC-001 — Trusted tenant context
 
@@ -56,7 +64,7 @@ Treat model output and retrieved content as untrusted. Enforce tenant and data p
 
 ### QASCP-ENG-001 — Complete and maintainable code
 
-Production paths MUST handle errors and supported inputs, including validation failures, partial failures, retries, and concurrent requests. Do not ship stub bodies, standalone `pass` in unfinished functions, unfinished markers such as `TODO`, sample credentials, fake evidence, or synthetic production fallback data. Document supported interfaces, invariant ownership, and operational failure handling. Human reviewer assessment and applicable static, unit, integration, and regression checks are required. CI at P1 assesses the repository documentation and the verifier itself.
+Production paths MUST handle errors and supported inputs, including validation failures, partial failures, retries, and concurrent requests. Do not ship stub bodies, standalone `pass` in unfinished functions, unfinished markers such as `TODO`, sample credentials, fake evidence, or synthetic production fallback data. Document supported interfaces, invariant ownership, and operational failure handling. Human reviewer assessment is required for enterprise, client and production acceptance. Internal Development Readiness assessment MUST follow the separate process and restrictions in GOV-004. Applicable static, unit, integration and regression checks remain required for every readiness class. CI at P1 assesses the repository documentation and the verifier itself.
 
 ### QASCP-ENG-002 — Integration, regression, and evidence
 
@@ -87,7 +95,7 @@ An unmet binding requirement, an unverified required control, confirmed unresolv
 | P3 — Detection, exposure, and risk | Authorized event-to-asset-to-identity-to-finding flow, measured correlation precision and recall on a versioned set, replay and ordering evidence, and cumulative regression. |
 | P4 — AI security and governance | Human approval and executor boundary tests, tenant-scoped retrieval, versioned model-policy evaluations, insufficient-evidence abstention, and cumulative regression. |
 | P5 — Assurance and orchestration | Evidence-to-case-to-approval-to-reverification flow, expiry and duplicate handling, factual claim review, and cumulative regression. |
-| P6 — Enterprise validation | Independent security review, approved operational targets with recovery and performance evidence, versioned deployment and support package, customer applicability review where relevant, and release acceptance tied to the exact artifact. |
+| P6 — Enterprise validation | Actual qualified independent human security review, approved operational targets with recovery and performance evidence, versioned deployment and support package, customer applicability review where relevant, and release acceptance tied to the exact artifact. |
 
 ## Working sequence
 
@@ -98,4 +106,4 @@ An unmet binding requirement, an unverified required control, confirmed unresolv
 5. Record the phase decision only after the authorized approver provides evidence. Use a repository record that points to the reviewed revision rather than a self-referential commit SHA.
 
 
-Translation correction candidate, 2026-11-25 (QAR-005): ENG-001 explicitly retains human review in both editions. GOV-004 is unchanged. The separate solo-governance proposal is not adopted. Substantive independent review and baseline adoption remain pending.
+Historical baseline 1.0 correction before GOV-DEC-001, 2026-11-25 (QAR-005): ENG-001 explicitly retains human review in both editions. GOV-004 is unchanged. The separate solo-governance proposal is not adopted. Substantive independent review and baseline adoption remain pending.

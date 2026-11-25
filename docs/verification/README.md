@@ -4,14 +4,15 @@ Current active stage: **P1 — Product and architecture foundation**
 
 Decision: **Pending review**
 
+Governance proposal: **Owner approved** (GOV-DEC-001). Baseline 1.1: **Candidate / activation pending review**. Required separate reviews, risk/architecture decisions and P1-V04 remain outstanding.
+
 Latest remediation baseline: **cc04fa6e82f0b53d75fd5d08e1a36f11fba5c4d2**.
 The merged independent [audit #43](https://github.com/ManeaAlShabrain/QASCP/blob/cc04fa6e82f0b53d75fd5d08e1a36f11fba5c4d2/docs/verification/reviews/P1/2026-11-25-4592eb230fad/01-EXECUTIVE-SUMMARY.md)
 rejected exit for reviewed 4592eb230fadebb828c8b7d3b7972c6bd1aec012 (72.95/100).
 The [corrective-action/re-audit package](remediation/P1-2026-11-25/README.md)
 tracks QAR-001..009, all 36 requirement rows, actual checks and pending decisions.
 [PR #44](https://github.com/ManeaAlShabrain/QASCP/pull/44) is technical remediation;
-[PR #45](https://github.com/ManeaAlShabrain/QASCP/pull/45) proposes governance only,
-without adopting it. No finding is independently verified fixed or phase approved.
+[PR #45](https://github.com/ManeaAlShabrain/QASCP/pull/45) contains the governance proposal. The owner has now [approved that proposal](../governance/decisions/GOV-DEC-001.md); paired baseline 1.1 activation remains pending review. This approval does not close P1 or authorize P2. No finding is independently verified fixed or phase approved.
 
 Historical delivery baseline: **ea2fd32c9f3d21f6635ea3b17a02ae74cfe160d3**.
 The [P1 delivery and acceptance packet](QASCP_2_P1_DELIVERY_PACKET.md)
