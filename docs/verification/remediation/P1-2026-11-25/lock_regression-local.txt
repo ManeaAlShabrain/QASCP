@@ -1,0 +1,6 @@
+test_retained_lock_and_pin_tampering (test_validation_lock.ValidationLockTests.test_retained_lock_and_pin_tampering) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.009s
+
+OK

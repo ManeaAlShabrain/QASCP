@@ -56,7 +56,7 @@ Treat model output and retrieved content as untrusted. Enforce tenant and data p
 
 ### QASCP-ENG-001 — Complete and maintainable code
 
-Production paths MUST handle errors and supported inputs, including validation failures, partial failures, retries, and concurrent requests. Do not ship stub bodies, standalone `pass` in unfinished functions, unfinished markers such as `TODO`, sample credentials, fake evidence, or synthetic production fallback data. Document supported interfaces, invariant ownership, and operational failure handling. Reviewer assessment and applicable static, unit, integration, and regression checks are required. CI at P1 assesses the repository documentation and the verifier itself.
+Production paths MUST handle errors and supported inputs, including validation failures, partial failures, retries, and concurrent requests. Do not ship stub bodies, standalone `pass` in unfinished functions, unfinished markers such as `TODO`, sample credentials, fake evidence, or synthetic production fallback data. Document supported interfaces, invariant ownership, and operational failure handling. Human reviewer assessment and applicable static, unit, integration, and regression checks are required. CI at P1 assesses the repository documentation and the verifier itself.
 
 ### QASCP-ENG-002 — Integration, regression, and evidence
 
@@ -96,3 +96,6 @@ An unmet binding requirement, an unverified required control, confirmed unresolv
 3. Run the commands and tests in the verification procedure. Capture failures and correct the cause before retest.
 4. Submit a pull request with release-impact, security, provenance, and evidence links. Record review against the current revision.
 5. Record the phase decision only after the authorized approver provides evidence. Use a repository record that points to the reviewed revision rather than a self-referential commit SHA.
+
+
+Translation correction candidate, 2026-11-25 (QAR-005): ENG-001 explicitly retains human review in both editions. GOV-004 is unchanged. The separate solo-governance proposal is not adopted. Substantive independent review and baseline adoption remain pending.

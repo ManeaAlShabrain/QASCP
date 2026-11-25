@@ -28,12 +28,14 @@ jobs:
         run: python3 scripts/verify_foundation.py
       - name: Install pinned contract validation tools
         run: |
+          python3 scripts/verify_validation_lock.py
+          python3 -c 'import platform, sys; assert sys.version_info[:2] == (3, 14) and sys.platform == "linux" and platform.machine() == "x86_64", "Unsupported validation lock platform"'
           python3 -m venv .venv-contracts
-          .venv-contracts/bin/python -m pip install --disable-pip-version-check --no-input --index-url https://pypi.org/simple --no-deps --only-binary=:all: -r requirements-contracts.txt
+          .venv-contracts/bin/python -m pip install --disable-pip-version-check --no-input --index-url https://pypi.org/simple --no-deps --only-binary=:all: --require-hashes -r requirements-contracts-linux-cp314.lock
           .venv-contracts/bin/python -m pip check
       - name: Capture wheel integrity and advisory evidence
         run: |
-          .venv-contracts/bin/python -m pip download --disable-pip-version-check --no-input --index-url https://pypi.org/simple --no-deps --only-binary=:all: -r requirements-contracts.txt --dest .validation-wheels
+          .venv-contracts/bin/python -m pip download --disable-pip-version-check --no-input --index-url https://pypi.org/simple --no-deps --only-binary=:all: --require-hashes -r requirements-contracts-linux-cp314.lock --dest .validation-wheels
           .venv-contracts/bin/python scripts/capture_validation_dependencies.py
       - name: Validate both full OpenAPI documents offline
         run: .venv-contracts/bin/python scripts/verify_openapi_contracts.py

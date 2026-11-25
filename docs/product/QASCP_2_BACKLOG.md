@@ -1,6 +1,6 @@
 # QASCP 2.0 — Execution backlog
 
-This is the canonical QASCP 2.0 backlog under the [document authority and supersession matrix](../architecture/QASCP_2_SUPERSESSION.md). It is a P1 planning artifact ready to turn into scoped GitHub issues; no remote issue has been created by this file. Role assignments and estimates require owner review. Each row is one reviewable work package; acceptance and prerequisites remain binding when moved to GitHub. Earlier `B-P*` identifiers are historical/deprecated and map to the successors recorded in the matrix.
+This is the canonical QASCP 2.0 backlog under the [document authority and supersession matrix](../architecture/QASCP_2_SUPERSESSION.md). It is the P1 planning authority. Its 19 packages are tracked in existing GitHub Issues #13–31; the [active acceptance register](P1_ACTIVE_ACCEPTANCE_REGISTER.md) separates implementation, verification, review, acceptance and phase status. Existing closed issue states do not approve these packages. Role assignments and estimates require owner review. Each row is one reviewable work package; acceptance and prerequisites remain binding when moved to GitHub. Earlier `B-P*` identifiers are historical/deprecated and map to the successors recorded in the matrix.
 
 | ID / phase | Deliverable | Depends on | Acceptance / requirement / verification |
 |---|---|---|---|

@@ -66,6 +66,25 @@ REQUIRED_FILES = (
     "tests/fixtures/graph-import-examples.json",
     "tests/test_graph_import_contracts.py",
     "requirements-contracts.txt",
+    "requirements-contracts-linux-cp314.lock",
+    "scripts/verify_checkout_auth.py",
+    "scripts/verify_validation_lock.py",
+    "scripts/capture_validation_dependencies.py",
+    "tests/test_checkout_auth.py",
+    "tests/test_validation_lock.py",
+    "docs/verification/P1_VALIDATION_SETUP.md",
+    "docs/verification/P1_CI_REMEDIATION.md",
+    "docs/verification/P1_SUPPLY_CHAIN_REMEDIATION.md",
+    "docs/verification/P1_BILINGUAL_REMEDIATION.md",
+    "docs/architecture/P1_ARCHITECTURE_DECISION_REGISTER.md",
+    "docs/governance/P1_RISK_OWNERSHIP.md",
+    "docs/governance/P1_RISK_OWNERSHIP.json",
+    "docs/product/P1_ACTIVE_ACCEPTANCE_REGISTER.md",
+    "docs/verification/remediation/P1-2026-11-25/README.md",
+    "docs/verification/remediation/P1-2026-11-25/CORRECTIVE_ACTION_REGISTER.json",
+    "docs/verification/remediation/P1-2026-11-25/REQUIREMENTS_RECHECK.md",
+    "docs/verification/remediation/P1-2026-11-25/dependency-evidence.json",
+    "docs/verification/remediation/P1-2026-11-25/validation-wheels.cdx.json",
     "docs/product/QASCP_2_CONTINUITY_AR.md",
     "docs/architecture/QASCP_2_THREATS.md",
     "docs/architecture/QASCP_2_SUPERSESSION.md",
@@ -314,7 +333,7 @@ def main():
     if problems:
         print("\n".join(problems))
         return 1
-    print("Foundation verified: required files, links, bilingual parity, governance and product requirement mappings, backlog references, and evidence references.")
+    print("Foundation verified: required files, links, structural bilingual parity, governance and product requirement mappings, backlog references, and evidence references.")
     return 0
 
 

@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "C:\Users\manem\Desktop\QASCP\public-review-20261125\scripts\verify_openapi_contracts.py", line 134, in <module>
+    print(json.dumps(validate_all_documents(), indent=2))
+                     ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\manem\Desktop\QASCP\public-review-20261125\scripts\verify_openapi_contracts.py", line 127, in validate_all_documents
+    result = validate_document(path, source)
+  File "C:\Users\manem\Desktop\QASCP\public-review-20261125\scripts\verify_openapi_contracts.py", line 112, in validate_document
+    from openapi_spec_validator import OpenAPIV31SpecValidator
+ModuleNotFoundError: No module named 'openapi_spec_validator'

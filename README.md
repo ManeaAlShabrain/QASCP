@@ -17,6 +17,7 @@ The proposed enterprise-banking scope connects 24 security domains through a sec
 - [Graph boundary contracts and validation](docs/architecture/QASCP_2_GRAPH_BOUNDARY.md)
 - [Consolidated P1 human-review package](docs/verification/QASCP_2_P1_REVIEW_PACKAGE.md)
 - [P1 deliverables, all five work packages and remaining acceptance decisions](docs/verification/QASCP_2_P1_DELIVERY_PACKET.md)
+- [P1 corrective actions, all nine audit findings and re-audit evidence](docs/verification/remediation/P1-2026-11-25/README.md)
 - [Current repository review and resumption — 2026-11-25](docs/verification/QASCP_2_P1_REVIEW_2026-11-25.md)
 - [Arabic continuity record and next steps](docs/product/QASCP_2_CONTINUITY_AR.md)
 - [Threat and design-risk register](docs/architecture/QASCP_2_THREATS.md)
@@ -40,11 +41,18 @@ The [document authority and supersession matrix](docs/architecture/QASCP_2_SUPER
 - [Stage verification record](docs/verification/README.md)
 - [Codex instructions](AGENTS.md)
 
-Run the current foundation check from the repository root.
+Use the [supported clean verification setup](docs/verification/P1_VALIDATION_SETUP.md)
+before running the complete suite. Linux x86_64 / CPython 3.14 is the full-check
+target; install the hash-locked, wheels-only validator closure in a new venv first.
+Native Windows also needs symbolic-link permission and a separate platform lock.
 
 ```sh
-python3 scripts/verify_foundation.py
-python3 -m unittest discover -s tests -v
+python3 -m venv .venv-contracts
+.venv-contracts/bin/python -m pip install --disable-pip-version-check --no-input --index-url https://pypi.org/simple --no-deps --only-binary=:all: --require-hashes -r requirements-contracts-linux-cp314.lock
+.venv-contracts/bin/python -m pip check
+.venv-contracts/bin/python scripts/verify_foundation.py
+.venv-contracts/bin/python scripts/verify_openapi_contracts.py
+.venv-contracts/bin/python -m unittest discover -s tests -v
 ```
 
 The current repository is public under **ManeaAlShabrain/QASCP**, following the owner's visibility and organization changes. The latest [review and resumption record](docs/verification/QASCP_2_P1_REVIEW_2026-11-25.md) records the active main ruleset and the controlled main-targeted failed/blocked and repaired-positive test. Required PRs and the **QASCP Foundation Gate** from GitHub Actions remain mandatory. Keep customer data and secrets outside public history, discussions, logs and fixtures. Before any later visibility or ownership change, assess disclosure, plan support, integration access and effective rules. Treat workflow and gate changes as sensitive code review items.
