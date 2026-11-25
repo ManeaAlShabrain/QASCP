@@ -60,7 +60,9 @@ must pass the full specification validator and the shared authentication,
 tenant-selector and operation policy; successor graph tests reuse that policy.
 The lower-level validate_document remains specification-only so regressions can
 demonstrate the difference. Six dependency-free tests do not replace the real
-validator or cumulative suite. This local candidate has no fresh CI pass yet.
+validator or cumulative suite. The code candidate passed both actual full
+validators and 96 tests in Actions 45674623799; PR #36 binds the final evidence
+update to its own fresh cumulative result.
 
 Passing this check can close the previously missing dedicated OpenAPI-validation evidence for the exact candidate. It cannot approve the contract's security design, choose its product semantics, certify regulatory applicability, prove tenant isolation or satisfy the human phase-exit decision. Keep the custom QASCP security/structural tests, synthetic conformance tests and later real-entry-point verification.
 

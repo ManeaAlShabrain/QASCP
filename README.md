@@ -46,7 +46,7 @@ python3 scripts/verify_foundation.py
 python3 -m unittest discover -s tests -v
 ```
 
-The current repository is public under **ManeaAlShabrain/QASCP**, following the owner's visibility and organization changes. The latest [review and resumption record](docs/verification/QASCP_2_P1_REVIEW_2026-11-25.md) distinguishes the inspected active main ruleset from the still-missing controlled merge-block test. Required PRs and the **QASCP Foundation Gate** from GitHub Actions remain mandatory. Keep customer data and secrets outside public history, discussions, logs and fixtures. Before any later visibility or ownership change, assess disclosure, plan support, integration access and effective rules. Treat workflow and gate changes as sensitive code review items.
+The current repository is public under **ManeaAlShabrain/QASCP**, following the owner's visibility and organization changes. The latest [review and resumption record](docs/verification/QASCP_2_P1_REVIEW_2026-11-25.md) records the active main ruleset and the controlled main-targeted failed/blocked and repaired-positive test. Required PRs and the **QASCP Foundation Gate** from GitHub Actions remain mandatory. Keep customer data and secrets outside public history, discussions, logs and fixtures. Before any later visibility or ownership change, assess disclosure, plan support, integration access and effective rules. Treat workflow and gate changes as sensitive code review items.
 
 To validate the GitHub rule once active, open a temporary PR containing a broken required documentation link, confirm the required check fails and blocks the merge, then repair the PR and confirm the check passes. Close the test PR. Record the real run links in the stage verification record.
 
