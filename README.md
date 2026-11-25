@@ -16,6 +16,7 @@ The proposed enterprise-banking scope connects 24 security domains through a sec
 - [Security Knowledge Graph plan and diagrams](docs/architecture/QASCP_2_GRAPH_PLAN.md)
 - [Graph boundary contracts and validation](docs/architecture/QASCP_2_GRAPH_BOUNDARY.md)
 - [Consolidated P1 human-review package](docs/verification/QASCP_2_P1_REVIEW_PACKAGE.md)
+- [P1 deliverables, all five work packages and remaining acceptance decisions](docs/verification/QASCP_2_P1_DELIVERY_PACKET.md)
 - [Current repository review and resumption — 2026-11-25](docs/verification/QASCP_2_P1_REVIEW_2026-11-25.md)
 - [Arabic continuity record and next steps](docs/product/QASCP_2_CONTINUITY_AR.md)
 - [Threat and design-risk register](docs/architecture/QASCP_2_THREATS.md)

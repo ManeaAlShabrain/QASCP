@@ -37,6 +37,7 @@ REQUIRED_FILES = (
     "docs/architecture/QASCP_2_GRAPH_RECORD_CONTRACTS.md",
     "docs/architecture/QASCP_2_GRAPH_BOUNDARY.md",
     "docs/verification/QASCP_2_P1_REVIEW_PACKAGE.md",
+    "docs/verification/QASCP_2_P1_DELIVERY_PACKET.md",
     "docs/verification/QASCP_2_P1_REVIEW_2026-11-25.md",
     "docs/verification/evidence/main-enforcement-2026-11-25.json",
     "docs/architecture/QASCP_2_OPENAPI_ASSURANCE.md",
