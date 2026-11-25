@@ -69,3 +69,35 @@ Only a separate reviewer can mark VERIFIED FIXED. This implementation conversati
 cannot supply independent re-audit results. No actual reviewer is currently
 assigned; the handoff requests one and does not fabricate a completed review.
 Formal P1 exit remains pending and distinct from remediation/re-audit completion.
+
+
+## Complete implementation candidate: actual retained result
+
+Candidate **5b9106b8a01fe05e77533c5e93993e682cfcc313**, tree
+**d529fa2759ee0fb223035170a70ed2980dffb9f7**, passed
+[Actions 45692520028](https://github.com/ManeaAlShabrain/QASCP/actions/runs/45692520028):
+107/107 tests, zero skips/errors/failures, clean hash-required wheels-only install,
+pip check, 19 official artifact hashes and zero returned PyPI advisory entries,
+both complete OpenAPI/shared-policy validations and the required gate.
+[Machine evidence](candidate-evidence.json) and [actual job log](candidate-foundation.log)
+retain exact jobs/steps/environment.
+The display log normalizes line endings and strips trailing whitespace; the
+unaltered tool-returned content is retained in candidate-foundation-raw.json,
+with its UTF-8 SHA-256 in candidate-evidence.json. New evidence formatting fixes
+do not modify historical audit logs or any test outcome.
+
+The final evidence-only candidate receives
+fresh checks, bound in PR #44 and the re-audit request; this avoids claiming a
+commit contains its own SHA or transferring old results to a changed tree.
+
+Local corrected discovery: 42 entries, 36 successful and six errors, no skips;
+OpenAPI command fails for missing validator. These results are preserved in
+[local-results.json](local-results.json); initial fixture failure remains in
+[local-results-initial.json](local-results-initial.json). Linux success does not
+relabel local errors. All 34 original audit blobs remain byte-identical.
+
+Governance proposal #45 at 7e9b11528f8250caefccd41ec6d554d0e9c81c02 passed
+[its own unchanged-baseline 96-test run](https://github.com/ManeaAlShabrain/QASCP/actions/runs/45691253061).
+Those checks do not assess this 107-test technical candidate or adopt the policy.
+The only changes outside #44 are three proposal files in #45 and reopening the
+existing #32 acceptance tracker; original package issue history is retained.

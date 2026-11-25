@@ -115,3 +115,18 @@ required-file entry together. No database, API or operational migration exists.
 غير الآمن. يضاف فحص فعلي لإعدادات مصادقة Git المحلية بعد checkout دون طباعة
 قيمها، مع تسجيل إصدارات البيئة. تلزم فحوص المرشح الجديد ومراجعة مستقلة؛
 ولا يمثل تحديث CI اعتمادًا لـP1 أو بدءًا لـP2.
+
+
+## Current P1 corrective tooling addendum — 2026-11-25
+
+QAR-004/006/008 supersede the earlier tooling limitations for the corrected
+candidate only: [checkout boundary correction](../verification/P1_CI_REMEDIATION.md),
+[supported clean setup](../verification/P1_VALIDATION_SETUP.md),
+[hash-lock/provenance/advisory disposition](../verification/P1_SUPPLY_CHAIN_REMEDIATION.md)
+and [exact candidate evidence](../verification/remediation/P1-2026-11-25/README.md).
+The inline guard's earlier six-case preparation did not cover include/includeIf;
+the replacement rejects those paths and retains real-Git regressions. Nineteen
+platform wheel hashes are now enforced in CI; earlier version-only statements
+describe their dated baseline. Historical reports/failed results are preserved.
+No contract/ADR adoption, independent review, legal applicability or P1 exit is
+granted by this tooling correction. P2 remains blocked under the current policy.

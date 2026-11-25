@@ -1,0 +1,154 @@
+{
+  "date": "2026-11-25",
+  "readiness": "READY FOR INDEPENDENT RE-AUDIT; P1 EXIT BLOCKED",
+  "implementation_candidate_sha": "5b9106b8a01fe05e77533c5e93993e682cfcc313",
+  "implementation_tree_sha": "d529fa2759ee0fb223035170a70ed2980dffb9f7",
+  "base_main_sha": "cc04fa6e82f0b53d75fd5d08e1a36f11fba5c4d2",
+  "pull_request_url": "https://github.com/ManeaAlShabrain/QASCP/pull/44",
+  "run_url": "https://github.com/ManeaAlShabrain/QASCP/actions/runs/45692520028",
+  "jobs": {
+    "jobs": [
+      {
+        "id": 139481398393,
+        "name": "Foundation verification",
+        "status": "completed",
+        "conclusion": "success",
+        "run_id": 45692520028,
+        "logs_url": null,
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1
+          },
+          {
+            "name": "Check out repository",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2
+          },
+          {
+            "name": "Verify checkout authentication boundary",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3
+          },
+          {
+            "name": "Validate foundations",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4
+          },
+          {
+            "name": "Install pinned contract validation tools",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5
+          },
+          {
+            "name": "Capture wheel integrity and advisory evidence",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 6
+          },
+          {
+            "name": "Validate both full OpenAPI documents offline",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 7
+          },
+          {
+            "name": "Test foundation and contract schemas",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 8
+          },
+          {
+            "name": "Post Check out repository",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 16
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 17
+          }
+        ]
+      },
+      {
+        "id": 139481556496,
+        "name": "QASCP Foundation Gate",
+        "status": "completed",
+        "conclusion": "success",
+        "run_id": 45692520028,
+        "logs_url": null,
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1
+          },
+          {
+            "name": "Require successful verification",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3
+          }
+        ]
+      }
+    ]
+  },
+  "results": {
+    "clean_venv": true,
+    "require_hashes_install": true,
+    "pip_check": "passed",
+    "official_wheel_integrity": "19/19 matched",
+    "pypi_advisory_entries": 0,
+    "full_openapi": "both documents and shared policy passed",
+    "unittest": {
+      "run": 107,
+      "passed": 107,
+      "skipped": 0,
+      "errors": 0,
+      "failures": 0
+    },
+    "gate": "success"
+  },
+  "gov_proposal": {
+    "sha": "7e9b11528f8250caefccd41ec6d554d0e9c81c02",
+    "pr_url": "https://github.com/ManeaAlShabrain/QASCP/pull/45",
+    "run_url": "https://github.com/ManeaAlShabrain/QASCP/actions/runs/45691253061",
+    "tests": 96,
+    "gate": "success",
+    "adopted": false
+  },
+  "limits": [
+    "This file records the immutable implementation candidate, not its own enclosing evidence commit SHA",
+    "The final evidence-only candidate must receive fresh checks and be bound in PR #44 and the re-audit request",
+    "No independent reviewer disposition, risk acceptance, architecture adoption, policy adoption, phase exit or P2",
+    "PyPI-only advisory coverage; no complete SCA/license clearance or signed provenance",
+    "Native Windows full checks still six errors; initial fixture failure retained separately"
+  ],
+  "historical_audit": {
+    "sha": "4592eb230fadebb828c8b7d3b7972c6bd1aec012",
+    "decision": "REJECTED",
+    "score": 72.95,
+    "unchanged": true
+  },
+  "retained_log": {
+    "raw_json": "candidate-foundation-raw.json",
+    "sha256_of_raw_utf8": "b815928efcfd043aa4a1523e14a9eada9ff01d39dd11e1e0f51468fbe4e8c0e0",
+    "display_log": "candidate-foundation.log",
+    "display_normalization": "LF line endings; trailing whitespace stripped per line; raw content preserved separately"
+  }
+}

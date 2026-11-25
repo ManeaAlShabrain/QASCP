@@ -17,17 +17,21 @@
       ],
       "requirements_reference": "Original 36-row RTM; see REQUIREMENTS_RECHECK.md and issue links",
       "tests_executed": [
-        "python -B -m unittest discover -s tests -p test_checkout_auth.py -v (10 passed)",
-        "Actions 45690090809: clean venv/pip check/full APIs/shared policy/full unittest (106 passed)",
-        "python -B scripts/verify_validation_lock.py; test_validation_lock.py (1 passed)",
-        "Final cumulative candidate commands/results: see candidate-evidence.json and PR head checks"
+        "Fresh Linux candidate 5b9106b8a01fe05e77533c5e93993e682cfcc313: Actions 45692520028/job 139481398393; foundation, lock consistency, new venv, 19 --require-hashes wheels-only pins, pip check, PyPI integrity/advisory query, both full APIs/shared policy, unittest discover",
+        "Windows: foundation and lock pass; 10 checkout-auth and 1 lock regression methods pass; full discovery 42 entries: 36 pass, 6 errors, zero skips; OpenAPI missing-validator failure",
+        "Initial Windows corrective run: 42 entries, 35 pass, 1 fixture failure and 6 errors, zero skips; retained separately; fixture references corrected, no assertion removed",
+        "Separate proposal SHA 7e9b11528f8250caefccd41ec6d554d0e9c81c02: Actions 45691253061, 96 tests and gate passed; no current policy changed"
       ],
-      "actual_test_results": "Bootstrap hosted 106/106, no skips; local guard 10/10 and lock 1/1 pass. Final candidate and local cumulative outcomes recorded separately; no new full-pass claim from old run.",
+      "actual_test_results": "Linux complete implementation candidate: 107/107 passed, zero skips/errors/failures; 19 wheel hashes matched and no PyPI advisory entries returned; both full API/policy validators and gate passed. Windows full run remains six errors (5 missing validator-module imports, WinError 1314 symlink); not counted as success.",
       "evidence": [
         "README.md",
         "REQUIREMENTS_RECHECK.md",
         "dependency-evidence.json",
-        "https://github.com/ManeaAlShabrain/QASCP/actions/runs/45690090809"
+        "https://github.com/ManeaAlShabrain/QASCP/actions/runs/45690090809",
+        "candidate-evidence.json",
+        "candidate-foundation.log",
+        "local-results.json",
+        "local-results-initial.json"
       ],
       "pull_request_url": "https://github.com/ManeaAlShabrain/QASCP/pull/45",
       "commit_sha": "7e9b11528f8250caefccd41ec6d554d0e9c81c02",
@@ -48,21 +52,24 @@
       ],
       "requirements_reference": "Original 36-row RTM; see REQUIREMENTS_RECHECK.md and issue links",
       "tests_executed": [
-        "python -B -m unittest discover -s tests -p test_checkout_auth.py -v (10 passed)",
-        "Actions 45690090809: clean venv/pip check/full APIs/shared policy/full unittest (106 passed)",
-        "python -B scripts/verify_validation_lock.py; test_validation_lock.py (1 passed)",
-        "Final cumulative candidate commands/results: see candidate-evidence.json and PR head checks"
+        "Fresh Linux candidate 5b9106b8a01fe05e77533c5e93993e682cfcc313: Actions 45692520028/job 139481398393; foundation, lock consistency, new venv, 19 --require-hashes wheels-only pins, pip check, PyPI integrity/advisory query, both full APIs/shared policy, unittest discover",
+        "Windows: foundation and lock pass; 10 checkout-auth and 1 lock regression methods pass; full discovery 42 entries: 36 pass, 6 errors, zero skips; OpenAPI missing-validator failure",
+        "Initial Windows corrective run: 42 entries, 35 pass, 1 fixture failure and 6 errors, zero skips; retained separately; fixture references corrected, no assertion removed"
       ],
-      "actual_test_results": "Bootstrap hosted 106/106, no skips; local guard 10/10 and lock 1/1 pass. Final candidate and local cumulative outcomes recorded separately; no new full-pass claim from old run.",
+      "actual_test_results": "Linux complete implementation candidate: 107/107 passed, zero skips/errors/failures; 19 wheel hashes matched and no PyPI advisory entries returned; both full API/policy validators and gate passed. Windows full run remains six errors (5 missing validator-module imports, WinError 1314 symlink); not counted as success.",
       "evidence": [
         "README.md",
         "REQUIREMENTS_RECHECK.md",
         "dependency-evidence.json",
-        "https://github.com/ManeaAlShabrain/QASCP/actions/runs/45690090809"
+        "https://github.com/ManeaAlShabrain/QASCP/actions/runs/45690090809",
+        "candidate-evidence.json",
+        "candidate-foundation.log",
+        "local-results.json",
+        "local-results-initial.json"
       ],
       "pull_request_url": "https://github.com/ManeaAlShabrain/QASCP/pull/44",
-      "commit_sha": "1d6c14375e10581241919d71372469c0d16b3fa8",
-      "commit_scope": "Immutable initial proposal/checkout correction only; final corrected tree bound after publication in candidate-evidence.json and PR body, avoiding self-referential commit identity",
+      "commit_sha": "5b9106b8a01fe05e77533c5e93993e682cfcc313",
+      "commit_scope": "Immutable complete implementation candidate; final evidence-only candidate and fresh checks bound in PR #44/re-audit handoff",
       "remaining_limitations": "No actual assignment, residual assessment or risk acceptance supplied; enterprise/regulatory authority cannot be inferred",
       "owner_decision_required": "Confirm/decline T01–T12 ownership; assess inherent and residual risk; record authority and reviewed disposition",
       "remediation_status": "PARTIALLY REMEDIATED / OWNER DECISION REQUIRED",
@@ -78,21 +85,24 @@
       ],
       "requirements_reference": "Original 36-row RTM; see REQUIREMENTS_RECHECK.md and issue links",
       "tests_executed": [
-        "python -B -m unittest discover -s tests -p test_checkout_auth.py -v (10 passed)",
-        "Actions 45690090809: clean venv/pip check/full APIs/shared policy/full unittest (106 passed)",
-        "python -B scripts/verify_validation_lock.py; test_validation_lock.py (1 passed)",
-        "Final cumulative candidate commands/results: see candidate-evidence.json and PR head checks"
+        "Fresh Linux candidate 5b9106b8a01fe05e77533c5e93993e682cfcc313: Actions 45692520028/job 139481398393; foundation, lock consistency, new venv, 19 --require-hashes wheels-only pins, pip check, PyPI integrity/advisory query, both full APIs/shared policy, unittest discover",
+        "Windows: foundation and lock pass; 10 checkout-auth and 1 lock regression methods pass; full discovery 42 entries: 36 pass, 6 errors, zero skips; OpenAPI missing-validator failure",
+        "Initial Windows corrective run: 42 entries, 35 pass, 1 fixture failure and 6 errors, zero skips; retained separately; fixture references corrected, no assertion removed"
       ],
-      "actual_test_results": "Bootstrap hosted 106/106, no skips; local guard 10/10 and lock 1/1 pass. Final candidate and local cumulative outcomes recorded separately; no new full-pass claim from old run.",
+      "actual_test_results": "Linux complete implementation candidate: 107/107 passed, zero skips/errors/failures; 19 wheel hashes matched and no PyPI advisory entries returned; both full API/policy validators and gate passed. Windows full run remains six errors (5 missing validator-module imports, WinError 1314 symlink); not counted as success.",
       "evidence": [
         "README.md",
         "REQUIREMENTS_RECHECK.md",
         "dependency-evidence.json",
-        "https://github.com/ManeaAlShabrain/QASCP/actions/runs/45690090809"
+        "https://github.com/ManeaAlShabrain/QASCP/actions/runs/45690090809",
+        "candidate-evidence.json",
+        "candidate-foundation.log",
+        "local-results.json",
+        "local-results-initial.json"
       ],
       "pull_request_url": "https://github.com/ManeaAlShabrain/QASCP/pull/44",
-      "commit_sha": "1d6c14375e10581241919d71372469c0d16b3fa8",
-      "commit_scope": "Immutable initial proposal/checkout correction only; final corrected tree bound after publication in candidate-evidence.json and PR body, avoiding self-referential commit identity",
+      "commit_sha": "5b9106b8a01fe05e77533c5e93993e682cfcc313",
+      "commit_scope": "Immutable complete implementation candidate; final evidence-only candidate and fresh checks bound in PR #44/re-audit handoff",
       "remaining_limitations": "Recommendations are not adopted; both existing API proposals still use /api/v1 pending explicit version choice; no P2 implementation",
       "owner_decision_required": "Decide AD01–AD20 with independent architecture/security review; especially API v2 recommendation and source precedence policy",
       "remediation_status": "PARTIALLY REMEDIATED / OWNER DECISION REQUIRED",
@@ -111,21 +121,24 @@
       ],
       "requirements_reference": "Original 36-row RTM; see REQUIREMENTS_RECHECK.md and issue links",
       "tests_executed": [
-        "python -B -m unittest discover -s tests -p test_checkout_auth.py -v (10 passed)",
-        "Actions 45690090809: clean venv/pip check/full APIs/shared policy/full unittest (106 passed)",
-        "python -B scripts/verify_validation_lock.py; test_validation_lock.py (1 passed)",
-        "Final cumulative candidate commands/results: see candidate-evidence.json and PR head checks"
+        "Fresh Linux candidate 5b9106b8a01fe05e77533c5e93993e682cfcc313: Actions 45692520028/job 139481398393; foundation, lock consistency, new venv, 19 --require-hashes wheels-only pins, pip check, PyPI integrity/advisory query, both full APIs/shared policy, unittest discover",
+        "Windows: foundation and lock pass; 10 checkout-auth and 1 lock regression methods pass; full discovery 42 entries: 36 pass, 6 errors, zero skips; OpenAPI missing-validator failure",
+        "Initial Windows corrective run: 42 entries, 35 pass, 1 fixture failure and 6 errors, zero skips; retained separately; fixture references corrected, no assertion removed"
       ],
-      "actual_test_results": "Bootstrap hosted 106/106, no skips; local guard 10/10 and lock 1/1 pass. Final candidate and local cumulative outcomes recorded separately; no new full-pass claim from old run.",
+      "actual_test_results": "Linux complete implementation candidate: 107/107 passed, zero skips/errors/failures; 19 wheel hashes matched and no PyPI advisory entries returned; both full API/policy validators and gate passed. Windows full run remains six errors (5 missing validator-module imports, WinError 1314 symlink); not counted as success.",
       "evidence": [
         "README.md",
         "REQUIREMENTS_RECHECK.md",
         "dependency-evidence.json",
-        "https://github.com/ManeaAlShabrain/QASCP/actions/runs/45690090809"
+        "https://github.com/ManeaAlShabrain/QASCP/actions/runs/45690090809",
+        "candidate-evidence.json",
+        "candidate-foundation.log",
+        "local-results.json",
+        "local-results-initial.json"
       ],
       "pull_request_url": "https://github.com/ManeaAlShabrain/QASCP/pull/44",
-      "commit_sha": "1d6c14375e10581241919d71372469c0d16b3fa8",
-      "commit_scope": "Immutable initial proposal/checkout correction only; final corrected tree bound after publication in candidate-evidence.json and PR body, avoiding self-referential commit identity",
+      "commit_sha": "5b9106b8a01fe05e77533c5e93993e682cfcc313",
+      "commit_scope": "Immutable complete implementation candidate; final evidence-only candidate and fresh checks bound in PR #44/re-audit handoff",
       "remaining_limitations": "Local boundary only; global/system/env credentials and compromised runner outside assertion; independent disposition pending",
       "owner_decision_required": "Independent security/control re-review; no risk waiver or main-rule change needed",
       "remediation_status": "READY FOR RE-REVIEW",
@@ -146,21 +159,24 @@
       ],
       "requirements_reference": "Original 36-row RTM; see REQUIREMENTS_RECHECK.md and issue links",
       "tests_executed": [
-        "python -B -m unittest discover -s tests -p test_checkout_auth.py -v (10 passed)",
-        "Actions 45690090809: clean venv/pip check/full APIs/shared policy/full unittest (106 passed)",
-        "python -B scripts/verify_validation_lock.py; test_validation_lock.py (1 passed)",
-        "Final cumulative candidate commands/results: see candidate-evidence.json and PR head checks"
+        "Fresh Linux candidate 5b9106b8a01fe05e77533c5e93993e682cfcc313: Actions 45692520028/job 139481398393; foundation, lock consistency, new venv, 19 --require-hashes wheels-only pins, pip check, PyPI integrity/advisory query, both full APIs/shared policy, unittest discover",
+        "Windows: foundation and lock pass; 10 checkout-auth and 1 lock regression methods pass; full discovery 42 entries: 36 pass, 6 errors, zero skips; OpenAPI missing-validator failure",
+        "Initial Windows corrective run: 42 entries, 35 pass, 1 fixture failure and 6 errors, zero skips; retained separately; fixture references corrected, no assertion removed"
       ],
-      "actual_test_results": "Bootstrap hosted 106/106, no skips; local guard 10/10 and lock 1/1 pass. Final candidate and local cumulative outcomes recorded separately; no new full-pass claim from old run.",
+      "actual_test_results": "Linux complete implementation candidate: 107/107 passed, zero skips/errors/failures; 19 wheel hashes matched and no PyPI advisory entries returned; both full API/policy validators and gate passed. Windows full run remains six errors (5 missing validator-module imports, WinError 1314 symlink); not counted as success.",
       "evidence": [
         "README.md",
         "REQUIREMENTS_RECHECK.md",
         "dependency-evidence.json",
-        "https://github.com/ManeaAlShabrain/QASCP/actions/runs/45690090809"
+        "https://github.com/ManeaAlShabrain/QASCP/actions/runs/45690090809",
+        "candidate-evidence.json",
+        "candidate-foundation.log",
+        "local-results.json",
+        "local-results-initial.json"
       ],
       "pull_request_url": "https://github.com/ManeaAlShabrain/QASCP/pull/44",
-      "commit_sha": "1d6c14375e10581241919d71372469c0d16b3fa8",
-      "commit_scope": "Immutable initial proposal/checkout correction only; final corrected tree bound after publication in candidate-evidence.json and PR body, avoiding self-referential commit identity",
+      "commit_sha": "5b9106b8a01fe05e77533c5e93993e682cfcc313",
+      "commit_scope": "Immutable complete implementation candidate; final evidence-only candidate and fresh checks bound in PR #44/re-audit handoff",
       "remaining_limitations": "Implementer comparison is not independent linguistic approval; baseline adoption pending",
       "owner_decision_required": "Independent substantive bilingual/regulatory acceptance of exact candidate under current human-review policy",
       "remediation_status": "READY FOR RE-REVIEW",
@@ -179,21 +195,24 @@
       ],
       "requirements_reference": "Original 36-row RTM; see REQUIREMENTS_RECHECK.md and issue links",
       "tests_executed": [
-        "python -B -m unittest discover -s tests -p test_checkout_auth.py -v (10 passed)",
-        "Actions 45690090809: clean venv/pip check/full APIs/shared policy/full unittest (106 passed)",
-        "python -B scripts/verify_validation_lock.py; test_validation_lock.py (1 passed)",
-        "Final cumulative candidate commands/results: see candidate-evidence.json and PR head checks"
+        "Fresh Linux candidate 5b9106b8a01fe05e77533c5e93993e682cfcc313: Actions 45692520028/job 139481398393; foundation, lock consistency, new venv, 19 --require-hashes wheels-only pins, pip check, PyPI integrity/advisory query, both full APIs/shared policy, unittest discover",
+        "Windows: foundation and lock pass; 10 checkout-auth and 1 lock regression methods pass; full discovery 42 entries: 36 pass, 6 errors, zero skips; OpenAPI missing-validator failure",
+        "Initial Windows corrective run: 42 entries, 35 pass, 1 fixture failure and 6 errors, zero skips; retained separately; fixture references corrected, no assertion removed"
       ],
-      "actual_test_results": "Bootstrap hosted 106/106, no skips; local guard 10/10 and lock 1/1 pass. Final candidate and local cumulative outcomes recorded separately; no new full-pass claim from old run.",
+      "actual_test_results": "Linux complete implementation candidate: 107/107 passed, zero skips/errors/failures; 19 wheel hashes matched and no PyPI advisory entries returned; both full API/policy validators and gate passed. Windows full run remains six errors (5 missing validator-module imports, WinError 1314 symlink); not counted as success.",
       "evidence": [
         "README.md",
         "REQUIREMENTS_RECHECK.md",
         "dependency-evidence.json",
-        "https://github.com/ManeaAlShabrain/QASCP/actions/runs/45690090809"
+        "https://github.com/ManeaAlShabrain/QASCP/actions/runs/45690090809",
+        "candidate-evidence.json",
+        "candidate-foundation.log",
+        "local-results.json",
+        "local-results-initial.json"
       ],
       "pull_request_url": "https://github.com/ManeaAlShabrain/QASCP/pull/44",
-      "commit_sha": "1d6c14375e10581241919d71372469c0d16b3fa8",
-      "commit_scope": "Immutable initial proposal/checkout correction only; final corrected tree bound after publication in candidate-evidence.json and PR body, avoiding self-referential commit identity",
+      "commit_sha": "5b9106b8a01fe05e77533c5e93993e682cfcc313",
+      "commit_scope": "Immutable complete implementation candidate; final evidence-only candidate and fresh checks bound in PR #44/re-audit handoff",
       "remaining_limitations": "Native Windows full suite still blocked by missing validators and symbolic-link privilege; Linux is supported full-check target",
       "owner_decision_required": "Reviewer reproduces supported environment; optional separately reviewed native Windows lock/privilege configuration",
       "remediation_status": "READY FOR RE-REVIEW",
@@ -210,21 +229,24 @@
       ],
       "requirements_reference": "Original 36-row RTM; see REQUIREMENTS_RECHECK.md and issue links",
       "tests_executed": [
-        "python -B -m unittest discover -s tests -p test_checkout_auth.py -v (10 passed)",
-        "Actions 45690090809: clean venv/pip check/full APIs/shared policy/full unittest (106 passed)",
-        "python -B scripts/verify_validation_lock.py; test_validation_lock.py (1 passed)",
-        "Final cumulative candidate commands/results: see candidate-evidence.json and PR head checks"
+        "Fresh Linux candidate 5b9106b8a01fe05e77533c5e93993e682cfcc313: Actions 45692520028/job 139481398393; foundation, lock consistency, new venv, 19 --require-hashes wheels-only pins, pip check, PyPI integrity/advisory query, both full APIs/shared policy, unittest discover",
+        "Windows: foundation and lock pass; 10 checkout-auth and 1 lock regression methods pass; full discovery 42 entries: 36 pass, 6 errors, zero skips; OpenAPI missing-validator failure",
+        "Initial Windows corrective run: 42 entries, 35 pass, 1 fixture failure and 6 errors, zero skips; retained separately; fixture references corrected, no assertion removed"
       ],
-      "actual_test_results": "Bootstrap hosted 106/106, no skips; local guard 10/10 and lock 1/1 pass. Final candidate and local cumulative outcomes recorded separately; no new full-pass claim from old run.",
+      "actual_test_results": "Linux complete implementation candidate: 107/107 passed, zero skips/errors/failures; 19 wheel hashes matched and no PyPI advisory entries returned; both full API/policy validators and gate passed. Windows full run remains six errors (5 missing validator-module imports, WinError 1314 symlink); not counted as success.",
       "evidence": [
         "README.md",
         "REQUIREMENTS_RECHECK.md",
         "dependency-evidence.json",
-        "https://github.com/ManeaAlShabrain/QASCP/actions/runs/45690090809"
+        "https://github.com/ManeaAlShabrain/QASCP/actions/runs/45690090809",
+        "candidate-evidence.json",
+        "candidate-foundation.log",
+        "local-results.json",
+        "local-results-initial.json"
       ],
       "pull_request_url": "https://github.com/ManeaAlShabrain/QASCP/pull/44",
-      "commit_sha": "1d6c14375e10581241919d71372469c0d16b3fa8",
-      "commit_scope": "Immutable initial proposal/checkout correction only; final corrected tree bound after publication in candidate-evidence.json and PR body, avoiding self-referential commit identity",
+      "commit_sha": "5b9106b8a01fe05e77533c5e93993e682cfcc313",
+      "commit_scope": "Immutable complete implementation candidate; final evidence-only candidate and fresh checks bound in PR #44/re-audit handoff",
       "remaining_limitations": "Actual owners/reviewers still unconfirmed; tracker is a work record, not approval or native dependency enforcement",
       "owner_decision_required": "Confirm accountable owner assignments; choose package reopening later if preferred",
       "remediation_status": "READY FOR RE-REVIEW",
@@ -247,21 +269,24 @@
       ],
       "requirements_reference": "Original 36-row RTM; see REQUIREMENTS_RECHECK.md and issue links",
       "tests_executed": [
-        "python -B -m unittest discover -s tests -p test_checkout_auth.py -v (10 passed)",
-        "Actions 45690090809: clean venv/pip check/full APIs/shared policy/full unittest (106 passed)",
-        "python -B scripts/verify_validation_lock.py; test_validation_lock.py (1 passed)",
-        "Final cumulative candidate commands/results: see candidate-evidence.json and PR head checks"
+        "Fresh Linux candidate 5b9106b8a01fe05e77533c5e93993e682cfcc313: Actions 45692520028/job 139481398393; foundation, lock consistency, new venv, 19 --require-hashes wheels-only pins, pip check, PyPI integrity/advisory query, both full APIs/shared policy, unittest discover",
+        "Windows: foundation and lock pass; 10 checkout-auth and 1 lock regression methods pass; full discovery 42 entries: 36 pass, 6 errors, zero skips; OpenAPI missing-validator failure",
+        "Initial Windows corrective run: 42 entries, 35 pass, 1 fixture failure and 6 errors, zero skips; retained separately; fixture references corrected, no assertion removed"
       ],
-      "actual_test_results": "Bootstrap hosted 106/106, no skips; local guard 10/10 and lock 1/1 pass. Final candidate and local cumulative outcomes recorded separately; no new full-pass claim from old run.",
+      "actual_test_results": "Linux complete implementation candidate: 107/107 passed, zero skips/errors/failures; 19 wheel hashes matched and no PyPI advisory entries returned; both full API/policy validators and gate passed. Windows full run remains six errors (5 missing validator-module imports, WinError 1314 symlink); not counted as success.",
       "evidence": [
         "README.md",
         "REQUIREMENTS_RECHECK.md",
         "dependency-evidence.json",
-        "https://github.com/ManeaAlShabrain/QASCP/actions/runs/45690090809"
+        "https://github.com/ManeaAlShabrain/QASCP/actions/runs/45690090809",
+        "candidate-evidence.json",
+        "candidate-foundation.log",
+        "local-results.json",
+        "local-results-initial.json"
       ],
       "pull_request_url": "https://github.com/ManeaAlShabrain/QASCP/pull/44",
-      "commit_sha": "1d6c14375e10581241919d71372469c0d16b3fa8",
-      "commit_scope": "Immutable initial proposal/checkout correction only; final corrected tree bound after publication in candidate-evidence.json and PR body, avoiding self-referential commit identity",
+      "commit_sha": "5b9106b8a01fe05e77533c5e93993e682cfcc313",
+      "commit_scope": "Immutable complete implementation candidate; final evidence-only candidate and fresh checks bound in PR #44/re-audit handoff",
       "remaining_limitations": "Only PyPI advisory coverage; TLS publisher trust not signed provenance; runner/OS/pip mutable; inventory excludes full runner and future app",
       "owner_decision_required": "Independent dependency/license/adoption review; approve future platform/container/scanner choices separately",
       "remediation_status": "READY FOR RE-REVIEW",
@@ -277,21 +302,24 @@
       ],
       "requirements_reference": "Original 36-row RTM; see REQUIREMENTS_RECHECK.md and issue links",
       "tests_executed": [
-        "python -B -m unittest discover -s tests -p test_checkout_auth.py -v (10 passed)",
-        "Actions 45690090809: clean venv/pip check/full APIs/shared policy/full unittest (106 passed)",
-        "python -B scripts/verify_validation_lock.py; test_validation_lock.py (1 passed)",
-        "Final cumulative candidate commands/results: see candidate-evidence.json and PR head checks"
+        "Fresh Linux candidate 5b9106b8a01fe05e77533c5e93993e682cfcc313: Actions 45692520028/job 139481398393; foundation, lock consistency, new venv, 19 --require-hashes wheels-only pins, pip check, PyPI integrity/advisory query, both full APIs/shared policy, unittest discover",
+        "Windows: foundation and lock pass; 10 checkout-auth and 1 lock regression methods pass; full discovery 42 entries: 36 pass, 6 errors, zero skips; OpenAPI missing-validator failure",
+        "Initial Windows corrective run: 42 entries, 35 pass, 1 fixture failure and 6 errors, zero skips; retained separately; fixture references corrected, no assertion removed"
       ],
-      "actual_test_results": "Bootstrap hosted 106/106, no skips; local guard 10/10 and lock 1/1 pass. Final candidate and local cumulative outcomes recorded separately; no new full-pass claim from old run.",
+      "actual_test_results": "Linux complete implementation candidate: 107/107 passed, zero skips/errors/failures; 19 wheel hashes matched and no PyPI advisory entries returned; both full API/policy validators and gate passed. Windows full run remains six errors (5 missing validator-module imports, WinError 1314 symlink); not counted as success.",
       "evidence": [
         "README.md",
         "REQUIREMENTS_RECHECK.md",
         "dependency-evidence.json",
-        "https://github.com/ManeaAlShabrain/QASCP/actions/runs/45690090809"
+        "https://github.com/ManeaAlShabrain/QASCP/actions/runs/45690090809",
+        "candidate-evidence.json",
+        "candidate-foundation.log",
+        "local-results.json",
+        "local-results-initial.json"
       ],
       "pull_request_url": "https://github.com/ManeaAlShabrain/QASCP/pull/44",
-      "commit_sha": "1d6c14375e10581241919d71372469c0d16b3fa8",
-      "commit_scope": "Immutable initial proposal/checkout correction only; final corrected tree bound after publication in candidate-evidence.json and PR body, avoiding self-referential commit identity",
+      "commit_sha": "5b9106b8a01fe05e77533c5e93993e682cfcc313",
+      "commit_scope": "Immutable complete implementation candidate; final evidence-only candidate and fresh checks bound in PR #44/re-audit handoff",
       "remaining_limitations": "No schema/path/version/runtime change; import durable receipt is not graph completion",
       "owner_decision_required": "Independent API documentation re-review; separate architecture adoption remains QAR-003",
       "remediation_status": "READY FOR RE-REVIEW",
