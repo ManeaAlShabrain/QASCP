@@ -53,6 +53,17 @@ CI retains the isolated virtual environment and installs the explicit 19-package
 
 ## Limits and reviewer handoff
 
+The [2026-11-25 review](../verification/QASCP_2_P1_REVIEW_2026-11-25.md)
+adds one shared [QASCP policy checker](../../scripts/verify_openapi_policy.py)
+to the standalone batch for both preserved API versions. Each decoded document
+must pass the full specification validator and the shared authentication,
+tenant-selector and operation policy; successor graph tests reuse that policy.
+The lower-level validate_document remains specification-only so regressions can
+demonstrate the difference. Six dependency-free tests do not replace the real
+validator or cumulative suite. The code candidate passed both actual full
+validators and 96 tests in Actions 45674623799; PR #36 binds the final evidence
+update to its own fresh cumulative result.
+
 Passing this check can close the previously missing dedicated OpenAPI-validation evidence for the exact candidate. It cannot approve the contract's security design, choose its product semantics, certify regulatory applicability, prove tenant isolation or satisfy the human phase-exit decision. Keep the custom QASCP security/structural tests, synthetic conformance tests and later real-entry-point verification.
 
 The [consolidated P1 review package](../verification/QASCP_2_P1_REVIEW_PACKAGE.md) retains substantive bilingual/regulatory review, independent security/architecture dispositions, verified main merge enforcement and formal P1 acceptance as separate requirements. No phase decision or branch setting is changed.

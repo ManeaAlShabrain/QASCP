@@ -133,5 +133,25 @@ class OpenAPIContractTests(unittest.TestCase):
                 load_local_json(path.as_uri(), root)
 
 
+    def test_both_versions_can_be_standards_valid_but_fail_shared_policy(self):
+        from scripts.verify_openapi_policy import check_openapi_policy
+
+        for path in DOCUMENTS:
+            original = json.loads(path.read_text(encoding="utf-8"))
+            for mutation in ("operation", "scheme", "tenant"):
+                spec = copy.deepcopy(original)
+                if mutation == "operation":
+                    spec["paths"]["/observations"]["post"]["security"] = []
+                elif mutation == "scheme":
+                    spec["components"]["securitySchemes"]["oidcBearer"] = {
+                        "type": "apiKey", "in": "query", "name": "token"}
+                else:
+                    spec["components"]["parameters"]["TenantSelector"]["required"] = False
+                with self.subTest(path=path.name, mutation=mutation):
+                    validate_document(path, spec)
+                    with self.assertRaises(ValueError):
+                        check_openapi_policy(spec)
+
+
 if __name__ == "__main__":
     unittest.main()

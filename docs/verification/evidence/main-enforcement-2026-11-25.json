@@ -1,0 +1,148 @@
+{
+  "inspection_date": "2026-11-25",
+  "repository": "ManeaAlShabrain/QASCP",
+  "scope": "Observed GitHub API configuration and controlled PR merge state; not a merge-endpoint attempt or phase approval",
+  "rule_source_url": "https://api.github.com/repos/ManeaAlShabrain/QASCP/rulesets/27321554",
+  "ruleset": {
+    "id": 27321554,
+    "name": "Protect main",
+    "enforcement": "active",
+    "target": "branch",
+    "conditions": {
+      "ref_name": {
+        "exclude": [],
+        "include": [
+          "~DEFAULT_BRANCH"
+        ]
+      }
+    },
+    "rules": [
+      {
+        "type": "deletion"
+      },
+      {
+        "type": "non_fast_forward"
+      },
+      {
+        "type": "pull_request",
+        "parameters": {
+          "required_approving_review_count": 0,
+          "dismiss_stale_reviews_on_push": false,
+          "required_reviewers": [],
+          "require_code_owner_review": false,
+          "dismissal_restriction": {
+            "enabled": false,
+            "allowed_actors": []
+          },
+          "require_last_push_approval": false,
+          "required_review_thread_resolution": false,
+          "require_extra_approval_for_unattributed_changes": true,
+          "allowed_merge_methods": [
+            "merge",
+            "squash",
+            "rebase"
+          ]
+        }
+      },
+      {
+        "type": "required_status_checks",
+        "parameters": {
+          "strict_required_status_checks_policy": true,
+          "do_not_enforce_on_create": false,
+          "required_status_checks": [
+            {
+              "context": "QASCP Foundation Gate",
+              "integration_id": 15368
+            }
+          ]
+        }
+      }
+    ],
+    "bypass_actors": [],
+    "current_user_can_bypass": "never"
+  },
+  "negative": {
+    "pr_url": "https://github.com/ManeaAlShabrain/QASCP/pull/37",
+    "pr_number": 37,
+    "head_sha": "5c8b52d606f25d807e97029f0c80d48762af165c",
+    "base_ref": "main",
+    "base_sha": "f9df7a30747aba111ee7df0afe209fd613cae869",
+    "state": "open",
+    "draft": false,
+    "mergeable": true,
+    "mergeable_state": "blocked",
+    "merged": false,
+    "changed_files": 1,
+    "merge_attempted": false,
+    "failure_diagnostic": "README.md: unresolved local link missing-controlled-main-enforcement-probe.md",
+    "run_url": "https://github.com/ManeaAlShabrain/QASCP/actions/runs/45674710740",
+    "checks": [
+      {
+        "id": 139419100532,
+        "name": "QASCP Foundation Gate",
+        "status": "completed",
+        "conclusion": "failure",
+        "app_id": 15368,
+        "app_slug": "github-actions",
+        "url": "https://github.com/ManeaAlShabrain/QASCP/actions/runs/45674710740/job/139419100532"
+      },
+      {
+        "id": 139419038823,
+        "name": "Foundation verification",
+        "status": "completed",
+        "conclusion": "failure",
+        "app_id": 15368,
+        "app_slug": "github-actions",
+        "url": "https://github.com/ManeaAlShabrain/QASCP/actions/runs/45674710740/job/139419038823"
+      },
+      {
+        "id": 139419020708,
+        "name": "Analyze (python)",
+        "status": "completed",
+        "conclusion": "success",
+        "app_id": 15368,
+        "app_slug": "github-actions",
+        "url": "https://github.com/ManeaAlShabrain/QASCP/actions/runs/45674703792/job/139419020708"
+      }
+    ],
+    "downstream_validation_and_unit_steps": "skipped after foundation failure; not passed"
+  },
+  "positive": {
+    "head_sha": "2ffc0a864c3d7cf9b43041dadfaffa1bf2438438",
+    "tree_sha": "2c21d99bdeb0a1773a35c9fe53dbf4969854b5b7",
+    "restored_exact_main_tree": true,
+    "net_changed_files": 0,
+    "run_url": "https://github.com/ManeaAlShabrain/QASCP/actions/runs/45674930080",
+    "run_status": "completed",
+    "run_conclusion": "success",
+    "jobs": [
+      {
+        "id": 139419807598,
+        "name": "Foundation verification",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 139419985132,
+        "name": "QASCP Foundation Gate",
+        "status": "completed",
+        "conclusion": "success"
+      }
+    ],
+    "mergeable_state_before_close": "unstable",
+    "final_pr_state": "closed",
+    "merged": false,
+    "closed_at": "2026-11-25T18:25:46Z"
+  },
+  "candidate_code_evidence": {
+    "sha": "bd310dfa4a9522f3a70555eeae5bb1c6b83a0ac3",
+    "run_url": "https://github.com/ManeaAlShabrain/QASCP/actions/runs/45674623799",
+    "full_test_count": 96,
+    "failed": 0,
+    "skipped": 0,
+    "policy_operation_counts": [
+      2,
+      4
+    ]
+  }
+}

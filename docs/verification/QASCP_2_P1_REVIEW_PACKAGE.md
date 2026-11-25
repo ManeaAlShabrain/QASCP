@@ -1,5 +1,13 @@
 # QASCP 2.0 — Consolidated P1 human-review package
 
+Current inspection: [2026-11-25 review and resumption](QASCP_2_P1_REVIEW_2026-11-25.md)
+at main f9df7a30747aba111ee7df0afe209fd613cae869. Main now has an active
+ruleset with the required Actions check and no bypass actors. This supersedes
+the historical disabled-protection observations below. Controlled test #37 now
+records an observed blocked merge and repaired positive check. PR #36 carries
+the final candidate/CI binding; human reviewer/phase decisions remain missing.
+Older candidate results below retain their original scope.
+
 Prepared 2026-11-16 (Qatar). Active phase: P1. Official decision remains Pending review in [the stage record](README.md). This is an evidence index and a review checklist, not an approval. Candidate readiness: ready for human review once the proposed consolidated package's required checks pass; P1 closure remains blocked by outstanding mandatory evidence and decisions.
 
 ## Scope and authority
