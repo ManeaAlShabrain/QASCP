@@ -4,7 +4,12 @@ Current active stage: **P1 — Product and architecture foundation**
 
 Decision: **Pending review**
 
-Latest inspected baseline: **f9df7a30747aba111ee7df0afe209fd613cae869**.
+Latest inspected baseline: **ea2fd32c9f3d21f6635ea3b17a02ae74cfe160d3**.
+The [P1 delivery and acceptance packet](QASCP_2_P1_DELIVERY_PACKET.md)
+maps all eight deliverable categories and V2-P1-01..05 to evidence and actual
+remaining reviewer/owner decisions. Baseline main [Actions 45677821487](https://github.com/ManeaAlShabrain/QASCP/actions/runs/45677821487)
+passed 96 tests and the required gate. The packet's PR binds its own candidate
+and fresh checks. Artifact availability and issue closure are not phase approval.
 See the [2026-11-25 review and resumption record](QASCP_2_P1_REVIEW_2026-11-25.md)
 for the public organization repository, active main ruleset, controlled blocked
 merge test and reviewer gaps. [PR #36](https://github.com/ManeaAlShabrain/QASCP/pull/36)
