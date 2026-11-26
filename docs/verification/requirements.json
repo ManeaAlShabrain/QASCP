@@ -1,8 +1,10 @@
 {
   "baseline_version": "1.1",
-  "baseline_status": "REVIEWED_INTERNAL_ONLY_EFFECTIVE_UPON_GOVERNED_MERGE",
+  "baseline_status": "EFFECTIVE_INTERNAL_DEVELOPMENT_ONLY",
   "owner_proposal_decision": "docs/governance/decisions/GOV-DEC-001.md",
   "activation_record": "docs/governance/decisions/GOV-DEC-002.md",
+  "effectiveness_observation": "docs/governance/decisions/GOV-DEC-003.md",
+  "effective_main_sha": "b66d73c51fa1aac6686854f37470553eca9ec8e7",
   "reviewed_baseline_sha": "b5702fd09083eb01b54e65cc85e72e50fdc10f55",
   "requirements": [
     {"id": "QASCP-GOV-001", "verification": ["P1-V04"]},
