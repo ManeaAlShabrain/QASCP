@@ -1,5 +1,19 @@
 # Bilingual terminology and correction record — QAR-005 / Issue #41
 
+Current-disposition note, 2026-11-26: the comparison below is preserved as the
+historical baseline 1.0 correction pass, not the current baseline 1.1 comparison.
+Its statements that GOV-004 is unchanged and baseline remains 1.0 apply to that
+earlier pass only. The owner later approved the scoped proposal in
+[GOV-DEC-001](../governance/decisions/GOV-DEC-001.md); the paired 1.1 handbook and
+[process](../governance/SOLO_ASSURANCE_PROCESS.md) supersede that current-status
+interpretation, with activation still pending the required dispositions.
+The separate 2026-11-26 review identified an additional SEC-002 capability
+ambiguity; the new candidate makes the shared-metadata service/access-path
+prohibition explicit in both editions. Original reports and correction history
+are preserved; a new candidate requires affected substantive re-review.
+
+## Historical baseline 1.0 comparison and glossary
+
 Prepared by the implementation assistant, 2026-11-25; GOV-003/004, ENG-001,
 PRD-06/09; P1-V01. This is a substantive comparison and correction proposal,
 not an independent linguistic or regulatory acceptance. The complete paired

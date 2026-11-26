@@ -114,3 +114,50 @@ class CheckoutAuthenticationTests(unittest.TestCase):
                 with self.assertRaises(CheckoutAuthError) as caught:
                     verify_checkout_auth(self.repo)
                 self.assertNotIn(MARKER, str(caught.exception))
+
+    def test_active_worktree_authentication_keys_fail(self):
+        self.git("config", "--local", "extensions.worktreeConfig", "true")
+        for key in ("credential.helper", "credential.https://example.invalid.helper",
+                    "http.extraheader", "http.https://example.invalid/.extraheader",
+                    "core.sshCommand"):
+            with self.subTest(key=key):
+                self.git("config", "--worktree", key, MARKER)
+                effective = self.git("config", "--show-scope", "--name-only", "--list")
+                self.assertIn(b"worktree\t" + key.lower().encode(), effective.stdout.lower())
+                self.check_cli(1)
+                self.git("config", "--worktree", "--unset-all", key)
+
+    def test_clean_worktree_configuration_passes(self):
+        self.git("config", "--local", "extensions.worktreeConfig", "true")
+        self.git("config", "--worktree", "user.name", "Synthetic QASCP Reviewer")
+        self.check_cli(0)
+
+    def test_worktree_includes_and_matching_conditionals_fail(self):
+        self.git("config", "--local", "extensions.worktreeConfig", "true")
+        for directive in ("include.path", "includeIf.gitdir:**/repo/.git.path"):
+            for key in ("credential.helper", "http.extraheader", "core.sshCommand"):
+                with self.subTest(directive=directive, key=key):
+                    included = self.root / "worktree-included-config"
+                    self.git("config", "--file", str(included), key, MARKER)
+                    self.git("config", "--worktree", directive, str(included))
+                    effective = self.git("config", "--worktree", "--includes", "--name-only", "--list")
+                    self.assertIn(key.lower().encode(), effective.stdout.lower())
+                    self.check_cli(1)
+                    self.git("config", "--worktree", "--unset-all", directive)
+                    included.unlink()
+
+    def test_malformed_worktree_config_does_not_expose_values(self):
+        self.git("config", "--local", "extensions.worktreeConfig", "true")
+        (self.repo / ".git/config.worktree").write_text("[" + MARKER, encoding="utf-8")
+        self.check_cli(1)
+
+    def test_worktree_inspection_failure_is_not_ignored(self):
+        success = subprocess.CompletedProcess([], 0, b"core.bare\0", b"")
+        failure = subprocess.CompletedProcess([], 128, b"", MARKER.encode())
+        for successes in (2, 3):
+            with self.subTest(successes=successes):
+                with patch("scripts.verify_checkout_auth.subprocess.run",
+                           side_effect=[success] * successes + [failure]):
+                    with self.assertRaises(CheckoutAuthError) as caught:
+                        verify_checkout_auth(self.repo)
+                    self.assertNotIn(MARKER, str(caught.exception))

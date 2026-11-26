@@ -40,7 +40,7 @@ Every customer-plane API request and internal job MUST carry an authenticated, a
 
 ### QASCP-SEC-002 — Database isolation
 
-Every application-owned tenant-data table, join, read, write, and deletion MUST be tenant-scoped. Tenant-owned keys and references MUST prevent cross-tenant ownership links. Enforce mandatory tenant filtering in the data layer and database controls such as row-level security, with application roles that cannot bypass it. Shared infrastructure metadata MUST be isolated and unable to access tenant records. Connection reuse, background processing, maintenance, backups, and restores MUST preserve tenant boundaries and be verified independently.
+Every application-owned tenant-data table, join, read, write, and deletion MUST be tenant-scoped. Tenant-owned keys and references MUST prevent cross-tenant ownership links. Enforce mandatory tenant filtering in the data layer and database controls such as row-level security, with application roles that cannot bypass it. Shared infrastructure metadata MUST be isolated from tenant records; the services and access paths managing that shared metadata MUST have no permission to access tenant records. Connection reuse, background processing, maintenance, backups, and restores MUST preserve tenant boundaries and be verified independently.
 
 ### QASCP-SEC-003 — Isolation across derived data
 

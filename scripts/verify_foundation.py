@@ -24,6 +24,8 @@ REQUIRED_FILES = (
     "docs/governance/SOLO_ASSURANCE_PROCESS.md",
     "docs/governance/SOLO_ASSURANCE_PROCESS.ar.md",
     "docs/governance/decisions/GOV-DEC-001.md",
+    "docs/governance/decisions/RISK-DEC-001.md",
+    "docs/verification/P1_SECOND_REVIEW_CORRECTIONS.md",
     "docs/governance/proposals/GCR-P1-001.md",
     "docs/governance/proposals/GCR-P1-001.ar.md",
     "docs/architecture/ADR-GOV-001.md",
