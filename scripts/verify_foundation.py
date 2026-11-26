@@ -27,6 +27,7 @@ REQUIRED_FILES = (
     "docs/governance/decisions/GOV-DEC-002.md",
     "docs/governance/decisions/GOV-DEC-003.md",
     "docs/verification/evidence/governance-effectiveness-2026-11-27.json",
+    "docs/verification/evidence/transition-local-2026-11-27.json",
     "docs/verification/P1_TRANSITION_STATUS_2026-11-27.md",
     "docs/governance/decisions/RISK-DEC-001.md",
     "docs/verification/P1_SECOND_REVIEW_CORRECTIONS.md",

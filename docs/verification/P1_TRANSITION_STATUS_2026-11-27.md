@@ -79,3 +79,12 @@ foundation success, missing OpenAPI validator failure and full discovery47 entri
 41 passed/six errors/zero skips. No tests were weakened or skipped. Fresh supported
 CI must verify this status-update candidate; the prior112 main result is not
 relabeled as a run of the new publication.
+
+Initial current-update CI at33ae1db06f6beba5b96ed55e8997f051789d7a0e failed
+[run45906672398](https://github.com/ManeaAlShabrain/QASCP/actions/runs/45906672398):
+112 tests executed,111passed/one copied-positive-fixture failure because the newly
+linked local-evidence JSON was absent from REQUIRED_FILES. Its addition fixes the
+fixture inventory without weakening a test or predicate. Original decoded job
+output is retained at docs/verification/evidence/transition-initial-ci-failure-2026-11-27.json.
+The failure blocks this update until fresh corrected-candidate checks pass; it
+does not revoke the earlier observed policy-effectiveness trigger.
