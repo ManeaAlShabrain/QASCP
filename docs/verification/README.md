@@ -4,15 +4,26 @@ Current active stage: **P1 — Product and architecture foundation**
 
 Decision: **Pending review**
 
-Governance proposal: **Owner approved** (GOV-DEC-001). Baseline 1.1: **Candidate / activation pending review**. Required separate reviews, risk/architecture decisions and P1-V04 remain outstanding.
+Governance proposal: **Owner approved** (GOV-DEC-001). Baseline 1.1:
+**Reviewed internal-only activation record; effective upon governed merge** under
+[GOV-DEC-002](../governance/decisions/GOV-DEC-002.md). Four separate AI re-reviews
+of **b5702fd09083eb01b54e65cc85e72e50fdc10f55** and fresh 112-test supported CI are retained in the
+[corrected-candidate packet](https://github.com/ManeaAlShabrain/QASCP/pull/48/files).
+[PR #48](https://github.com/ManeaAlShabrain/QASCP/pull/48) publishes that evidence and activation metadata;
+its publication head needs its own checks/review. These are not human reviews.
 
-Latest remediation baseline: **cc04fa6e82f0b53d75fd5d08e1a36f11fba5c4d2**.
-The merged independent [audit #43](https://github.com/ManeaAlShabrain/QASCP/blob/cc04fa6e82f0b53d75fd5d08e1a36f11fba5c4d2/docs/verification/reviews/P1/2026-11-25-4592eb230fad/01-EXECUTIVE-SUMMARY.md)
-rejected exit for reviewed 4592eb230fadebb828c8b7d3b7972c6bd1aec012 (72.95/100).
-The [corrective-action/re-audit package](remediation/P1-2026-11-25/README.md)
-tracks QAR-001..009, all 36 requirement rows, actual checks and pending decisions.
-[PR #44](https://github.com/ManeaAlShabrain/QASCP/pull/44) is technical remediation;
-[PR #45](https://github.com/ManeaAlShabrain/QASCP/pull/45) contains the governance proposal. The owner has now [approved that proposal](../governance/decisions/GOV-DEC-001.md); paired baseline 1.1 activation remains pending review. This approval does not close P1 or authorize P2. No finding is independently verified fixed or phase approved.
+**P1 exit remains BLOCKED**, independently of policy activation: residual-risk
+assessment/treatment, AD01–AD20 decisions, package/source criteria and the owner's
+separate exact-candidate P1-V04 remain outstanding. Twelve internal risk owners
+are confirmed by [RISK-DEC-001](../governance/decisions/RISK-DEC-001.md); residual
+acceptance is not granted. No P2 or enterprise/customer/production authorization.
+
+The original [audit #43](https://github.com/ManeaAlShabrain/QASCP/pull/43) remains REJECTED / 72.95 for
+4592eb230fadebb828c8b7d3b7972c6bd1aec012. Its reports and failed evidence,
+and the first-pass HOLD/BLOCK reports on 5919d022b2fa, remain unchanged.
+The [corrective-action package](remediation/P1-2026-11-25/README.md) and later
+re-review addenda retain their own fixed input revisions. Independent reviewers'
+narrow VERIFIED FIXED findings are not overall phase acceptance.
 
 Historical delivery baseline: **ea2fd32c9f3d21f6635ea3b17a02ae74cfe160d3**.
 The [P1 delivery and acceptance packet](QASCP_2_P1_DELIVERY_PACKET.md)

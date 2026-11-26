@@ -37,3 +37,17 @@ Implementer status: **READY FOR RE-REVIEW**, not VERIFIED FIXED. Baseline 1.1
 activation remains pending the corrected candidate's separate dispositions.
 P1 exit separately remains blocked by reviewed residual-risk dispositions,
 unadopted AD01–AD20 and the owner's exact-candidate phase decision.
+
+
+## Subsequent separate review evidence — 2026-11-26
+
+The [pass-2 packet](https://github.com/ManeaAlShabrain/QASCP/pull/48/files) preserves reports 05–08 and raw evidence
+against candidate b5702fd09083eb01b54e65cc85e72e50fdc10f55, tree 34459658543448ea3bcbbdcd22c603ea85305e70. Separate reviewers, not this
+implementation author, marked SEC-NEW-001, BR-L01 and BR-L02 VERIFIED FIXED
+within their scopes. Final verification recommends internal-only activation
+recording under GOV-DEC-001; GOV-DEC-002 records its conditional merge scope.
+Full hosted CI passed112 tests; native Windows six errors remain preserved.
+QAR-001/002/003/007 and remaining phase criteria are not silently closed.
+Publication adds metadata/evidence only; unchanged normative clauses are not
+reclassified as a new implementation, and old reports do not review the later
+publication SHA. Fresh checks/affected metadata dispositions bind that head in #48.
