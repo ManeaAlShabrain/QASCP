@@ -11,20 +11,23 @@ existing GOV-DEC-002 trigger by merged [#48](https://github.com/ManeaAlShabrain/
 [Foundation45905786986](https://github.com/ManeaAlShabrain/QASCP/actions/runs/45905786986) passed112 tests/gate;
 [CodeQuality45905786852](https://github.com/ManeaAlShabrain/QASCP/actions/runs/45905786852) succeeded.
 
-**P1 transition: OWNER REPORTS COMPLETION / SUPPORTING DECISION LINKAGE PENDING.**
-The owner requested P2 after reporting all four remaining items complete. That
-message is retained exactly in the [current transition status](P1_TRANSITION_STATUS_2026-11-27.md),
-alongside the actual repository gaps: residual assessments/reviews remain unset,
-AD01–AD20 remain proposed, package/source criteria and exact-candidate P1-V04
-are not linked. Owner authority is acknowledged; missing decision details and
-mandatory evidence are not fabricated. P1 remains active pending reconciliation;
-P2 implementation has not started. No enterprise/production/regulatory authority.
+**P1 transition: ACCEPTANCE CANDIDATE PREPARED / NEW REVIEW AND OWNER DECISION PENDING.**
+The owner clarified that the implementer should create the assessments,
+decisions, results and acceptance record; [P1-PREP-001](../governance/decisions/P1-PREP-001.md)
+retains that exact instruction. The [current acceptance packet](P1_ACCEPTANCE_CANDIDATE.md)
+contains12conservative risk assessments,20concrete architecture choices,18contract
+digests,/api/v2 successor selection,15source dispositions and the scoped
+[P1-EXIT-001 decision proposal](../governance/decisions/P1-EXIT-001.md).
+No outside completion links or repeat internal risk-owner confirmation needed.
+Four new exact-candidate AI reviews and fresh CI precede the actual owner
+phase-exit decision. P1 remains active; no P2 runtime has started.
 
 The original audit #43 remains REJECTED /72.95 at4592eb230fadebb828c8b7d3b7972c6bd1aec012.
 All historical reports/failure evidence retain their original scope. The corrected
 candidate packet and final publication-head dispositions in #48 are AI process
 reviews, not independent human reviews. Internal risk-owner confirmation remains
-bounded by RISK-DEC-001; policy effectiveness grants no residual acceptance.
+bounded by RISK-DEC-001. Current residual assessments retain conservative bands;
+no operational residual acceptance is granted by policy effectiveness.
 
 Historical delivery baseline: **ea2fd32c9f3d21f6635ea3b17a02ae74cfe160d3**.
 The [P1 delivery and acceptance packet](QASCP_2_P1_DELIVERY_PACKET.md)

@@ -1,5 +1,10 @@
 # QASCP 2.0 — Proposed graph import contracts and validation
 
+Current2026-11-27: [ADR-P1-ACCEPTANCE-001](ADR-P1-ACCEPTANCE-001.md)
+and P1_CONTRACT_SELECTION.json define the concrete review candidate. The dated
+proposal/rationale below is preserved; no earlier pending state is relabeled as
+a later approval. Owner ratification and P1 exit remain separate.
+
 Status: P1 proposal, 2026-11-15 (Qatar). Canonical package V2-P1-02 / P1-V02. This refines G-01/G-02 in [the graph decisions](QASCP_2_GRAPH_DECISIONS.md), with static payload rules supporting G-03/G-04. No application endpoint, authorization service, migration or production integration is implemented. Owner/independent reviewer: assignment pending.
 
 Requirements: PRD-01, PRD-02, PRD-06, PRD-10; QASCP-GOV-002/003/004, QASCP-SEC-001..005, QASCP-ENG-001..003. Affected paths: future inventory/relationship import, source identity, version conflicts and contract validation in the existing foundation job. Acceptance: both schemas pass Draft 2020-12 meta-schema checks, accepted synthetic commands validate with UUID/date-time checks enabled, and invalid type pairs, qualifiers, versions, fields and selectors fail. P1-V02 independent review remains required.

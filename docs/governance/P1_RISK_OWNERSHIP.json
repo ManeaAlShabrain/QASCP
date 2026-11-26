@@ -2,8 +2,8 @@
   "finding": "QAR-002",
   "prepared_date": "2026-11-25",
   "base_sha": "cc04fa6e82f0b53d75fd5d08e1a36f11fba5c4d2",
-  "method": "Inherited qualitative likelihood/impact; no new calibrated numeric risk score or reduced residual rating",
-  "status": "Internal accountable owner confirmed by RISK-DEC-001; residual assessment/acceptance and independent disposition pending",
+  "method": "Qualitative evidence-based design assessment; future runtime exposure; no probability calibration or numeric product score; no rating reduction without implemented-control evidence",
+  "status": "ASSESSMENT PREPARED / READY FOR RE-REVIEW; internal design/treatment endorsement and phase exit pending owner",
   "risks": [
     {
       "risk_id": "T01",
@@ -27,16 +27,17 @@
       "impact": "critical",
       "inherent_risk": {
         "rating": "Critical",
-        "basis": "Inherited qualitative threat estimate, uncalibrated; owner/reviewer assessment pending"
+        "basis": "Conservative qualitative design estimate; independently review this rationale; no calibrated probability or measured incident rate"
       },
-      "existing_controls": "P1 design, static schemas and synthetic regression evidence only; operational mitigations not implemented",
+      "existing_controls": "Effective internal governance1.1; synthetic-only/no-deployment scope; P1 static schemas and adversarial fixture evidence. Runtime controls not implemented.",
       "planned_controls": "Trusted context, composite FKs, RLS; API/DB A→B negative tests, raw role tests",
       "residual_risk": {
-        "rating": null,
-        "status": "UNASSESSED / NOT ACCEPTED",
-        "reason": "Unimplemented operational mitigations cannot justify a reduced rating; tooling controls need re-review"
+        "rating": "Critical",
+        "status": "ASSESSED CONSERVATIVELY / OPERATIONAL RISK NOT ACCEPTED",
+        "reason": "Retain inherent rating because applicable runtime mitigations have not been implemented/verified; design selection alone gives no reduction",
+        "scope": "Potential enabled/runtime exposure, not a claim that this P1 repository has an operating banking service"
       },
-      "treatment_strategy": "Mitigate; keep boundary disabled until applicable gate; no risk acceptance implied",
+      "treatment_strategy": "MITIGATE / FEATURE GATE: continue synthetic design/development only; prohibit affected customer/production use and require named runtime controls/tests before feature acceptance",
       "evidence_references": [
         "docs/architecture/QASCP_2_THREATS.md",
         "docs/architecture/QASCP_2_BANK01_BLUEPRINT.md",
@@ -45,11 +46,20 @@
       ],
       "target_phase": "P1-V02, P2-V01, P3-V01",
       "acceptance_authority": "Project owner for internal project risk, subject to GOV-004 review; bank/regulatory authority separately required for enterprise or legal obligations",
-      "approval_status": "OWNER ASSIGNMENT CONFIRMED; RESIDUAL RISK AND INDEPENDENT DISPOSITION PENDING",
+      "approval_status": "READY FOR RE-REVIEW; owner internal design/treatment endorsement pending; no operational residual acceptance",
       "owner_decision_reference": "docs/governance/decisions/RISK-DEC-001.md",
       "review_date": null,
       "risk_acceptance_reference": null,
-      "owner_assignment_status": "CONFIRMED INTERNAL ONLY"
+      "owner_assignment_status": "CONFIRMED INTERNAL ONLY",
+      "assessment_date": "2026-11-27",
+      "assessor": "Codex implementation engineer; separate review pending",
+      "assessment_rationale": "A forged selector can expose another tenant; P1 schemas cannot establish RLS or trusted membership. Critical impact retained.",
+      "assessment_evidence": [
+        "docs/governance/P1_RISK_ASSESSMENT_2026-11-27.md",
+        "docs/architecture/ADR-P1-ACCEPTANCE-001.md",
+        "https://github.com/ManeaAlShabrain/QASCP/pull/48"
+      ],
+      "next_review_trigger": "Before affected feature acceptance, any scope/data/tenant/control change, or 2026-12-27, whichever comes first"
     },
     {
       "risk_id": "T02",
@@ -73,16 +83,17 @@
       "impact": "critical",
       "inherent_risk": {
         "rating": "Critical",
-        "basis": "Inherited qualitative threat estimate, uncalibrated; owner/reviewer assessment pending"
+        "basis": "Conservative qualitative design estimate; independently review this rationale; no calibrated probability or measured incident rate"
       },
-      "existing_controls": "P1 design, static schemas and synthetic regression evidence only; operational mitigations not implemented",
+      "existing_controls": "Effective internal governance1.1; synthetic-only/no-deployment scope; P1 static schemas and adversarial fixture evidence. Runtime controls not implemented.",
       "planned_controls": "Transaction-scoped context and scoped keys; sequential/concurrent A/B reuse tests",
       "residual_risk": {
-        "rating": null,
-        "status": "UNASSESSED / NOT ACCEPTED",
-        "reason": "Unimplemented operational mitigations cannot justify a reduced rating; tooling controls need re-review"
+        "rating": "Critical",
+        "status": "ASSESSED CONSERVATIVELY / OPERATIONAL RISK NOT ACCEPTED",
+        "reason": "Retain inherent rating because applicable runtime mitigations have not been implemented/verified; design selection alone gives no reduction",
+        "scope": "Potential enabled/runtime exposure, not a claim that this P1 repository has an operating banking service"
       },
-      "treatment_strategy": "Mitigate; keep boundary disabled until applicable gate; no risk acceptance implied",
+      "treatment_strategy": "MITIGATE / FEATURE GATE: continue synthetic design/development only; prohibit affected customer/production use and require named runtime controls/tests before feature acceptance",
       "evidence_references": [
         "docs/architecture/QASCP_2_THREATS.md",
         "docs/architecture/QASCP_2_BANK01_BLUEPRINT.md",
@@ -91,11 +102,20 @@
       ],
       "target_phase": "P1-V02, P2-V01",
       "acceptance_authority": "Project owner for internal project risk, subject to GOV-004 review; bank/regulatory authority separately required for enterprise or legal obligations",
-      "approval_status": "OWNER ASSIGNMENT CONFIRMED; RESIDUAL RISK AND INDEPENDENT DISPOSITION PENDING",
+      "approval_status": "READY FOR RE-REVIEW; owner internal design/treatment endorsement pending; no operational residual acceptance",
       "owner_decision_reference": "docs/governance/decisions/RISK-DEC-001.md",
       "review_date": null,
       "risk_acceptance_reference": null,
-      "owner_assignment_status": "CONFIRMED INTERNAL ONLY"
+      "owner_assignment_status": "CONFIRMED INTERNAL ONLY",
+      "assessment_date": "2026-11-27",
+      "assessor": "Codex implementation engineer; separate review pending",
+      "assessment_rationale": "Connection reuse is a credible cross-tenant path when context outlives its transaction; no real pool exists yet.",
+      "assessment_evidence": [
+        "docs/governance/P1_RISK_ASSESSMENT_2026-11-27.md",
+        "docs/architecture/ADR-P1-ACCEPTANCE-001.md",
+        "https://github.com/ManeaAlShabrain/QASCP/pull/48"
+      ],
+      "next_review_trigger": "Before affected feature acceptance, any scope/data/tenant/control change, or 2026-12-27, whichever comes first"
     },
     {
       "risk_id": "T03",
@@ -119,16 +139,17 @@
       "impact": "high",
       "inherent_risk": {
         "rating": "High",
-        "basis": "Inherited qualitative threat estimate, uncalibrated; owner/reviewer assessment pending"
+        "basis": "Conservative qualitative design estimate; independently review this rationale; no calibrated probability or measured incident rate"
       },
-      "existing_controls": "P1 design, static schemas and synthetic regression evidence only; operational mitigations not implemented",
+      "existing_controls": "Effective internal governance1.1; synthetic-only/no-deployment scope; P1 static schemas and adversarial fixture evidence. Runtime controls not implemented.",
       "planned_controls": "Workload binding, size/schema/quota checks, adapter-owned digest conflicts, quarantine; retry/out-of-order tests",
       "residual_risk": {
-        "rating": null,
-        "status": "UNASSESSED / NOT ACCEPTED",
-        "reason": "Unimplemented operational mitigations cannot justify a reduced rating; tooling controls need re-review"
+        "rating": "High",
+        "status": "ASSESSED CONSERVATIVELY / OPERATIONAL RISK NOT ACCEPTED",
+        "reason": "Retain inherent rating because applicable runtime mitigations have not been implemented/verified; design selection alone gives no reduction",
+        "scope": "Potential enabled/runtime exposure, not a claim that this P1 repository has an operating banking service"
       },
-      "treatment_strategy": "Mitigate; keep boundary disabled until applicable gate; no risk acceptance implied",
+      "treatment_strategy": "MITIGATE / FEATURE GATE: continue synthetic design/development only; prohibit affected customer/production use and require named runtime controls/tests before feature acceptance",
       "evidence_references": [
         "docs/architecture/QASCP_2_THREATS.md",
         "docs/architecture/QASCP_2_BANK01_BLUEPRINT.md",
@@ -137,11 +158,20 @@
       ],
       "target_phase": "P1-V02, P2-V01, P3-V01",
       "acceptance_authority": "Project owner for internal project risk, subject to GOV-004 review; bank/regulatory authority separately required for enterprise or legal obligations",
-      "approval_status": "OWNER ASSIGNMENT CONFIRMED; RESIDUAL RISK AND INDEPENDENT DISPOSITION PENDING",
+      "approval_status": "READY FOR RE-REVIEW; owner internal design/treatment endorsement pending; no operational residual acceptance",
       "owner_decision_reference": "docs/governance/decisions/RISK-DEC-001.md",
       "review_date": null,
       "risk_acceptance_reference": null,
-      "owner_assignment_status": "CONFIRMED INTERNAL ONLY"
+      "owner_assignment_status": "CONFIRMED INTERNAL ONLY",
+      "assessment_date": "2026-11-27",
+      "assessor": "Codex implementation engineer; separate review pending",
+      "assessment_rationale": "External observations are hostile inputs and retries are routine; no authenticated deployed adapter or concurrency proof exists.",
+      "assessment_evidence": [
+        "docs/governance/P1_RISK_ASSESSMENT_2026-11-27.md",
+        "docs/architecture/ADR-P1-ACCEPTANCE-001.md",
+        "https://github.com/ManeaAlShabrain/QASCP/pull/48"
+      ],
+      "next_review_trigger": "Before affected feature acceptance, any scope/data/tenant/control change, or 2026-12-27, whichever comes first"
     },
     {
       "risk_id": "T04",
@@ -165,16 +195,17 @@
       "impact": "high",
       "inherent_risk": {
         "rating": "High",
-        "basis": "Inherited qualitative threat estimate, uncalibrated; owner/reviewer assessment pending"
+        "basis": "Conservative qualitative design estimate; independently review this rationale; no calibrated probability or measured incident rate"
       },
-      "existing_controls": "P1 design, static schemas and synthetic regression evidence only; operational mitigations not implemented",
+      "existing_controls": "Effective internal governance1.1; synthetic-only/no-deployment scope; P1 static schemas and adversarial fixture evidence. Runtime controls not implemented.",
       "planned_controls": "Scoped stable source IDs, explicit ambiguity and confidence; labeled collision fixtures",
       "residual_risk": {
-        "rating": null,
-        "status": "UNASSESSED / NOT ACCEPTED",
-        "reason": "Unimplemented operational mitigations cannot justify a reduced rating; tooling controls need re-review"
+        "rating": "High",
+        "status": "ASSESSED CONSERVATIVELY / OPERATIONAL RISK NOT ACCEPTED",
+        "reason": "Retain inherent rating because applicable runtime mitigations have not been implemented/verified; design selection alone gives no reduction",
+        "scope": "Potential enabled/runtime exposure, not a claim that this P1 repository has an operating banking service"
       },
-      "treatment_strategy": "Mitigate; keep boundary disabled until applicable gate; no risk acceptance implied",
+      "treatment_strategy": "MITIGATE / FEATURE GATE: continue synthetic design/development only; prohibit affected customer/production use and require named runtime controls/tests before feature acceptance",
       "evidence_references": [
         "docs/architecture/QASCP_2_THREATS.md",
         "docs/architecture/QASCP_2_BANK01_BLUEPRINT.md",
@@ -183,11 +214,20 @@
       ],
       "target_phase": "P1-V02, P3-V01",
       "acceptance_authority": "Project owner for internal project risk, subject to GOV-004 review; bank/regulatory authority separately required for enterprise or legal obligations",
-      "approval_status": "OWNER ASSIGNMENT CONFIRMED; RESIDUAL RISK AND INDEPENDENT DISPOSITION PENDING",
+      "approval_status": "READY FOR RE-REVIEW; owner internal design/treatment endorsement pending; no operational residual acceptance",
       "owner_decision_reference": "docs/governance/decisions/RISK-DEC-001.md",
       "review_date": null,
       "risk_acceptance_reference": null,
-      "owner_assignment_status": "CONFIRMED INTERNAL ONLY"
+      "owner_assignment_status": "CONFIRMED INTERNAL ONLY",
+      "assessment_date": "2026-11-27",
+      "assessor": "Codex implementation engineer; separate review pending",
+      "assessment_rationale": "Repeated names and source identifiers are plausible; incorrect conflation changes banking impact. Source-binding invariants are design evidence only.",
+      "assessment_evidence": [
+        "docs/governance/P1_RISK_ASSESSMENT_2026-11-27.md",
+        "docs/architecture/ADR-P1-ACCEPTANCE-001.md",
+        "https://github.com/ManeaAlShabrain/QASCP/pull/48"
+      ],
+      "next_review_trigger": "Before affected feature acceptance, any scope/data/tenant/control change, or 2026-12-27, whichever comes first"
     },
     {
       "risk_id": "T05",
@@ -211,16 +251,17 @@
       "impact": "high",
       "inherent_risk": {
         "rating": "High",
-        "basis": "Inherited qualitative threat estimate, uncalibrated; owner/reviewer assessment pending"
+        "basis": "Conservative qualitative design estimate; independently review this rationale; no calibrated probability or measured incident rate"
       },
-      "existing_controls": "P1 design, static schemas and synthetic regression evidence only; operational mitigations not implemented",
+      "existing_controls": "Effective internal governance1.1; synthetic-only/no-deployment scope; P1 static schemas and adversarial fixture evidence. Runtime controls not implemented.",
       "planned_controls": "Treat retrieved text as data, enforce tool/data allowlists, cite sources/abstain; adversarial tenant-scoped evaluations",
       "residual_risk": {
-        "rating": null,
-        "status": "UNASSESSED / NOT ACCEPTED",
-        "reason": "Unimplemented operational mitigations cannot justify a reduced rating; tooling controls need re-review"
+        "rating": "High",
+        "status": "ASSESSED CONSERVATIVELY / OPERATIONAL RISK NOT ACCEPTED",
+        "reason": "Retain inherent rating because applicable runtime mitigations have not been implemented/verified; design selection alone gives no reduction",
+        "scope": "Potential enabled/runtime exposure, not a claim that this P1 repository has an operating banking service"
       },
-      "treatment_strategy": "Mitigate; keep boundary disabled until applicable gate; no risk acceptance implied",
+      "treatment_strategy": "MITIGATE / FEATURE GATE: continue synthetic design/development only; prohibit affected customer/production use and require named runtime controls/tests before feature acceptance",
       "evidence_references": [
         "docs/architecture/QASCP_2_THREATS.md",
         "docs/architecture/QASCP_2_BANK01_BLUEPRINT.md",
@@ -229,11 +270,20 @@
       ],
       "target_phase": "P1-V02, P4-V01",
       "acceptance_authority": "Project owner for internal project risk, subject to GOV-004 review; bank/regulatory authority separately required for enterprise or legal obligations",
-      "approval_status": "OWNER ASSIGNMENT CONFIRMED; RESIDUAL RISK AND INDEPENDENT DISPOSITION PENDING",
+      "approval_status": "READY FOR RE-REVIEW; owner internal design/treatment endorsement pending; no operational residual acceptance",
       "owner_decision_reference": "docs/governance/decisions/RISK-DEC-001.md",
       "review_date": null,
       "risk_acceptance_reference": null,
-      "owner_assignment_status": "CONFIRMED INTERNAL ONLY"
+      "owner_assignment_status": "CONFIRMED INTERNAL ONLY",
+      "assessment_date": "2026-11-27",
+      "assessor": "Codex implementation engineer; separate review pending",
+      "assessment_rationale": "Retrieved adversarial text is expected at the future AI boundary; no model/tool path exists in P1, so no reduced runtime likelihood is inferred.",
+      "assessment_evidence": [
+        "docs/governance/P1_RISK_ASSESSMENT_2026-11-27.md",
+        "docs/architecture/ADR-P1-ACCEPTANCE-001.md",
+        "https://github.com/ManeaAlShabrain/QASCP/pull/48"
+      ],
+      "next_review_trigger": "Before affected feature acceptance, any scope/data/tenant/control change, or 2026-12-27, whichever comes first"
     },
     {
       "risk_id": "T06",
@@ -257,16 +307,17 @@
       "impact": "critical",
       "inherent_risk": {
         "rating": "Critical",
-        "basis": "Inherited qualitative threat estimate, uncalibrated; owner/reviewer assessment pending"
+        "basis": "Conservative qualitative design estimate; independently review this rationale; no calibrated probability or measured incident rate"
       },
-      "existing_controls": "P1 design, static schemas and synthetic regression evidence only; operational mitigations not implemented",
+      "existing_controls": "Effective internal governance1.1; synthetic-only/no-deployment scope; P1 static schemas and adversarial fixture evidence. Runtime controls not implemented.",
       "planned_controls": "Exact digest/version approval, atomic consumption, downstream idempotency and reconciliation; adversarial synthetic executor tests in P4 and operational integration tests in P5",
       "residual_risk": {
-        "rating": null,
-        "status": "UNASSESSED / NOT ACCEPTED",
-        "reason": "Unimplemented operational mitigations cannot justify a reduced rating; tooling controls need re-review"
+        "rating": "Critical",
+        "status": "ASSESSED CONSERVATIVELY / OPERATIONAL RISK NOT ACCEPTED",
+        "reason": "Retain inherent rating because applicable runtime mitigations have not been implemented/verified; design selection alone gives no reduction",
+        "scope": "Potential enabled/runtime exposure, not a claim that this P1 repository has an operating banking service"
       },
-      "treatment_strategy": "Mitigate; keep boundary disabled until applicable gate; no risk acceptance implied",
+      "treatment_strategy": "MITIGATE / FEATURE GATE: continue synthetic design/development only; prohibit affected customer/production use and require named runtime controls/tests before feature acceptance",
       "evidence_references": [
         "docs/architecture/QASCP_2_THREATS.md",
         "docs/architecture/QASCP_2_BANK01_BLUEPRINT.md",
@@ -275,11 +326,20 @@
       ],
       "target_phase": "P1-V02, P4-V01, P5-V01",
       "acceptance_authority": "Project owner for internal project risk, subject to GOV-004 review; bank/regulatory authority separately required for enterprise or legal obligations",
-      "approval_status": "OWNER ASSIGNMENT CONFIRMED; RESIDUAL RISK AND INDEPENDENT DISPOSITION PENDING",
+      "approval_status": "READY FOR RE-REVIEW; owner internal design/treatment endorsement pending; no operational residual acceptance",
       "owner_decision_reference": "docs/governance/decisions/RISK-DEC-001.md",
       "review_date": null,
       "risk_acceptance_reference": null,
-      "owner_assignment_status": "CONFIRMED INTERNAL ONLY"
+      "owner_assignment_status": "CONFIRMED INTERNAL ONLY",
+      "assessment_date": "2026-11-27",
+      "assessor": "Codex implementation engineer; separate review pending",
+      "assessment_rationale": "An incorrect or repeated approval may mutate a critical target; no executor exists. Future ambiguous remote results remain unsafe to retry.",
+      "assessment_evidence": [
+        "docs/governance/P1_RISK_ASSESSMENT_2026-11-27.md",
+        "docs/architecture/ADR-P1-ACCEPTANCE-001.md",
+        "https://github.com/ManeaAlShabrain/QASCP/pull/48"
+      ],
+      "next_review_trigger": "Before affected feature acceptance, any scope/data/tenant/control change, or 2026-12-27, whichever comes first"
     },
     {
       "risk_id": "T07",
@@ -303,16 +363,17 @@
       "impact": "high",
       "inherent_risk": {
         "rating": "High",
-        "basis": "Inherited qualitative threat estimate, uncalibrated; owner/reviewer assessment pending"
+        "basis": "Conservative qualitative design estimate; independently review this rationale; no calibrated probability or measured incident rate"
       },
-      "existing_controls": "P1 design, static schemas and synthetic regression evidence only; operational mitigations not implemented",
+      "existing_controls": "Effective internal governance1.1; synthetic-only/no-deployment scope; P1 static schemas and adversarial fixture evidence. Runtime controls not implemented.",
       "planned_controls": "Dual time, dependency lineage, version checks and conservative reconciliation; compare full/selective evaluation",
       "residual_risk": {
-        "rating": null,
-        "status": "UNASSESSED / NOT ACCEPTED",
-        "reason": "Unimplemented operational mitigations cannot justify a reduced rating; tooling controls need re-review"
+        "rating": "High",
+        "status": "ASSESSED CONSERVATIVELY / OPERATIONAL RISK NOT ACCEPTED",
+        "reason": "Retain inherent rating because applicable runtime mitigations have not been implemented/verified; design selection alone gives no reduction",
+        "scope": "Potential enabled/runtime exposure, not a claim that this P1 repository has an operating banking service"
       },
-      "treatment_strategy": "Mitigate; keep boundary disabled until applicable gate; no risk acceptance implied",
+      "treatment_strategy": "MITIGATE / FEATURE GATE: continue synthetic design/development only; prohibit affected customer/production use and require named runtime controls/tests before feature acceptance",
       "evidence_references": [
         "docs/architecture/QASCP_2_THREATS.md",
         "docs/architecture/QASCP_2_BANK01_BLUEPRINT.md",
@@ -321,11 +382,20 @@
       ],
       "target_phase": "P1-V02, P5-V01",
       "acceptance_authority": "Project owner for internal project risk, subject to GOV-004 review; bank/regulatory authority separately required for enterprise or legal obligations",
-      "approval_status": "OWNER ASSIGNMENT CONFIRMED; RESIDUAL RISK AND INDEPENDENT DISPOSITION PENDING",
+      "approval_status": "READY FOR RE-REVIEW; owner internal design/treatment endorsement pending; no operational residual acceptance",
       "owner_decision_reference": "docs/governance/decisions/RISK-DEC-001.md",
       "review_date": null,
       "risk_acceptance_reference": null,
-      "owner_assignment_status": "CONFIRMED INTERNAL ONLY"
+      "owner_assignment_status": "CONFIRMED INTERNAL ONLY",
+      "assessment_date": "2026-11-27",
+      "assessor": "Codex implementation engineer; separate review pending",
+      "assessment_rationale": "Late/corrected evidence is ordinary; incomplete dependency coverage could retain an unsupported assertion. Assurance runtime is not built.",
+      "assessment_evidence": [
+        "docs/governance/P1_RISK_ASSESSMENT_2026-11-27.md",
+        "docs/architecture/ADR-P1-ACCEPTANCE-001.md",
+        "https://github.com/ManeaAlShabrain/QASCP/pull/48"
+      ],
+      "next_review_trigger": "Before affected feature acceptance, any scope/data/tenant/control change, or 2026-12-27, whichever comes first"
     },
     {
       "risk_id": "T08",
@@ -349,16 +419,17 @@
       "impact": "high",
       "inherent_risk": {
         "rating": "High",
-        "basis": "Inherited qualitative threat estimate, uncalibrated; owner/reviewer assessment pending"
+        "basis": "Conservative qualitative design estimate; independently review this rationale; no calibrated probability or measured incident rate"
       },
-      "existing_controls": "P1 design, static schemas and synthetic regression evidence only; operational mitigations not implemented",
+      "existing_controls": "Effective internal governance1.1; synthetic-only/no-deployment scope; P1 static schemas and adversarial fixture evidence. Runtime controls not implemented.",
       "planned_controls": "Restricted append-only audit, redaction, per-resource export checks and custody; audit outage/restore tests",
       "residual_risk": {
-        "rating": null,
-        "status": "UNASSESSED / NOT ACCEPTED",
-        "reason": "Unimplemented operational mitigations cannot justify a reduced rating; tooling controls need re-review"
+        "rating": "High",
+        "status": "ASSESSED CONSERVATIVELY / OPERATIONAL RISK NOT ACCEPTED",
+        "reason": "Retain inherent rating because applicable runtime mitigations have not been implemented/verified; design selection alone gives no reduction",
+        "scope": "Potential enabled/runtime exposure, not a claim that this P1 repository has an operating banking service"
       },
-      "treatment_strategy": "Mitigate; keep boundary disabled until applicable gate; no risk acceptance implied",
+      "treatment_strategy": "MITIGATE / FEATURE GATE: continue synthetic design/development only; prohibit affected customer/production use and require named runtime controls/tests before feature acceptance",
       "evidence_references": [
         "docs/architecture/QASCP_2_THREATS.md",
         "docs/architecture/QASCP_2_BANK01_BLUEPRINT.md",
@@ -367,11 +438,20 @@
       ],
       "target_phase": "P1-V02, P2-V01, P5-V01, P6-V01",
       "acceptance_authority": "Project owner for internal project risk, subject to GOV-004 review; bank/regulatory authority separately required for enterprise or legal obligations",
-      "approval_status": "OWNER ASSIGNMENT CONFIRMED; RESIDUAL RISK AND INDEPENDENT DISPOSITION PENDING",
+      "approval_status": "READY FOR RE-REVIEW; owner internal design/treatment endorsement pending; no operational residual acceptance",
       "owner_decision_reference": "docs/governance/decisions/RISK-DEC-001.md",
       "review_date": null,
       "risk_acceptance_reference": null,
-      "owner_assignment_status": "CONFIRMED INTERNAL ONLY"
+      "owner_assignment_status": "CONFIRMED INTERNAL ONLY",
+      "assessment_date": "2026-11-27",
+      "assessor": "Codex implementation engineer; separate review pending",
+      "assessment_rationale": "Audit/log/export exposure can reveal sensitive evidence or hide actions. Runtime append-only storage and export authorization remain untested.",
+      "assessment_evidence": [
+        "docs/governance/P1_RISK_ASSESSMENT_2026-11-27.md",
+        "docs/architecture/ADR-P1-ACCEPTANCE-001.md",
+        "https://github.com/ManeaAlShabrain/QASCP/pull/48"
+      ],
+      "next_review_trigger": "Before affected feature acceptance, any scope/data/tenant/control change, or 2026-12-27, whichever comes first"
     },
     {
       "risk_id": "T09",
@@ -395,16 +475,17 @@
       "impact": "critical",
       "inherent_risk": {
         "rating": "Critical",
-        "basis": "Inherited qualitative threat estimate, uncalibrated; owner/reviewer assessment pending"
+        "basis": "Conservative qualitative design estimate; independently review this rationale; no calibrated probability or measured incident rate"
       },
-      "existing_controls": "Read-only CI; pinned checkout, persist-credentials false; proposed include guard and 19-wheel hash lock with candidate test evidence; independent acceptance pending",
+      "existing_controls": "Effective internal governance1.1; synthetic-only/no-deployment scope; P1 static schemas and adversarial fixture evidence. Runtime controls not implemented. Reviewed direct/include/worktree auth guard,19-wheel hash lock and minimal CI permissions have actual scoped evidence in #48.",
       "planned_controls": "Pinned reviewed inputs, minimal CI privileges, SBOM and immutable build/review binding",
       "residual_risk": {
-        "rating": null,
-        "status": "UNASSESSED / NOT ACCEPTED",
-        "reason": "Unimplemented operational mitigations cannot justify a reduced rating; tooling controls need re-review"
+        "rating": "Critical",
+        "status": "ASSESSED CONSERVATIVELY / OPERATIONAL RISK NOT ACCEPTED",
+        "reason": "Retain inherent rating because applicable runtime mitigations have not been implemented/verified; design selection alone gives no reduction",
+        "scope": "Potential enabled/runtime exposure, not a claim that this P1 repository has an operating banking service"
       },
-      "treatment_strategy": "Mitigate; keep boundary disabled until applicable gate; no risk acceptance implied",
+      "treatment_strategy": "MITIGATE / FEATURE GATE: continue synthetic design/development only; prohibit affected customer/production use and require named runtime controls/tests before feature acceptance",
       "evidence_references": [
         "docs/architecture/QASCP_2_THREATS.md",
         "docs/architecture/QASCP_2_BANK01_BLUEPRINT.md",
@@ -413,11 +494,20 @@
       ],
       "target_phase": "P1-V02, P2-V02, P6-V01",
       "acceptance_authority": "Project owner for internal project risk, subject to GOV-004 review; bank/regulatory authority separately required for enterprise or legal obligations",
-      "approval_status": "OWNER ASSIGNMENT CONFIRMED; RESIDUAL RISK AND INDEPENDENT DISPOSITION PENDING",
+      "approval_status": "READY FOR RE-REVIEW; owner internal design/treatment endorsement pending; no operational residual acceptance",
       "owner_decision_reference": "docs/governance/decisions/RISK-DEC-001.md",
       "review_date": null,
       "risk_acceptance_reference": null,
-      "owner_assignment_status": "CONFIRMED INTERNAL ONLY"
+      "owner_assignment_status": "CONFIRMED INTERNAL ONLY",
+      "assessment_date": "2026-11-27",
+      "assessor": "Codex implementation engineer; separate review pending",
+      "assessment_rationale": "Real reviewed guard/hash-lock/least-privilege checks reduce specific paths, but hosted-runner, upstream and advisory gaps remain; no quantified reduction justified.",
+      "assessment_evidence": [
+        "docs/governance/P1_RISK_ASSESSMENT_2026-11-27.md",
+        "docs/architecture/ADR-P1-ACCEPTANCE-001.md",
+        "https://github.com/ManeaAlShabrain/QASCP/pull/48"
+      ],
+      "next_review_trigger": "Before affected feature acceptance, any scope/data/tenant/control change, or 2026-12-27, whichever comes first"
     },
     {
       "risk_id": "T10",
@@ -441,16 +531,17 @@
       "impact": "high",
       "inherent_risk": {
         "rating": "High",
-        "basis": "Inherited qualitative threat estimate, uncalibrated; owner/reviewer assessment pending"
+        "basis": "Conservative qualitative design estimate; independently review this rationale; no calibrated probability or measured incident rate"
       },
-      "existing_controls": "P1 design, static schemas and synthetic regression evidence only; operational mitigations not implemented",
+      "existing_controls": "Effective internal governance1.1; synthetic-only/no-deployment scope; P1 static schemas and adversarial fixture evidence. Runtime controls not implemented.",
       "planned_controls": "Depth/edge limits, timeouts, per-tenant budgets, backpressure and dead letters; overload fairness tests",
       "residual_risk": {
-        "rating": null,
-        "status": "UNASSESSED / NOT ACCEPTED",
-        "reason": "Unimplemented operational mitigations cannot justify a reduced rating; tooling controls need re-review"
+        "rating": "High",
+        "status": "ASSESSED CONSERVATIVELY / OPERATIONAL RISK NOT ACCEPTED",
+        "reason": "Retain inherent rating because applicable runtime mitigations have not been implemented/verified; design selection alone gives no reduction",
+        "scope": "Potential enabled/runtime exposure, not a claim that this P1 repository has an operating banking service"
       },
-      "treatment_strategy": "Mitigate; keep boundary disabled until applicable gate; no risk acceptance implied",
+      "treatment_strategy": "MITIGATE / FEATURE GATE: continue synthetic design/development only; prohibit affected customer/production use and require named runtime controls/tests before feature acceptance",
       "evidence_references": [
         "docs/architecture/QASCP_2_THREATS.md",
         "docs/architecture/QASCP_2_BANK01_BLUEPRINT.md",
@@ -459,11 +550,20 @@
       ],
       "target_phase": "P1-V02, P3-V01, P6-V01",
       "acceptance_authority": "Project owner for internal project risk, subject to GOV-004 review; bank/regulatory authority separately required for enterprise or legal obligations",
-      "approval_status": "OWNER ASSIGNMENT CONFIRMED; RESIDUAL RISK AND INDEPENDENT DISPOSITION PENDING",
+      "approval_status": "READY FOR RE-REVIEW; owner internal design/treatment endorsement pending; no operational residual acceptance",
       "owner_decision_reference": "docs/governance/decisions/RISK-DEC-001.md",
       "review_date": null,
       "risk_acceptance_reference": null,
-      "owner_assignment_status": "CONFIRMED INTERNAL ONLY"
+      "owner_assignment_status": "CONFIRMED INTERNAL ONLY",
+      "assessment_date": "2026-11-27",
+      "assessor": "Codex implementation engineer; separate review pending",
+      "assessment_rationale": "A cyclic or high-fanout graph can amplify resource work; static bounded fixtures are not measured service quotas or queue fairness.",
+      "assessment_evidence": [
+        "docs/governance/P1_RISK_ASSESSMENT_2026-11-27.md",
+        "docs/architecture/ADR-P1-ACCEPTANCE-001.md",
+        "https://github.com/ManeaAlShabrain/QASCP/pull/48"
+      ],
+      "next_review_trigger": "Before affected feature acceptance, any scope/data/tenant/control change, or 2026-12-27, whichever comes first"
     },
     {
       "risk_id": "T11",
@@ -487,16 +587,17 @@
       "impact": "critical",
       "inherent_risk": {
         "rating": "Critical",
-        "basis": "Inherited qualitative threat estimate, uncalibrated; owner/reviewer assessment pending"
+        "basis": "Conservative qualitative design estimate; independently review this rationale; no calibrated probability or measured incident rate"
       },
-      "existing_controls": "P1 design, static schemas and synthetic regression evidence only; operational mitigations not implemented",
+      "existing_controls": "Effective internal governance1.1; synthetic-only/no-deployment scope; P1 static schemas and adversarial fixture evidence. Runtime controls not implemented.",
       "planned_controls": "Encrypted scoped restore and audit continuity checks against agreed RTO/RPO",
       "residual_risk": {
-        "rating": null,
-        "status": "UNASSESSED / NOT ACCEPTED",
-        "reason": "Unimplemented operational mitigations cannot justify a reduced rating; tooling controls need re-review"
+        "rating": "Critical",
+        "status": "ASSESSED CONSERVATIVELY / OPERATIONAL RISK NOT ACCEPTED",
+        "reason": "Retain inherent rating because applicable runtime mitigations have not been implemented/verified; design selection alone gives no reduction",
+        "scope": "Potential enabled/runtime exposure, not a claim that this P1 repository has an operating banking service"
       },
-      "treatment_strategy": "Mitigate; keep boundary disabled until applicable gate; no risk acceptance implied",
+      "treatment_strategy": "MITIGATE / FEATURE GATE: continue synthetic design/development only; prohibit affected customer/production use and require named runtime controls/tests before feature acceptance",
       "evidence_references": [
         "docs/architecture/QASCP_2_THREATS.md",
         "docs/architecture/QASCP_2_BANK01_BLUEPRINT.md",
@@ -505,11 +606,20 @@
       ],
       "target_phase": "P1-V02, P6-V01",
       "acceptance_authority": "Project owner for internal project risk, subject to GOV-004 review; bank/regulatory authority separately required for enterprise or legal obligations",
-      "approval_status": "OWNER ASSIGNMENT CONFIRMED; RESIDUAL RISK AND INDEPENDENT DISPOSITION PENDING",
+      "approval_status": "READY FOR RE-REVIEW; owner internal design/treatment endorsement pending; no operational residual acceptance",
       "owner_decision_reference": "docs/governance/decisions/RISK-DEC-001.md",
       "review_date": null,
       "risk_acceptance_reference": null,
-      "owner_assignment_status": "CONFIRMED INTERNAL ONLY"
+      "owner_assignment_status": "CONFIRMED INTERNAL ONLY",
+      "assessment_date": "2026-11-27",
+      "assessor": "Codex implementation engineer; separate review pending",
+      "assessment_rationale": "Restoring stale grants or losing evidence has critical effect; no backup or recovery service is delivered, so no recovery claim is possible.",
+      "assessment_evidence": [
+        "docs/governance/P1_RISK_ASSESSMENT_2026-11-27.md",
+        "docs/architecture/ADR-P1-ACCEPTANCE-001.md",
+        "https://github.com/ManeaAlShabrain/QASCP/pull/48"
+      ],
+      "next_review_trigger": "Before affected feature acceptance, any scope/data/tenant/control change, or 2026-12-27, whichever comes first"
     },
     {
       "risk_id": "T12",
@@ -533,16 +643,17 @@
       "impact": "high",
       "inherent_risk": {
         "rating": "High",
-        "basis": "Inherited qualitative threat estimate, uncalibrated; owner/reviewer assessment pending"
+        "basis": "Conservative qualitative design estimate; independently review this rationale; no calibrated probability or measured incident rate"
       },
-      "existing_controls": "P1 design, static schemas and synthetic regression evidence only; operational mitigations not implemented",
+      "existing_controls": "Effective internal governance1.1; synthetic-only/no-deployment scope; P1 static schemas and adversarial fixture evidence. Runtime controls not implemented.",
       "planned_controls": "Separate applicability/evidence/reviewer states; UI/report negative tests for unreviewed claims",
       "residual_risk": {
-        "rating": null,
-        "status": "UNASSESSED / NOT ACCEPTED",
-        "reason": "Unimplemented operational mitigations cannot justify a reduced rating; tooling controls need re-review"
+        "rating": "High",
+        "status": "ASSESSED CONSERVATIVELY / OPERATIONAL RISK NOT ACCEPTED",
+        "reason": "Retain inherent rating because applicable runtime mitigations have not been implemented/verified; design selection alone gives no reduction",
+        "scope": "Potential enabled/runtime exposure, not a claim that this P1 repository has an operating banking service"
       },
-      "treatment_strategy": "Mitigate; keep boundary disabled until applicable gate; no risk acceptance implied",
+      "treatment_strategy": "MITIGATE / FEATURE GATE: continue synthetic design/development only; prohibit affected customer/production use and require named runtime controls/tests before feature acceptance",
       "evidence_references": [
         "docs/architecture/QASCP_2_THREATS.md",
         "docs/architecture/QASCP_2_BANK01_BLUEPRINT.md",
@@ -551,12 +662,22 @@
       ],
       "target_phase": "P1-V01, P1-V02, P5-V01, P6-V01",
       "acceptance_authority": "Project owner for internal project risk, subject to GOV-004 review; bank/regulatory authority separately required for enterprise or legal obligations",
-      "approval_status": "OWNER ASSIGNMENT CONFIRMED; RESIDUAL RISK AND INDEPENDENT DISPOSITION PENDING",
+      "approval_status": "READY FOR RE-REVIEW; owner internal design/treatment endorsement pending; no operational residual acceptance",
       "owner_decision_reference": "docs/governance/decisions/RISK-DEC-001.md",
       "review_date": null,
       "risk_acceptance_reference": null,
-      "owner_assignment_status": "CONFIRMED INTERNAL ONLY"
+      "owner_assignment_status": "CONFIRMED INTERNAL ONLY",
+      "assessment_date": "2026-11-27",
+      "assessor": "Codex implementation engineer; separate review pending",
+      "assessment_rationale": "A reader can mistake a framework mapping for certification; explicit pending labels are current design controls, not legal or UI acceptance.",
+      "assessment_evidence": [
+        "docs/governance/P1_RISK_ASSESSMENT_2026-11-27.md",
+        "docs/architecture/ADR-P1-ACCEPTANCE-001.md",
+        "https://github.com/ManeaAlShabrain/QASCP/pull/48"
+      ],
+      "next_review_trigger": "Before affected feature acceptance, any scope/data/tenant/control change, or 2026-12-27, whichever comes first"
     }
   ],
-  "owner_assignment_decision": "docs/governance/decisions/RISK-DEC-001.md"
+  "owner_assignment_decision": "docs/governance/decisions/RISK-DEC-001.md",
+  "assessment_date": "2026-11-27"
 }

@@ -1,6 +1,6 @@
 # QASCP 2.0 — Domain, data and API contracts
 
-Proposed P1 interface baseline; PRD-01..06, QASCP-SEC-001..005 and QASCP-AI-001. Review method P1-V02. Runtime validation and DB isolation are later-phase deliverables. The external intake request is [observation.schema.json](../../contracts/qascp-2/observation.schema.json); the trusted adapter emits [normalized-observation.schema.json](../../contracts/qascp-2/normalized-observation.schema.json); and the first-slice API is [openapi.json](../../contracts/qascp-2/openapi.json).
+Proposed P1 interface baseline; PRD-01..06, QASCP-SEC-001..005 and QASCP-AI-001. Review method P1-V02. Runtime validation and DB isolation are later-phase deliverables. The external intake request is [observation.schema.json](../../contracts/qascp-2/observation.schema.json); the trusted adapter emits [normalized-observation.schema.json](../../contracts/qascp-2/normalized-observation.schema.json); and the historical original API is [openapi.json](../../contracts/qascp-2/openapi.json). The selected review candidate is [successor0.2](../../contracts/qascp-2/graph/openapi-0.2.json) at /api/v2 under [ADR-P1-ACCEPTANCE-001](ADR-P1-ACCEPTANCE-001.md), with exact bytes in P1_CONTRACT_SELECTION.json; owner ratification remains pending.
 
 Versioned internal contracts are [trusted context](../../contracts/qascp-2/trusted-context.schema.json), [audit event](../../contracts/qascp-2/audit-event.schema.json), [outbox event](../../contracts/qascp-2/outbox-event.schema.json), [consumer receipt](../../contracts/qascp-2/consumer-receipt.schema.json), [delivery/retry/replay envelope](../../contracts/qascp-2/delivery-envelope.schema.json), and [approval lifecycle](../../contracts/qascp-2/approval-lifecycle.schema.json). These JSON Schemas are static P1 contracts, not claims of implemented services.
 
@@ -43,7 +43,7 @@ The registered adapter and schema version define normalization. An identical ide
 
 ## Customer and connector API boundary
 
-Base path /api/v1. OIDC bearer token validation and operation permission are mandatory. `X-Tenant-ID` is a selector checked against active membership; it never grants membership. Connector principals additionally bind to one tenant and connector registration. The connector_id in the observation must equal that registration. No tenant_id is accepted in the observation body. Server responses may include tenant_id after authorization.
+Selected successor base path /api/v2; /api/v1 remains the historical unimplemented original. No API is deployed and no client migration is claimed. OIDC bearer token validation and operation permission are mandatory. `X-Tenant-ID` is a selector checked against active membership; it never grants membership. Connector principals additionally bind to one tenant and connector registration. The connector_id in the observation must equal that registration. No tenant_id is accepted in the observation body. Server responses may include tenant_id after authorization.
 
 | Operation | Authorization | Result / bounds |
 |---|---|---|

@@ -27,7 +27,7 @@ establishes enterprise, customer, production or regulatory acceptance.
 **P1 exit is a separate decision.** The owner subsequently reported completing
 the four remaining items and requested P2. That report is retained in the
 [transition status](../../verification/P1_TRANSITION_STATUS_2026-11-27.md).
-Current repository registers still lack the supporting scoped decisions; this
+At the inspected main snapshot, registers lacked the supporting scoped decisions; this
 observation does not manufacture or substitute them. Applicable mandatory gates
 and the no-customer-data/no-production internal scope remain unchanged.
 
@@ -46,3 +46,7 @@ and the no-customer-data/no-production internal scope remain unchanged.
 خروج P1 منفصل. أبلغ المالك بإكمال البنود الأربعة وطلب P2؛ حُفظ الطلب كما ورد،
 لكن سجلات المستودع لا تزال تحتاج ربط تفاصيل تلك القرارات وأدلتها بالنسخة
 الدقيقة. لا يُختلق تقييم مخاطر أو اعتماد معمارية أو قبول مرحلة من هذا الرصد.
+
+Subsequent clarification: P1-PREP-001 authorizes creating the missing assessment/
+decision/acceptance work. The new P1_ACCEPTANCE_CANDIDATE supersedes waiting
+for outside links; it does not modify this earlier effectiveness evidence.

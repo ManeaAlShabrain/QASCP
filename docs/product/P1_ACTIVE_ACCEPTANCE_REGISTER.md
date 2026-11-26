@@ -13,16 +13,18 @@ preserved in merged #48; enterprise human/regulatory reviewers remain unassigned
 Proposed accountable owner for internal work packages remains Manea Al-Shabrain,
 with scoped package-assignment confirmation not yet linked. Confirmed internal
 risk ownership in RISK-DEC-001 is not a blanket work-package assignment.
-The owner reports completion and requests P2; [transition reconciliation](../verification/P1_TRANSITION_STATUS_2026-11-27.md)
-identifies missing decision linkage. Codex implements, not an accountable person.
+The owner clarified preparation authority in P1-PREP-001; the
+[current acceptance candidate](../verification/P1_ACCEPTANCE_CANDIDATE.md) supplies
+actual proposed assessments/decisions. P1-EXIT-001 asks for bounded owner
+ratification and internal19package accountability after new independent reviews. Codex implements, not an accountable person.
 
 | Package / existing issue | Implementation | Verification | Review | Acceptance | Phase / dependency |
 |---|---|---|---|---|---|
-| V2-P1-01 / [#13](https://github.com/ManeaAlShabrain/QASCP/issues/13) | Design/check artifacts prepared | Candidate checks linked in corrective register; acceptance evidence incomplete | Four AI review reports available; phase criteria unresolved | PENDING | P1 / None |
-| V2-P1-02 / [#14](https://github.com/ManeaAlShabrain/QASCP/issues/14) | Design/check artifacts prepared | Candidate checks linked in corrective register; acceptance evidence incomplete | Four AI review reports available; phase criteria unresolved | PENDING | P1 / V2-P1-01 |
-| V2-P1-03 / [#15](https://github.com/ManeaAlShabrain/QASCP/issues/15) | Design/check artifacts prepared | Candidate checks linked in corrective register; acceptance evidence incomplete | Four AI review reports available; phase criteria unresolved | PENDING | P1 / V2-P1-01 |
-| V2-P1-04 / [#16](https://github.com/ManeaAlShabrain/QASCP/issues/16) | Design/check artifacts prepared | Candidate checks linked in corrective register; acceptance evidence incomplete | Four AI review reports available; phase criteria unresolved | PENDING | P1 / V2-P1-02 |
-| V2-P1-05 / [#17](https://github.com/ManeaAlShabrain/QASCP/issues/17) | Design/check artifacts prepared | Candidate checks linked in corrective register; acceptance evidence incomplete | Four AI review reports available; phase criteria unresolved | PENDING | P1 / V2-P1-03,04 |
+| V2-P1-01 / [#13](https://github.com/ManeaAlShabrain/QASCP/issues/13) | Design/check artifacts prepared | Candidate checks linked in corrective register; acceptance evidence incomplete | Prior AI reviews retained; new candidate review/owner ratification pending | PENDING | P1 / None |
+| V2-P1-02 / [#14](https://github.com/ManeaAlShabrain/QASCP/issues/14) | Design/check artifacts prepared | Candidate checks linked in corrective register; acceptance evidence incomplete | Prior AI reviews retained; new candidate review/owner ratification pending | PENDING | P1 / V2-P1-01 |
+| V2-P1-03 / [#15](https://github.com/ManeaAlShabrain/QASCP/issues/15) | Design/check artifacts prepared | Candidate checks linked in corrective register; acceptance evidence incomplete | Prior AI reviews retained; new candidate review/owner ratification pending | PENDING | P1 / V2-P1-01 |
+| V2-P1-04 / [#16](https://github.com/ManeaAlShabrain/QASCP/issues/16) | Design/check artifacts prepared | Candidate checks linked in corrective register; acceptance evidence incomplete | Prior AI reviews retained; new candidate review/owner ratification pending | PENDING | P1 / V2-P1-02 |
+| V2-P1-05 / [#17](https://github.com/ManeaAlShabrain/QASCP/issues/17) | Design/check artifacts prepared | Candidate checks linked in corrective register; acceptance evidence incomplete | Prior AI reviews retained; new candidate review/owner ratification pending | PENDING | P1 / V2-P1-03,04 |
 | V2-P2-01 / [#18](https://github.com/ManeaAlShabrain/QASCP/issues/18) | NOT STARTED; design plans only | NOT RUN / later phase | Blocked by prior phase | PENDING | P2 / Approved P1 |
 | V2-P2-02 / [#19](https://github.com/ManeaAlShabrain/QASCP/issues/19) | NOT STARTED; design plans only | NOT RUN / later phase | Blocked by prior phase | PENDING | P2 / V2-P2-01 |
 | V2-P2-03 / [#20](https://github.com/ManeaAlShabrain/QASCP/issues/20) | NOT STARTED; design plans only | NOT RUN / later phase | Blocked by prior phase | PENDING | P2 / V2-P2-02 |

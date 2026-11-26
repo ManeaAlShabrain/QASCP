@@ -1,0 +1,140 @@
+{
+  "status": "SELECTED_FOR_REVIEW_OWNER_RATIFICATION_PENDING",
+  "date": "2026-11-27",
+  "authority": "docs/governance/decisions/P1-PREP-001.md",
+  "decision": "docs/architecture/ADR-P1-ACCEPTANCE-001.md",
+  "runtime_delivered": false,
+  "selected_api": "contracts/qascp-2/graph/openapi-0.2.json",
+  "selected_base_path": "/api/v2",
+  "historical_api": "contracts/qascp-2/openapi.json",
+  "historical_base_path": "/api/v1",
+  "compatibility": "No supported deployed clients; no claimed backwards compatibility with strict original candidate; first unreleased frozen selection",
+  "contracts": [
+    {
+      "path": "contracts/qascp-2/approval-lifecycle.schema.json",
+      "sha256": "f0916eb9cee5e357df943f21c21f4d8a4041ba7c4e21a463658626c654aea735",
+      "schema_id": "urn:qascp:2:approval-lifecycle-record:1.0",
+      "version": "1.0",
+      "role": "SELECTED_STATIC_DESIGN"
+    },
+    {
+      "path": "contracts/qascp-2/audit-event.schema.json",
+      "sha256": "8e42ab4f1fbdbff75c176bf2767b449a5e392f8e009b988c9767d252c8e20d74",
+      "schema_id": "urn:qascp:2:audit-event:1.0",
+      "version": "1.0",
+      "role": "SELECTED_STATIC_DESIGN"
+    },
+    {
+      "path": "contracts/qascp-2/consumer-receipt.schema.json",
+      "sha256": "7112527b4438fb82f4801ad9ab6a2085cfffdeb43c1a70b0f619ebd25bbbd071",
+      "schema_id": "urn:qascp:2:consumer-receipt:1.0",
+      "version": "1.0",
+      "role": "HISTORICAL_NOT_IMPLEMENTED"
+    },
+    {
+      "path": "contracts/qascp-2/delivery-envelope.schema.json",
+      "sha256": "736c47f71b5c6e4c974523180a283c8fd12894bed8c1a79ee61d5a34b5bd2f5f",
+      "schema_id": "urn:qascp:2:delivery-envelope:1.0",
+      "version": "1.0",
+      "role": "SELECTED_STATIC_DESIGN"
+    },
+    {
+      "path": "contracts/qascp-2/graph/claim-transition.schema.json",
+      "sha256": "f40333ca6fc91753617cada29696876c80d1bfb6987619b6164f9048736d5b26",
+      "schema_id": "urn:qascp:2:graph:claim-transition:0.1",
+      "version": "0.1",
+      "role": "SELECTED_STATIC_DESIGN"
+    },
+    {
+      "path": "contracts/qascp-2/graph/claim-version.schema.json",
+      "sha256": "2ea2ac54f3112d96a9f56717d099575fc6c14f2808cca6b9eb0986100b83a4e6",
+      "schema_id": "urn:qascp:2:graph:claim-version:0.1",
+      "version": "0.1",
+      "role": "SELECTED_STATIC_DESIGN"
+    },
+    {
+      "path": "contracts/qascp-2/graph/consumer-receipt-v2.schema.json",
+      "sha256": "1130a0407faa4e44b984e7c493f83ae7b63e39c073e6849acb87ca55ff372980",
+      "schema_id": "urn:qascp:2:graph:consumer-receipt:2.0",
+      "version": "2.0",
+      "role": "SELECTED_STATIC_DESIGN"
+    },
+    {
+      "path": "contracts/qascp-2/graph/cursor-binding.schema.json",
+      "sha256": "f28abc149007db846bd85bb33626bc34aa964458cbecb698a3b6c1a1c8e2b550",
+      "schema_id": "urn:qascp:2:graph:cursor-binding:0.2",
+      "version": "0.2",
+      "role": "SELECTED_STATIC_DESIGN"
+    },
+    {
+      "path": "contracts/qascp-2/graph/neighborhood-page.schema.json",
+      "sha256": "07a34f63d64242ee548d6aad9c0011bdc7d00754df929e37d9db8fd40d1cd50c",
+      "schema_id": "urn:qascp:2:graph:neighborhood-page:0.2",
+      "version": "0.2",
+      "role": "SELECTED_STATIC_DESIGN"
+    },
+    {
+      "path": "contracts/qascp-2/graph/neighborhood-query.schema.json",
+      "sha256": "03b3725ffc6fc3cdf76f73a1a87e03446107ccbcd85358060bfc12dd45fd05f6",
+      "schema_id": "urn:qascp:2:graph:neighborhood-query:0.2",
+      "version": "0.2",
+      "role": "SELECTED_STATIC_DESIGN"
+    },
+    {
+      "path": "contracts/qascp-2/graph/openapi-0.2.json",
+      "sha256": "31b96ad469eb710df555b1f70d8c1a75fe093b696b4bd68063aca0bf210e2c5f",
+      "schema_id": null,
+      "version": "0.2.0",
+      "role": "SELECTED_STATIC_DESIGN"
+    },
+    {
+      "path": "contracts/qascp-2/graph/relationship-import.schema.json",
+      "sha256": "8160f44116cd6a2e34ff491fe31fbcba40631c3bdf1f408361d17b5859f06fe8",
+      "schema_id": "urn:qascp:2:graph:relationship-import:0.1",
+      "version": "0.1",
+      "role": "SELECTED_STATIC_DESIGN"
+    },
+    {
+      "path": "contracts/qascp-2/graph/resource-import.schema.json",
+      "sha256": "4fe1aad379022c97428eed845d119ab9d8092572eec57ffb9febe43f834238c9",
+      "schema_id": "urn:qascp:2:graph:resource-import:0.1",
+      "version": "0.1",
+      "role": "SELECTED_STATIC_DESIGN"
+    },
+    {
+      "path": "contracts/qascp-2/normalized-observation.schema.json",
+      "sha256": "5f0bf8d920f96df429156af89b03df552b9cfe7662a7975564b34c2a44e9da75",
+      "schema_id": "urn:qascp:2:normalized-observation:1.0",
+      "version": "1.0",
+      "role": "SELECTED_STATIC_DESIGN"
+    },
+    {
+      "path": "contracts/qascp-2/observation.schema.json",
+      "sha256": "7068f6134f10cb31969cabaa101d85fccd7dc60b7e650ccff39e132ba8cbbc99",
+      "schema_id": "urn:qascp:2:external-observation-request:1.0",
+      "version": "1.0",
+      "role": "SELECTED_STATIC_DESIGN"
+    },
+    {
+      "path": "contracts/qascp-2/openapi.json",
+      "sha256": "c352320cc5e8e27ed06adbe808976117cd3d6af364f4db788779db38e60ea335",
+      "schema_id": null,
+      "version": "0.1.0",
+      "role": "HISTORICAL_NOT_IMPLEMENTED"
+    },
+    {
+      "path": "contracts/qascp-2/outbox-event.schema.json",
+      "sha256": "bd65d91546591f18be77fe7f229c2d54d41b1244828622a6f108e4a78a37120b",
+      "schema_id": "urn:qascp:2:outbox-event:1.0",
+      "version": "1.0",
+      "role": "SELECTED_STATIC_DESIGN"
+    },
+    {
+      "path": "contracts/qascp-2/trusted-context.schema.json",
+      "sha256": "5124e33799dda360b9bc30c83ad468d6e9496f336e3950d21756baa3a6687a23",
+      "schema_id": "urn:qascp:2:trusted-context:1.0",
+      "version": "1.0",
+      "role": "SELECTED_STATIC_DESIGN"
+    }
+  ]
+}

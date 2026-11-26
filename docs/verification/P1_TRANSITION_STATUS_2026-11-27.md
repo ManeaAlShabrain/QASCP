@@ -1,5 +1,12 @@
 # P1 transition reconciliation — 2026-11-27
 
+Current clarification: [P1-PREP-001](../governance/decisions/P1-PREP-001.md)
+records the owner's later exact instruction to create the assessments/decisions/
+results/acceptance. The [new acceptance candidate](P1_ACCEPTANCE_CANDIDATE.md)
+therefore supersedes the earlier wait for external links. Those links are no
+longer requested. The inspection below is historical evidence of the starting
+gap, not the current preparation result or an owner approval.
+
 Scope: P1 current-state/evidence linkage; GOV-001/003/004, SEC-001..005,
 CMP-001, ENG-002, REL-001; P1-V01..04; existing #14–17 and #32.
 Inspected main **b66d73c51fa1aac6686854f37470553eca9ec8e7**, tree4f8ca0172d89e8969fcce926df47c4d115bb6f3f.

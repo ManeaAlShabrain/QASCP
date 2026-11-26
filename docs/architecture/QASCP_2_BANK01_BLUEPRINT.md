@@ -1,5 +1,9 @@
 # QASCP 2.0 - BANK-01 storage and transaction blueprint
 
+Current2026-11-27: [ADR-P1-ACCEPTANCE-001](ADR-P1-ACCEPTANCE-001.md)
+selects the reviewed candidate transaction ownership and contract versions. Owner
+ratification/P1 exit remain separate; the dated proposal below retains its history.
+
 [العربية](QASCP_2_BANK01_BLUEPRINT.ar.md). Proposed P1 design, 2026-11-16 (Qatar); V2-P1-02 / P1-V02. Both editions describe the same proposal. This is implementer preparation, not an independent assessment, adopted migration, running service or phase approval. [Stage authority](../verification/README.md) remains P1 / Pending review.
 
 Requirements: PRD-01, PRD-02, PRD-08, PRD-09, PRD-10; QASCP-SEC-001..005, QASCP-GOV-001..004, QASCP-ENG-001..003. Refines G-01..G-06 in the [graph decisions](QASCP_2_GRAPH_DECISIONS.md). Affected earlier paths: source bindings, observation bootstrap, imports, graph lineage, receipts, snapshots and audit. No public schema, permission, phase gate or governance requirement changes here.

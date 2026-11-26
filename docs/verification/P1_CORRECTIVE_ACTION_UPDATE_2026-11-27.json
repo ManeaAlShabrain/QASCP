@@ -1,0 +1,271 @@
+{
+  "date": "2026-11-27",
+  "original_audit": "4592eb230fadebb828c8b7d3b7972c6bd1aec012 REJECTED/72.95 unchanged",
+  "phase": "P1 / Acceptance candidate; no actual exit",
+  "actions": [
+    {
+      "finding_id": "QAR-001",
+      "root_cause": "Required actual reviewer and authorized phase-exit records absent",
+      "corrective_action": "Effective internal baseline1.1 observed; actual four review processes retained; concrete separate owner P1-EXIT-001 prepared, not approved",
+      "preventive_action": "Exact-version manifest, scoped gate/owner decision, four separate AI review processes and cumulative tests; no implicit adoption/acceptance",
+      "changed_files": [
+        "docs/governance/decisions/P1-PREP-001.md",
+        "docs/governance/decisions/P1-EXIT-001.md",
+        "docs/verification/P1_ACCEPTANCE_CANDIDATE.md"
+      ],
+      "requirements_reference": "All36rows in P1_ACCEPTANCE_CANDIDATE.md",
+      "tests_executed": [
+        "Prior fixed main b66d73c:112hostedtests/gate/quality passed; not this new candidate",
+        "Native preparation:foundation pass;full validators missing; full discovery47entries/41passed/6errors before3newcontract-selectiontests; no skips",
+        "Initial PR49head33ae1dbCI:112ran,111passed/1fixturefailure; original output retained; required-file correction applied",
+        "Expanded native preparation:foundation and3newselection methods passed;full discovery50entries/44passed/6errors/zero skips; full OpenAPI missing-validator failure retained"
+      ],
+      "actual_test_results": "Fresh expanded-candidate CI PENDING; no new passing count invented",
+      "evidence": [
+        "https://github.com/ManeaAlShabrain/QASCP/pull/49",
+        "docs/verification/evidence/transition-initial-ci-failure-2026-11-27.json",
+        "docs/verification/evidence/transition-local-2026-11-27.json"
+      ],
+      "pull_request_url": "https://github.com/ManeaAlShabrain/QASCP/pull/49",
+      "commit_sha": null,
+      "commit_binding": "Exact expanded candidate SHA/tree and current checks/reviews published in PR49; no self-referential commit required",
+      "remaining_limitations": "No runtime/enterprise/legal approval; later-phase tests/rights gates remain; independent review and exact-candidate owner ratification pending",
+      "owner_decision_required": true,
+      "remediation_status": "READY FOR RE-REVIEW"
+    },
+    {
+      "finding_id": "QAR-002",
+      "root_cause": "Role placeholders never became actual risk assignments/residual decisions",
+      "corrective_action": "All12actual internal owners retained; each qualitative rationale and conservative residual band assessed; gated mitigation plan; separate review/owner endorsement pending",
+      "preventive_action": "Exact-version manifest, scoped gate/owner decision, four separate AI review processes and cumulative tests; no implicit adoption/acceptance",
+      "changed_files": [
+        "docs/governance/P1_RISK_OWNERSHIP.json",
+        "docs/governance/P1_RISK_OWNERSHIP.md",
+        "docs/governance/P1_RISK_ASSESSMENT_2026-11-27.md"
+      ],
+      "requirements_reference": "All36rows in P1_ACCEPTANCE_CANDIDATE.md",
+      "tests_executed": [
+        "Prior fixed main b66d73c:112hostedtests/gate/quality passed; not this new candidate",
+        "Native preparation:foundation pass;full validators missing; full discovery47entries/41passed/6errors before3newcontract-selectiontests; no skips",
+        "Initial PR49head33ae1dbCI:112ran,111passed/1fixturefailure; original output retained; required-file correction applied",
+        "Expanded native preparation:foundation and3newselection methods passed;full discovery50entries/44passed/6errors/zero skips; full OpenAPI missing-validator failure retained"
+      ],
+      "actual_test_results": "Fresh expanded-candidate CI PENDING; no new passing count invented",
+      "evidence": [
+        "https://github.com/ManeaAlShabrain/QASCP/pull/49",
+        "docs/verification/evidence/transition-initial-ci-failure-2026-11-27.json",
+        "docs/verification/evidence/transition-local-2026-11-27.json"
+      ],
+      "pull_request_url": "https://github.com/ManeaAlShabrain/QASCP/pull/49",
+      "commit_sha": null,
+      "commit_binding": "Exact expanded candidate SHA/tree and current checks/reviews published in PR49; no self-referential commit required",
+      "remaining_limitations": "No runtime/enterprise/legal approval; later-phase tests/rights gates remain; independent review and exact-candidate owner ratification pending",
+      "owner_decision_required": true,
+      "remediation_status": "READY FOR RE-REVIEW"
+    },
+    {
+      "finding_id": "QAR-003",
+      "root_cause": "Proposed design layers existed without adoption/compatibility/source-authority decisions",
+      "corrective_action": "All20choices concretely selected; successor/api/v2 and18exact contract hashes; source/snapshot/registry/transaction responsibility explicit; owner ratification pending",
+      "preventive_action": "Exact-version manifest, scoped gate/owner decision, four separate AI review processes and cumulative tests; no implicit adoption/acceptance",
+      "changed_files": [
+        "docs/architecture/ADR-P1-ACCEPTANCE-001.md",
+        "docs/architecture/P1_CONTRACT_SELECTION.json",
+        "contracts/qascp-2/graph/openapi-0.2.json",
+        "docs/architecture/QASCP_2_CONTRACTS.md",
+        "docs/architecture/QASCP_2_GRAPH_BOUNDARY.md",
+        "tests/test_contract_selection.py"
+      ],
+      "requirements_reference": "All36rows in P1_ACCEPTANCE_CANDIDATE.md",
+      "tests_executed": [
+        "Prior fixed main b66d73c:112hostedtests/gate/quality passed; not this new candidate",
+        "Native preparation:foundation pass;full validators missing; full discovery47entries/41passed/6errors before3newcontract-selectiontests; no skips",
+        "Initial PR49head33ae1dbCI:112ran,111passed/1fixturefailure; original output retained; required-file correction applied",
+        "Expanded native preparation:foundation and3newselection methods passed;full discovery50entries/44passed/6errors/zero skips; full OpenAPI missing-validator failure retained"
+      ],
+      "actual_test_results": "Fresh expanded-candidate CI PENDING; no new passing count invented",
+      "evidence": [
+        "https://github.com/ManeaAlShabrain/QASCP/pull/49",
+        "docs/verification/evidence/transition-initial-ci-failure-2026-11-27.json",
+        "docs/verification/evidence/transition-local-2026-11-27.json"
+      ],
+      "pull_request_url": "https://github.com/ManeaAlShabrain/QASCP/pull/49",
+      "commit_sha": null,
+      "commit_binding": "Exact expanded candidate SHA/tree and current checks/reviews published in PR49; no self-referential commit required",
+      "remaining_limitations": "No runtime/enterprise/legal approval; later-phase tests/rights gates remain; independent review and exact-candidate owner ratification pending",
+      "owner_decision_required": true,
+      "remediation_status": "READY FOR RE-REVIEW"
+    },
+    {
+      "finding_id": "QAR-004",
+      "root_cause": "Scoped git config query omitted included configuration; initial tests omitted include cases",
+      "corrective_action": "Prior actual local/include/worktree correction retained; no guard code changed; cumulative current regression required",
+      "preventive_action": "Exact-version manifest, scoped gate/owner decision, four separate AI review processes and cumulative tests; no implicit adoption/acceptance",
+      "changed_files": [],
+      "requirements_reference": "All36rows in P1_ACCEPTANCE_CANDIDATE.md",
+      "tests_executed": [
+        "Prior fixed main b66d73c:112hostedtests/gate/quality passed; not this new candidate",
+        "Native preparation:foundation pass;full validators missing; full discovery47entries/41passed/6errors before3newcontract-selectiontests; no skips",
+        "Initial PR49head33ae1dbCI:112ran,111passed/1fixturefailure; original output retained; required-file correction applied",
+        "Expanded native preparation:foundation and3newselection methods passed;full discovery50entries/44passed/6errors/zero skips; full OpenAPI missing-validator failure retained"
+      ],
+      "actual_test_results": "Fresh expanded-candidate CI PENDING; no new passing count invented",
+      "evidence": [
+        "https://github.com/ManeaAlShabrain/QASCP/pull/49",
+        "docs/verification/evidence/transition-initial-ci-failure-2026-11-27.json",
+        "docs/verification/evidence/transition-local-2026-11-27.json"
+      ],
+      "pull_request_url": "https://github.com/ManeaAlShabrain/QASCP/pull/49",
+      "commit_sha": null,
+      "commit_binding": "Exact expanded candidate SHA/tree and current checks/reviews published in PR49; no self-referential commit required",
+      "remaining_limitations": "No runtime/enterprise/legal approval; later-phase tests/rights gates remain; independent review and exact-candidate owner ratification pending",
+      "owner_decision_required": true,
+      "remediation_status": "READY FOR RE-REVIEW"
+    },
+    {
+      "finding_id": "QAR-005",
+      "root_cause": "Structural parity and implementer comparison missed actor/version meaning",
+      "corrective_action": "Paired normative clauses unchanged; current selection/acceptance records have Arabic consequential-scope text; new semantic review required",
+      "preventive_action": "Exact-version manifest, scoped gate/owner decision, four separate AI review processes and cumulative tests; no implicit adoption/acceptance",
+      "changed_files": [
+        "docs/governance/ENGINEERING_GOVERNANCE.md",
+        "docs/governance/ENGINEERING_GOVERNANCE.ar.md",
+        "docs/architecture/QASCP_2_BANK01_BLUEPRINT.md",
+        "docs/architecture/QASCP_2_BANK01_BLUEPRINT.ar.md"
+      ],
+      "requirements_reference": "All36rows in P1_ACCEPTANCE_CANDIDATE.md",
+      "tests_executed": [
+        "Prior fixed main b66d73c:112hostedtests/gate/quality passed; not this new candidate",
+        "Native preparation:foundation pass;full validators missing; full discovery47entries/41passed/6errors before3newcontract-selectiontests; no skips",
+        "Initial PR49head33ae1dbCI:112ran,111passed/1fixturefailure; original output retained; required-file correction applied",
+        "Expanded native preparation:foundation and3newselection methods passed;full discovery50entries/44passed/6errors/zero skips; full OpenAPI missing-validator failure retained"
+      ],
+      "actual_test_results": "Fresh expanded-candidate CI PENDING; no new passing count invented",
+      "evidence": [
+        "https://github.com/ManeaAlShabrain/QASCP/pull/49",
+        "docs/verification/evidence/transition-initial-ci-failure-2026-11-27.json",
+        "docs/verification/evidence/transition-local-2026-11-27.json"
+      ],
+      "pull_request_url": "https://github.com/ManeaAlShabrain/QASCP/pull/49",
+      "commit_sha": null,
+      "commit_binding": "Exact expanded candidate SHA/tree and current checks/reviews published in PR49; no self-referential commit required",
+      "remaining_limitations": "No runtime/enterprise/legal approval; later-phase tests/rights gates remain; independent review and exact-candidate owner ratification pending",
+      "owner_decision_required": true,
+      "remediation_status": "READY FOR RE-REVIEW"
+    },
+    {
+      "finding_id": "QAR-006",
+      "root_cause": "Primary quick-start did not install mandatory validators; Windows symlink privilege absent",
+      "corrective_action": "Supported Linux recipe and native failure evidence retained; fresh current supported validation required",
+      "preventive_action": "Exact-version manifest, scoped gate/owner decision, four separate AI review processes and cumulative tests; no implicit adoption/acceptance",
+      "changed_files": [
+        "docs/verification/evidence/transition-local-2026-11-27.json"
+      ],
+      "requirements_reference": "All36rows in P1_ACCEPTANCE_CANDIDATE.md",
+      "tests_executed": [
+        "Prior fixed main b66d73c:112hostedtests/gate/quality passed; not this new candidate",
+        "Native preparation:foundation pass;full validators missing; full discovery47entries/41passed/6errors before3newcontract-selectiontests; no skips",
+        "Initial PR49head33ae1dbCI:112ran,111passed/1fixturefailure; original output retained; required-file correction applied",
+        "Expanded native preparation:foundation and3newselection methods passed;full discovery50entries/44passed/6errors/zero skips; full OpenAPI missing-validator failure retained"
+      ],
+      "actual_test_results": "Fresh expanded-candidate CI PENDING; no new passing count invented",
+      "evidence": [
+        "https://github.com/ManeaAlShabrain/QASCP/pull/49",
+        "docs/verification/evidence/transition-initial-ci-failure-2026-11-27.json",
+        "docs/verification/evidence/transition-local-2026-11-27.json"
+      ],
+      "pull_request_url": "https://github.com/ManeaAlShabrain/QASCP/pull/49",
+      "commit_sha": null,
+      "commit_binding": "Exact expanded candidate SHA/tree and current checks/reviews published in PR49; no self-referential commit required",
+      "remaining_limitations": "No runtime/enterprise/legal approval; later-phase tests/rights gates remain; independent review and exact-candidate owner ratification pending",
+      "owner_decision_required": true,
+      "remediation_status": "READY FOR RE-REVIEW"
+    },
+    {
+      "finding_id": "QAR-007",
+      "root_cause": "Issue lifecycle conflated with acceptance lifecycle; closed packages hid pending work",
+      "corrective_action": "Current five P1 design-package acceptance and proposed19internal accountability linked to scoped owner decision; historical issue states unchanged",
+      "preventive_action": "Exact-version manifest, scoped gate/owner decision, four separate AI review processes and cumulative tests; no implicit adoption/acceptance",
+      "changed_files": [
+        "docs/product/P1_ACTIVE_ACCEPTANCE_REGISTER.md",
+        "docs/governance/decisions/P1-EXIT-001.md"
+      ],
+      "requirements_reference": "All36rows in P1_ACCEPTANCE_CANDIDATE.md",
+      "tests_executed": [
+        "Prior fixed main b66d73c:112hostedtests/gate/quality passed; not this new candidate",
+        "Native preparation:foundation pass;full validators missing; full discovery47entries/41passed/6errors before3newcontract-selectiontests; no skips",
+        "Initial PR49head33ae1dbCI:112ran,111passed/1fixturefailure; original output retained; required-file correction applied",
+        "Expanded native preparation:foundation and3newselection methods passed;full discovery50entries/44passed/6errors/zero skips; full OpenAPI missing-validator failure retained"
+      ],
+      "actual_test_results": "Fresh expanded-candidate CI PENDING; no new passing count invented",
+      "evidence": [
+        "https://github.com/ManeaAlShabrain/QASCP/pull/49",
+        "docs/verification/evidence/transition-initial-ci-failure-2026-11-27.json",
+        "docs/verification/evidence/transition-local-2026-11-27.json"
+      ],
+      "pull_request_url": "https://github.com/ManeaAlShabrain/QASCP/pull/49",
+      "commit_sha": null,
+      "commit_binding": "Exact expanded candidate SHA/tree and current checks/reviews published in PR49; no self-referential commit required",
+      "remaining_limitations": "No runtime/enterprise/legal approval; later-phase tests/rights gates remain; independent review and exact-candidate owner ratification pending",
+      "owner_decision_required": true,
+      "remediation_status": "READY FOR RE-REVIEW"
+    },
+    {
+      "finding_id": "QAR-008",
+      "root_cause": "Version pins did not freeze artifact bytes; hash locking intentionally deferred",
+      "corrective_action": "Existing19hash-locked validation-only closure retained; each declared licence metadata assessed within limited internal/nonredistribution scope; broader runtime/artifact/licence obligations retained",
+      "preventive_action": "Exact-version manifest, scoped gate/owner decision, four separate AI review processes and cumulative tests; no implicit adoption/acceptance",
+      "changed_files": [
+        "docs/governance/P1_SOURCE_USAGE_DISPOSITION.md"
+      ],
+      "requirements_reference": "All36rows in P1_ACCEPTANCE_CANDIDATE.md",
+      "tests_executed": [
+        "Prior fixed main b66d73c:112hostedtests/gate/quality passed; not this new candidate",
+        "Native preparation:foundation pass;full validators missing; full discovery47entries/41passed/6errors before3newcontract-selectiontests; no skips",
+        "Initial PR49head33ae1dbCI:112ran,111passed/1fixturefailure; original output retained; required-file correction applied",
+        "Expanded native preparation:foundation and3newselection methods passed;full discovery50entries/44passed/6errors/zero skips; full OpenAPI missing-validator failure retained"
+      ],
+      "actual_test_results": "Fresh expanded-candidate CI PENDING; no new passing count invented",
+      "evidence": [
+        "https://github.com/ManeaAlShabrain/QASCP/pull/49",
+        "docs/verification/evidence/transition-initial-ci-failure-2026-11-27.json",
+        "docs/verification/evidence/transition-local-2026-11-27.json"
+      ],
+      "pull_request_url": "https://github.com/ManeaAlShabrain/QASCP/pull/49",
+      "commit_sha": null,
+      "commit_binding": "Exact expanded candidate SHA/tree and current checks/reviews published in PR49; no self-referential commit required",
+      "remaining_limitations": "No runtime/enterprise/legal approval; later-phase tests/rights gates remain; independent review and exact-candidate owner ratification pending",
+      "owner_decision_required": true,
+      "remediation_status": "READY FOR RE-REVIEW"
+    },
+    {
+      "finding_id": "QAR-009",
+      "root_cause": "Observation response prose reused for import command receipt",
+      "corrective_action": "CommandReceipt/ObservationReceipt distinction preserved; new successor route selection regression covers both import families",
+      "preventive_action": "Exact-version manifest, scoped gate/owner decision, four separate AI review processes and cumulative tests; no implicit adoption/acceptance",
+      "changed_files": [
+        "tests/test_contract_selection.py",
+        "docs/architecture/QASCP_2_CONTRACTS.md"
+      ],
+      "requirements_reference": "All36rows in P1_ACCEPTANCE_CANDIDATE.md",
+      "tests_executed": [
+        "Prior fixed main b66d73c:112hostedtests/gate/quality passed; not this new candidate",
+        "Native preparation:foundation pass;full validators missing; full discovery47entries/41passed/6errors before3newcontract-selectiontests; no skips",
+        "Initial PR49head33ae1dbCI:112ran,111passed/1fixturefailure; original output retained; required-file correction applied",
+        "Expanded native preparation:foundation and3newselection methods passed;full discovery50entries/44passed/6errors/zero skips; full OpenAPI missing-validator failure retained"
+      ],
+      "actual_test_results": "Fresh expanded-candidate CI PENDING; no new passing count invented",
+      "evidence": [
+        "https://github.com/ManeaAlShabrain/QASCP/pull/49",
+        "docs/verification/evidence/transition-initial-ci-failure-2026-11-27.json",
+        "docs/verification/evidence/transition-local-2026-11-27.json"
+      ],
+      "pull_request_url": "https://github.com/ManeaAlShabrain/QASCP/pull/49",
+      "commit_sha": null,
+      "commit_binding": "Exact expanded candidate SHA/tree and current checks/reviews published in PR49; no self-referential commit required",
+      "remaining_limitations": "No runtime/enterprise/legal approval; later-phase tests/rights gates remain; independent review and exact-candidate owner ratification pending",
+      "owner_decision_required": true,
+      "remediation_status": "READY FOR RE-REVIEW"
+    }
+  ]
+}

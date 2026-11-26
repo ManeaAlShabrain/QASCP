@@ -1,6 +1,11 @@
 # P1 Architecture Decision Register — QAR-003
 
-Prepared 2026-11-25 against main cc04fa6e82f0b53d75fd5d08e1a36f11fba5c4d2.
+Current2026-11-27: [ADR-P1-ACCEPTANCE-001](ADR-P1-ACCEPTANCE-001.md)
+selects a concrete20decision candidate for independent review and owner ratification.
+The original dated options/index below are retained as historical rationale, not
+a claim that the new candidate has already been adopted.
+
+Historical index: Prepared 2026-11-25 against main cc04fa6e82f0b53d75fd5d08e1a36f11fba5c4d2.
 Requirements: PRD-01/02/06/09/10, GOV-002/004, SEC-001..005; P1-V02;
 existing acceptance Issue #14. Every row below is **PROPOSED / OWNER DECISION
 AND INDEPENDENT REVIEW PENDING**. Recommendations neither adopt an ADR nor
