@@ -1,0 +1,174 @@
+# QASCP P1 — Security and architecture affected re-review, pass 2
+
+**Date:** 2026-11-26, Asia/Riyadh
+**Actual reviewer:** `/root/p1_security_arch_review`
+**Reviewer type:** AI; separate security/architecture review process
+**Candidate:** `b5702fd09083eb01b54e65cc85e72e50fdc10f55`
+**Tree:** `34459658543448ea3bcbbdcd22c603ea85305e70`
+**Change:** [PR #48](https://github.com/ManeaAlShabrain/QASCP/pull/48), `remediation/p1-independent-review-findings`
+**Previous reviewed candidate:** `5919d022b2fab819e8a74484c656a6a3f7db5fcc`
+
+**Result:** The worktree authentication defect SEC-NEW-001 is **VERIFIED FIXED on this corrected candidate**. No unresolved new security/architecture defect was established in the affected scope. Baseline 1.1 activation is **technically supportable from this review's security/architecture scope**, subject to the other affected review dispositions, final verification and a recorded activation. **P1 exit remains BLOCKED.** This report neither activates policy nor authorizes P2.
+
+## 1. Separation, scope and immutable inputs
+
+This is a distinct affected re-review after all four original-candidate audits were completed and preserved. It does not revise their original findings or make them assessments of the new SHA. The same actual AI task performed the security review in both passes, separately from implementation. The AI processes share service, tools and the owner's connected publishing account; separation is functional, with correlated-error limits, not human or organizational independence. No human qualifications, independent legal identity verification or regulatory authority are claimed. No shareable session URL is available or invented.
+
+The reviewer read source and performed disposable synthetic tests. Candidate source, policy, issues, PRs and approvals were not changed. Only new scratch report/evidence artifacts were written. No subagents were spawned. The coordinator may publish this attributable report; publication does not constitute a human approval.
+
+Scope: the [exact GitHub comparison](https://github.com/ManeaAlShabrain/QASCP/compare/5919d022b2fab819e8a74484c656a6a3f7db5fcc...b5702fd09083eb01b54e65cc85e72e50fdc10f55), corrected checkout guard/regressions, paired SEC-002 clarification, current/historical bilingual-note wrapper, RISK-DEC-001 and all 12 risk-owner entries, preservation of original reports/evidence, fresh cumulative hosted verification and current ruleset. Requirements: GOV-001/003/004, SEC-002/004, ENG-001/002/003, REL-001 and P1-V01..04, within this reviewer’s affected security/architecture remit.
+
+GitHub's [candidate commit object](https://api.github.com/repos/ManeaAlShabrain/QASCP/git/commits/b5702fd09083eb01b54e65cc85e72e50fdc10f55) returned tree `34459658543448ea3bcbbdcd22c603ea85305e70`. The isolated local checkout had HEAD `e73c334bbe8d4e214f6258e7b71a54fba8d1705c` and the same tree. Local history is content-equivalent, not GitHub ancestry. A local `git diff` naming the old GitHub SHA failed with `bad object` because that GitHub commit object is not in the local history; the GitHub comparison supplied the authoritative diff instead. This failure is not hidden or treated as a successful local comparison.
+
+The comparison changes the guard/tests, the paired SEC-002 sentence, risk ownership records, preservation/correction documentation and required-file inventory. It does not change CI workflow, dependency pins/lock, API/schema versions, T1–T3 contracts or application runtime. Relevant unchanged compatibility and architecture decisions were cross-checked for continued proposed status.
+
+## 2. Actual commands, environment and results
+
+Working directory: `C:\Users\manem\Desktop\QASCP\public-review-20261125`. Windows 11, Python 3.14.4 (`C:\Python314\python.exe`), Git 2.54.0.windows.1. Bytecode generation was disabled. Temporary repositories used a nonsecret marker, with inherited `GIT_*` variables removed, system configuration disabled and global configuration redirected to `os.devnull`. No remote or credential helper was invoked.
+
+| Command or inspection | Actual outcome |
+|---|---|
+| `git rev-parse HEAD` and `git rev-parse 'HEAD^{tree}'` | Content-equivalent local HEAD/tree identified; tree matched GitHub candidate |
+| `python -B -m unittest discover -s tests -p test_checkout_auth.py -v` | Exit 0; **15 methods passed**, zero skips |
+| `python -B <scratch>/05-independent-checkout-probe.py` | Exit 0; **29/29 independent real-Git cases passed**, zero marker exposures |
+| `python -B scripts/verify_foundation.py` | Exit 0 |
+| `python -B scripts/verify_validation_lock.py` | Exit 0; all 19 pins/hashes matched retained provenance |
+| `python -B scripts/verify_openapi_contracts.py` | Exit 1; missing `openapi_spec_validator` |
+| `python -B -m unittest discover -s tests -v` | Exit 1; **47 discovery entries: 41 passed, six errors, zero skips** |
+| Original raw-envelope digest check | **24/24** decoded UTF-8 content hashes matched the manifest |
+| Four published report views compared with their raw originals | **4/4** matched after line-ending/trailing-whitespace normalization |
+| `git diff --exit-code` and final tree check | Exit 0; tracked content unchanged; tree still matched candidate |
+
+The six full-discovery errors were four module-import errors for missing `jsonschema`, one module-import error for missing `openapi_spec_validator`, and the known WinError 1314 symlink privilege failure. The 47 entries are not a successful execution of the dependency-enabled 112-test suite. These local failures were not skipped, repaired or represented as passes. Supported Linux hosted evidence is reported separately below.
+
+The 15 retained methods include real-Git clean, direct/scoped keys, local/worktree includes and conditional includes, malformed configuration and nonrepository checks. Unavailable-Git, timeout, invalid-output and late-inspection failures are injected subprocess tests, not claims of real runner outages. New tests explicitly fail the third and fourth inspection paths when Git inspection errors are injected.
+
+### Independent actual-CLI probe
+
+Companion files `05-independent-checkout-probe.py` and `05-independent-checkout-probe.json` retain the complete independently executed probe and per-case results. It did not import or substitute the guard: each case invoked the actual candidate's `scripts/verify_checkout_auth.py` with the Python CLI.
+
+| Cases | Count | Observed result |
+|---|---:|---|
+| Clean ordinary repository; clean enabled worktree configuration | 2 | Exit 0 |
+| Direct helper, scoped helper, HTTP extraheader, scoped HTTP extraheader and SSH command, in each local/worktree scope | 10 | Exit 1 |
+| `include.path` and matching `includeIf.gitdir` carrying helper/header/SSH keys, in each scope | 12 | Exit 1; effective prohibited key confirmed before guard invocation |
+| Malformed local and worktree configuration | 2 | Exit 1 |
+| Missing worktree include and inactive worktree conditional include | 2 | Exit 1 |
+| Nonrepository inspection | 1 | Exit 1 |
+| Nonsecret marker exposure across all guard stdout/stderr | 29 checked | **0 exposures** |
+
+The three original worktree-bypass families—`credential.helper`, `http.extraheader`, `core.sshCommand` with `extensions.worktreeConfig=true`—now return **1** rather than the old candidate's **0**. Scoped variants also reject. Marker tests substantiate this diagnostic boundary; they are not a universal proof that no secret exists anywhere on a runner.
+
+For a short independent reproduction from the candidate root:
+
+```python
+import os
+import subprocess
+import sys
+import tempfile
+from pathlib import Path
+
+guard = Path("scripts/verify_checkout_auth.py").resolve()
+env = {k: v for k, v in os.environ.items() if not k.startswith("GIT_")}
+env.update(GIT_CONFIG_NOSYSTEM="1", GIT_CONFIG_GLOBAL=os.devnull)
+marker = "QASCP-NONSECRET-PASS2-INDEPENDENT-MARKER"
+for key in ("credential.helper", "http.extraheader", "core.sshCommand"):
+    with tempfile.TemporaryDirectory() as temporary:
+        def git(*args):
+            return subprocess.run(["git", *args], cwd=temporary, env=env,
+                                  capture_output=True, check=True)
+        git("init", "--quiet")
+        git("config", "--local", "extensions.worktreeConfig", "true")
+        git("config", "--worktree", key, marker)
+        effective = git("config", "--show-scope", "--name-only", "--list")
+        assert b"worktree\t" + key.lower().encode() in effective.stdout.lower()
+        result = subprocess.run([sys.executable, "-B", str(guard)],
+                                cwd=temporary, env=env, capture_output=True)
+        assert result.returncode == 1
+        assert marker.encode() not in result.stdout + result.stderr
+        print(key, result.returncode, "marker_exposed=False")
+```
+
+The companion's executed 29-case implementation retains the same three cases plus the other independent paths in the table.
+
+## 3. Fresh hosted evidence and merge-tree binding
+
+The run was no longer pending when independently retrieved. A passing badge was not the basis of this disposition: decoded logs, run/job metadata and the tested merge commit's Git tree were inspected.
+
+| Evidence | Observed result and revision binding |
+|---|---|
+| [Foundation run 45830289762](https://github.com/ManeaAlShabrain/QASCP/actions/runs/45830289762) | Completed success; PR event associated with candidate head `b5702fd09083eb01b54e65cc85e72e50fdc10f55` |
+| [Foundation job 139944961197](https://github.com/ManeaAlShabrain/QASCP/actions/runs/45830289762/job/139944961197) | Checks out synthetic PR merge **`8a96f0ce231f1af1b101c53fa0a70018a7ed39c3`**, not the head commit directly; **112 tests OK, zero skips** |
+| [Merge commit object](https://api.github.com/repos/ManeaAlShabrain/QASCP/git/commits/8a96f0ce231f1af1b101c53fa0a70018a7ed39c3) | Parents are old main `5919d022...` and candidate `b5702fd...`; tree is **`34459658543448ea3bcbbdcd22c603ea85305e70`**, identical to the reviewed candidate |
+| [Gate job 139945132507](https://github.com/ManeaAlShabrain/QASCP/actions/runs/45830289762/job/139945132507) | Success; `FOUNDATION_RESULT=success` |
+| [Code Quality job 139944952656](https://github.com/ManeaAlShabrain/QASCP/actions/runs/45830283841/job/139944952656) | Success; directly checks out **`b5702fd09083eb01b54e65cc85e72e50fdc10f55`**; analysis kind `code-quality` |
+
+The foundation logs show Ubuntu 26.04.1, image version `20261116.202.1`, Python 3.14.4 and Git 2.56.1; the corrected local/worktree guard passed. The 19-wheel lock, hash-enforced wheels-only/no-deps installation/download, `pip check`, bounded PyPI release advisory query, both complete offline OpenAPI validations and shared policy checks (2/4 operations) succeeded. Code Quality is not exhaustive security clearance.
+
+A fresh read of [ruleset 27321554](https://github.com/ManeaAlShabrain/QASCP/rules/27321554) confirmed active default-branch scope, PR requirement, strict `QASCP Foundation Gate` from App 15368, no bypass actors and `current_user_can_bypass=never`. Required approving review count remains 0. The rule enforces the PR/check mechanism; separately recorded review completion, activation and phase authorization remain governance acts. No new enforcement-test PR or merge attempt was performed during this read-only re-review.
+
+## 4. Technical and governance dispositions
+
+### SEC-NEW-001: verified fixed on this candidate
+
+The [guard](https://github.com/ManeaAlShabrain/QASCP/blob/b5702fd09083eb01b54e65cc85e72e50fdc10f55/scripts/verify_checkout_auth.py) now enumerates the Cartesian product of `--local`/`--worktree` and `--no-includes`/`--includes`. The same prohibited-key predicates and fail-closed result/UTF-8/NUL/exception handling apply to every inspection. Captured Git stderr and configuration values are not printed. Names are normalized before checks.
+
+This closes the demonstrated repository-resident worktree gap. Worktree includes are rejected even when inactive/missing, consistent with the conservative local-include policy. Clean worktree settings remain allowed. Global, system and command/environment configuration, arbitrary runner compromise and later mutation of files remain outside the explicitly documented assertion. There is no evidence that the old hosted run leaked or retained credentials; this correction addresses checker completeness.
+
+**Disposition: SEC-NEW-001 VERIFIED FIXED**, limited to the reproduced defect and stated guard scope. Original QAR-004 include-path correction continues to pass meaningful regressions. No new affected-scope guard defect was established.
+
+### Paired SEC-002 actor clarification
+
+Both changed sentences were read in UTF-8 and compared in the exact diff. English now applies the no-tenant-record-permission obligation to the services/access paths managing shared infrastructure metadata; Arabic explicitly prohibits granting those same services/access paths access to tenant records. Both retain mandatory metadata isolation, non-bypass application roles, scoped references and independent preservation checks.
+
+This makes the security actor and capability prohibition explicit without granting a tenant-data exception or weakening the original isolation boundary. It is compatible with separating the shared-metadata management access path from tenant-authorized application paths. It does not establish actual runtime role separation or DB isolation.
+
+**Security disposition for BR-L01: VERIFIED FIXED narrowly** for the actor/capability ambiguity. The substantive bilingual reviewer retains responsibility for its full-language disposition. The dated wrapper in `P1_BILINGUAL_REMEDIATION.md` now identifies the retained baseline 1.0 comparison as historical and points to the candidate 1.1/current decision/process; its old GOV-004/baseline statements are not presented as current acceptance.
+
+### RISK-DEC-001: assignments confirmed, acceptance still absent
+
+[RISK-DEC-001](https://github.com/ManeaAlShabrain/QASCP/blob/b5702fd09083eb01b54e65cc85e72e50fdc10f55/docs/governance/decisions/RISK-DEC-001.md) records the owner's exact reply **«أؤكد ملكيتي للمخاطر الداخلية فقط»** to the bounded T01–T12 ownership question. The record is an implementation-assistant transcription through the project account, not an owner-authored GitHub signature, independent authentication of legal identity or an invented longer quotation. It expressly excludes residual acceptance, bank/regulator/customer/licensor authority, architecture adoption, activation, phase exit and deployment.
+
+All 12 [risk JSON](https://github.com/ManeaAlShabrain/QASCP/blob/b5702fd09083eb01b54e65cc85e72e50fdc10f55/docs/governance/P1_RISK_OWNERSHIP.json) entries now have an actual attributed internal accountable owner, confirmation date and RISK-DEC-001 reference. All 12 retain null residual ratings, null risk-acceptance references and null residual-review dates, with `UNASSESSED / NOT ACCEPTED` status. The prose register agrees.
+
+**QAR-002 missing internal assignment component: VERIFIED FIXED. QAR-002 overall: OPEN / P1 BLOCKER**, because reviewed risk treatment/residual dispositions are still absent. No mitigation credit, reduced risk score or residual acceptance is inferred from assignment.
+
+### Other finding boundaries
+
+| Finding | Pass-2 disposition |
+|---|---|
+| QAR-001 | Internal-only policy design remains supportable; effective activation, required review completion and P1-V04 remain separate. Overall acceptance conditions are not closed by this report. |
+| QAR-003 | **OPEN / P1 BLOCKER.** All 20 AD rows remain proposed/unapproved. The unchanged API proposals still share `/api/v1`; version/receipt/source-authority selection is not silently adopted. |
+| QAR-004 | Original direct/include/conditional defect remains narrowly verified fixed; the separately discovered worktree defect is now also verified fixed as SEC-NEW-001. |
+| QAR-008 | Prior narrow artifact-hash correction unchanged; current hash-enforced hosted run corroborates it. PyPI-only advisory results are not exhaustive vulnerability/license clearance. |
+| QAR-009 | Prior narrow import-response-prose correction unchanged; no API/schema structure changed in this pass. |
+| Broader QAR-005/006/007 or full organizational/source findings | No blanket closure supplied by this affected security review. |
+
+T1–T3 atomicity, source-claim separation, binding-generation/reassignment restrictions, event-specific logical receipt identity, authorization-before-traversal/counts and snapshot/cursor bindings are unchanged by this diff. Their P1 design recommendations remain as previously reviewed; recorded adoption and later real runtime verification are still required. Future PostgreSQL, concurrency/crash, cryptographic cursor, performance and operational tests are not newly demanded in P1.
+
+## 5. Historical evidence custody
+
+The original audit at `4592eb230fadebb828c8b7d3b7972c6bd1aec012` remains **REJECTED / 72.95**. Its files are not modified by this comparison. The four newer reports still name old candidate `5919d022b2fab819e8a74484c656a6a3f7db5fcc`, with original HOLD/BLOCK verdicts and old 12-null-owner observations preserved as historical assessments.
+
+I decoded and hashed all 24 original UTF-8 raw-envelope contents against their publication manifest; all matched. My original report's SHA-256 remains **`5ae7d961de0017ea5f2f3961bd47e42bbca4c272667c0c2b0a42c44697e393eb`**, matching the original output artifact from pass 1. All four display report views matched their raw originals after declared whitespace normalization. This verifies publication custody, not independent truth of every other report's claim. Current ownership and correction dispositions belong to this separate new-candidate pass.
+
+## 6. Activation recommendation versus P1 exit
+
+| Decision | This reviewer’s recommendation |
+|---|---|
+| Baseline 1.1 technical security/architecture suitability | **SUPPORTABLE on the corrected candidate** for Internal Development Readiness only. The prior worktree blocker is corrected; the paired SEC-002 clarification retains the required boundary. No unresolved new affected-scope security defect was established. |
+| Effective activation | **Ready for the remaining governed disposition/recording steps from this scope.** Collect the other affected review dispositions and final verification, then record activation against the exact reviewed baseline and existing scoped proposal approval. This report does not self-activate policy or fill other review slots. |
+| P1 exit | **BLOCKED.** Reviewed residual-risk dispositions, AD01–AD20 adoption and exact-candidate owner phase exit remain outstanding, as do any other required final review decisions. |
+| P2 | **Not authorized** by this report, owner assignment, green CI or potential policy activation. |
+| Enterprise/customer/production/regulatory acceptance | Not established. Actual qualified independent human/competent-authority and applicable runtime gates remain mandatory. |
+
+The P1 risk/architecture/phase prerequisites must not be closed through the policy-activation record. Conversely, their pending status is not evidence of a new defect in the narrow internal-only policy mechanism itself. Activation and phase exit require distinct attributable dispositions under the stated process; neither may be inferred from merge or CI.
+
+### Companion evidence retained for the coordinator/final verifier
+
+- `05-independent-checkout-probe.py` / `.json`: complete separate real-Git probe, guard digest and all 29 outcomes.
+- `05-local-results.json` and `05-local-foundation.txt`, `05-local-lock.txt`, `05-local-openapi.txt`, `05-local-full-unittest.txt`: actual commands, exits and preserved local outputs, including failures.
+- `05-hosted-foundation.log`, `05-hosted-gate.log`, `05-hosted-code-quality.log`: retrieved decoded hosted logs.
+- `05-review-metadata.json`: candidate/merge-tree binding, changed-file list and freshly retrieved ruleset.
+
+These new outputs are review evidence only; no source repair, finding-state mutation, activation, approval or phase authorization was performed.

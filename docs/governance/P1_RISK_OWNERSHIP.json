@@ -3,12 +3,18 @@
   "prepared_date": "2026-11-25",
   "base_sha": "cc04fa6e82f0b53d75fd5d08e1a36f11fba5c4d2",
   "method": "Inherited qualitative likelihood/impact; no new calibrated numeric risk score or reduced residual rating",
-  "status": "Prepared for owner decision; no assignments or risk acceptances made by the implementer",
+  "status": "Internal accountable owner confirmed by RISK-DEC-001; residual assessment/acceptance and independent disposition pending",
   "risks": [
     {
       "risk_id": "T01",
       "risk_description": "Forged tenant selector or graph edge",
-      "accountable_owner": null,
+      "accountable_owner": {
+        "name": "Manea Mohammed Saleh Al-Shabrain",
+        "github": "ManeaAl-Shabrain",
+        "scope": "Internal project responsibility only; no bank/customer/regulator/licensor authority",
+        "confirmed_date": "2026-11-26",
+        "decision_reference": "docs/governance/decisions/RISK-DEC-001.md"
+      },
       "proposed_owner": {
         "name": "Manea Mohammed Saleh Al-Shabrain",
         "github": "ManeaAl-Shabrain",
@@ -39,15 +45,22 @@
       ],
       "target_phase": "P1-V02, P2-V01, P3-V01",
       "acceptance_authority": "Project owner for internal project risk, subject to GOV-004 review; bank/regulatory authority separately required for enterprise or legal obligations",
-      "approval_status": "PENDING OWNER CONFIRMATION AND INDEPENDENT REVIEW",
-      "owner_decision_reference": null,
+      "approval_status": "OWNER ASSIGNMENT CONFIRMED; RESIDUAL RISK AND INDEPENDENT DISPOSITION PENDING",
+      "owner_decision_reference": "docs/governance/decisions/RISK-DEC-001.md",
       "review_date": null,
-      "risk_acceptance_reference": null
+      "risk_acceptance_reference": null,
+      "owner_assignment_status": "CONFIRMED INTERNAL ONLY"
     },
     {
       "risk_id": "T02",
       "risk_description": "Cache, worker or pooled connection leaks context",
-      "accountable_owner": null,
+      "accountable_owner": {
+        "name": "Manea Mohammed Saleh Al-Shabrain",
+        "github": "ManeaAl-Shabrain",
+        "scope": "Internal project responsibility only; no bank/customer/regulator/licensor authority",
+        "confirmed_date": "2026-11-26",
+        "decision_reference": "docs/governance/decisions/RISK-DEC-001.md"
+      },
       "proposed_owner": {
         "name": "Manea Mohammed Saleh Al-Shabrain",
         "github": "ManeaAl-Shabrain",
@@ -78,15 +91,22 @@
       ],
       "target_phase": "P1-V02, P2-V01",
       "acceptance_authority": "Project owner for internal project risk, subject to GOV-004 review; bank/regulatory authority separately required for enterprise or legal obligations",
-      "approval_status": "PENDING OWNER CONFIRMATION AND INDEPENDENT REVIEW",
-      "owner_decision_reference": null,
+      "approval_status": "OWNER ASSIGNMENT CONFIRMED; RESIDUAL RISK AND INDEPENDENT DISPOSITION PENDING",
+      "owner_decision_reference": "docs/governance/decisions/RISK-DEC-001.md",
       "review_date": null,
-      "risk_acceptance_reference": null
+      "risk_acceptance_reference": null,
+      "owner_assignment_status": "CONFIRMED INTERNAL ONLY"
     },
     {
       "risk_id": "T03",
       "risk_description": "Connector spoofing, malicious payload or replay",
-      "accountable_owner": null,
+      "accountable_owner": {
+        "name": "Manea Mohammed Saleh Al-Shabrain",
+        "github": "ManeaAl-Shabrain",
+        "scope": "Internal project responsibility only; no bank/customer/regulator/licensor authority",
+        "confirmed_date": "2026-11-26",
+        "decision_reference": "docs/governance/decisions/RISK-DEC-001.md"
+      },
       "proposed_owner": {
         "name": "Manea Mohammed Saleh Al-Shabrain",
         "github": "ManeaAl-Shabrain",
@@ -117,15 +137,22 @@
       ],
       "target_phase": "P1-V02, P2-V01, P3-V01",
       "acceptance_authority": "Project owner for internal project risk, subject to GOV-004 review; bank/regulatory authority separately required for enterprise or legal obligations",
-      "approval_status": "PENDING OWNER CONFIRMATION AND INDEPENDENT REVIEW",
-      "owner_decision_reference": null,
+      "approval_status": "OWNER ASSIGNMENT CONFIRMED; RESIDUAL RISK AND INDEPENDENT DISPOSITION PENDING",
+      "owner_decision_reference": "docs/governance/decisions/RISK-DEC-001.md",
       "review_date": null,
-      "risk_acceptance_reference": null
+      "risk_acceptance_reference": null,
+      "owner_assignment_status": "CONFIRMED INTERNAL ONLY"
     },
     {
       "risk_id": "T04",
       "risk_description": "Entity conflation causes false banking impact",
-      "accountable_owner": null,
+      "accountable_owner": {
+        "name": "Manea Mohammed Saleh Al-Shabrain",
+        "github": "ManeaAl-Shabrain",
+        "scope": "Internal project responsibility only; no bank/customer/regulator/licensor authority",
+        "confirmed_date": "2026-11-26",
+        "decision_reference": "docs/governance/decisions/RISK-DEC-001.md"
+      },
       "proposed_owner": {
         "name": "Manea Mohammed Saleh Al-Shabrain",
         "github": "ManeaAl-Shabrain",
@@ -156,15 +183,22 @@
       ],
       "target_phase": "P1-V02, P3-V01",
       "acceptance_authority": "Project owner for internal project risk, subject to GOV-004 review; bank/regulatory authority separately required for enterprise or legal obligations",
-      "approval_status": "PENDING OWNER CONFIRMATION AND INDEPENDENT REVIEW",
-      "owner_decision_reference": null,
+      "approval_status": "OWNER ASSIGNMENT CONFIRMED; RESIDUAL RISK AND INDEPENDENT DISPOSITION PENDING",
+      "owner_decision_reference": "docs/governance/decisions/RISK-DEC-001.md",
       "review_date": null,
-      "risk_acceptance_reference": null
+      "risk_acceptance_reference": null,
+      "owner_assignment_status": "CONFIRMED INTERNAL ONLY"
     },
     {
       "risk_id": "T05",
       "risk_description": "Poisoned evidence or prompt injection",
-      "accountable_owner": null,
+      "accountable_owner": {
+        "name": "Manea Mohammed Saleh Al-Shabrain",
+        "github": "ManeaAl-Shabrain",
+        "scope": "Internal project responsibility only; no bank/customer/regulator/licensor authority",
+        "confirmed_date": "2026-11-26",
+        "decision_reference": "docs/governance/decisions/RISK-DEC-001.md"
+      },
       "proposed_owner": {
         "name": "Manea Mohammed Saleh Al-Shabrain",
         "github": "ManeaAl-Shabrain",
@@ -195,15 +229,22 @@
       ],
       "target_phase": "P1-V02, P4-V01",
       "acceptance_authority": "Project owner for internal project risk, subject to GOV-004 review; bank/regulatory authority separately required for enterprise or legal obligations",
-      "approval_status": "PENDING OWNER CONFIRMATION AND INDEPENDENT REVIEW",
-      "owner_decision_reference": null,
+      "approval_status": "OWNER ASSIGNMENT CONFIRMED; RESIDUAL RISK AND INDEPENDENT DISPOSITION PENDING",
+      "owner_decision_reference": "docs/governance/decisions/RISK-DEC-001.md",
       "review_date": null,
-      "risk_acceptance_reference": null
+      "risk_acceptance_reference": null,
+      "owner_assignment_status": "CONFIRMED INTERNAL ONLY"
     },
     {
       "risk_id": "T06",
       "risk_description": "Approval altered or reused; remote timeout repeats mutation",
-      "accountable_owner": null,
+      "accountable_owner": {
+        "name": "Manea Mohammed Saleh Al-Shabrain",
+        "github": "ManeaAl-Shabrain",
+        "scope": "Internal project responsibility only; no bank/customer/regulator/licensor authority",
+        "confirmed_date": "2026-11-26",
+        "decision_reference": "docs/governance/decisions/RISK-DEC-001.md"
+      },
       "proposed_owner": {
         "name": "Manea Mohammed Saleh Al-Shabrain",
         "github": "ManeaAl-Shabrain",
@@ -234,15 +275,22 @@
       ],
       "target_phase": "P1-V02, P4-V01, P5-V01",
       "acceptance_authority": "Project owner for internal project risk, subject to GOV-004 review; bank/regulatory authority separately required for enterprise or legal obligations",
-      "approval_status": "PENDING OWNER CONFIRMATION AND INDEPENDENT REVIEW",
-      "owner_decision_reference": null,
+      "approval_status": "OWNER ASSIGNMENT CONFIRMED; RESIDUAL RISK AND INDEPENDENT DISPOSITION PENDING",
+      "owner_decision_reference": "docs/governance/decisions/RISK-DEC-001.md",
       "review_date": null,
-      "risk_acceptance_reference": null
+      "risk_acceptance_reference": null,
+      "owner_assignment_status": "CONFIRMED INTERNAL ONLY"
     },
     {
       "risk_id": "T07",
       "risk_description": "Late/corrected evidence leaves stale assurance supported",
-      "accountable_owner": null,
+      "accountable_owner": {
+        "name": "Manea Mohammed Saleh Al-Shabrain",
+        "github": "ManeaAl-Shabrain",
+        "scope": "Internal project responsibility only; no bank/customer/regulator/licensor authority",
+        "confirmed_date": "2026-11-26",
+        "decision_reference": "docs/governance/decisions/RISK-DEC-001.md"
+      },
       "proposed_owner": {
         "name": "Manea Mohammed Saleh Al-Shabrain",
         "github": "ManeaAl-Shabrain",
@@ -273,15 +321,22 @@
       ],
       "target_phase": "P1-V02, P5-V01",
       "acceptance_authority": "Project owner for internal project risk, subject to GOV-004 review; bank/regulatory authority separately required for enterprise or legal obligations",
-      "approval_status": "PENDING OWNER CONFIRMATION AND INDEPENDENT REVIEW",
-      "owner_decision_reference": null,
+      "approval_status": "OWNER ASSIGNMENT CONFIRMED; RESIDUAL RISK AND INDEPENDENT DISPOSITION PENDING",
+      "owner_decision_reference": "docs/governance/decisions/RISK-DEC-001.md",
       "review_date": null,
-      "risk_acceptance_reference": null
+      "risk_acceptance_reference": null,
+      "owner_assignment_status": "CONFIRMED INTERNAL ONLY"
     },
     {
       "risk_id": "T08",
       "risk_description": "Audit tampering, sensitive log or export disclosure",
-      "accountable_owner": null,
+      "accountable_owner": {
+        "name": "Manea Mohammed Saleh Al-Shabrain",
+        "github": "ManeaAl-Shabrain",
+        "scope": "Internal project responsibility only; no bank/customer/regulator/licensor authority",
+        "confirmed_date": "2026-11-26",
+        "decision_reference": "docs/governance/decisions/RISK-DEC-001.md"
+      },
       "proposed_owner": {
         "name": "Manea Mohammed Saleh Al-Shabrain",
         "github": "ManeaAl-Shabrain",
@@ -312,15 +367,22 @@
       ],
       "target_phase": "P1-V02, P2-V01, P5-V01, P6-V01",
       "acceptance_authority": "Project owner for internal project risk, subject to GOV-004 review; bank/regulatory authority separately required for enterprise or legal obligations",
-      "approval_status": "PENDING OWNER CONFIRMATION AND INDEPENDENT REVIEW",
-      "owner_decision_reference": null,
+      "approval_status": "OWNER ASSIGNMENT CONFIRMED; RESIDUAL RISK AND INDEPENDENT DISPOSITION PENDING",
+      "owner_decision_reference": "docs/governance/decisions/RISK-DEC-001.md",
       "review_date": null,
-      "risk_acceptance_reference": null
+      "risk_acceptance_reference": null,
+      "owner_assignment_status": "CONFIRMED INTERNAL ONLY"
     },
     {
       "risk_id": "T09",
       "risk_description": "Dependency/CI artifact compromise",
-      "accountable_owner": null,
+      "accountable_owner": {
+        "name": "Manea Mohammed Saleh Al-Shabrain",
+        "github": "ManeaAl-Shabrain",
+        "scope": "Internal project responsibility only; no bank/customer/regulator/licensor authority",
+        "confirmed_date": "2026-11-26",
+        "decision_reference": "docs/governance/decisions/RISK-DEC-001.md"
+      },
       "proposed_owner": {
         "name": "Manea Mohammed Saleh Al-Shabrain",
         "github": "ManeaAl-Shabrain",
@@ -351,15 +413,22 @@
       ],
       "target_phase": "P1-V02, P2-V02, P6-V01",
       "acceptance_authority": "Project owner for internal project risk, subject to GOV-004 review; bank/regulatory authority separately required for enterprise or legal obligations",
-      "approval_status": "PENDING OWNER CONFIRMATION AND INDEPENDENT REVIEW",
-      "owner_decision_reference": null,
+      "approval_status": "OWNER ASSIGNMENT CONFIRMED; RESIDUAL RISK AND INDEPENDENT DISPOSITION PENDING",
+      "owner_decision_reference": "docs/governance/decisions/RISK-DEC-001.md",
       "review_date": null,
-      "risk_acceptance_reference": null
+      "risk_acceptance_reference": null,
+      "owner_assignment_status": "CONFIRMED INTERNAL ONLY"
     },
     {
       "risk_id": "T10",
       "risk_description": "Expensive traversal, queue flooding or tenant starvation",
-      "accountable_owner": null,
+      "accountable_owner": {
+        "name": "Manea Mohammed Saleh Al-Shabrain",
+        "github": "ManeaAl-Shabrain",
+        "scope": "Internal project responsibility only; no bank/customer/regulator/licensor authority",
+        "confirmed_date": "2026-11-26",
+        "decision_reference": "docs/governance/decisions/RISK-DEC-001.md"
+      },
       "proposed_owner": {
         "name": "Manea Mohammed Saleh Al-Shabrain",
         "github": "ManeaAl-Shabrain",
@@ -390,15 +459,22 @@
       ],
       "target_phase": "P1-V02, P3-V01, P6-V01",
       "acceptance_authority": "Project owner for internal project risk, subject to GOV-004 review; bank/regulatory authority separately required for enterprise or legal obligations",
-      "approval_status": "PENDING OWNER CONFIRMATION AND INDEPENDENT REVIEW",
-      "owner_decision_reference": null,
+      "approval_status": "OWNER ASSIGNMENT CONFIRMED; RESIDUAL RISK AND INDEPENDENT DISPOSITION PENDING",
+      "owner_decision_reference": "docs/governance/decisions/RISK-DEC-001.md",
       "review_date": null,
-      "risk_acceptance_reference": null
+      "risk_acceptance_reference": null,
+      "owner_assignment_status": "CONFIRMED INTERNAL ONLY"
     },
     {
       "risk_id": "T11",
       "risk_description": "Backup/restore loses authorization or evidence",
-      "accountable_owner": null,
+      "accountable_owner": {
+        "name": "Manea Mohammed Saleh Al-Shabrain",
+        "github": "ManeaAl-Shabrain",
+        "scope": "Internal project responsibility only; no bank/customer/regulator/licensor authority",
+        "confirmed_date": "2026-11-26",
+        "decision_reference": "docs/governance/decisions/RISK-DEC-001.md"
+      },
       "proposed_owner": {
         "name": "Manea Mohammed Saleh Al-Shabrain",
         "github": "ManeaAl-Shabrain",
@@ -429,15 +505,22 @@
       ],
       "target_phase": "P1-V02, P6-V01",
       "acceptance_authority": "Project owner for internal project risk, subject to GOV-004 review; bank/regulatory authority separately required for enterprise or legal obligations",
-      "approval_status": "PENDING OWNER CONFIRMATION AND INDEPENDENT REVIEW",
-      "owner_decision_reference": null,
+      "approval_status": "OWNER ASSIGNMENT CONFIRMED; RESIDUAL RISK AND INDEPENDENT DISPOSITION PENDING",
+      "owner_decision_reference": "docs/governance/decisions/RISK-DEC-001.md",
       "review_date": null,
-      "risk_acceptance_reference": null
+      "risk_acceptance_reference": null,
+      "owner_assignment_status": "CONFIRMED INTERNAL ONLY"
     },
     {
       "risk_id": "T12",
       "risk_description": "Mapping shown as certification",
-      "accountable_owner": null,
+      "accountable_owner": {
+        "name": "Manea Mohammed Saleh Al-Shabrain",
+        "github": "ManeaAl-Shabrain",
+        "scope": "Internal project responsibility only; no bank/customer/regulator/licensor authority",
+        "confirmed_date": "2026-11-26",
+        "decision_reference": "docs/governance/decisions/RISK-DEC-001.md"
+      },
       "proposed_owner": {
         "name": "Manea Mohammed Saleh Al-Shabrain",
         "github": "ManeaAl-Shabrain",
@@ -468,10 +551,12 @@
       ],
       "target_phase": "P1-V01, P1-V02, P5-V01, P6-V01",
       "acceptance_authority": "Project owner for internal project risk, subject to GOV-004 review; bank/regulatory authority separately required for enterprise or legal obligations",
-      "approval_status": "PENDING OWNER CONFIRMATION AND INDEPENDENT REVIEW",
-      "owner_decision_reference": null,
+      "approval_status": "OWNER ASSIGNMENT CONFIRMED; RESIDUAL RISK AND INDEPENDENT DISPOSITION PENDING",
+      "owner_decision_reference": "docs/governance/decisions/RISK-DEC-001.md",
       "review_date": null,
-      "risk_acceptance_reference": null
+      "risk_acceptance_reference": null,
+      "owner_assignment_status": "CONFIRMED INTERNAL ONLY"
     }
-  ]
+  ],
+  "owner_assignment_decision": "docs/governance/decisions/RISK-DEC-001.md"
 }

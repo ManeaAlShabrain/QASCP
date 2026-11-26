@@ -1,14 +1,15 @@
 # QASCP Engineering Governance and Delivery Handbook
 
-[العربية](ENGINEERING_GOVERNANCE.ar.md) · Version 1.1 · Candidate baseline following owner-approved GCR-P1-001; activation pending review
+[العربية](ENGINEERING_GOVERNANCE.ar.md) · Version 1.1 · Reviewed for internal development; effectiveness upon governed merge
 
-Owner proposal approval: [GOV-DEC-001](decisions/GOV-DEC-001.md), 2026-11-25.
-This 1.1 candidate implements the approved internal-only scope; effectiveness
-still requires governed review and a recorded activation. Until then the prior
-conservative human-review acceptance boundary applies. Read the
-[separate assurance process](SOLO_ASSURANCE_PROCESS.md). Policy approval is not
-risk acceptance, architecture adoption, completed review, phase exit or P2
-authorization. Enterprise/customer/production human and regulatory gates remain.
+Proposal authority: [GOV-DEC-001](decisions/GOV-DEC-001.md). Four separate processes
+reviewed candidate b5702fd09083eb01b54e65cc85e72e50fdc10f55.
+[GOV-DEC-002](decisions/GOV-DEC-002.md) binds their evidence, scope and effectiveness
+conditions: protected merge of that record after fresh publication-head checks
+and affected review. Until then the prior conservative human acceptance boundary
+applies. Read the [assurance process](SOLO_ASSURANCE_PROCESS.md). P1 stays pending;
+no residual acceptance, architecture adoption or P2 permission is granted.
+Enterprise/customer/production human and regulatory gates remain.
 
 QASCP is a unified cybersecurity, AI security, and continuous assurance platform for Qatar's financial sector. This handbook governs design, implementation, verification, and release. The English and Arabic editions carry the same requirements. MUST and MUST NOT are binding project requirements once this baseline is adopted. If a translation is ambiguous or conflicts with the other edition, block the affected acceptance decision until both texts are reconciled in one pull request.
 
@@ -40,7 +41,7 @@ Every customer-plane API request and internal job MUST carry an authenticated, a
 
 ### QASCP-SEC-002 — Database isolation
 
-Every application-owned tenant-data table, join, read, write, and deletion MUST be tenant-scoped. Tenant-owned keys and references MUST prevent cross-tenant ownership links. Enforce mandatory tenant filtering in the data layer and database controls such as row-level security, with application roles that cannot bypass it. Shared infrastructure metadata MUST be isolated and unable to access tenant records. Connection reuse, background processing, maintenance, backups, and restores MUST preserve tenant boundaries and be verified independently.
+Every application-owned tenant-data table, join, read, write, and deletion MUST be tenant-scoped. Tenant-owned keys and references MUST prevent cross-tenant ownership links. Enforce mandatory tenant filtering in the data layer and database controls such as row-level security, with application roles that cannot bypass it. Shared infrastructure metadata MUST be isolated from tenant records; the services and access paths managing that shared metadata MUST have no permission to access tenant records. Connection reuse, background processing, maintenance, backups, and restores MUST preserve tenant boundaries and be verified independently.
 
 ### QASCP-SEC-003 — Isolation across derived data
 

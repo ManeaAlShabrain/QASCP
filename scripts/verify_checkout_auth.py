@@ -1,8 +1,8 @@
-"""Inspect repository-local checkout configuration without exposing configuration values.
+"""Inspect local and worktree checkout configuration without exposing values.
 
 This boundary deliberately rejects every local include, even an inactive conditional
-include: checkout must leave no deferred authentication path. Global/system config
-and runner compromise are outside this repository-local assertion.
+include, in either repository scope. Global/system/command configuration and
+runner compromise remain outside this repository-configuration assertion.
 """
 
 import subprocess
@@ -15,10 +15,12 @@ class CheckoutAuthError(RuntimeError):
 
 
 def verify_checkout_auth(repository=Path(".")):
-    for includes in ("--no-includes", "--includes"):
+    inspections = ((scope, includes) for scope in ("--local", "--worktree")
+                   for includes in ("--no-includes", "--includes"))
+    for scope, includes in inspections:
         try:
             result = subprocess.run(
-                ["git", "config", "--local", includes, "--null", "--name-only", "--list"],
+                ["git", "config", scope, includes, "--null", "--name-only", "--list"],
                 cwd=repository, capture_output=True, check=False, timeout=15,
             )
             if result.returncode != 0:
@@ -46,7 +48,7 @@ def main():
     except CheckoutAuthError as error:
         print(str(error), file=sys.stderr)
         return 1
-    print("Local checkout authentication boundary passed; no local include paths remain")
+    print("Checkout authentication boundary passed; no local or worktree include paths remain")
     return 0
 
 

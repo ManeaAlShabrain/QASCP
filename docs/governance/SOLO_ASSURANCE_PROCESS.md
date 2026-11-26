@@ -1,15 +1,11 @@
-# Solo Developer & AI-Assisted Assurance Governance Model — baseline 1.1 candidate
+# Solo Developer & AI-Assisted Assurance Governance Model — reviewed baseline 1.1
 
-Status: **CANDIDATE / ACTIVATION PENDING REVIEW**. The owner approved the proposal
-in [GOV-DEC-001](decisions/GOV-DEC-001.md); the paired normative update still needs
-its governed review. [GCR-P1-001](proposals/GCR-P1-001.md) and
-[ADR-GOV-001](../architecture/ADR-GOV-001.md) define the approved proposal scope.
+Status: **REVIEWED FOR INTERNAL DEVELOPMENT / EFFECTIVE UPON GOVERNED MERGE**
+under [GOV-DEC-002](decisions/GOV-DEC-002.md), using existing
+[GOV-DEC-001](decisions/GOV-DEC-001.md). Until that record's merge/check/review
+conditions are satisfied the prior conservative human acceptance boundary
+applies. P1 is not closed and P2 is not authorized.
 QASCP-GOV-001/003/004, ENG-001/002, CMP-001, REL-001; P1-V01..04.
-
-Until the candidate is reviewed and activation recorded, apply the prior
-conservative actual-human acceptance boundary. Neither proposal approval,
-candidate preparation, merge nor green CI closes P1. No reviewer/process slot
-below is filled by this implementation conversation.
 
 ## Readiness classes and authority
 
@@ -30,10 +26,10 @@ applicable obligations or AI-001's exact authorized human production decision.
 | Step | Separate review scope | Current actual reviewer / evidence |
 |---|---|---|
 | Implementation | Prepare changes, provenance, manifest, actual tests and failures; no independent verdict on own changes | This Codex implementation conversation; not a review slot |
-| Security and architecture | Challenge changed trust boundaries, contracts, risk treatment, compatibility, CI and acceptance controls | UNASSIGNED / no current-candidate disposition |
-| Linguistic and source preparation | Read both full editions for actors/obligations/conditions/versions; inspect authoritative source/rights/applicability gaps without legal approval claims | UNASSIGNED / no current-candidate disposition |
-| Organization and requirements | Cross-check all 36 requirement rows, 19 packages, dependencies, authority, actual owners and decision records | UNASSIGNED / no current-candidate disposition |
-| Final verification audit | Independently reproduce applicable checks and challenge preceding review conclusions on the fixed candidate | UNASSIGNED / no current-candidate disposition |
+| Security and architecture | Challenge changed trust boundaries, contracts, risk treatment, compatibility, CI and acceptance controls | /root/p1_security_arch_review; https://github.com/ManeaAlShabrain/QASCP/pull/48; 05-security-corrected-candidate.md; b5702fd09083 |
+| Linguistic and source preparation | Read both full editions for actors/obligations/conditions/versions; inspect authoritative source/rights/applicability gaps without legal approval claims | /root/p1_bilingual_source_review; https://github.com/ManeaAlShabrain/QASCP/pull/48; 06-bilingual-corrected-candidate.md; b5702fd09083 |
+| Organization and requirements | Cross-check all 36 requirement rows, 19 packages, dependencies, authority, actual owners and decision records | /root/p1_org_requirements_review; https://github.com/ManeaAlShabrain/QASCP/pull/48; 07-organization-corrected-candidate.md; b5702fd09083 |
+| Final verification audit | Independently reproduce applicable checks and challenge preceding review conclusions on the fixed candidate | /root/p1_final_verification_review; https://github.com/ManeaAlShabrain/QASCP/pull/48; 08-final-corrected-candidate.md; b5702fd09083 |
 | Owner decision | Review reports, technical blockers, risk/architecture decisions and exact candidate; separately record scoped internal phase exit | Policy proposal approved only; phase exit pending |
 
 The four review slots MUST use separate conversations/review processes from the
