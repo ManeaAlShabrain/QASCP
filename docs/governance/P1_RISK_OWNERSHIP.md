@@ -6,11 +6,13 @@ The [current conservative assessment](P1_RISK_ASSESSMENT_2026-11-27.md) and
 [full register](P1_RISK_OWNERSHIP.json) retain actual assets/threats/vulnerabilities,
 qualitative likelihood/impact, controls, evidence, treatment and target phases.
 Residual bands are assessed conservatively at inherited High/Critical levels;
-no reduction or operational acceptance is claimed. Separate reviewer dates and
-acceptance references remain unset until actual attributable decisions occur.
+no reduction or operational acceptance is claimed. Actual reviewer dates/evidence are now recorded; operational risk-acceptance
+references remain null because operation was not accepted.
 
-Status: READY FOR RE-REVIEW. Owner endorsement of the design/treatment plan is
-requested in P1-EXIT-001; it does not accept another party's or production risk.
+Status: INTERNAL DESIGN/TREATMENT PLAN ENDORSED under
+[P1-EXIT-001 approval](decisions/P1-EXIT-001-APPROVAL.md). Separate actual reviews
+and owner endorsement are linked in the full register. Operational acceptance
+references remain null because no such acceptance was granted.
 Revisit before affected feature acceptance, exposure/control changes or2026-12-27.
 The former unassessed state remains preserved at the immutable #48 baseline and
 original audit; those historical review conclusions are not edited.

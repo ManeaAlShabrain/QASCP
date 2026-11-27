@@ -1,6 +1,9 @@
 # ADR-P1-ACCEPTANCE-001 — Concrete P1 architecture selection
 
-Date2026-11-27. Status: **SELECTED FOR REVIEW / OWNER RATIFICATION PENDING**.
+Date2026-11-27. Status: **RATIFIED FOR INTERNAL DEVELOPMENT ONLY** under
+[P1-EXIT-001 approval](../governance/decisions/P1-EXIT-001-APPROVAL.md).
+The original prepared text and approval request below retain their historical
+context; the accepted exact source and scope are recorded separately.
 Authority to prepare: [P1-PREP-001](../governance/decisions/P1-PREP-001.md).
 Requirements PRD-01/02/06/09/10; GOV-002/004,SEC-001..005;P1-V02.
 These exact choices resolve the earlier20row proposal index into one coherent

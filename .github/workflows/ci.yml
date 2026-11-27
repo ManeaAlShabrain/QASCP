@@ -38,18 +38,84 @@ jobs:
           .venv-contracts/bin/python -m pip download --disable-pip-version-check --no-input --index-url https://pypi.org/simple --no-deps --only-binary=:all: --require-hashes -r requirements-contracts-linux-cp314.lock --dest .validation-wheels
           .venv-contracts/bin/python scripts/capture_validation_dependencies.py
       - name: Validate both full OpenAPI documents offline
-        run: .venv-contracts/bin/python scripts/verify_openapi_contracts.py
+        run: |
+          .venv-contracts/bin/python scripts/verify_openapi_contracts.py
+          .venv-contracts/bin/python -c 'from pathlib import Path; from scripts.verify_openapi_contracts import validate_document; print(validate_document(Path("contracts/p2/foundation-openapi-0.1.json").absolute()))'
       - name: Test foundation and contract schemas
         run: .venv-contracts/bin/python -m unittest discover -s tests -v
+
+  tenant-foundation:
+    name: P2 tenant integration
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          allow-unsafe-pr-checkout: false
+      - name: Verify checkout boundary
+        run: python3 scripts/verify_checkout_auth.py
+      - name: Install reviewed hash-locked build and validation closures
+        run: |
+          python3 -c 'import platform,sys; assert sys.version_info[:2]==(3,14) and sys.platform=="linux" and platform.machine()=="x86_64"'
+          python3 -m venv .venv-p2-build
+          .venv-p2-build/bin/python -m pip install --isolated --disable-pip-version-check --no-input --index-url https://pypi.org/simple --no-deps --only-binary=:all: --require-hashes -r requirements-p2-build-linux-cp314.lock
+          .venv-p2-build/bin/python -m pip check
+          python3 -m venv .venv-p2
+          .venv-p2/bin/python -m pip install --isolated --disable-pip-version-check --no-input --index-url https://pypi.org/simple --no-deps --only-binary=:all: --require-hashes -r requirements-p2-test-linux-cp314.lock
+          .venv-p2/bin/python -m pip check
+      - name: Build twice and verify the installed artifact
+        run: |
+          export SOURCE_DATE_EPOCH=1795737600
+          .venv-p2-build/bin/python -m build --wheel --no-isolation --outdir .p2-dist
+          .venv-p2-build/bin/python -m build --wheel --no-isolation --outdir .p2-dist-repeat
+          cmp .p2-dist/*.whl .p2-dist-repeat/*.whl
+          .venv-p2/bin/python -m pip install --isolated --no-deps --no-index .p2-dist/*.whl
+          .venv-p2/bin/python -m pip check
+          .venv-p2/bin/python scripts/verify_p2_inputs.py
+      - name: Test installed HTTPS service with real OIDC and PostgreSQL
+        run: .venv-p2/bin/python -m unittest discover -s integration_tests -v
+      - name: Install digest-verified official scanner
+        run: |
+          curl --fail --silent --show-error --location --proto '=https' --tlsv1.2 https://github.com/aquasecurity/trivy/releases/download/v0.76.2/trivy_0.76.2_Linux-64bit.tar.gz --output "$RUNNER_TEMP/qascp-trivy.tar.gz"
+          echo 'bc0fc726e017b8927a62b2d3531d7a84ee01769daf5c99ed866dced54089fdbf' "$RUNNER_TEMP/qascp-trivy.tar.gz" | sha256sum --check
+          mkdir "$RUNNER_TEMP/qascp-trivy"
+          tar -xzf "$RUNNER_TEMP/qascp-trivy.tar.gz" -C "$RUNNER_TEMP/qascp-trivy" trivy
+          "$RUNNER_TEMP/qascp-trivy/trivy" --version
+      - name: Scan Python SBOM and PostgreSQL image
+        run: |
+          IMAGE=$(python3 -c 'import json; print(json.load(open("docs/verification/p2-input-receipt.json"))["postgres"]["image"])')
+          "$RUNNER_TEMP/qascp-trivy/trivy" sbom --format json --output .p2-python-scan.json .p2-inputs.cdx.json
+          "$RUNNER_TEMP/qascp-trivy/trivy" image --format json --output .p2-image-scan.json "$IMAGE"
+          "$RUNNER_TEMP/qascp-trivy/trivy" image --format cyclonedx --output .p2-image.cdx.json "$IMAGE"
+          python3 scripts/check_p2_scans.py
+      - name: Preserve candidate wheel, scans and SBOMs
+        if: ${{ always() }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: p2-tenant-foundation-${{ github.sha }}
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 30
+          path: |
+            .p2-dist/*.whl
+            .p2-inputs.cdx.json
+            .p2-image.cdx.json
+            .p2-python-scan.json
+            .p2-image-scan.json
 
   gate:
     name: QASCP Foundation Gate
     runs-on: ubuntu-latest
     timeout-minutes: 5
-    needs: [foundation]
+    needs: [foundation, tenant-foundation]
     if: ${{ always() }}
     steps:
       - name: Require successful verification
         env:
           FOUNDATION_RESULT: ${{ needs.foundation.result }}
-        run: test "$FOUNDATION_RESULT" = success
+          TENANT_RESULT: ${{ needs.tenant-foundation.result }}
+        run: |
+          test "$FOUNDATION_RESULT" = success
+          test "$TENANT_RESULT" = success

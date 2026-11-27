@@ -1,0 +1,191 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "QASCP tenant foundation",
+    "version": "0.1.0",
+    "description": "Internal synthetic development only. This separately versioned foundation surface does not implement the frozen P1 business API."
+  },
+  "servers": [
+    {
+      "url": "https://localhost:8443"
+    }
+  ],
+  "paths": {
+    "/live": {
+      "get": {
+        "operationId": "liveness",
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "Process liveness only; no identity, tenant query or DB readiness assertion",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "status"
+                  ],
+                  "properties": {
+                    "status": {
+                      "const": "alive"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/tenancy/current": {
+      "get": {
+        "operationId": "currentTenancy",
+        "description": "Requires RS256 at+jwt access token issued for the configured API audience, trusted MFA amr=mfa, and current active human membership with tenancy:read. Ignores token tenant/role claims. Profile read and access audit commit together before success. No query/body accepted.",
+        "security": [
+          {
+            "oidc": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Tenant-ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "Canonical UUID; checked against server-owned issuer+subject membership and role-bound tenant pool."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Authorized profile; access audit committed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CurrentTenant"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid selector or unsupported request data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid, missing or unavailable identity evidence",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "No currently authorized human tenant membership",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Database, pool or required audit unavailable; no success returned",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "oidc": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "at+jwt; RS256"
+      }
+    },
+    "schemas": {
+      "CurrentTenant": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "schema_version",
+          "tenant_id",
+          "display_name",
+          "actor_id",
+          "authorization_version",
+          "correlation_id"
+        ],
+        "properties": {
+          "schema_version": {
+            "const": "0.1"
+          },
+          "tenant_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "display_name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "actor_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "authorization_version": {
+            "type": "string",
+            "pattern": "^[1-9][0-9]*$"
+          },
+          "correlation_id": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "error",
+          "correlation_id"
+        ],
+        "properties": {
+          "error": {
+            "type": "string",
+            "enum": [
+              "unauthorized",
+              "forbidden",
+              "invalid_request",
+              "service_unavailable",
+              "not_found",
+              "method_not_allowed"
+            ]
+          },
+          "correlation_id": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      }
+    }
+  }
+}

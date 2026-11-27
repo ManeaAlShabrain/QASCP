@@ -1,5 +1,5 @@
 {
-  "status": "SELECTED_FOR_REVIEW_OWNER_RATIFICATION_PENDING",
+  "status": "RATIFIED_INTERNAL_DESIGN",
   "date": "2026-11-27",
   "authority": "docs/governance/decisions/P1-PREP-001.md",
   "decision": "docs/architecture/ADR-P1-ACCEPTANCE-001.md",
@@ -136,5 +136,7 @@
       "version": "1.0",
       "role": "SELECTED_STATIC_DESIGN"
     }
-  ]
+  ],
+  "ratification": "docs/governance/decisions/P1-EXIT-001-APPROVAL.md",
+  "accepted_source_sha": "4ece34ef1400068333e42bc34fd1c9fd887688de"
 }
