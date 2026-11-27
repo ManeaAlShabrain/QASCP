@@ -8,6 +8,7 @@ import json
 import os
 from pathlib import Path
 import secrets
+import re
 import socket
 import ssl
 import subprocess
@@ -179,7 +180,13 @@ class Lab:
                     break
             except httpx.HTTPError:
                 if self.process.poll() is not None or attempt == 79:
-                    raise RuntimeError("Installed HTTPS service did not start") from None
+                    self.log.flush()
+                    diagnostic = (self.folder/"service.log").read_text(errors="replace")[-8000:]
+                    for sensitive in [admin_password, migrator_password, *self.passwords,
+                                      self.admin, self.migrator, *self.connections.values()]:
+                        diagnostic = diagnostic.replace(sensitive, "[REDACTED]")
+                    diagnostic = re.sub(r"[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+", "[REDACTED_TOKEN]", diagnostic)
+                    raise RuntimeError("Installed HTTPS service did not start; sanitized test-process diagnostic: "+diagnostic) from None
                 time.sleep(0.1)
 
     def dsn(self, user, password):
