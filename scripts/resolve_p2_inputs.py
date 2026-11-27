@@ -49,7 +49,9 @@ def wheel_evidence(path):
         items = archive.infolist()
         if len(items) > 10000:
             raise ValueError("Oversize wheel inventory")
-        meta = [i for i in items if i.filename.endswith(".dist-info/METADATA")]
+        # setuptools legitimately carries nested vendored dist-info directories.
+        # Only the root wheel distribution defines the installed artifact.
+        meta = [i for i in items if re.fullmatch(r"[^/]+\.dist-info/METADATA", i.filename)]
         if len(meta) != 1 or meta[0].file_size > 2 * 1024 * 1024:
             raise ValueError("Invalid wheel metadata")
         parsed = BytesParser(policy=default).parsebytes(archive.read(meta[0]))
