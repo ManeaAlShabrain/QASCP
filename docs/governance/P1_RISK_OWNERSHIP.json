@@ -3,7 +3,7 @@
   "prepared_date": "2026-11-25",
   "base_sha": "cc04fa6e82f0b53d75fd5d08e1a36f11fba5c4d2",
   "method": "Qualitative evidence-based design assessment; future runtime exposure; no probability calibration or numeric product score; no rating reduction without implemented-control evidence",
-  "status": "ASSESSMENT PREPARED / READY FOR RE-REVIEW; internal design/treatment endorsement and phase exit pending owner",
+  "status": "INTERNAL DESIGN/TREATMENT PLAN ENDORSED; operational residual risks remain unaccepted and feature-gated",
   "risks": [
     {
       "risk_id": "T01",
@@ -46,9 +46,9 @@
       ],
       "target_phase": "P1-V02, P2-V01, P3-V01",
       "acceptance_authority": "Project owner for internal project risk, subject to GOV-004 review; bank/regulatory authority separately required for enterprise or legal obligations",
-      "approval_status": "READY FOR RE-REVIEW; owner internal design/treatment endorsement pending; no operational residual acceptance",
+      "approval_status": "OWNER INTERNAL DESIGN/TREATMENT ENDORSED; NO OPERATIONAL RESIDUAL ACCEPTANCE",
       "owner_decision_reference": "docs/governance/decisions/RISK-DEC-001.md",
-      "review_date": null,
+      "review_date": "2026-11-27",
       "risk_acceptance_reference": null,
       "owner_assignment_status": "CONFIRMED INTERNAL ONLY",
       "assessment_date": "2026-11-27",
@@ -59,7 +59,12 @@
         "docs/architecture/ADR-P1-ACCEPTANCE-001.md",
         "https://github.com/ManeaAlShabrain/QASCP/pull/48"
       ],
-      "next_review_trigger": "Before affected feature acceptance, any scope/data/tenant/control change, or 2026-12-27, whichever comes first"
+      "next_review_trigger": "Before affected feature acceptance, any scope/data/tenant/control change, or 2026-12-27, whichever comes first",
+      "review_evidence": [
+        "https://github.com/ManeaAlShabrain/QASCP/pull/49#issuecomment-7222091588",
+        "https://github.com/ManeaAlShabrain/QASCP/pull/49#issuecomment-7222256108"
+      ],
+      "owner_design_endorsement": "docs/governance/decisions/P1-EXIT-001-APPROVAL.md"
     },
     {
       "risk_id": "T02",
@@ -102,9 +107,9 @@
       ],
       "target_phase": "P1-V02, P2-V01",
       "acceptance_authority": "Project owner for internal project risk, subject to GOV-004 review; bank/regulatory authority separately required for enterprise or legal obligations",
-      "approval_status": "READY FOR RE-REVIEW; owner internal design/treatment endorsement pending; no operational residual acceptance",
+      "approval_status": "OWNER INTERNAL DESIGN/TREATMENT ENDORSED; NO OPERATIONAL RESIDUAL ACCEPTANCE",
       "owner_decision_reference": "docs/governance/decisions/RISK-DEC-001.md",
-      "review_date": null,
+      "review_date": "2026-11-27",
       "risk_acceptance_reference": null,
       "owner_assignment_status": "CONFIRMED INTERNAL ONLY",
       "assessment_date": "2026-11-27",
@@ -115,7 +120,12 @@
         "docs/architecture/ADR-P1-ACCEPTANCE-001.md",
         "https://github.com/ManeaAlShabrain/QASCP/pull/48"
       ],
-      "next_review_trigger": "Before affected feature acceptance, any scope/data/tenant/control change, or 2026-12-27, whichever comes first"
+      "next_review_trigger": "Before affected feature acceptance, any scope/data/tenant/control change, or 2026-12-27, whichever comes first",
+      "review_evidence": [
+        "https://github.com/ManeaAlShabrain/QASCP/pull/49#issuecomment-7222091588",
+        "https://github.com/ManeaAlShabrain/QASCP/pull/49#issuecomment-7222256108"
+      ],
+      "owner_design_endorsement": "docs/governance/decisions/P1-EXIT-001-APPROVAL.md"
     },
     {
       "risk_id": "T03",
@@ -158,9 +168,9 @@
       ],
       "target_phase": "P1-V02, P2-V01, P3-V01",
       "acceptance_authority": "Project owner for internal project risk, subject to GOV-004 review; bank/regulatory authority separately required for enterprise or legal obligations",
-      "approval_status": "READY FOR RE-REVIEW; owner internal design/treatment endorsement pending; no operational residual acceptance",
+      "approval_status": "OWNER INTERNAL DESIGN/TREATMENT ENDORSED; NO OPERATIONAL RESIDUAL ACCEPTANCE",
       "owner_decision_reference": "docs/governance/decisions/RISK-DEC-001.md",
-      "review_date": null,
+      "review_date": "2026-11-27",
       "risk_acceptance_reference": null,
       "owner_assignment_status": "CONFIRMED INTERNAL ONLY",
       "assessment_date": "2026-11-27",
@@ -171,7 +181,12 @@
         "docs/architecture/ADR-P1-ACCEPTANCE-001.md",
         "https://github.com/ManeaAlShabrain/QASCP/pull/48"
       ],
-      "next_review_trigger": "Before affected feature acceptance, any scope/data/tenant/control change, or 2026-12-27, whichever comes first"
+      "next_review_trigger": "Before affected feature acceptance, any scope/data/tenant/control change, or 2026-12-27, whichever comes first",
+      "review_evidence": [
+        "https://github.com/ManeaAlShabrain/QASCP/pull/49#issuecomment-7222091588",
+        "https://github.com/ManeaAlShabrain/QASCP/pull/49#issuecomment-7222256108"
+      ],
+      "owner_design_endorsement": "docs/governance/decisions/P1-EXIT-001-APPROVAL.md"
     },
     {
       "risk_id": "T04",
@@ -214,9 +229,9 @@
       ],
       "target_phase": "P1-V02, P3-V01",
       "acceptance_authority": "Project owner for internal project risk, subject to GOV-004 review; bank/regulatory authority separately required for enterprise or legal obligations",
-      "approval_status": "READY FOR RE-REVIEW; owner internal design/treatment endorsement pending; no operational residual acceptance",
+      "approval_status": "OWNER INTERNAL DESIGN/TREATMENT ENDORSED; NO OPERATIONAL RESIDUAL ACCEPTANCE",
       "owner_decision_reference": "docs/governance/decisions/RISK-DEC-001.md",
-      "review_date": null,
+      "review_date": "2026-11-27",
       "risk_acceptance_reference": null,
       "owner_assignment_status": "CONFIRMED INTERNAL ONLY",
       "assessment_date": "2026-11-27",
@@ -227,7 +242,12 @@
         "docs/architecture/ADR-P1-ACCEPTANCE-001.md",
         "https://github.com/ManeaAlShabrain/QASCP/pull/48"
       ],
-      "next_review_trigger": "Before affected feature acceptance, any scope/data/tenant/control change, or 2026-12-27, whichever comes first"
+      "next_review_trigger": "Before affected feature acceptance, any scope/data/tenant/control change, or 2026-12-27, whichever comes first",
+      "review_evidence": [
+        "https://github.com/ManeaAlShabrain/QASCP/pull/49#issuecomment-7222091588",
+        "https://github.com/ManeaAlShabrain/QASCP/pull/49#issuecomment-7222256108"
+      ],
+      "owner_design_endorsement": "docs/governance/decisions/P1-EXIT-001-APPROVAL.md"
     },
     {
       "risk_id": "T05",
@@ -270,9 +290,9 @@
       ],
       "target_phase": "P1-V02, P4-V01",
       "acceptance_authority": "Project owner for internal project risk, subject to GOV-004 review; bank/regulatory authority separately required for enterprise or legal obligations",
-      "approval_status": "READY FOR RE-REVIEW; owner internal design/treatment endorsement pending; no operational residual acceptance",
+      "approval_status": "OWNER INTERNAL DESIGN/TREATMENT ENDORSED; NO OPERATIONAL RESIDUAL ACCEPTANCE",
       "owner_decision_reference": "docs/governance/decisions/RISK-DEC-001.md",
-      "review_date": null,
+      "review_date": "2026-11-27",
       "risk_acceptance_reference": null,
       "owner_assignment_status": "CONFIRMED INTERNAL ONLY",
       "assessment_date": "2026-11-27",
@@ -283,7 +303,12 @@
         "docs/architecture/ADR-P1-ACCEPTANCE-001.md",
         "https://github.com/ManeaAlShabrain/QASCP/pull/48"
       ],
-      "next_review_trigger": "Before affected feature acceptance, any scope/data/tenant/control change, or 2026-12-27, whichever comes first"
+      "next_review_trigger": "Before affected feature acceptance, any scope/data/tenant/control change, or 2026-12-27, whichever comes first",
+      "review_evidence": [
+        "https://github.com/ManeaAlShabrain/QASCP/pull/49#issuecomment-7222091588",
+        "https://github.com/ManeaAlShabrain/QASCP/pull/49#issuecomment-7222256108"
+      ],
+      "owner_design_endorsement": "docs/governance/decisions/P1-EXIT-001-APPROVAL.md"
     },
     {
       "risk_id": "T06",
@@ -326,9 +351,9 @@
       ],
       "target_phase": "P1-V02, P4-V01, P5-V01",
       "acceptance_authority": "Project owner for internal project risk, subject to GOV-004 review; bank/regulatory authority separately required for enterprise or legal obligations",
-      "approval_status": "READY FOR RE-REVIEW; owner internal design/treatment endorsement pending; no operational residual acceptance",
+      "approval_status": "OWNER INTERNAL DESIGN/TREATMENT ENDORSED; NO OPERATIONAL RESIDUAL ACCEPTANCE",
       "owner_decision_reference": "docs/governance/decisions/RISK-DEC-001.md",
-      "review_date": null,
+      "review_date": "2026-11-27",
       "risk_acceptance_reference": null,
       "owner_assignment_status": "CONFIRMED INTERNAL ONLY",
       "assessment_date": "2026-11-27",
@@ -339,7 +364,12 @@
         "docs/architecture/ADR-P1-ACCEPTANCE-001.md",
         "https://github.com/ManeaAlShabrain/QASCP/pull/48"
       ],
-      "next_review_trigger": "Before affected feature acceptance, any scope/data/tenant/control change, or 2026-12-27, whichever comes first"
+      "next_review_trigger": "Before affected feature acceptance, any scope/data/tenant/control change, or 2026-12-27, whichever comes first",
+      "review_evidence": [
+        "https://github.com/ManeaAlShabrain/QASCP/pull/49#issuecomment-7222091588",
+        "https://github.com/ManeaAlShabrain/QASCP/pull/49#issuecomment-7222256108"
+      ],
+      "owner_design_endorsement": "docs/governance/decisions/P1-EXIT-001-APPROVAL.md"
     },
     {
       "risk_id": "T07",
@@ -382,9 +412,9 @@
       ],
       "target_phase": "P1-V02, P5-V01",
       "acceptance_authority": "Project owner for internal project risk, subject to GOV-004 review; bank/regulatory authority separately required for enterprise or legal obligations",
-      "approval_status": "READY FOR RE-REVIEW; owner internal design/treatment endorsement pending; no operational residual acceptance",
+      "approval_status": "OWNER INTERNAL DESIGN/TREATMENT ENDORSED; NO OPERATIONAL RESIDUAL ACCEPTANCE",
       "owner_decision_reference": "docs/governance/decisions/RISK-DEC-001.md",
-      "review_date": null,
+      "review_date": "2026-11-27",
       "risk_acceptance_reference": null,
       "owner_assignment_status": "CONFIRMED INTERNAL ONLY",
       "assessment_date": "2026-11-27",
@@ -395,7 +425,12 @@
         "docs/architecture/ADR-P1-ACCEPTANCE-001.md",
         "https://github.com/ManeaAlShabrain/QASCP/pull/48"
       ],
-      "next_review_trigger": "Before affected feature acceptance, any scope/data/tenant/control change, or 2026-12-27, whichever comes first"
+      "next_review_trigger": "Before affected feature acceptance, any scope/data/tenant/control change, or 2026-12-27, whichever comes first",
+      "review_evidence": [
+        "https://github.com/ManeaAlShabrain/QASCP/pull/49#issuecomment-7222091588",
+        "https://github.com/ManeaAlShabrain/QASCP/pull/49#issuecomment-7222256108"
+      ],
+      "owner_design_endorsement": "docs/governance/decisions/P1-EXIT-001-APPROVAL.md"
     },
     {
       "risk_id": "T08",
@@ -438,9 +473,9 @@
       ],
       "target_phase": "P1-V02, P2-V01, P5-V01, P6-V01",
       "acceptance_authority": "Project owner for internal project risk, subject to GOV-004 review; bank/regulatory authority separately required for enterprise or legal obligations",
-      "approval_status": "READY FOR RE-REVIEW; owner internal design/treatment endorsement pending; no operational residual acceptance",
+      "approval_status": "OWNER INTERNAL DESIGN/TREATMENT ENDORSED; NO OPERATIONAL RESIDUAL ACCEPTANCE",
       "owner_decision_reference": "docs/governance/decisions/RISK-DEC-001.md",
-      "review_date": null,
+      "review_date": "2026-11-27",
       "risk_acceptance_reference": null,
       "owner_assignment_status": "CONFIRMED INTERNAL ONLY",
       "assessment_date": "2026-11-27",
@@ -451,7 +486,12 @@
         "docs/architecture/ADR-P1-ACCEPTANCE-001.md",
         "https://github.com/ManeaAlShabrain/QASCP/pull/48"
       ],
-      "next_review_trigger": "Before affected feature acceptance, any scope/data/tenant/control change, or 2026-12-27, whichever comes first"
+      "next_review_trigger": "Before affected feature acceptance, any scope/data/tenant/control change, or 2026-12-27, whichever comes first",
+      "review_evidence": [
+        "https://github.com/ManeaAlShabrain/QASCP/pull/49#issuecomment-7222091588",
+        "https://github.com/ManeaAlShabrain/QASCP/pull/49#issuecomment-7222256108"
+      ],
+      "owner_design_endorsement": "docs/governance/decisions/P1-EXIT-001-APPROVAL.md"
     },
     {
       "risk_id": "T09",
@@ -494,9 +534,9 @@
       ],
       "target_phase": "P1-V02, P2-V02, P6-V01",
       "acceptance_authority": "Project owner for internal project risk, subject to GOV-004 review; bank/regulatory authority separately required for enterprise or legal obligations",
-      "approval_status": "READY FOR RE-REVIEW; owner internal design/treatment endorsement pending; no operational residual acceptance",
+      "approval_status": "OWNER INTERNAL DESIGN/TREATMENT ENDORSED; NO OPERATIONAL RESIDUAL ACCEPTANCE",
       "owner_decision_reference": "docs/governance/decisions/RISK-DEC-001.md",
-      "review_date": null,
+      "review_date": "2026-11-27",
       "risk_acceptance_reference": null,
       "owner_assignment_status": "CONFIRMED INTERNAL ONLY",
       "assessment_date": "2026-11-27",
@@ -507,7 +547,12 @@
         "docs/architecture/ADR-P1-ACCEPTANCE-001.md",
         "https://github.com/ManeaAlShabrain/QASCP/pull/48"
       ],
-      "next_review_trigger": "Before affected feature acceptance, any scope/data/tenant/control change, or 2026-12-27, whichever comes first"
+      "next_review_trigger": "Before affected feature acceptance, any scope/data/tenant/control change, or 2026-12-27, whichever comes first",
+      "review_evidence": [
+        "https://github.com/ManeaAlShabrain/QASCP/pull/49#issuecomment-7222091588",
+        "https://github.com/ManeaAlShabrain/QASCP/pull/49#issuecomment-7222256108"
+      ],
+      "owner_design_endorsement": "docs/governance/decisions/P1-EXIT-001-APPROVAL.md"
     },
     {
       "risk_id": "T10",
@@ -550,9 +595,9 @@
       ],
       "target_phase": "P1-V02, P3-V01, P6-V01",
       "acceptance_authority": "Project owner for internal project risk, subject to GOV-004 review; bank/regulatory authority separately required for enterprise or legal obligations",
-      "approval_status": "READY FOR RE-REVIEW; owner internal design/treatment endorsement pending; no operational residual acceptance",
+      "approval_status": "OWNER INTERNAL DESIGN/TREATMENT ENDORSED; NO OPERATIONAL RESIDUAL ACCEPTANCE",
       "owner_decision_reference": "docs/governance/decisions/RISK-DEC-001.md",
-      "review_date": null,
+      "review_date": "2026-11-27",
       "risk_acceptance_reference": null,
       "owner_assignment_status": "CONFIRMED INTERNAL ONLY",
       "assessment_date": "2026-11-27",
@@ -563,7 +608,12 @@
         "docs/architecture/ADR-P1-ACCEPTANCE-001.md",
         "https://github.com/ManeaAlShabrain/QASCP/pull/48"
       ],
-      "next_review_trigger": "Before affected feature acceptance, any scope/data/tenant/control change, or 2026-12-27, whichever comes first"
+      "next_review_trigger": "Before affected feature acceptance, any scope/data/tenant/control change, or 2026-12-27, whichever comes first",
+      "review_evidence": [
+        "https://github.com/ManeaAlShabrain/QASCP/pull/49#issuecomment-7222091588",
+        "https://github.com/ManeaAlShabrain/QASCP/pull/49#issuecomment-7222256108"
+      ],
+      "owner_design_endorsement": "docs/governance/decisions/P1-EXIT-001-APPROVAL.md"
     },
     {
       "risk_id": "T11",
@@ -606,9 +656,9 @@
       ],
       "target_phase": "P1-V02, P6-V01",
       "acceptance_authority": "Project owner for internal project risk, subject to GOV-004 review; bank/regulatory authority separately required for enterprise or legal obligations",
-      "approval_status": "READY FOR RE-REVIEW; owner internal design/treatment endorsement pending; no operational residual acceptance",
+      "approval_status": "OWNER INTERNAL DESIGN/TREATMENT ENDORSED; NO OPERATIONAL RESIDUAL ACCEPTANCE",
       "owner_decision_reference": "docs/governance/decisions/RISK-DEC-001.md",
-      "review_date": null,
+      "review_date": "2026-11-27",
       "risk_acceptance_reference": null,
       "owner_assignment_status": "CONFIRMED INTERNAL ONLY",
       "assessment_date": "2026-11-27",
@@ -619,7 +669,12 @@
         "docs/architecture/ADR-P1-ACCEPTANCE-001.md",
         "https://github.com/ManeaAlShabrain/QASCP/pull/48"
       ],
-      "next_review_trigger": "Before affected feature acceptance, any scope/data/tenant/control change, or 2026-12-27, whichever comes first"
+      "next_review_trigger": "Before affected feature acceptance, any scope/data/tenant/control change, or 2026-12-27, whichever comes first",
+      "review_evidence": [
+        "https://github.com/ManeaAlShabrain/QASCP/pull/49#issuecomment-7222091588",
+        "https://github.com/ManeaAlShabrain/QASCP/pull/49#issuecomment-7222256108"
+      ],
+      "owner_design_endorsement": "docs/governance/decisions/P1-EXIT-001-APPROVAL.md"
     },
     {
       "risk_id": "T12",
@@ -662,9 +717,9 @@
       ],
       "target_phase": "P1-V01, P1-V02, P5-V01, P6-V01",
       "acceptance_authority": "Project owner for internal project risk, subject to GOV-004 review; bank/regulatory authority separately required for enterprise or legal obligations",
-      "approval_status": "READY FOR RE-REVIEW; owner internal design/treatment endorsement pending; no operational residual acceptance",
+      "approval_status": "OWNER INTERNAL DESIGN/TREATMENT ENDORSED; NO OPERATIONAL RESIDUAL ACCEPTANCE",
       "owner_decision_reference": "docs/governance/decisions/RISK-DEC-001.md",
-      "review_date": null,
+      "review_date": "2026-11-27",
       "risk_acceptance_reference": null,
       "owner_assignment_status": "CONFIRMED INTERNAL ONLY",
       "assessment_date": "2026-11-27",
@@ -675,9 +730,15 @@
         "docs/architecture/ADR-P1-ACCEPTANCE-001.md",
         "https://github.com/ManeaAlShabrain/QASCP/pull/48"
       ],
-      "next_review_trigger": "Before affected feature acceptance, any scope/data/tenant/control change, or 2026-12-27, whichever comes first"
+      "next_review_trigger": "Before affected feature acceptance, any scope/data/tenant/control change, or 2026-12-27, whichever comes first",
+      "review_evidence": [
+        "https://github.com/ManeaAlShabrain/QASCP/pull/49#issuecomment-7222091588",
+        "https://github.com/ManeaAlShabrain/QASCP/pull/49#issuecomment-7222256108"
+      ],
+      "owner_design_endorsement": "docs/governance/decisions/P1-EXIT-001-APPROVAL.md"
     }
   ],
   "owner_assignment_decision": "docs/governance/decisions/RISK-DEC-001.md",
-  "assessment_date": "2026-11-27"
+  "assessment_date": "2026-11-27",
+  "owner_endorsement": "docs/governance/decisions/P1-EXIT-001-APPROVAL.md"
 }

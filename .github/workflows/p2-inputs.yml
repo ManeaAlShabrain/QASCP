@@ -1,0 +1,26 @@
+name: QASCP P2 input discovery
+
+on:
+  pull_request:
+    paths:
+      - scripts/resolve_p2_inputs.py
+      - .github/workflows/p2-inputs.yml
+
+permissions:
+  contents: read
+
+jobs:
+  discover:
+    name: P2 candidate input receipts
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out reviewed source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+          allow-unsafe-pr-checkout: false
+      - name: Verify checkout boundary
+        run: python3 scripts/verify_checkout_auth.py
+      - name: Discover exact inputs without installing them
+        run: python3 -B scripts/resolve_p2_inputs.py
