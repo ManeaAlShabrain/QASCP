@@ -1,5 +1,10 @@
 # QASCP 2.0 — Document authority and supersession matrix
 
+Current2026-11-27: [ADR-P1-ACCEPTANCE-001](ADR-P1-ACCEPTANCE-001.md)
+and P1_CONTRACT_SELECTION.json define the concrete review candidate. The dated
+proposal/rationale below is preserved; no earlier pending state is relabeled as
+a later approval. Owner ratification and P1 exit remain separate.
+
 This P1 record is the authoritative map between the earlier P1 design package and the QASCP 2.0 proposal. The English and Arabic engineering governance handbooks remain the binding authority for governance requirements and phase gates. The verification register remains the machine-readable requirement-to-evidence authority. [QASCP_2_BACKLOG.md](../product/QASCP_2_BACKLOG.md) is the canonical QASCP 2.0 backlog.
 
 The states below mean: **retained** remains applicable without changing its authority; **refined** remains applicable with the linked 2.0 detail controlling where the two differ; **replaced** is no longer the active product or component definition; **deprecated** remains only as a historical identifier and must not be opened as new work.

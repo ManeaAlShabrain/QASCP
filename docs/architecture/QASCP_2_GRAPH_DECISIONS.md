@@ -1,5 +1,10 @@
 # QASCP 2.0 — Graph decision proposals G-01 through G-07
 
+Current2026-11-27: [ADR-P1-ACCEPTANCE-001](ADR-P1-ACCEPTANCE-001.md)
+and P1_CONTRACT_SELECTION.json define the concrete review candidate. The dated
+proposal/rationale below is preserved; no earlier pending state is relabeled as
+a later approval. Owner ratification and P1 exit remain separate.
+
 Status: proposed P1 design, 2026-11-15 (Qatar). Package V2-P1-02; review P1-V02. These proposals refine the [graph plan](QASCP_2_GRAPH_PLAN.md) and are not an approved ADR, executable API or phase-exit decision. Actual owners and independent reviewer: assignment pending. The [handbook](../governance/ENGINEERING_GOVERNANCE.md) and [authority matrix](QASCP_2_SUPERSESSION.md) retain precedence.
 
 Requirements: PRD-01..04, PRD-06, PRD-09, PRD-10; QASCP-GOV-001..004, QASCP-SEC-001..005, QASCP-AI-002, QASCP-ENG-002. Affected paths: inventory/identity import, relationship claims, observation provenance, consumer receipt identity, temporal graph projection, cursors and future historical review. Acceptance in P1: review the concrete choices and rejection cases below, resolve listed compatibility changes and record the reviewer disposition. P2 runtime delivery still requires P1 approval.

@@ -1,5 +1,10 @@
 # QASCP 2.0 — Architecture and decision records
 
+Current2026-11-27: [ADR-P1-ACCEPTANCE-001](ADR-P1-ACCEPTANCE-001.md)
+and P1_CONTRACT_SELECTION.json define the concrete review candidate. The dated
+proposal/rationale below is preserved; no earlier pending state is relabeled as
+a later approval. Owner ratification and P1 exit remain separate.
+
 Proposed P1 design dated 2026-11-15. [PRD](../product/QASCP_2_PRD.md), [contracts](QASCP_2_CONTRACTS.md), [threats](QASCP_2_THREATS.md), [authority and supersession](QASCP_2_SUPERSESSION.md). Requirements: PRD-01..10; QASCP-GOV-002, QASCP-SEC-001..005, QASCP-AI-001..002, QASCP-ENG-002. Review: P1-V02. All ADRs below are proposed, authored by the implementation agent from the owner's supplied vision; actual owner approval and independent review are pending.
 
 ## Components and trust boundaries

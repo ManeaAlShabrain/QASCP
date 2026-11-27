@@ -1,15 +1,14 @@
 # QASCP Engineering Governance and Delivery Handbook
 
-[العربية](ENGINEERING_GOVERNANCE.ar.md) · Version 1.1 · Reviewed for internal development; effectiveness upon governed merge
+[العربية](ENGINEERING_GOVERNANCE.ar.md) · Version 1.1 · Effective for internal development only
 
-Proposal authority: [GOV-DEC-001](decisions/GOV-DEC-001.md). Four separate processes
-reviewed candidate b5702fd09083eb01b54e65cc85e72e50fdc10f55.
-[GOV-DEC-002](decisions/GOV-DEC-002.md) binds their evidence, scope and effectiveness
-conditions: protected merge of that record after fresh publication-head checks
-and affected review. Until then the prior conservative human acceptance boundary
-applies. Read the [assurance process](SOLO_ASSURANCE_PROCESS.md). P1 stays pending;
-no residual acceptance, architecture adoption or P2 permission is granted.
-Enterprise/customer/production human and regulatory gates remain.
+[GOV-DEC-002](decisions/GOV-DEC-002.md)'s effectiveness conditions were satisfied
+by merged #48; [GOV-DEC-003](decisions/GOV-DEC-003.md) records the exact revision,
+reviews and checks. Existing GOV-DEC-001 remains the proposal authority; no new
+owner approval is invented. Follow the [assurance process](SOLO_ASSURANCE_PROCESS.md).
+Policy effectiveness is not P1 exit: transition still requires its documented
+phase criteria. Internal-scope restrictions and enterprise/customer/production
+human and regulatory gates remain.
 
 QASCP is a unified cybersecurity, AI security, and continuous assurance platform for Qatar's financial sector. This handbook governs design, implementation, verification, and release. The English and Arabic editions carry the same requirements. MUST and MUST NOT are binding project requirements once this baseline is adopted. If a translation is ambiguous or conflicts with the other edition, block the affected acceptance decision until both texts are reconciled in one pull request.
 

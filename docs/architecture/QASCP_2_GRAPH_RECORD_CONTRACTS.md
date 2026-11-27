@@ -1,5 +1,10 @@
 # QASCP 2.0 — Proposed graph receipt and claim-history records
 
+Current2026-11-27: [ADR-P1-ACCEPTANCE-001](ADR-P1-ACCEPTANCE-001.md)
+and P1_CONTRACT_SELECTION.json define the concrete review candidate. The dated
+proposal/rationale below is preserved; no earlier pending state is relabeled as
+a later approval. Owner ratification and P1 exit remain separate.
+
 Status: P1 proposal, 2026-11-16 (Qatar). Package V2-P1-02 / P1-V02. Refines G-03 and G-04 in [the graph decisions](QASCP_2_GRAPH_DECISIONS.md). No database, queue consumer, graph service or operational action is implemented. Independent security/architecture reviewer and accountable owners remain unassigned.
 
 Requirements: PRD-01, PRD-02, PRD-04, PRD-06, PRD-10; QASCP-GOV-001..004, QASCP-SEC-001..005, QASCP-ENG-001..003. Earlier paths affected: receipt identity, graph projection, claim provenance/lineage, correction/retraction and future historical queries. P1 acceptance covers schema/meta-schema validation, static fixture consistency, rejection cases, compatibility review and recorded limitations.

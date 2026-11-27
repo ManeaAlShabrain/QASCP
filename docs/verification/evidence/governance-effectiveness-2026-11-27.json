@@ -1,0 +1,327 @@
+{
+  "recorded_date": "2026-11-27",
+  "timezone": "Asia/Riyadh",
+  "observer": "Implementation coordinator; factual observation, not independent reviewer/owner approval",
+  "main_sha": "b66d73c51fa1aac6686854f37470553eca9ec8e7",
+  "main_tree": "4f8ca0172d89e8969fcce926df47c4d115bb6f3f",
+  "pr48": {
+    "number": 48,
+    "head": "076487d705871278b704d1f78f8d258cacab4c75",
+    "merge": "b66d73c51fa1aac6686854f37470553eca9ec8e7",
+    "merged_at": "2026-11-26T22:35:37Z"
+  },
+  "publication_reviews": [
+    {
+      "url": "https://github.com/ManeaAlShabrain/QASCP/pull/48#issuecomment-7200671911",
+      "report": "10-publication-bilingual.md",
+      "sha256": "90102715fbf0140e275658b2714fe1d5c7edb5ebe26f2441c3ed0869b411eef9"
+    },
+    {
+      "url": "https://github.com/ManeaAlShabrain/QASCP/pull/48#issuecomment-7200679497",
+      "report": "10-publication-organization.md",
+      "sha256": "041e1f88bcdbbd0a20c4fa5f66422a9e208c9f36467b0ef4bc0b4734bcb5b7e6"
+    },
+    {
+      "url": "https://github.com/ManeaAlShabrain/QASCP/pull/48#issuecomment-7200686749",
+      "report": "10-publication-security.md",
+      "sha256": "568f93fd8b67b624010342344996720ef0eedaef4efc495fd9325d814d37d01d"
+    },
+    {
+      "url": "https://github.com/ManeaAlShabrain/QASCP/pull/48#issuecomment-7200714071",
+      "report": "10-publication-final.md",
+      "sha256": "e5bb89b31cf58ead13dff10b959919cb09bc35b9d59fb8e06dc6b0e961bb324e"
+    }
+  ],
+  "main_runs": [
+    {
+      "id": 45905786852,
+      "name": "Code Quality: Push on main",
+      "status": "completed",
+      "conclusion": "success",
+      "event": "dynamic",
+      "head_sha": "b66d73c51fa1aac6686854f37470553eca9ec8e7",
+      "url": "https://github.com/ManeaAlShabrain/QASCP/actions/runs/45905786852"
+    },
+    {
+      "id": 45905786986,
+      "name": "QASCP Foundation",
+      "status": "completed",
+      "conclusion": "success",
+      "event": "push",
+      "head_sha": "b66d73c51fa1aac6686854f37470553eca9ec8e7",
+      "url": "https://github.com/ManeaAlShabrain/QASCP/actions/runs/45905786986"
+    }
+  ],
+  "jobs": [
+    {
+      "jobs": [
+        {
+          "id": 140202046323,
+          "name": "Foundation verification",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 45905786986,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Check out repository",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Verify checkout authentication boundary",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Validate foundations",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Install pinned contract validation tools",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Capture wheel integrity and advisory evidence",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6
+            },
+            {
+              "name": "Validate both full OpenAPI documents offline",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7
+            },
+            {
+              "name": "Test foundation and contract schemas",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 8
+            },
+            {
+              "name": "Post Check out repository",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 16
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 17
+            }
+          ]
+        },
+        {
+          "id": 140202145827,
+          "name": "QASCP Foundation Gate",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 45905786986,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Require successful verification",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "jobs": [
+        {
+          "id": 140202051521,
+          "name": "Analyze (python)",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 45905786852,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Checkout repository",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Setup proxy for registries",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Initialize CodeQL",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Perform CodeQL Analysis",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Post Perform CodeQL Analysis",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7
+            },
+            {
+              "name": "Post Initialize CodeQL",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 8
+            },
+            {
+              "name": "Post Setup proxy for registries",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 9
+            },
+            {
+              "name": "Post Checkout repository",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 10
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 11
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "log_excerpts": [
+    {
+      "job": 140202046323,
+      "lines": [
+        "2026-11-26T22:35:45.5760586Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +b66d73c51fa1aac6686854f37470553eca9ec8e7:refs/remotes/origin/main",
+        "2026-11-26T22:35:46.3875051Z  * [new ref]         b66d73c51fa1aac6686854f37470553eca9ec8e7 -> origin/main",
+        "2026-11-26T22:35:46.3943259Z b66d73c51fa1aac6686854f37470553eca9ec8e7",
+        "2026-11-26T22:35:46.4379589Z b66d73c51fa1aac6686854f37470553eca9ec8e7",
+        "2026-11-26T22:35:57.0036353Z Ran 112 tests in 3.941s",
+        "2026-11-26T22:35:57.0036596Z OK"
+      ]
+    },
+    {
+      "job": 140202145827,
+      "lines": [
+        "2026-11-26T22:36:02.8298083Z ##[group]Run test \"$FOUNDATION_RESULT\" = success",
+        "2026-11-26T22:36:02.8299083Z \u001b[36;1mtest \"$FOUNDATION_RESULT\" = success\u001b[0m",
+        "2026-11-26T22:36:02.8608995Z   FOUNDATION_RESULT: success"
+      ]
+    },
+    {
+      "job": 140202051521,
+      "lines": [
+        "2026-11-26T22:35:46.5997720Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +b66d73c51fa1aac6686854f37470553eca9ec8e7:refs/remotes/origin/main",
+        "2026-11-26T22:35:47.2087953Z  * [new ref]         b66d73c51fa1aac6686854f37470553eca9ec8e7 -> origin/main",
+        "2026-11-26T22:35:47.2149466Z b66d73c51fa1aac6686854f37470553eca9ec8e7",
+        "2026-11-26T22:35:47.2555525Z b66d73c51fa1aac6686854f37470553eca9ec8e7",
+        "2026-11-26T22:35:47.6203008Z   analysis-kinds: code-quality"
+      ]
+    }
+  ],
+  "ruleset": {
+    "id": 27321554,
+    "enforcement": "active",
+    "bypass_actors": [],
+    "conditions": {
+      "ref_name": {
+        "exclude": [],
+        "include": [
+          "~DEFAULT_BRANCH"
+        ]
+      }
+    },
+    "rules": [
+      {
+        "type": "deletion"
+      },
+      {
+        "type": "non_fast_forward"
+      },
+      {
+        "type": "pull_request",
+        "parameters": {
+          "required_approving_review_count": 0,
+          "dismiss_stale_reviews_on_push": false,
+          "required_reviewers": [],
+          "require_code_owner_review": false,
+          "dismissal_restriction": {
+            "enabled": false,
+            "allowed_actors": []
+          },
+          "require_last_push_approval": false,
+          "required_review_thread_resolution": false,
+          "require_extra_approval_for_unattributed_changes": true,
+          "allowed_merge_methods": [
+            "merge",
+            "squash",
+            "rebase"
+          ]
+        }
+      },
+      {
+        "type": "required_status_checks",
+        "parameters": {
+          "strict_required_status_checks_policy": true,
+          "do_not_enforce_on_create": false,
+          "required_status_checks": [
+            {
+              "context": "QASCP Foundation Gate",
+              "integration_id": 15368
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "limits": [
+    "Log excerpts, not full log export; official jobs linked",
+    "No new negative merge test",
+    "Classic protection endpoint inaccessible to integration",
+    "Effective internal policy is not P1 exit",
+    "Owner reports completing four items; repository details and evidence references still absent at inspected main",
+    "No P2 runtime or approval fabricated"
+  ]
+}

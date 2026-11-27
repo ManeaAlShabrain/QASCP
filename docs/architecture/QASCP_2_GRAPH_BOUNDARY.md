@@ -15,7 +15,7 @@ Requirements: PRD-01, PRD-02, PRD-06, PRD-09, PRD-10; QASCP-GOV-001..004, QASCP-
 | [Fixture graph](../../tests/fixtures/graph-query-examples.json) | One synthetic tenant, five nodes and a cyclic dependency graph |
 | [Conformance oracle](../../scripts/verify_graph_query_fixtures.py) / [tests](../../tests/test_graph_boundary_contracts.py) | Static paging, visibility, cursor-binding, endpoint/interval and bounded-reference expectations |
 
-The original contracts/qascp-2/openapi.json remains unchanged. The 0.2 document is a separately reviewed successor candidate, not an additional running endpoint or automatic migration. A deployed API-version negotiation, rollout and client compatibility decision is required before implementation. Fields cannot be injected into an original additionalProperties:false response in place.
+The original contracts/qascp-2/openapi.json remains unchanged. The 0.2 document is a separately reviewed successor candidate, not an additional running endpoint or automatic migration. The current [selection ADR](ADR-P1-ACCEPTANCE-001.md) proposes successor-only /api/v2 and freezes original /api/v1 as unimplemented history, with no backwards-compatibility claim or negotiation. Owner ratification and affected independent review are still required before implementation. Fields cannot be injected into an original additionalProperties:false response in place.
 
 ## Proposed endpoint boundary
 

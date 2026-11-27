@@ -1,10 +1,10 @@
-# Solo Developer & AI-Assisted Assurance Governance Model — reviewed baseline 1.1
+# Solo Developer & AI-Assisted Assurance Governance Model — effective baseline 1.1
 
-Status: **REVIEWED FOR INTERNAL DEVELOPMENT / EFFECTIVE UPON GOVERNED MERGE**
-under [GOV-DEC-002](decisions/GOV-DEC-002.md), using existing
-[GOV-DEC-001](decisions/GOV-DEC-001.md). Until that record's merge/check/review
-conditions are satisfied the prior conservative human acceptance boundary
-applies. P1 is not closed and P2 is not authorized.
+Status: **EFFECTIVE FOR INTERNAL DEVELOPMENT ONLY** under GOV-DEC-002's conditions
+satisfied by merged #48, recorded in [GOV-DEC-003](decisions/GOV-DEC-003.md).
+Existing [GOV-DEC-001](decisions/GOV-DEC-001.md) supplies proposal authority.
+Policy effectiveness does not close P1 or generate phase acceptance; its
+criteria and separate decision still require documentation.
 QASCP-GOV-001/003/004, ENG-001/002, CMP-001, REL-001; P1-V01..04.
 
 ## Readiness classes and authority
