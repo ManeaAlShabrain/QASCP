@@ -73,16 +73,25 @@ is explicitly frozen as the unreleased selected bytes, not described as a
 compatible patch. A future incompatible change to an adopted contract requires
 a new version/ID plus consumer migration decision and tests.
 
+## Bilingual technical terms — 2026-11-27 correction
+
+| English term | المصطلح العربي | Meaning in this decision |
+|---|---|---|
+| Canonical field value | القيمة المرجعية الموحّدة للحقل | Policy-selected field value; unresolved without an eligible grant or on conflicting equal-authority claims. This is separate from legal applicability. |
+| Worker replica identity | هوية مثيل عامل التنفيذ | Identity of the executing instance; not part of the logical processing key. |
+| Logical consumer version | إصدار المستهلك المنطقي | Version of the logical processing algorithm; included in the processing key. |
+
 ## القرار العربي
 
 هذه اختيارات فنية محددة لمرشح المراجعة، وليست موافقة مالك أو تنفيذًا تشغيليًا.
 يُختار عقد0.2 على /api/v2، وتبقى النسخة الأصلية0.1 على /api/v1 تاريخية غير
 منفذة. تُثبت بصمات العقود وإصداراتها؛ لا يُدعى توافق الأشكال المختلفة أو
 ترحيل عملاء لم يوجدوا. تبقى صلاحيات المؤسسة والموارد والصفوف والتدقيق ذرية.
-الهوية المنطقية للإعادة لا تعتمد على نسخة العامل؛ وتُفصل إيصالات أوامر
+تُقيد هوية المعالجة بالمؤسسة والحدث والمستهلك المنطقي وإصداره والغرض وإصدار
+المدخل؛ ولا تشمل هوية مثيل عامل التنفيذ. وتُفصل إيصالات أوامر
 الاستيراد عن استلام الملاحظة واكتمال الإسقاط.
 
-تبدأ سياسة مصادر الحقول بإعداد فارغ يترك القيمة القانونية للرسم غير محسومة؛
+تبدأ سياسة مصادر الحقول بإعداد فارغ يترك القيمة المرجعية الموحّدة للحقل غير محسومة؛
 لا ثقة تلقائية بمورد أو موصل ولا أولوية زمنية لحسم التعارض. تُحدد مسؤوليات
 T1وT2وT3 كما في الجدول، وتُمنع الواجهات التاريخية حتى P5. حدود اللقطة والمفاتيح
 والحمل المذكورة مرشحة لمختبر اصطناعي، لا نتائج أداء أو موافقة إنتاجية.
